@@ -1,0 +1,41 @@
+{
+  "total_videos": 306152,
+  "total_captions": 83612,
+  "matched": 83612,
+  "sample_lengths": {
+    "min": 63,
+    "max": 4091,
+    "mean": 331.8
+  },
+  "keyword_counts": {
+    "night": 402,
+    "nighttime": 200,
+    "day": 164,
+    "daytime": 24,
+    "highway": 566,
+    "intersection": 2285,
+    "urban": 330,
+    "rural": 177,
+    "rain": 380,
+    "fog": 26,
+    "snow": 110,
+    "pedestrian": 738,
+    "cyclist": 227,
+    "truck": 377,
+    "bus": 743,
+    "emergency": 22,
+    "animal": 3,
+    "braking": 147,
+    "stopping": 94,
+    "turning": 98,
+    "lane change": 24,
+    "parking": 362,
+    "tunnel": 28,
+    "bridge": 47,
+    "congested": 116,
+    "moderate traffic": 83,
+    "hazard": 410,
+    "warning": 348,
+    "accident": 27
+  }
+}

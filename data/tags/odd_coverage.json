@@ -1,0 +1,83 @@
+{
+  "time_of_day": {
+    "coverage_pct": 61.7,
+    "distribution": {
+      "unknown": 31996,
+      "night": 27322,
+      "day": 21627,
+      "dawn": 1903,
+      "dusk": 762,
+      "none": 2
+    }
+  },
+  "weather": {
+    "coverage_pct": 50.9,
+    "distribution": {
+      "unknown": 41083,
+      "clear": 18683,
+      "rain": 9158,
+      "cloudy": 8150,
+      "snow": 3813,
+      "fog": 2725
+    }
+  },
+  "road_type": {
+    "coverage_pct": 97.1,
+    "distribution": {
+      "intersection": 54417,
+      "highway": 17661,
+      "parking_lot": 4538,
+      "unknown": 2463,
+      "rural": 2245,
+      "urban": 1897,
+      "bridge": 215,
+      "tunnel": 176
+    }
+  },
+  "traffic_density": {
+    "coverage_pct": 36.3,
+    "distribution": {
+      "unknown": 53297,
+      "congested": 12668,
+      "moderate": 11350,
+      "free": 6297
+    }
+  },
+  "agent_type": {
+    "coverage_pct": 100.0,
+    "distribution": {
+      "none": 44571,
+      "pedestrian": 16778,
+      "truck": 10685,
+      "cyclist": 6008,
+      "bus": 4427,
+      "motorcycle": 729,
+      "animal": 228,
+      "emergency_vehicle": 186
+    }
+  },
+  "hazard_level": {
+    "coverage_pct": 84.9,
+    "distribution": {
+      "medium": 42803,
+      "high": 22123,
+      "unknown": 12625,
+      "low": 6059,
+      "none": 2
+    }
+  },
+  "ego_action": {
+    "coverage_pct": 100.0,
+    "distribution": {
+      "braking": 43073,
+      "stopping": 12068,
+      "lane_change": 9623,
+      "straight": 8307,
+      "left_turn": 3800,
+      "none": 2960,
+      "right_turn": 2662,
+      "uturn": 967,
+      "reversing": 152
+    }
+  }
+}

@@ -1,0 +1,42 @@
+# EXP-001 재현 파라미터 스냅샷
+experiment_id: EXP-001
+date_completed: 2026-05-20
+status: completed
+
+dataset:
+  total_clips: 83612
+  source_dir: /Data1/home/bskang/cds-data/captions
+  caption_length:
+    min: 63
+    max: 4091
+    mean: 331.8
+
+index:
+  bm25:
+    backend: bm25s
+    version: "0.2.12"
+    artifact: data/index/bm25s_index/
+  embedding:
+    model: BAAI/bge-m3
+    dim: 1024
+    artifact_npy: data/index/embeddings.npy      # 327 MB
+    artifact_hnsw: data/index/hnsw.index         # 349 MB
+    hnsw_M: 32
+    hnsw_ef_construction: 200
+    hnsw_ef_search: 128
+
+odd_tagging:
+  method: regex_only          # LLM fallback 미사용
+  artifact: data/tags/odd_tags.json
+  coverage: data/tags/odd_coverage.json
+
+evaluation:
+  n_queries: 20
+  ground_truth_method: keyword_relevance   # 약지도(weak supervision)
+  min_relevant_per_query: 2
+  eval_set: data/eval/eval_set.json
+  metrics:
+    - Recall@5
+    - MRR@5
+    - Latency_ms
+  results: experiments/EXP-001/results/metrics.csv

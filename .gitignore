@@ -1,0 +1,43 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.venv/
+
+# Environment variables (API keys, secrets)
+.env
+.env.*
+
+# Data artifacts — large binary/generated files (not tracked in git)
+# data/index/ — pipeline 빌드 출력 (대용량)
+data/index/embeddings.npy
+data/index/hnsw.index
+data/index/bm25s_index/
+data/index/bm25_index.pkl
+data/index/umap_coords.parquet
+data/index/distribution.html
+data/index/longtail_clips.json
+# data/tags/ — 추출 결과 (대용량)
+data/tags/odd_tags.json
+# data/artifacts/ — 실험별 스냅샷 (대용량 바이너리만 제외, 메타는 추적)
+data/artifacts/*/embeddings.npy
+data/artifacts/*/hnsw.index
+data/artifacts/*/bm25s_index/
+data/artifacts/*/odd_tags.json
+
+# Runtime logs
+logs/
+
+# Literature PDFs (potentially large)
+literature/papers/*.pdf
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
