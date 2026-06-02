@@ -33,6 +33,70 @@ EXP-002는 이 세 한계를 동시에 해결하며, 최종 탐지 목표(인과
 
 ---
 
+## 가설 수립 근거
+
+### Axis A 근거 — "Embedding > BM25"가 성립하지 못한 이유가 방법 자체가 아니라 평가 설계의 결함이다
+
+**EXP-001 결과**: Embedding Recall@5 = 0.520, BM25 = 0.900. 격차가 크다.
+
+그러나 정답 레이블 생성 로직을 보면 이 숫자가 Embedding의 실제 검색 품질을 반영하지 않는다는 것이 명확하다.
+
+```python
+# build_eval_set.py — EXP-001 정답 생성 로직
+def keyword_relevance(text, query):
+    query_words = [w for w in re.split(r"\W+", query.lower()) if len(w) > 3]
+    return all(w in text.lower() for w in query_words)
+```
+
+쿼리 단어가 캡션에 **글자 그대로** 모두 등장해야 정답이다. BM25도 동일하게 토큰 매칭으로 검색한다. 즉, 정답셋이 BM25가 찾는 방식과 동일한 로직으로 만들어졌다. `pedestrian suddenly enters road` 쿼리의 Embedding Recall@5 = 0.0은 Embedding이 의미상 유사한 클립을 반환했음에도 "suddenly"·"enters" 같은 단어가 캡션에 없어서 오답 처리된 결과다.
+
+정답 레이블을 LLM 의미 판단으로 교체하면 "person walked into the roadway abruptly" 같은 캡션도 정답으로 인정된다. 이 조건에서 Embedding이 BM25를 앞선다는 가설을 세운 근거는 다음 두 가지다.
+
+1. **의미 공간 우위**: bge-m3는 표현이 달라도 의미가 같은 문장을 가깝게 임베딩한다. 정답 기준이 의미 기반으로 바뀌면 이 능력이 처음으로 공정하게 평가된다.
+2. **BM25의 동의어 맹점**: BM25는 "pedestrian"을 찾을 때 "person"·"walker"가 등장하는 클립을 놓친다. 정답셋이 의미 기반이면 BM25가 놓친 클립들이 오답으로 누적된다.
+
+**L2 쿼리에서 격차가 가장 크다는 예측 근거**: L2 인과 체인 쿼리(`wet road → emergency braking → near-collision`)는 세 단계 개념이 하나의 캡션에 동시에 등장해야 BM25가 매칭한다. 실제 캡션은 보통 하나의 장면 단면만 묘사하므로 BM25는 세 키워드가 모두 포함된 클립만 반환하고 관련 클립 대부분을 놓친다. Embedding은 세 개념이 가리키는 의미 방향의 합을 단일 벡터로 포착하여 표현이 분산된 클립도 검색한다.
+
+---
+
+### Axis B 근거 — Regex 이산 태그는 구조적으로 두 가지 문제를 동시에 가진다
+
+**문제 1: 커버리지 한계 (EXP-001 실측)**
+
+| 필드 | 커버리지 | Unknown 클립 수 | 미캡처 표현 예시 |
+|------|---------|----------------|----------------|
+| traffic_density | 37.4% | 187,356개 | "bumper-to-bumper", "stop-and-go", "light traffic" |
+| weather | 52.9% | 140,937개 | "overcast", "drizzling", "slippery surface after shower" |
+| time_of_day | 62.7% | 111,554개 | "at dusk", "before sunrise", "dim lighting" |
+
+Regex는 사전에 정의한 패턴 외의 표현을 전혀 처리하지 못한다. 패턴을 추가할수록 유지보수 비용이 늘고, 코퍼스의 자연어 다양성을 사전에 완전히 열거하는 것은 불가능하다.
+
+**문제 2: 표현력 한계 — 이산 태그로는 ODD 공간의 거리를 계산할 수 없다**
+
+`weather = "rain"` 태그는 가랑비와 폭우를 구분하지 못한다. `hazard_level = "high"`는 충돌 0.5초 전과 주의 요구 10초 전을 동일하게 취급한다. 이산 범주에서는 두 클립의 ODD 조건이 얼마나 다른지 수치로 표현할 수 없어 Axis C의 밀도 추정 입력으로 사용할 수 없다.
+
+**LLM이 이 두 문제를 동시에 해결하는 이유**: GPT-4o-mini는 "drizzling", "light rain", "wet road conditions after shower"를 맥락으로 읽어 `precipitation_intensity ≈ 0.2~0.3`으로 수렴시킨다. Rivera et al. (2025, CatPipe)에서 GPT-4/LLaVA로 16개 씬 카테고리를 zero-shot 분류했을 때 Regex 대비 높은 커버리지를 달성한 것이 같은 원리의 선례다. 연속 수치 출력은 Axis C 입력으로 직접 사용 가능하다.
+
+---
+
+### Axis C 근거 — KDE는 5D 공간에서 수학적으로 신뢰하기 어렵고, "조건부" 밀도 추정이 목적이다
+
+**EXP-001 UMAP+KDE의 한계**: 1024차원 임베딩을 UMAP으로 2D 축소 후 KDE를 적용했다. 2D 투영에서는 고차원의 세밀한 ODD 조건 차이(fog + highway vs. fog + urban)가 뭉개진다. Longtail 14,959개를 탐지했지만 이 클립들이 실제 위험 시나리오인지, 단순히 드문 캡션 스타일인지 구분하지 못한 것이 EXP-001 Gap-4의 미해결 문제다.
+
+**KDE의 수학적 한계 (5D)**:
+
+KDE의 bandwidth `h`는 차원 `d`가 커질수록 최적값이 급격히 변한다. 1D에서 쓰는 Silverman's rule을 5D에 적용하면 과대·과소 평활화가 발생한다. 핵심 문제는 갭을 탐지하려는 바로 그 구간 — 데이터가 희소한 구간 — 에서 KDE 추정값이 0에 수렴하거나, 인접 고밀도 클러스터의 밀도가 번져(bleed-over) 갭이 지워진다.
+
+**Normalizing Flow가 이를 해결하는 이유**:
+
+NF는 단순 분포(가우시안)를 학습된 가역 변환으로 데이터 분포로 변환한다. 희소 구간에서도 변환 함수가 정의되어 있어 밀도 추정값이 0으로 수렴하지 않는다. arXiv:2507.22429 (IEEE IAVVC 2025)가 ADS 리스크 파라미터 공간에서 NF와 KDE를 직접 비교하여 "NF가 고차원에서 KDE보다 리스크 불확실성 추정 정밀도가 높다"는 결과를 냈다. 이 논문의 실험 설정 — ADS 파라미터 공간 밀도 추정 — 이 EXP-002 Axis C와 동일하다.
+
+**"조건부" 밀도가 목적인 이유**:
+
+갭 탐지 목표는 단순히 드문 ODD 조건이 아니라 **드물면서 위험한 조건**이다. `p(ODD)` 대신 `p(ODD | hazard_proximity > 0.7)`을 추정해야 한다. KDE는 조건을 사후 데이터 필터링으로 처리하므로, 위험 클립이 드문 구간에서 표본이 너무 적어 추정이 불안정해진다. MAF 같은 Normalizing Flow는 조건부 분포를 학습 목표로 직접 설정할 수 있다. TrimFlow (arXiv:2407.07320)가 NF + Importance Sampling으로 희귀 위험 사건을 86.1% 적은 테스트로 커버한 것은 정확히 같은 원리를 AV 검증에 적용한 선례다.
+
+---
+
 ## 설계
 
 ### Axis A — 인과 기반 쿼리 + LLM 레이블링
