@@ -1,15 +1,15 @@
 # EXP-001 재현 파라미터 스냅샷
 experiment_id: EXP-001
-date_completed: 2026-05-20
+date_completed: 2026-06-02
 status: completed
 
 dataset:
-  total_clips: 83612
+  total_clips: 299180
   source_dir: /Data1/home/bskang/cds-data/captions
   caption_length:
-    min: 63
-    max: 4091
-    mean: 331.8
+    min: 55
+    max: 4085
+    mean: 337.7
 
 index:
   bm25:
@@ -19,8 +19,8 @@ index:
   embedding:
     model: BAAI/bge-m3
     dim: 1024
-    artifact_npy: data/index/embeddings.npy      # 327 MB
-    artifact_hnsw: data/index/hnsw.index         # 349 MB
+    artifact_npy: data/index/embeddings.npy      # 1.2 GB
+    artifact_hnsw: data/index/hnsw.index         # 1.3 GB
     hnsw_M: 32
     hnsw_ef_construction: 200
     hnsw_ef_search: 128
@@ -29,6 +29,22 @@ odd_tagging:
   method: regex_only          # LLM fallback 미사용
   artifact: data/tags/odd_tags.json
   coverage: data/tags/odd_coverage.json
+  coverage_pct:
+    agent_type: 100.0
+    ego_action: 100.0
+    road_type: 96.7
+    hazard_level: 84.7
+    time_of_day: 62.7
+    weather: 52.9
+    traffic_density: 37.4
+
+distribution_analysis:
+  method: umap_cosine
+  n_neighbors: 15
+  min_dist: 0.1
+  artifact_html: data/index/distribution.html    # 40 MB
+  artifact_parquet: data/index/umap_coords.parquet  # 17 MB
+  longtail_clips: data/index/longtail_clips.json    # 14,959개 (밀도 하위 5%)
 
 evaluation:
   n_queries: 20
