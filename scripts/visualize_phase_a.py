@@ -33,6 +33,10 @@ UMAP_PATH         = INDEX_DIR   / "umap_coords.parquet"
 
 OUT_ODD = RESULTS_DIR / "viz_odd_coverage.html"
 OUT_CLU = RESULTS_DIR / "viz_clusters.html"
+OUT_GAP = RESULTS_DIR / "viz_sanflow_gaps.html"
+
+SANFLOW_GAPS_PATH = RESULTS_DIR / "sanflow_gaps.json"
+SANFLOW_EVAL_PATH = RESULTS_DIR / "sanflow_eval.json"
 
 WEATHER_ORDER  = ["clear", "cloudy", "rain", "snow", "fog"]
 TIME_ORDER     = ["day", "night", "dawn", "dusk"]
@@ -476,7 +480,231 @@ def build_cluster_viz():
 
 
 # ════════════════════════════════════════════════════════════════════════════
+# 3. viz_sanflow_gaps.html
+# ════════════════════════════════════════════════════════════════════════════
+
+def build_sanflow_viz():
+    print("Building SANFlow Gap viz …")
+
+    gaps  = json.loads(SANFLOW_GAPS_PATH.read_text())
+    ca    = json.loads(CLUSTER_PATH.read_text())
+    ev    = json.loads(SANFLOW_EVAL_PATH.read_text())
+
+    label_map = {c["cluster_id"]: c["llm_label"] for c in ca["clusters"]}
+    umap_df   = pd.read_parquet(UMAP_PATH, columns=["clip_id", "x", "y"])
+
+    gap_ids   = {g["clip_id"] for g in gaps}
+    gap_lookup= {g["clip_id"]: g for g in gaps}
+
+    # 2D UMAP에 갭 정보 조인
+    umap_df["is_gap"]      = umap_df["clip_id"].isin(gap_ids)
+    umap_df["log_density"] = umap_df["clip_id"].map(
+        lambda c: gap_lookup[c]["log_density"] if c in gap_lookup else None
+    )
+    umap_df["scenario"]    = umap_df["clip_id"].map(
+        lambda c: gap_lookup[c]["scenario_name"] if c in gap_lookup else None
+    )
+    umap_df["is_noise"]    = umap_df["clip_id"].map(
+        lambda c: gap_lookup[c]["is_noise"] if c in gap_lookup else None
+    )
+    umap_df["rank"]        = umap_df["clip_id"].map(
+        lambda c: gap_lookup[c]["rank"] if c in gap_lookup else None
+    )
+
+    gap_df  = umap_df[umap_df["is_gap"]].copy()
+    bg_df   = umap_df[~umap_df["is_gap"]].sample(50_000, random_state=42)
+
+    # 시나리오별 색상
+    scenarios   = sorted(gap_df["scenario"].unique())
+    palette     = px.colors.qualitative.Bold
+    color_map   = {sc: palette[i % len(palette)] for i, sc in enumerate(scenarios)}
+
+    # ── (a) 2D UMAP: 전체 배경 + 갭 클립 강조 ────────────────────────
+    fig_umap = go.Figure()
+
+    # KDE 밀도 배경
+    fig_umap.add_trace(go.Histogram2dContour(
+        x=bg_df["x"], y=bg_df["y"],
+        colorscale=[[0,"rgba(0,0,0,0)"],[0.4,"rgba(100,149,237,0.1)"],
+                    [1,"rgba(100,149,237,0.25)"]],
+        ncontours=15, showscale=False, hoverinfo="skip",
+        name="전체 밀도", line=dict(width=0),
+    ))
+
+    # 배경 포인트 (회색)
+    fig_umap.add_trace(go.Scattergl(
+        x=bg_df["x"], y=bg_df["y"],
+        mode="markers",
+        marker=dict(color="lightgray", size=2, opacity=0.2),
+        name="전체 클립 (50k 샘플)",
+        hoverinfo="skip",
+    ))
+
+    # 갭 클립 — 시나리오별 색상
+    for sc in scenarios:
+        sub = gap_df[gap_df["scenario"] == sc]
+        short = sc[:45] + ("…" if len(sc) > 45 else "")
+        fig_umap.add_trace(go.Scattergl(
+            x=sub["x"], y=sub["y"],
+            mode="markers",
+            marker=dict(
+                color=color_map[sc], size=8, opacity=0.9,
+                line=dict(width=1, color="white"),
+            ),
+            name=f"{short} (n={len(sub)})",
+            text=sub.apply(
+                lambda r: f"rank {int(r['rank'])} | {r['scenario']}<br>"
+                          f"log_density={r['log_density']:.0f}<br>"
+                          f"noise={'Y' if r['is_noise'] else 'N'}",
+                axis=1,
+            ),
+            hovertemplate="%{text}<extra></extra>",
+        ))
+
+    fig_umap.update_layout(
+        title="SANFlow 갭 클립 2D UMAP 위치 (전체 배경 + 갭 강조)",
+        height=620,
+        xaxis_title="UMAP-1", yaxis_title="UMAP-2",
+        legend=dict(orientation="h", y=-0.12, font=dict(size=11)),
+        margin=dict(t=50, b=100),
+    )
+
+    # ── (b) Log-density 분포: 전체 갭 200개 히스토그램 ───────────────
+    ld_vals = [g["log_density"] for g in gaps]
+
+    fig_hist = go.Figure()
+    for sc in scenarios:
+        sub_ld = [g["log_density"] for g in gaps if g["scenario_name"] == sc]
+        fig_hist.add_trace(go.Histogram(
+            x=sub_ld, name=sc[:50],
+            marker_color=color_map[sc],
+            opacity=0.75, nbinsx=25,
+        ))
+    fig_hist.update_layout(
+        title="갭 클립 Log-Density 분포 (낮을수록 더 희귀)",
+        barmode="stack",
+        height=380,
+        xaxis_title="log p(x)  ← 희귀  |  일반적 →",
+        yaxis_title="클립 수",
+        legend=dict(orientation="h", y=-0.22, font=dict(size=10)),
+        margin=dict(t=50, b=120),
+    )
+
+    # ── (c) 시나리오별 갭 수 + noise 비율 바 차트 ─────────────────────
+    from collections import Counter
+    sc_counter  = Counter(g["scenario_name"] for g in gaps)
+    sc_noise    = Counter(g["scenario_name"] for g in gaps if g["is_noise"])
+
+    sc_labels   = [s for s, _ in sc_counter.most_common()]
+    sc_total    = [sc_counter[s] for s in sc_labels]
+    sc_noise_n  = [sc_noise.get(s, 0) for s in sc_labels]
+    sc_cluster_n= [t - n for t, n in zip(sc_total, sc_noise_n)]
+    sc_short    = [s[:40] for s in sc_labels]
+
+    fig_bar = go.Figure()
+    fig_bar.add_trace(go.Bar(
+        x=sc_short, y=sc_noise_n,
+        name="noise 클립 (어느 클러스터에도 미속)",
+        marker_color="tomato", opacity=0.85,
+    ))
+    fig_bar.add_trace(go.Bar(
+        x=sc_short, y=sc_cluster_n,
+        name="클러스터 경계 클립",
+        marker_color="steelblue", opacity=0.85,
+    ))
+    fig_bar.update_layout(
+        title="갭 시나리오별 구성 (noise vs 클러스터 경계)",
+        barmode="stack",
+        height=380,
+        xaxis_title="시나리오",
+        yaxis_title="갭 클립 수",
+        legend=dict(orientation="h", y=-0.18),
+        margin=dict(t=50, b=120),
+        xaxis=dict(tickangle=-20),
+    )
+
+    # ── (d) 갭 클립 상세 테이블 (전체 200개) ─────────────────────────
+    tbl_df = pd.DataFrame([{
+        "rank":        g["rank"],
+        "scenario":    g["scenario_name"],
+        "log_density": round(g["log_density"], 1),
+        "cluster":     g["nearest_cluster"],
+        "noise":       "Y" if g["is_noise"] else "N",
+        "clip_id":     g["clip_id"][:18] + "…",
+    } for g in gaps])
+
+    row_colors = []
+    sc_color_hex = {sc: color_map[sc] for sc in scenarios}
+    default_colors = {
+        "Rural night driving with limited visibility conditions.": "#fff0f0",
+        "Driving in heavy rain at night in urban area":           "#f0f4ff",
+        "Driving on a snowy multi-lane highway in winter.":       "#f0fff4",
+        "quiet morning parking lot driving":                      "#fffdf0",
+    }
+    for _, row in tbl_df.iterrows():
+        row_colors.append(default_colors.get(row["scenario"], "white"))
+
+    fig_tbl = go.Figure(go.Table(
+        header=dict(
+            values=list(tbl_df.columns),
+            fill_color="#1e3a5f", font=dict(color="white", size=12),
+            align="left",
+        ),
+        cells=dict(
+            values=[tbl_df[c].tolist() for c in tbl_df.columns],
+            fill_color=[row_colors] * len(tbl_df.columns),
+            align="left", font=dict(size=11),
+        ),
+    ))
+    fig_tbl.update_layout(
+        title="SANFlow 갭 후보 전체 목록 (200개)",
+        height=1400,
+        margin=dict(t=50, b=10),
+    )
+
+    # ── 요약 헤더 ─────────────────────────────────────────────────────
+    pass_mark = "✓ PASS" if ev["pass"] else "✗"
+    summary_html = f"""
+    <div style="font-family:sans-serif;padding:16px;background:#f0f4ff;
+                border-radius:8px;margin-bottom:12px;border-left:4px solid #3b6fd4">
+      <h2 style="margin:0 0 8px">SANFlow 갭 탐지 결과 — Phase B</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:4px">
+        <span>📦 전체 클립: <b>{ca['n_total']:,}</b></span>
+        <span>🔵 클러스터: <b>{ca['n_clusters']}개</b></span>
+        <span style="color:tomato">🔴 갭 후보: <b>{len(gaps)}개</b></span>
+        <span style="color:gray">⬜ noise 갭: <b>{sum(1 for g in gaps if g['is_noise'])}개
+          ({sum(1 for g in gaps if g['is_noise'])/len(gaps):.0%})</b></span>
+        <span style="color:green">📈 SANFlow LL: <b>{ev['sanflow_ll']:.4f}</b>
+          vs KDE: {ev['kde_baseline_ll']:.4f} → <b>{pass_mark}</b></span>
+      </div>
+      <div style="margin-top:10px;font-size:13px;color:#555">
+        <b>주요 갭 시나리오</b>:
+        {"  |  ".join(f"{sc[:50]} ({sc_counter[sc]}개)"
+                      for sc, _ in Counter(g['scenario_name'] for g in gaps).most_common())}
+      </div>
+    </div>
+    """
+
+    # ── HTML 출력 ─────────────────────────────────────────────────────
+    with open(OUT_GAP, "w", encoding="utf-8") as f:
+        f.write("<html><head><meta charset='utf-8'>"
+                "<title>SANFlow Gap Analysis</title></head><body>\n")
+        f.write(summary_html)
+        f.write(fig_umap.to_html(full_html=False, include_plotlyjs=True))
+        f.write(fig_hist.to_html(full_html=False, include_plotlyjs=False))
+        f.write(fig_bar.to_html(full_html=False, include_plotlyjs=False))
+        f.write(fig_tbl.to_html(full_html=False, include_plotlyjs=False))
+        f.write("</body></html>")
+    print(f"  → {OUT_GAP}")
+
+
+# ════════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
-    build_odd_coverage_viz()
-    build_cluster_viz()
+    import sys
+    if "--gaps-only" in sys.argv:
+        build_sanflow_viz()
+    else:
+        build_odd_coverage_viz()
+        build_cluster_viz()
+        build_sanflow_viz()
     print("\nDone. 브라우저에서 HTML 파일을 열어 확인하세요.")
