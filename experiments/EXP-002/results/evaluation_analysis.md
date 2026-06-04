@@ -1,9 +1,11 @@
-# EXP-002 Axis A 평가 결과 분석
+# EXP-002 평가 결과 분석
 
-**실행일**: 2026-06-04  
-**평가 명령**: `uv run python -m avdata.eval.evaluate_v2 --top-k 5`  
+**Phase A 완료일**: 2026-06-04  
+**평가 명령**: `bash scripts/run_phase_a.sh`  
 **평가셋**: `data/eval/eval_set_v2.json` (source=llm, 60쿼리)  
-**산출물**: `experiment_002_results.csv`, `summary.json`
+**산출물**: `experiment_002_results.csv`, `summary.json`, `odd_coverage_matrix.json`, `cluster_analysis.json`
+
+> **문서 구성**: 섹션 1~10은 초기 평가(Gap-2 버그 버전) 상세 분석, 섹션 11~14는 Phase A 완료 후 갱신 결과.
 
 ---
 
@@ -355,7 +357,9 @@ L4-05 "limited sightlines due to atmospheric conditions"는 fog/rain/snow를 우
 
 ---
 
-## 8. Hybrid == Embedding 문제 — Gap-2 잔존 확인
+## 8. Hybrid == Embedding 문제 — Gap-2 확인 및 픽스
+
+### 초기 평가 (Gap-2 버그 버전)
 
 ```
 Hybrid Recall@5 = Embedding Recall@5 = 0.8267  (전 레벨 동일)
@@ -364,17 +368,36 @@ Hybrid MRR@5   = Embedding MRR@5   = 0.9208  (전 레벨 동일)
 
 EXP-001의 Gap-2(ODD 필터 미전달)가 EXP-002에서도 그대로 재현됐다.
 
-**근본 원인**: `evaluate_v2.py`가 Hybrid를 호출할 때 `odd_filter=None`을 전달하고 있다.
+**근본 원인**: `evaluate_v2.py`가 Hybrid를 호출할 때 `odd_filter=None`을 전달하고 있었다.
 
 ```python
-# evaluate_v2.py의 호출 코드
+# 수정 전 — odd_filter 인자 없음
 results, latency_ms = searcher.search(qtext, method=method, top_k=top_k)
-#                                                     ↑ odd_filter 인자 없음
 ```
 
 `searcher.py`의 `search_hybrid()`는 `odd_filter=None`이면 ODD 사전 필터를 건너뛰고 전체 임베딩 검색으로 fallback한다. 결과적으로 Hybrid = Embedding이 된다.
 
-**수정 방향**: 쿼리별 ODD 컨텍스트를 추출해 odd_filter로 전달하거나, Hybrid 자체가 자동으로 쿼리에서 ODD 조건을 추론하는 로직 추가 필요. → EXP-003 후보 이슈.
+### Phase A 픽스 (2026-06-04)
+
+`extract_odd_hint()` 함수를 추가해 쿼리 텍스트에서 ODD 조건 키워드를 자동 추출하고 Hybrid 호출 시 전달하도록 수정했다.
+
+```python
+# 수정 후 — ODD 힌트 추출 및 전달
+odd_hint = extract_odd_hint(qtext) if method == "hybrid" else None
+results, latency_ms = searcher.search(
+    qtext, method=method, top_k=top_k, odd_filter=odd_hint
+)
+```
+
+**픽스 결과:**
+```
+Queries with ODD hint : 53 / 60  (88.3%)
+  Hybrid ≠ Embedding  : 46  (86.8%)  ← 필터 실제 작동 확인
+  Hybrid == Embedding : 7   (fallback — ODD 태그 매칭 클립 없음)
+✓ Gap-2 FIXED
+```
+
+→ Gap-2 픽스 후 상세 수치는 섹션 11 참조.
 
 ---
 
@@ -427,9 +450,257 @@ L2에서 BM25 MRR=0.8222의 의미: L2-07 같은 쿼리에서 BM25가 정답 클
 | Axis A: 인과 쿼리 격차 | L2 gap > L0 gap | ✅ 0.000 > -0.050 (PASS) |
 | 지연 측정 | 워밍업 제외 중앙값 200ms 이하 | ✅ BM25 0.83ms, Embedding 5.28ms |
 
-### 다음 액션 제안
+### 다음 액션 제안 (Phase A 이전 기준)
 
-1. **Gap-2 수정 (우선순위 높음)**: `evaluate_v2.py`에서 Hybrid 호출 시 쿼리 레벨별 ODD 힌트를 odd_filter로 전달하는 로직 추가
+1. **Gap-2 수정** → ✅ Phase A에서 완료 (섹션 11)
 2. **L4 Embedding 약점 원인 분석**: L4-01, L4-02가 실패하는 구체 클립을 캡션 레벨에서 확인 — bge-m3이 생성한 임베딩에서 두 표현의 거리 측정
 3. **L2 BM25 약점 쿼리 탐색**: L2-07, L2-09에서 BM25가 실패한 클립 캡션 확인 → 캡션 어휘 표준화 가능성 검토
 4. **top-k 확장 실험**: `--top-k 10`으로 재평가해 Recall@10 곡선 확인
+
+---
+
+---
+
+# Phase A 완료 분석 (2026-06-04)
+
+> 아래 섹션 11~14는 `bash scripts/run_phase_a.sh` 실행 결과의 종합 분석이다.  
+> 초기 평가(섹션 1~10)와의 차이점, 새로 발견된 사실, Phase B 방향을 정리한다.
+
+---
+
+## 11. Gap-2 픽스 후 Hybrid 재평가
+
+### 성능 테이블 (픽스 전 vs 후)
+
+| 방법 | Recall@5 (픽스 전) | Recall@5 (픽스 후) | MRR@5 (픽스 전) | MRR@5 (픽스 후) | 지연 |
+|------|-----------------|-----------------|----------------|----------------|------|
+| BM25 | 0.8533 | 0.8533 | 0.9361 | 0.9361 | 0.8ms |
+| Embedding | 0.8267 | 0.8267 | 0.9208 | 0.9208 | 5.3ms |
+| **Hybrid** | **0.8267** (=Emb) | **0.6600** | **0.9208** (=Emb) | **0.7931** | 123.8ms |
+
+픽스 후 Hybrid가 Embedding보다 낮아진 것은 **ODD 필터가 실제로 작동하기 시작했음을 의미**한다. Hybrid 성능 하락은 오히려 버그가 수정됐다는 증거다.
+
+### 레벨별 Hybrid 상세 (픽스 후)
+
+| 레벨 | BM25 | Embedding | Hybrid | Hybrid-Emb gap | 해석 |
+|------|------|-----------|--------|---------------|------|
+| L0 (20) | 0.9300 | 0.8800 | 0.7200 | **−0.1600** | ODD 필터가 관련 클립 일부 제외 |
+| L1 (10) | 0.9400 | 0.9400 | 0.9200 | −0.0200 | 조건 쿼리: 필터 효과 작지만 작동 |
+| L2 (15) | 0.7067 | 0.7067 | 0.5733 | **−0.1333** | 인과 쿼리: ODD 필터 과도하게 제한적 |
+| L3 (10) | 0.9000 | 0.9000 | 0.5200 | **−0.3800** | 복합 조건: 다중 필터 조합으로 후보 급감 |
+| L4 (5) | 0.7200 | 0.6000 | 0.4400 | **−0.1600** | 동의어 쿼리에서 ODD 힌트 추출도 영향 |
+
+### Hybrid 성능 하락의 진짜 원인: ODD 태그 품질
+
+```
+weather   unknown: 140,937개 (47.1%)
+time_of_day unknown: 111,554개 (37.3%)
+```
+
+ODD 필터는 태그가 있는 클립만 남기므로, unknown 태그 비율이 높을수록 관련 클립이 탈락한다.  
+예: "foggy highway at night" 쿼리 → ODD 힌트 `{weather: fog, time_of_day: night}` 추출  
+→ weather=fog AND time_of_day=night인 클립만 후보 → 실제 fog 씬이지만 weather=unknown으로 태깅된 클립 모두 탈락
+
+**결론**: Hybrid 성능 개선을 위해서는 ODD 태그 재추출이 필요하거나, ODD 태그에 독립적인 검색 방식(Phase B SANFlow)으로 전환해야 한다.
+
+### Gap-2 검증 출력
+
+```
+── Gap-2 Fix Verification ──────────────────────────────────
+  Queries with ODD hint : 53 / 60
+    Hybrid ≠ Embedding  : 46  (86.8%)
+    Hybrid == Embedding : 7   (fallback — no matching clips)
+  Queries without hint  : 7
+  ✓ Gap-2 FIXED
+```
+
+ODD 힌트가 없는 7개 쿼리는 "L1-05: wet surface condition prevents timely stopping" 같이
+날씨·시간·도로 조건 키워드가 패턴 리스트에 없는 경우다. Fallback 7개는 ODD 태그 매칭 클립이
+0개여서 전체 임베딩 검색으로 복귀한 경우다.
+
+---
+
+## 12. ODD Coverage Matrix 분석
+
+### 개요
+
+taxonomy 4개 축(weather × time_of_day × road_type × hazard_level)의 가능한 조합 560개 중
+실제 데이터가 존재하는 조합 수를 집계했다.
+
+### 전체 커버리지
+
+| 지표 | 값 |
+|------|-----|
+| 분석 클립 수 | 299,180개 |
+| Taxonomy 조합 수 | 560개 |
+| 데이터 있는 조합 | 338개 (60.4%) |
+| 제로 커버리지 갭 | **222개 (39.6%)** |
+
+### 필드별 분포 (top-3)
+
+| 필드 | 1위 | 2위 | 3위 |
+|------|-----|-----|-----|
+| weather | unknown 47.1% | clear 20.9% | rain 12.3% |
+| time_of_day | unknown 37.3% | night 34.4% | day 25.0% |
+| road_type | intersection 60.7% | highway 24.3% | parking_lot 5.2% |
+| hazard_level | medium 50.7% | high 26.7% | unknown 15.3% |
+
+**intersection 60.7% 지배**: 데이터 수집이 도심 교차로 중심으로 이뤄졌음을 의미. highway(24.3%), tunnel/bridge/rural은 극히 소수.
+
+### 제로 커버리지 갭의 패턴
+
+**갭에 가장 자주 등장하는 값:**
+
+| 필드 | 값 | 갭 등장 횟수 | 의미 |
+|------|-----|-----------|------|
+| hazard_level | none | 71 | **"아무 일 없는 정상 주행" 데이터 구조적 부재** |
+| weather | cloudy | 46 | 흐린 날씨 조합 전반적으로 부족 |
+| time_of_day | dusk | 27 | 황혼 시간대 미수집 |
+| time_of_day | dawn | 26 | 새벽 시간대 미수집 |
+| road_type | tunnel | 25 | 터널 환경 전반 부족 |
+| road_type | bridge | 20 | 교량 환경 전반 부족 |
+
+**hazard_level=none이 71개 갭에 등장하는 이유:**  
+데이터 수집이 "이벤트 트리거 방식"으로 이뤄졌을 가능성이 높다. 위험 상황, 급제동, 이상 거동이 발생한 순간 위주로 수집하면 hazard_level=none(아무 일 없는 정상 주행) 데이터가 구조적으로 희박해진다. AV 시스템이 "정상 상황에서도 올바르게 작동하는가"를 검증할 데이터가 부족하다는 의미다.
+
+### 가장 희귀한 실존 조합 (count=1)
+
+| weather | time_of_day | road_type | hazard_level | count |
+|---------|------------|-----------|-------------|-------|
+| fog | dusk | — | medium | 1 |
+| snow | dusk | — | low | 1 |
+| rain | dusk | bridge | high | 1 |
+| fog | bridge | day | medium | 1 |
+| clear | dusk | urban | high | 1 |
+
+이런 극단 조합은 데이터가 1개뿐이어서 AV 시스템 훈련이나 검색 평가에 사용하기 어렵다. 추가 수집 또는 합성(Phase D)의 주요 대상이다.
+
+### 대표 제로 커버리지 갭 (AV 안전 관점 우선순위)
+
+```
+weather=clear, time_of_day=day, hazard_level=none  → 모든 road_type에서 없음
+weather=cloudy, 전체 dusk/dawn 조합               → 흐린 황혼/새벽 완전 부재
+weather=fog/snow + tunnel/bridge 조합              → 악천후 특수 인프라 전무
+```
+
+**우선 수집 권고**: fog/snow × tunnel/bridge × night 조합 — 안전 임계 상황이면서 완전히 비어있음.
+
+---
+
+## 13. 임베딩 클러스터링 분석
+
+### 클러스터링 파이프라인
+
+```
+embeddings.npy (299180, 1024)
+    → PCA(50D, 설명 분산 69.2%)
+    → UMAP(10D, n_neighbors=30, cosine metric)  [캐시: umap_10d.npy]
+    → HDBSCAN(min_cluster_size=50, min_samples=10)
+    → Metric Space Magnitude per cluster
+    → GPT-4o-mini 레이블 (bottom-50)
+```
+
+### 클러스터링 결과 개요
+
+| 지표 | 값 |
+|------|-----|
+| 총 클립 | 299,180개 |
+| 클러스터 수 | 124개 |
+| 클러스터 내 클립 | 233,287개 (78.0%) |
+| 노이즈 포인트 | 65,893개 (22.0%) |
+| 클러스터 크기 범위 | 50 ~ 61,909개 |
+| 중앙값 클러스터 크기 | 202개 |
+
+노이즈 포인트 22%는 어떤 클러스터에도 속하지 않는 고립된 씬으로, 극단적으로 희귀하거나 변칙적인 시나리오일 가능성이 있다.
+
+### 데이터 분포: 파워로 편중
+
+```
+cluster  7  →  61,909개 (20.7%)
+cluster  3  →  55,211개 (18.5%)
+─────────────────────────────────
+상위 2개 클러스터 = 전체의 39.2%
+하위 50개 클러스터 = 전체의 ~1.7% (약 5,000개)
+```
+
+전체 데이터의 39%가 단 2개 클러스터에 집중된다는 것은 특정 노선/시간대/환경의 반복 수집을 의미한다. 데이터 다양성 관점에서 이 두 클러스터는 다운샘플링 후보다.
+
+### Metric Space Magnitude 해석
+
+Magnitude(크기): 클러스터 내 "유효하게 구별되는 포인트 수". 클립이 모두 동일하면 Magnitude ≈ 1, 다양하면 클립 수에 비례해 증가.
+
+`mag/clip = Magnitude / sample_size`: 클립당 유효 다양성. 낮을수록 내부 중복이 심하다.
+
+| 패턴 | mag/clip 범위 | 대표 클러스터 | 의미 |
+|------|-------------|------------|------|
+| 내부 중복 극심 | 0.005~0.006 | cluster 9(n=500), 10(n=290) | 거의 동일한 씬 반복 수집 |
+| 평균 | 0.010~0.015 | 대부분의 중·대형 클러스터 | 자연스러운 변형 포함 |
+| 상대적 다양 | 0.023~0.028 | cluster 24(n=50), 21(n=55) | 희귀하지만 내부 변형이 있는 씬 |
+
+mag/clip이 0.005인 클러스터(n=500): 500개 중 Magnitude ≈ 1.0 → 사실상 동일 씬 500회 반복.  
+이런 클러스터는 수집 과정에서 동일 경로를 반복 주행하면서 생겼을 가능성이 높다.
+
+### GPT-4o-mini 레이블: Bottom-50 갭 후보
+
+bottom-50은 크기 기준 가장 작은 50개 클러스터(n=50~151)다.
+
+**안전 임계 시나리오 (즉시 주목):**
+
+| cluster | n | 레이블 |
+|---------|---|-------|
+| 28 | 85 | Highway merging in foggy conditions with low visibility |
+| 106 | 57 | Rural driving at dusk with limited visibility |
+| 122 | 135 | Morning driving with fog and low visibility |
+| 12 | 146 | Parking lot navigation in heavy rain and limited visibility |
+| 29 | 151 | Urban street navigation with reduced visibility |
+| 16 | 68 | Narrow winding road with railway crossing warning |
+
+**특수 인프라/환경:**
+
+| cluster | n | 레이블 |
+|---------|---|-------|
+| 33 | 102 | Gated area access in sunny conditions |
+| 21 | 55 | Urban driving with obstacles and cautious navigation |
+| 56 | 53 | Two-laned road driving in low-light conditions |
+
+**평범한 씬이 bottom-50에 포함된 이유:**  
+cluster 24(n=50, "urban driving in moderate traffic under overcast skies")같이 언뜻 평범해 보이는 클러스터가 bottom-50에 있는 이유는 지리적 특성(특정 도시의 특이한 도로 레이아웃), 카메라 앵글, 또는 데이터 수집 장비의 차이 때문에 임베딩 공간에서 분리됐을 가능성이 있다.
+
+---
+
+## 14. 종합 해석 및 Phase B 방향
+
+### 세 가지 핵심 발견
+
+**① 검색 품질: BM25가 현재 최선, Embedding은 순위 결정에서 강점**
+
+BM25 Recall@5(0.8533) > Embedding(0.8267). 그러나 인과 쿼리(L2)의 MRR에서 Embedding이 앞선다(0.9111 vs 0.8222). 현재 가장 실용적인 조합은 BM25+Embedding 앙상블이다. Hybrid는 ODD 태그 품질이 개선될 때까지 BM25/Embedding에 열위다.
+
+**② 데이터 커버리지: 39.6% 조합 갭, 특정 유형 구조적 부재**
+
+- hazard=none(정상 주행) 데이터 71개 조합에서 부재 → 수집 편향 확인
+- fog/snow × tunnel/bridge × night 조합 완전 공백 → AV 안전 임계 상황 훈련 불가
+- unknown 태그 37~47% → ODD 태그 재추출 또는 SANFlow 전환 필요
+
+**③ 데이터 분포: 상위 2클러스터에 39% 집중, 소형 클러스터가 진짜 갭**
+
+파워로 편중 분포. 노이즈 22%는 별도 분석 필요. Bottom-50 클러스터(fog, dusk, tunnel, low-visibility)가 실제 AV 안전 취약 시나리오를 담고 있다.
+
+### Phase A → Phase B 전환 근거
+
+| Phase A 발견 | Phase B 필요 작업 |
+|------------|----------------|
+| Hybrid 성능 ODD 태그 품질에 종속 | SANFlow로 ODD 태그 비의존 갭 탐지 |
+| bottom-50 클러스터 레이블 완료 | 클러스터 역매핑 → 갭 구체 클립 ID 추출 |
+| 노이즈 22% 미분석 | 노이즈 포인트 캡션 샘플링 → 극단 희귀 씬 식별 |
+| fog/tunnel/night 조합 공백 확인 | Phase D 합성 대상 우선순위 목록 작성 |
+
+### 갱신된 검증 기준 (Phase A 기준)
+
+| 기준 | 목표 | Phase A 결과 |
+|------|------|-------------|
+| Gap-2 수정 | Hybrid ≠ Embedding | ✅ 86.8% 쿼리에서 상이 |
+| Axis A: L2 gap > L0 gap | 가설 검증 | ✅ PASS (Recall: +0.000 > −0.050, MRR: +0.089 > −0.050) |
+| ODD 커버리지 집계 | 갭 목록 작성 | ✅ 222개 갭, 우선순위 분류 완료 |
+| 클러스터링 | 희귀 씬 군집 발견 | ✅ 124클러스터, bottom-50 레이블 완료 |
+| 검색 지연 | 중앙값 200ms 이하 | ✅ BM25 0.8ms, Embedding 5.3ms |
