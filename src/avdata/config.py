@@ -47,10 +47,12 @@ for _d in (EXP002_RESULTS_DIR,):
     _d.mkdir(parents=True, exist_ok=True)
 
 # ── Phase 6 (EXP-002 Phase A) output paths ────────────────────────────────────
-ODD_COVERAGE_PATH    = EXP002_RESULTS_DIR / "odd_coverage_matrix.json"
-CLUSTER_UMAP_PATH    = EXP002_RESULTS_DIR / "umap_10d.npy"
-CLUSTER_LABELS_PATH  = EXP002_RESULTS_DIR / "cluster_labels.npy"
+ODD_COVERAGE_PATH     = EXP002_RESULTS_DIR / "odd_coverage_matrix.json"
+CLUSTER_UMAP_PATH     = EXP002_RESULTS_DIR / "umap_10d.npy"
+CLUSTER_LABELS_PATH   = EXP002_RESULTS_DIR / "cluster_labels.npy"
 CLUSTER_ANALYSIS_PATH = EXP002_RESULTS_DIR / "cluster_analysis.json"
+SANFLOW_MODEL_PATH    = EXP002_RESULTS_DIR / "sanflow_model.pkl"
+SANFLOW_GAP_PATH      = EXP002_RESULTS_DIR / "sanflow_gaps.json"
 
 # ── Active artifact paths (Searcher + API read from here) ─────────────────────
 # data/active 는 data/artifacts/exp-NNN 을 가리키는 심볼릭 링크.
