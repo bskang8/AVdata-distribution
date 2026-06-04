@@ -1,0 +1,11 @@
+{
+  "sanflow_ll": -3.5848381519317627,
+  "kde_baseline_ll": -5.00816465772707,
+  "pass": true,
+  "n_train": 284221,
+  "n_test": 14959,
+  "n_flows": 6,
+  "epochs": 100,
+  "top_n_gaps": 200,
+  "gap_noise_rate": 0.81
+}
