@@ -213,7 +213,7 @@ def build_odd_coverage_viz():
         f.write("<html><head><meta charset='utf-8'>"
                 "<title>ODD Coverage</title></head><body>\n")
         f.write(summary_html)
-        f.write(fig_heat.to_html(full_html=False, include_plotlyjs="cdn"))
+        f.write(fig_heat.to_html(full_html=False, include_plotlyjs=True))
         f.write(fig_heat2.to_html(full_html=False, include_plotlyjs=False))
         f.write(fig_bars.to_html(full_html=False, include_plotlyjs=False))
         f.write(fig_gap.to_html(full_html=False, include_plotlyjs=False))
@@ -232,7 +232,7 @@ def build_cluster_viz():
     ca         = json.loads(CLUSTER_PATH.read_text())
     labels_arr = np.load(str(CLUSTER_LBL_PATH))
     clip_ids   = json.loads(CLIP_IDS_PATH.read_text())
-    umap_df    = pd.read_parquet(UMAP_PATH, columns=["clip_id", "x", "y"])
+    umap_df    = pd.read_parquet(UMAP_PATH, columns=["clip_id", "x", "y", "weather", "time_of_day", "road_type", "hazard_level"])
 
     # cluster_id → LLM 레이블/size/magnitude 맵
     cluster_meta = {
@@ -269,8 +269,17 @@ def build_cluster_viz():
     sample["is_noise"]= sample["cluster"] == -1
     sample["is_gap"]  = sample["cluster"].isin(bottom_ids)
 
-    # 노이즈, 일반, 갭 레이어 순서로 그리기
+    # KDE 밀도 등고선 → 노이즈 → 일반 → 갭 레이어 순서로 그리기
     fig_scatter = go.Figure()
+
+    # KDE 밀도 오버레이 (전체 데이터 기반)
+    sample_kde = umap_df.sample(min(50_000, len(umap_df)), random_state=0)
+    fig_scatter.add_trace(go.Histogram2dContour(
+        x=sample_kde["x"], y=sample_kde["y"],
+        colorscale=[[0, "rgba(0,0,0,0)"], [0.3, "rgba(255,200,0,0.15)"], [1, "rgba(255,50,0,0.35)"]],
+        ncontours=20, showscale=False, hoverinfo="skip",
+        name="KDE 밀도", line=dict(width=0),
+    ))
 
     noise_s = sample[sample["is_noise"]]
     fig_scatter.add_trace(go.Scattergl(
@@ -378,6 +387,70 @@ def build_cluster_viz():
         margin=dict(t=50, b=20),
     )
 
+    # ── (d) 노이즈 포인트 ODD 태그별 산점도 ─────────────────────────
+    noise_full = umap_df[umap_df["cluster"] == -1].copy()
+    odd_fields = ["weather", "time_of_day", "road_type", "hazard_level"]
+
+    fig_noise = go.Figure()
+    field_trace_ranges: dict[str, tuple[int, int]] = {}
+    palettes = [
+        px.colors.qualitative.Set1,
+        px.colors.qualitative.Set2,
+        px.colors.qualitative.Set3,
+        px.colors.qualitative.Pastel,
+    ]
+
+    trace_idx = 0
+    for fi, field in enumerate(odd_fields):
+        start = trace_idx
+        values = sorted(noise_full[field].dropna().astype(str).unique())
+        palette = palettes[fi]
+        for i, val in enumerate(values):
+            mask = noise_full[field].astype(str) == val
+            sub = noise_full[mask]
+            fig_noise.add_trace(go.Scattergl(
+                x=sub["x"], y=sub["y"],
+                mode="markers",
+                marker=dict(color=palette[i % len(palette)], size=2, opacity=0.5),
+                name=f"{val} ({int(mask.sum()):,})",
+                visible=(field == "weather"),
+                hoverinfo="skip",
+            ))
+            trace_idx += 1
+        field_trace_ranges[field] = (start, trace_idx)
+
+    total_noise_traces = trace_idx
+    dropdown_buttons = []
+    for field in odd_fields:
+        s, e = field_trace_ranges[field]
+        vis = [s <= i < e for i in range(total_noise_traces)]
+        dropdown_buttons.append(dict(
+            label=field,
+            method="update",
+            args=[{"visible": vis}, {"title": f"노이즈 포인트 ODD 분포: {field} (전체 노이즈 {len(noise_full):,}개)"}],
+        ))
+
+    fig_noise.update_layout(
+        title=f"노이즈 포인트 ODD 분포: weather (전체 노이즈 {len(noise_full):,}개)",
+        height=570,
+        xaxis_title="UMAP-1", yaxis_title="UMAP-2",
+        legend=dict(orientation="h", y=-0.14, font=dict(size=10)),
+        margin=dict(t=70, b=110),
+        updatemenus=[dict(
+            buttons=dropdown_buttons,
+            direction="down",
+            x=0.01, y=1.14,
+            showactive=True,
+            xanchor="left", yanchor="top",
+            bgcolor="white", bordercolor="#ccc",
+        )],
+        annotations=[dict(
+            text="ODD 필드:", x=0.01, y=1.16,
+            xref="paper", yref="paper",
+            showarrow=False, font=dict(size=12),
+        )],
+    )
+
     # ── 조합 HTML ─────────────────────────────────────────────────────
     summary_html = f"""
     <div style="font-family:sans-serif;padding:16px;background:#f8fafc;border-radius:8px;margin-bottom:12px">
@@ -394,7 +467,8 @@ def build_cluster_viz():
         f.write("<html><head><meta charset='utf-8'>"
                 "<title>Cluster Analysis</title></head><body>\n")
         f.write(summary_html)
-        f.write(fig_scatter.to_html(full_html=False, include_plotlyjs="cdn"))
+        f.write(fig_scatter.to_html(full_html=False, include_plotlyjs=True))
+        f.write(fig_noise.to_html(full_html=False, include_plotlyjs=False))
         f.write(fig_bubble.to_html(full_html=False, include_plotlyjs=False))
         f.write(fig_table.to_html(full_html=False, include_plotlyjs=False))
         f.write("</body></html>")
