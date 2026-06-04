@@ -34,6 +34,24 @@ FAISS_INDEX_PATH    = INDEX_DIR / "hnsw.index"
 ODD_TAGS_PATH       = TAGS_DIR  / "odd_tags.json"
 EVAL_SET_PATH       = EVAL_DIR  / "eval_set.json"
 
+# ── EXP-002 paths ──────────────────────────────────────────────────────────────
+EXP002_DIR              = EXPERIMENTS_DIR / "EXP-002"
+EXP002_RESULTS_DIR      = EXP002_DIR / "results"
+QUERIES_V2_PATH         = EVAL_DIR / "queries_v2.json"
+EVAL_SET_V2_PATH        = EVAL_DIR / "eval_set_v2.json"
+ODD_CONTINUOUS_PATH     = TAGS_DIR / "odd_continuous.json"
+NF_MODEL_PATH           = EXP002_RESULTS_DIR / "nf_model.pkl"
+GAP_REPORT_PATH         = EXP002_RESULTS_DIR / "gap_report.json"
+
+for _d in (EXP002_RESULTS_DIR,):
+    _d.mkdir(parents=True, exist_ok=True)
+
+# ── Phase 6 (EXP-002 Phase A) output paths ────────────────────────────────────
+ODD_COVERAGE_PATH    = EXP002_RESULTS_DIR / "odd_coverage_matrix.json"
+CLUSTER_UMAP_PATH    = EXP002_RESULTS_DIR / "umap_10d.npy"
+CLUSTER_LABELS_PATH  = EXP002_RESULTS_DIR / "cluster_labels.npy"
+CLUSTER_ANALYSIS_PATH = EXP002_RESULTS_DIR / "cluster_analysis.json"
+
 # ── Active artifact paths (Searcher + API read from here) ─────────────────────
 # data/active 는 data/artifacts/exp-NNN 을 가리키는 심볼릭 링크.
 # 실험 전환: ln -sfn artifacts/exp-NNN data/active  (서버 재시작 불필요)

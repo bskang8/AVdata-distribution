@@ -1,0 +1,181 @@
+experiment_id,method,level,query_id,query,recall@5,mrr@5,latency_ms,n_relevant
+002,bm25,L0,L0-01,pedestrian crossing at night intersection,1.0,1.0,1.25,91
+002,bm25,L0,L0-02,nighttime driving on poorly lit street,1.0,1.0,0.95,97
+002,bm25,L0,L0-03,night urban driving with streetlights,1.0,1.0,0.9,106
+002,bm25,L0,L0-04,highway driving with truck overtaking,1.0,1.0,0.83,90
+002,bm25,L0,L0-05,highway lane change merging,1.0,1.0,0.88,100
+002,bm25,L0,L0-06,highway poor visibility warning sign,1.0,1.0,0.9,72
+002,bm25,L0,L0-07,vehicle sudden braking ahead,1.0,1.0,1.17,97
+002,bm25,L0,L0-08,emergency braking to avoid collision,1.0,1.0,0.62,100
+002,bm25,L0,L0-09,red light stopping intersection,0.4,1.0,0.82,99
+002,bm25,L0,L0-10,pedestrian suddenly enters road,0.6,1.0,0.8,43
+002,bm25,L0,L0-11,pedestrian crossing with dog,1.0,1.0,0.51,67
+002,bm25,L0,L0-12,children near school zone,1.0,1.0,0.48,86
+002,bm25,L0,L0-13,foggy conditions reduced visibility,1.0,1.0,0.8,89
+002,bm25,L0,L0-14,rainy road wet conditions,1.0,1.0,0.87,99
+002,bm25,L0,L0-15,parking lot reversing,1.0,1.0,6.66,94
+002,bm25,L0,L0-16,narrow road parked vehicles on both sides,1.0,1.0,1.37,99
+002,bm25,L0,L0-17,cyclist entering road unexpectedly,0.8,1.0,0.72,73
+002,bm25,L0,L0-18,truck parked blocking lane,1.0,1.0,0.76,56
+002,bm25,L0,L0-19,bus stop with passengers,0.8,1.0,8.99,37
+002,bm25,L0,L0-20,animal crossing road wildlife,1.0,1.0,0.74,74
+002,bm25,L1,L1-01,wet road surface after heavy rain,1.0,1.0,0.93,101
+002,bm25,L1,L1-02,low visibility due to dense fog,1.0,1.0,0.68,86
+002,bm25,L1,L1-03,standstill traffic congestion on highway,1.0,1.0,0.87,94
+002,bm25,L1,L1-04,active school zone with speed limit,1.0,1.0,0.61,85
+002,bm25,L1,L1-05,construction zone with lane narrowing,1.0,1.0,0.66,99
+002,bm25,L1,L1-06,tunnel exit sudden brightness change,0.6,1.0,0.53,54
+002,bm25,L1,L1-07,icy slippery road surface in winter,1.0,1.0,0.7,100
+002,bm25,L1,L1-08,highway on-ramp merging into fast traffic,1.0,1.0,0.86,87
+002,bm25,L1,L1-09,pedestrian crosswalk with active signal,0.8,1.0,0.52,60
+002,bm25,L1,L1-10,sharp curve with limited visibility ahead,1.0,1.0,0.93,90
+002,bm25,L2,L2-01,wet road causes emergency braking near pedestrian,0.8,0.5,0.8,92
+002,bm25,L2,L2-02,fog reduces visibility leading to late hazard detection,1.0,1.0,0.62,96
+002,bm25,L2,L2-03,pedestrian steps into road triggering swerve and near-miss,0.6,1.0,0.74,75
+002,bm25,L2,L2-04,truck cuts in front causing emergency braking and rear-end risk,0.8,1.0,0.69,56
+002,bm25,L2,L2-05,slippery road causes loss of control and lane departure,1.0,1.0,0.91,97
+002,bm25,L2,L2-06,child runs into road forcing hard braking with tailgating vehicle,1.0,1.0,1.05,50
+002,bm25,L2,L2-07,traffic light changes late resulting in intersection conflict,0.2,1.0,0.98,58
+002,bm25,L2,L2-08,cyclist wobbles forcing defensive braking with pressure from rear,0.4,0.3333,0.82,55
+002,bm25,L2,L2-09,animal on road triggers sudden avoidance into oncoming lane,0.8,1.0,0.92,45
+002,bm25,L2,L2-10,missed construction sign leads to abrupt lane change and conflict,0.4,0.25,0.92,57
+002,bm25,L2,L2-11,poor lighting causes late pedestrian detection requiring emergency stop,1.0,1.0,0.68,93
+002,bm25,L2,L2-12,heavy rain causes aquaplaning reducing steering control,1.0,1.0,0.49,100
+002,bm25,L2,L2-13,bus stop passenger stepping out triggers braking during merge,0.2,0.25,0.77,35
+002,bm25,L2,L2-14,highway merge speed mismatch leads to unsafe gap closing,0.6,1.0,0.75,63
+002,bm25,L2,L2-15,sharp curve excess speed requires emergency steering correction,0.8,1.0,0.58,97
+002,bm25,L3,L3-01,night fog highway truck overtaking high hazard,1.0,1.0,0.79,89
+002,bm25,L3,L3-02,rain urban pedestrian crossing bus congested traffic,1.0,1.0,0.98,98
+002,bm25,L3,L3-03,dawn icy road sharp curve no guardrail,0.6,1.0,0.75,34
+002,bm25,L3,L3-04,dusk school zone cyclist child crosswalk,1.0,1.0,0.43,83
+002,bm25,L3,L3-05,tunnel exit night pedestrian narrow road,0.6,1.0,0.83,36
+002,bm25,L3,L3-06,heavy fog highway lane change low visibility high speed,1.0,1.0,1.03,94
+002,bm25,L3,L3-07,rain intersection red light pedestrian cyclist congested,1.0,1.0,0.84,95
+002,bm25,L3,L3-08,snow highway truck emergency braking slippery,1.0,1.0,0.68,92
+002,bm25,L3,L3-09,night parking lot reversing pedestrian behind vehicle,1.0,1.0,0.91,78
+002,bm25,L3,L3-10,construction zone night lane closure merging congested,0.8,0.5,0.84,81
+002,bm25,L4,L4-01,vehicle stopped abruptly ahead,1.0,1.0,0.98,86
+002,bm25,L4,L4-02,person walking across road after dark,0.6,1.0,0.92,53
+002,bm25,L4,L4-03,two-wheeler rider unexpectedly enters lane,0.6,1.0,0.82,44
+002,bm25,L4,L4-04,large freight vehicle blocking travel lane,0.4,0.3333,0.92,29
+002,bm25,L4,L4-05,limited sightlines due to atmospheric conditions,1.0,1.0,0.74,100
+002,embedding,L0,L0-01,pedestrian crossing at night intersection,0.8,1.0,6.66,91
+002,embedding,L0,L0-02,nighttime driving on poorly lit street,1.0,1.0,5.65,97
+002,embedding,L0,L0-03,night urban driving with streetlights,1.0,1.0,5.32,106
+002,embedding,L0,L0-04,highway driving with truck overtaking,1.0,1.0,5.45,90
+002,embedding,L0,L0-05,highway lane change merging,0.8,1.0,5.35,100
+002,embedding,L0,L0-06,highway poor visibility warning sign,0.4,1.0,5.31,72
+002,embedding,L0,L0-07,vehicle sudden braking ahead,1.0,1.0,5.32,97
+002,embedding,L0,L0-08,emergency braking to avoid collision,1.0,1.0,5.42,100
+002,embedding,L0,L0-09,red light stopping intersection,1.0,1.0,5.48,99
+002,embedding,L0,L0-10,pedestrian suddenly enters road,0.4,1.0,5.39,43
+002,embedding,L0,L0-11,pedestrian crossing with dog,0.8,0.5,5.28,67
+002,embedding,L0,L0-12,children near school zone,1.0,1.0,5.28,86
+002,embedding,L0,L0-13,foggy conditions reduced visibility,1.0,1.0,5.06,89
+002,embedding,L0,L0-14,rainy road wet conditions,1.0,1.0,5.3,99
+002,embedding,L0,L0-15,parking lot reversing,1.0,1.0,5.13,94
+002,embedding,L0,L0-16,narrow road parked vehicles on both sides,1.0,1.0,5.32,99
+002,embedding,L0,L0-17,cyclist entering road unexpectedly,0.6,0.5,5.32,73
+002,embedding,L0,L0-18,truck parked blocking lane,1.0,1.0,5.48,56
+002,embedding,L0,L0-19,bus stop with passengers,0.8,1.0,5.29,37
+002,embedding,L0,L0-20,animal crossing road wildlife,1.0,1.0,5.3,74
+002,embedding,L1,L1-01,wet road surface after heavy rain,1.0,1.0,5.2,101
+002,embedding,L1,L1-02,low visibility due to dense fog,1.0,1.0,5.11,86
+002,embedding,L1,L1-03,standstill traffic congestion on highway,1.0,1.0,5.08,94
+002,embedding,L1,L1-04,active school zone with speed limit,1.0,1.0,5.22,85
+002,embedding,L1,L1-05,construction zone with lane narrowing,1.0,1.0,5.24,99
+002,embedding,L1,L1-06,tunnel exit sudden brightness change,0.8,1.0,5.06,54
+002,embedding,L1,L1-07,icy slippery road surface in winter,1.0,1.0,5.21,100
+002,embedding,L1,L1-08,highway on-ramp merging into fast traffic,1.0,1.0,5.17,87
+002,embedding,L1,L1-09,pedestrian crosswalk with active signal,0.6,1.0,5.39,60
+002,embedding,L1,L1-10,sharp curve with limited visibility ahead,1.0,1.0,5.29,90
+002,embedding,L2,L2-01,wet road causes emergency braking near pedestrian,1.0,1.0,5.34,92
+002,embedding,L2,L2-02,fog reduces visibility leading to late hazard detection,1.0,1.0,5.12,96
+002,embedding,L2,L2-03,pedestrian steps into road triggering swerve and near-miss,0.4,1.0,5.33,75
+002,embedding,L2,L2-04,truck cuts in front causing emergency braking and rear-end risk,0.4,1.0,5.64,56
+002,embedding,L2,L2-05,slippery road causes loss of control and lane departure,1.0,1.0,5.22,97
+002,embedding,L2,L2-06,child runs into road forcing hard braking with tailgating vehicle,0.2,0.3333,5.26,50
+002,embedding,L2,L2-07,traffic light changes late resulting in intersection conflict,1.0,1.0,5.33,58
+002,embedding,L2,L2-08,cyclist wobbles forcing defensive braking with pressure from rear,0.8,1.0,5.43,55
+002,embedding,L2,L2-09,animal on road triggers sudden avoidance into oncoming lane,0.2,0.3333,5.58,45
+002,embedding,L2,L2-10,missed construction sign leads to abrupt lane change and conflict,0.6,1.0,5.31,57
+002,embedding,L2,L2-11,poor lighting causes late pedestrian detection requiring emergency stop,1.0,1.0,5.34,93
+002,embedding,L2,L2-12,heavy rain causes aquaplaning reducing steering control,1.0,1.0,5.35,100
+002,embedding,L2,L2-13,bus stop passenger stepping out triggers braking during merge,0.2,1.0,5.51,35
+002,embedding,L2,L2-14,highway merge speed mismatch leads to unsafe gap closing,0.8,1.0,5.54,63
+002,embedding,L2,L2-15,sharp curve excess speed requires emergency steering correction,1.0,1.0,5.46,97
+002,embedding,L3,L3-01,night fog highway truck overtaking high hazard,1.0,1.0,5.28,89
+002,embedding,L3,L3-02,rain urban pedestrian crossing bus congested traffic,1.0,1.0,5.33,98
+002,embedding,L3,L3-03,dawn icy road sharp curve no guardrail,0.8,0.5,5.23,34
+002,embedding,L3,L3-04,dusk school zone cyclist child crosswalk,0.8,1.0,5.48,83
+002,embedding,L3,L3-05,tunnel exit night pedestrian narrow road,0.8,1.0,5.31,36
+002,embedding,L3,L3-06,heavy fog highway lane change low visibility high speed,1.0,1.0,5.07,94
+002,embedding,L3,L3-07,rain intersection red light pedestrian cyclist congested,1.0,1.0,5.27,95
+002,embedding,L3,L3-08,snow highway truck emergency braking slippery,1.0,1.0,5.16,92
+002,embedding,L3,L3-09,night parking lot reversing pedestrian behind vehicle,1.0,1.0,5.07,78
+002,embedding,L3,L3-10,construction zone night lane closure merging congested,0.6,1.0,5.19,81
+002,embedding,L4,L4-01,vehicle stopped abruptly ahead,0.6,0.5,5.19,86
+002,embedding,L4,L4-02,person walking across road after dark,0.4,0.3333,5.17,53
+002,embedding,L4,L4-03,two-wheeler rider unexpectedly enters lane,0.6,1.0,5.31,44
+002,embedding,L4,L4-04,large freight vehicle blocking travel lane,0.4,0.25,5.13,29
+002,embedding,L4,L4-05,limited sightlines due to atmospheric conditions,1.0,1.0,5.05,100
+002,hybrid,L0,L0-01,pedestrian crossing at night intersection,0.4,0.5,117.86,91
+002,hybrid,L0,L0-02,nighttime driving on poorly lit street,1.0,1.0,366.39,97
+002,hybrid,L0,L0-03,night urban driving with streetlights,0.0,0.0,102.28,106
+002,hybrid,L0,L0-04,highway driving with truck overtaking,0.8,1.0,132.47,90
+002,hybrid,L0,L0-05,highway lane change merging,0.8,1.0,241.0,100
+002,hybrid,L0,L0-06,highway poor visibility warning sign,0.6,1.0,244.47,72
+002,hybrid,L0,L0-07,vehicle sudden braking ahead,0.6,0.3333,257.51,97
+002,hybrid,L0,L0-08,emergency braking to avoid collision,0.6,0.5,258.56,100
+002,hybrid,L0,L0-09,red light stopping intersection,0.8,1.0,522.36,99
+002,hybrid,L0,L0-10,pedestrian suddenly enters road,0.4,0.5,195.66,43
+002,hybrid,L0,L0-11,pedestrian crossing with dog,0.8,0.5,203.79,67
+002,hybrid,L0,L0-12,children near school zone,1.0,1.0,207.09,86
+002,hybrid,L0,L0-13,foggy conditions reduced visibility,1.0,1.0,108.59,89
+002,hybrid,L0,L0-14,rainy road wet conditions,1.0,1.0,167.87,99
+002,hybrid,L0,L0-15,parking lot reversing,1.0,1.0,120.74,94
+002,hybrid,L0,L0-16,narrow road parked vehicles on both sides,1.0,1.0,7.87,99
+002,hybrid,L0,L0-17,cyclist entering road unexpectedly,0.4,0.3333,146.32,73
+002,hybrid,L0,L0-18,truck parked blocking lane,0.4,0.3333,199.53,56
+002,hybrid,L0,L0-19,bus stop with passengers,0.8,1.0,158.15,37
+002,hybrid,L0,L0-20,animal crossing road wildlife,1.0,1.0,95.4,74
+002,hybrid,L1,L1-01,wet road surface after heavy rain,1.0,1.0,166.33,101
+002,hybrid,L1,L1-02,low visibility due to dense fog,1.0,1.0,109.93,86
+002,hybrid,L1,L1-03,standstill traffic congestion on highway,1.0,1.0,118.12,94
+002,hybrid,L1,L1-04,active school zone with speed limit,1.0,1.0,7.76,85
+002,hybrid,L1,L1-05,construction zone with lane narrowing,1.0,1.0,7.32,99
+002,hybrid,L1,L1-06,tunnel exit sudden brightness change,0.8,1.0,85.86,54
+002,hybrid,L1,L1-07,icy slippery road surface in winter,0.8,1.0,147.27,100
+002,hybrid,L1,L1-08,highway on-ramp merging into fast traffic,1.0,1.0,245.22,87
+002,hybrid,L1,L1-09,pedestrian crosswalk with active signal,0.6,1.0,202.0,60
+002,hybrid,L1,L1-10,sharp curve with limited visibility ahead,1.0,1.0,8.4,90
+002,hybrid,L2,L2-01,wet road causes emergency braking near pedestrian,0.6,1.0,97.35,92
+002,hybrid,L2,L2-02,fog reduces visibility leading to late hazard detection,1.0,1.0,109.47,96
+002,hybrid,L2,L2-03,pedestrian steps into road triggering swerve and near-miss,0.4,0.5,125.77,75
+002,hybrid,L2,L2-04,truck cuts in front causing emergency braking and rear-end risk,0.2,0.25,127.93,56
+002,hybrid,L2,L2-05,slippery road causes loss of control and lane departure,0.8,1.0,121.82,97
+002,hybrid,L2,L2-06,child runs into road forcing hard braking with tailgating vehicle,0.4,0.25,126.48,50
+002,hybrid,L2,L2-07,traffic light changes late resulting in intersection conflict,0.6,1.0,524.05,58
+002,hybrid,L2,L2-08,cyclist wobbles forcing defensive braking with pressure from rear,0.6,0.5,142.03,55
+002,hybrid,L2,L2-09,animal on road triggers sudden avoidance into oncoming lane,0.4,1.0,99.61,45
+002,hybrid,L2,L2-10,missed construction sign leads to abrupt lane change and conflict,0.6,1.0,7.63,57
+002,hybrid,L2,L2-11,poor lighting causes late pedestrian detection requiring emergency stop,0.4,0.5,202.29,93
+002,hybrid,L2,L2-12,heavy rain causes aquaplaning reducing steering control,1.0,1.0,168.27,100
+002,hybrid,L2,L2-13,bus stop passenger stepping out triggers braking during merge,0.0,0.0,211.56,35
+002,hybrid,L2,L2-14,highway merge speed mismatch leads to unsafe gap closing,0.6,1.0,240.99,63
+002,hybrid,L2,L2-15,sharp curve excess speed requires emergency steering correction,1.0,1.0,8.48,97
+002,hybrid,L3,L3-01,night fog highway truck overtaking high hazard,1.0,1.0,94.63,89
+002,hybrid,L3,L3-02,rain urban pedestrian crossing bus congested traffic,0.2,1.0,61.59,98
+002,hybrid,L3,L3-03,dawn icy road sharp curve no guardrail,0.2,1.0,59.74,34
+002,hybrid,L3,L3-04,dusk school zone cyclist child crosswalk,0.0,0.0,86.44,83
+002,hybrid,L3,L3-05,tunnel exit night pedestrian narrow road,0.4,1.0,63.95,36
+002,hybrid,L3,L3-06,heavy fog highway lane change low visibility high speed,1.0,1.0,64.49,94
+002,hybrid,L3,L3-07,rain intersection red light pedestrian cyclist congested,0.4,1.0,96.21,95
+002,hybrid,L3,L3-08,snow highway truck emergency braking slippery,1.0,1.0,89.79,92
+002,hybrid,L3,L3-09,night parking lot reversing pedestrian behind vehicle,0.4,1.0,68.76,78
+002,hybrid,L3,L3-10,construction zone night lane closure merging congested,0.6,1.0,115.96,81
+002,hybrid,L4,L4-01,vehicle stopped abruptly ahead,0.6,0.5,7.64,86
+002,hybrid,L4,L4-02,person walking across road after dark,0.4,0.3333,135.99,53
+002,hybrid,L4,L4-03,two-wheeler rider unexpectedly enters lane,0.4,0.5,149.16,44
+002,hybrid,L4,L4-04,large freight vehicle blocking travel lane,0.2,0.25,198.98,29
+002,hybrid,L4,L4-05,limited sightlines due to atmospheric conditions,0.6,1.0,108.17,100

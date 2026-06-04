@@ -1,0 +1,1553 @@
+{
+  "total_clips": 299180,
+  "axes": [
+    "weather",
+    "time_of_day",
+    "road_type",
+    "hazard_level"
+  ],
+  "possible_combinations": 560,
+  "covered_combinations": 338,
+  "coverage_rate": 0.6036,
+  "per_field_distribution": {
+    "weather": {
+      "unknown": 140937,
+      "clear": 62609,
+      "rain": 36687,
+      "cloudy": 30703,
+      "snow": 17482,
+      "fog": 10762
+    },
+    "time_of_day": {
+      "unknown": 111554,
+      "night": 102917,
+      "day": 74905,
+      "dawn": 6515,
+      "dusk": 3289
+    },
+    "road_type": {
+      "intersection": 181612,
+      "highway": 72821,
+      "parking_lot": 15490,
+      "rural": 10192,
+      "unknown": 9929,
+      "urban": 7425,
+      "bridge": 909,
+      "tunnel": 802
+    },
+    "hazard_level": {
+      "medium": 151640,
+      "high": 79832,
+      "unknown": 45712,
+      "low": 21995,
+      "none": 1
+    }
+  },
+  "top_50_combos": [
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 19020
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 16540
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "unknown"
+      },
+      "count": 10293
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 9067
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 8820
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 7740
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 7703
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "unknown",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 6619
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 6470
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 6248
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 5273
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 5170
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 4865
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 4663
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 4353
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "unknown",
+        "road_type": "highway",
+        "hazard_level": "unknown"
+      },
+      "count": 4191
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "unknown"
+      },
+      "count": 4130
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 3486
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 3408
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "low"
+      },
+      "count": 3065
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 2916
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "night",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 2863
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "unknown",
+        "road_type": "highway",
+        "hazard_level": "high"
+      },
+      "count": 2787
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 2564
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "night",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 2562
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 2553
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "day",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 2508
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 2470
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "highway",
+        "hazard_level": "high"
+      },
+      "count": 2405
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "unknown",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 2333
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "unknown",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 2259
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 2139
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 2036
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 2016
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "highway",
+        "hazard_level": "unknown"
+      },
+      "count": 2009
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 1876
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "day",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 1831
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "unknown"
+      },
+      "count": 1762
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "low"
+      },
+      "count": 1722
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "unknown",
+        "road_type": "highway",
+        "hazard_level": "low"
+      },
+      "count": 1668
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "medium"
+      },
+      "count": 1666
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "unknown"
+      },
+      "count": 1648
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "unknown"
+      },
+      "count": 1610
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "parking_lot",
+        "hazard_level": "medium"
+      },
+      "count": 1542
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "parking_lot",
+        "hazard_level": "high"
+      },
+      "count": 1523
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "night",
+        "road_type": "intersection",
+        "hazard_level": "unknown"
+      },
+      "count": 1484
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "unknown",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 1466
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "low"
+      },
+      "count": 1458
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "day",
+        "road_type": "highway",
+        "hazard_level": "medium"
+      },
+      "count": 1448
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "day",
+        "road_type": "intersection",
+        "hazard_level": "high"
+      },
+      "count": 1395
+    }
+  ],
+  "bottom_50_combos": [
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "dusk",
+        "road_type": "unknown",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "dusk",
+        "road_type": "unknown",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "dusk",
+        "road_type": "intersection",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "night",
+        "road_type": "tunnel",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "day",
+        "road_type": "bridge",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "dusk",
+        "road_type": "urban",
+        "hazard_level": "high"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "dawn",
+        "road_type": "unknown",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "dawn",
+        "road_type": "bridge",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "dusk",
+        "road_type": "bridge",
+        "hazard_level": "high"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "unknown",
+        "road_type": "tunnel",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "day",
+        "road_type": "tunnel",
+        "hazard_level": "high"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "dusk",
+        "road_type": "rural",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "dusk",
+        "road_type": "unknown",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "dawn",
+        "road_type": "parking_lot",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "dawn",
+        "road_type": "urban",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "night",
+        "road_type": "highway",
+        "hazard_level": "none"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "dawn",
+        "road_type": "highway",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "dusk",
+        "road_type": "bridge",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "dawn",
+        "road_type": "urban",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "dawn",
+        "road_type": "parking_lot",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "night",
+        "road_type": "tunnel",
+        "hazard_level": "high"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "dusk",
+        "road_type": "bridge",
+        "hazard_level": "high"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "unknown",
+        "road_type": "bridge",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "dusk",
+        "road_type": "urban",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "unknown",
+        "road_type": "tunnel",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "dusk",
+        "road_type": "parking_lot",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "dusk",
+        "road_type": "urban",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "dusk",
+        "road_type": "parking_lot",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "dawn",
+        "road_type": "rural",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "day",
+        "road_type": "bridge",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "dawn",
+        "road_type": "urban",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "dusk",
+        "road_type": "rural",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "dusk",
+        "road_type": "rural",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "dusk",
+        "road_type": "urban",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "dusk",
+        "road_type": "urban",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "unknown",
+        "road_type": "bridge",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "dawn",
+        "road_type": "tunnel",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "night",
+        "road_type": "tunnel",
+        "hazard_level": "high"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "night",
+        "road_type": "bridge",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "dawn",
+        "road_type": "bridge",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "unknown",
+        "road_type": "tunnel",
+        "hazard_level": "unknown"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "dawn",
+        "road_type": "bridge",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "snow",
+        "time_of_day": "dusk",
+        "road_type": "urban",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "dawn",
+        "road_type": "bridge",
+        "hazard_level": "high"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "clear",
+        "time_of_day": "dusk",
+        "road_type": "bridge",
+        "hazard_level": "high"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "unknown",
+        "time_of_day": "dusk",
+        "road_type": "bridge",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "cloudy",
+        "time_of_day": "dusk",
+        "road_type": "parking_lot",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "fog",
+        "time_of_day": "day",
+        "road_type": "rural",
+        "hazard_level": "low"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "dawn",
+        "road_type": "urban",
+        "hazard_level": "medium"
+      },
+      "count": 1
+    },
+    {
+      "combo": {
+        "weather": "rain",
+        "time_of_day": "day",
+        "road_type": "tunnel",
+        "hazard_level": "low"
+      },
+      "count": 1
+    }
+  ],
+  "zero_coverage_count": 222,
+  "zero_coverage_combos": [
+    {
+      "weather": "clear",
+      "time_of_day": "day",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "day",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "day",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "day",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "day",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "day",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "day",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "night",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "night",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "night",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "night",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "night",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "night",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "night",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "tunnel",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "tunnel",
+      "hazard_level": "medium"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "tunnel",
+      "hazard_level": "high"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dawn",
+      "road_type": "bridge",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "parking_lot",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "tunnel",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "tunnel",
+      "hazard_level": "medium"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "tunnel",
+      "hazard_level": "high"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "clear",
+      "time_of_day": "dusk",
+      "road_type": "bridge",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "day",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "day",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "day",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "day",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "day",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "day",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "day",
+      "road_type": "tunnel",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "day",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "tunnel",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "night",
+      "road_type": "bridge",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "rural",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "tunnel",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "tunnel",
+      "hazard_level": "medium"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "tunnel",
+      "hazard_level": "high"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "bridge",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "bridge",
+      "hazard_level": "medium"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dawn",
+      "road_type": "bridge",
+      "hazard_level": "high"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "urban",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "rural",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "tunnel",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "tunnel",
+      "hazard_level": "medium"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "tunnel",
+      "hazard_level": "high"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "bridge",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "bridge",
+      "hazard_level": "medium"
+    },
+    {
+      "weather": "cloudy",
+      "time_of_day": "dusk",
+      "road_type": "bridge",
+      "hazard_level": "high"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "day",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "day",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "day",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "day",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "day",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "day",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "day",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "day",
+      "road_type": "bridge",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "night",
+      "road_type": "highway",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "night",
+      "road_type": "urban",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "night",
+      "road_type": "intersection",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "night",
+      "road_type": "parking_lot",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "night",
+      "road_type": "rural",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "night",
+      "road_type": "tunnel",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "night",
+      "road_type": "tunnel",
+      "hazard_level": "low"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "night",
+      "road_type": "bridge",
+      "hazard_level": "none"
+    },
+    {
+      "weather": "rain",
+      "time_of_day": "dawn",
+      "road_type": "highway",
+      "hazard_level": "none"
+    }
+  ]
+}

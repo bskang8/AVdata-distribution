@@ -1,0 +1,3316 @@
+{
+  "n_total": 299180,
+  "n_clusters": 124,
+  "n_noise": 65893,
+  "noise_rate": 0.2202,
+  "clusters": [
+    {
+      "cluster_id": 24,
+      "size": 50,
+      "magnitude": 1.378,
+      "mag_per_clip": 0.0276,
+      "clip_ids_sample": [
+        "0ea89dad-eeec-4b33-be2c-1e7bdb366e5c",
+        "1be3f5ea-f238-41a9-8124-1c48263c481b",
+        "1dcfa915-c1f2-4e1a-ab36-47ba4241a331",
+        "2b17fe38-5d71-4cf0-a113-ae4abc60f88b",
+        "310c4324-d97c-4c43-bab8-62b728fe9532",
+        "3aaaca59-bdb0-4ee1-a835-42e1476b5832",
+        "3bc3ac65-9f5d-40df-9c33-5d46783eb40b",
+        "46aae0b9-763d-4956-83ef-e2cff301eea4",
+        "487ec592-0f79-420c-ab3d-81036e48ec09",
+        "4a73e4ad-c09f-4963-bd47-5adcbb5d7a76"
+      ],
+      "llm_label": "urban driving in moderate traffic under overcast skies"
+    },
+    {
+      "cluster_id": 46,
+      "size": 50,
+      "magnitude": 1.1442,
+      "mag_per_clip": 0.0229,
+      "clip_ids_sample": [
+        "091dbd2d-e39c-4178-b25f-ae2d1b5f46cf",
+        "173a415b-9024-4e67-bbd2-9b2d53a367a0",
+        "18101c44-7699-48c7-a603-d1ac5ec87ce8",
+        "18298cea-36a0-4b4b-8661-a6e193291b00",
+        "25c01fa3-5e02-42ab-89fe-ede3233dbc1a",
+        "28c1f4f5-8249-4b72-bd24-e8a12f96aee2",
+        "2b24aca1-161e-4afe-b944-a1f61cea980a",
+        "2b511809-fec7-480f-8220-10015c493151",
+        "36430b45-5a9f-4a2b-bccd-70d9e616b281",
+        "46c9b24c-2b1b-4539-a68b-824b50730c3d"
+      ],
+      "llm_label": "Driving in a quiet suburban neighborhood on a sunny day"
+    },
+    {
+      "cluster_id": 44,
+      "size": 51,
+      "magnitude": 1.2181,
+      "mag_per_clip": 0.0239,
+      "clip_ids_sample": [
+        "0e6e8174-1fdf-489c-80e9-0fa998756fa2",
+        "15262f3b-3cd3-4f8a-89ba-4b1a5416c718",
+        "19699ecc-0cd9-40c9-ac3f-9888f2236319",
+        "1c9d1b6c-b031-4d4d-84b8-6701db2f02e4",
+        "1e554c14-fdcb-45f4-86ae-66d8882cef24",
+        "1eb35f25-40f7-43c4-92a3-115ce3967c53",
+        "1ef3064e-6e73-46bb-957c-2390f2819408",
+        "29568f6c-ec5f-474d-a7c3-801848fe2fe8",
+        "2a25ad74-3622-4883-b8ca-770f4c68442d",
+        "30de7d88-2cb0-4252-83a2-3caf6f68122c"
+      ],
+      "llm_label": "Residential driving on a sunny day"
+    },
+    {
+      "cluster_id": 25,
+      "size": 53,
+      "magnitude": 1.3564,
+      "mag_per_clip": 0.0256,
+      "clip_ids_sample": [
+        "017827f4-3142-40ed-a659-2fc3b7440f97",
+        "02a8effa-5547-4c54-b733-4fe1b62cb598",
+        "0ca7c235-528d-4671-9cdf-4b599edfc3d6",
+        "101a7f8c-fb3f-4b13-b609-516cfb48181e",
+        "12439bb4-ca96-4794-a970-124ffaa475ab",
+        "130f75d0-c95d-480d-9c02-7a02bba35da5",
+        "168078db-03ae-4754-85d8-3e5c9bc53d59",
+        "1790c4f9-e113-462d-837c-3e77bb253c64",
+        "1bfcc513-0396-46ca-9a17-75a9f99359cb",
+        "242e8c5e-8ad8-4b70-bbe6-a1dfa46b8847"
+      ],
+      "llm_label": "twilight highway driving with occasional merging vehicles"
+    },
+    {
+      "cluster_id": 56,
+      "size": 53,
+      "magnitude": 1.3033,
+      "mag_per_clip": 0.0246,
+      "clip_ids_sample": [
+        "0411633e-3f3f-4de2-8fd8-2d3555602c12",
+        "043aa241-6d8c-492b-b811-3d274c709b6c",
+        "051b420f-57f6-4553-b044-69f980dfc993",
+        "09374303-5c5c-435d-a9e5-8b8fb8609463",
+        "09eb77c8-9139-4317-962b-411f4a583865",
+        "124e23f4-fc37-488b-a03f-923f9f19ba35",
+        "18b7f444-7d5c-4eee-91b0-3ebaa9a15cb8",
+        "18d0bd5b-956c-48b1-a52f-983321eda761",
+        "1f4d95f8-9f11-4c81-aef1-b9d4619b2902",
+        "269a599e-8a2a-4b13-85af-94fc3376d133"
+      ],
+      "llm_label": "Two-laned road driving in low-light conditions."
+    },
+    {
+      "cluster_id": 21,
+      "size": 55,
+      "magnitude": 1.4934,
+      "mag_per_clip": 0.0272,
+      "clip_ids_sample": [
+        "004d4a47-2b27-4174-a1b8-0363d81ffc1d",
+        "0859260b-901a-4d80-bd65-b0c45a946465",
+        "121ede31-f08e-4257-ae97-f0df83c3cb98",
+        "12378a2b-3190-4768-b356-4d5798ccde2c",
+        "12a8ac81-4082-4dce-b1e0-f33804b02414",
+        "14dc2458-65df-42d8-a22f-aca042d12ed6",
+        "1a3902b7-0586-4112-8d6b-f1af81e3feed",
+        "1e4569b6-e0be-4810-92e9-4820b70a4d01",
+        "21f7a461-5716-451a-8c49-f9769e8e3485",
+        "2e0bb0ff-e2a0-476a-a00c-ba5b9f64fc2a"
+      ],
+      "llm_label": "Urban driving with obstacles and cautious navigation."
+    },
+    {
+      "cluster_id": 53,
+      "size": 56,
+      "magnitude": 1.2452,
+      "mag_per_clip": 0.0222,
+      "clip_ids_sample": [
+        "01d54f47-1d3a-46ae-874a-24bfcb02bed3",
+        "0377361c-3a61-48a8-b9b0-c53c0e6c9bec",
+        "050cba30-7f48-4bb0-b4e7-060faa41b03e",
+        "0767d882-91ef-4b08-8906-e67b9a850b1c",
+        "0a73f5c4-38ec-4633-a4b7-0e8f3dd327a9",
+        "0bf3ff88-2631-45fe-93c2-1a85a40268b8",
+        "0c827dc9-588c-45c3-b27f-bbdb4156c55b",
+        "106223bb-fe9f-471d-982b-add17d28af07",
+        "1831abd2-1687-4eb7-bec2-8ed8eabafda4",
+        "1b053d56-07a8-4190-bc99-ee79c4e55d85"
+      ],
+      "llm_label": "Multi-lane road with moderate traffic and construction."
+    },
+    {
+      "cluster_id": 111,
+      "size": 56,
+      "magnitude": 1.1479,
+      "mag_per_clip": 0.0205,
+      "clip_ids_sample": [
+        "0d6e8cf8-1fee-4456-987f-47341265279c",
+        "0d792b6d-3f3e-4fc7-8397-245747506bd2",
+        "1078e3d3-edea-4bbb-8994-f0d0d8c2e5bc",
+        "10d1637c-1870-41e9-9aaa-8af812de15a0",
+        "139cdf55-c245-48f1-ae1a-5bccfe7eae07",
+        "1502f377-db35-49ef-8db5-2d7a34b140f7",
+        "16ba9326-37dc-4184-a223-9f5374779fff",
+        "182fff50-d1ab-482d-b2fc-58299533f5a3",
+        "1bc93e58-d203-4b62-9bd7-00454f94a851",
+        "21fbae71-d38a-4e02-b30a-2c63087ea27a"
+      ],
+      "llm_label": "Morning highway merging with busy traffic flow"
+    },
+    {
+      "cluster_id": 80,
+      "size": 57,
+      "magnitude": 1.1779,
+      "mag_per_clip": 0.0207,
+      "clip_ids_sample": [
+        "07654095-d102-4adf-b40d-e2b7fd7abb82",
+        "08077200-7b53-4ab3-a318-7c3bdd556e5d",
+        "0a1f449b-c57a-4393-b9b2-0056d3eea497",
+        "0b02896e-477f-49fa-ac50-e8c9aee4f76f",
+        "0f9ca3d5-dfe6-49bf-831d-6af41de1e635",
+        "105fd5aa-c3c6-4593-938b-612c1b5a2a78",
+        "17a6fead-6d9a-4bba-8b0e-3ddccc8c35b4",
+        "24db8ca5-6c66-413b-a3ba-3e7e8ff372be",
+        "24e040f9-61b6-472a-9bfd-985bb629a0b3",
+        "26792826-de6d-4cb6-966e-04b4510ca029"
+      ],
+      "llm_label": "busy freeway driving with heavy traffic and stalls"
+    },
+    {
+      "cluster_id": 106,
+      "size": 57,
+      "magnitude": 1.1192,
+      "mag_per_clip": 0.0196,
+      "clip_ids_sample": [
+        "03e3eee4-8b47-487a-bc51-3d648a8f538c",
+        "052075df-cc75-413a-8644-d7d7d50eb50c",
+        "09629e3b-3546-4921-8e3f-b6578e7f989b",
+        "172566e6-14c2-4bfa-aebf-b82781a06b7c",
+        "1b4ec297-45c2-407b-ae80-696338b3cd67",
+        "1e3443fe-e4be-4e1a-b072-200be5164a14",
+        "1f236a18-31f0-486c-908c-c849a26cc0a9",
+        "20357a58-2c26-40e1-ad03-ded014da28d1",
+        "22712f79-7158-44d3-8d2c-deb5df5042fe",
+        "2d0ddaf4-5461-4059-aef9-ce7c0a4e98b0"
+      ],
+      "llm_label": "Rural driving at dusk with limited visibility"
+    },
+    {
+      "cluster_id": 5,
+      "size": 60,
+      "magnitude": 1.3397,
+      "mag_per_clip": 0.0223,
+      "clip_ids_sample": [
+        "05d133d7-0495-4955-b912-ec502df74f66",
+        "06dda8d4-1f45-4516-8dc9-3fe550b8e6b6",
+        "085aedb0-6e2b-494d-9066-caf90a35731d",
+        "0a1adee5-3561-40e6-85ad-93d2a02dd1bf",
+        "0c57ecbd-6c2b-4d99-96e7-23f628a016dc",
+        "0c969790-a08f-4156-aabb-574ce4b82611",
+        "0e108459-0871-46cd-a76c-afde298bbc5a",
+        "11cc197a-13a6-43cb-ae71-15dcaaf19e90",
+        "148fa2ee-b837-407e-aca7-31503aa6637f",
+        "17a9a382-42fc-4105-85ee-3886a6c29406"
+      ],
+      "llm_label": "toll plaza traffic in clear daytime conditions"
+    },
+    {
+      "cluster_id": 32,
+      "size": 60,
+      "magnitude": 1.2444,
+      "mag_per_clip": 0.0207,
+      "clip_ids_sample": [
+        "056fbecd-d715-4167-9dd6-f09e8447102a",
+        "092a85a2-b696-416d-ada9-a2d652a9222a",
+        "0d4d2a16-b307-4be1-911e-5d194e43aac8",
+        "0f29301b-29bd-498f-9149-9a468f1ce62a",
+        "153da1c9-d099-4801-a75c-ab1b008c0e19",
+        "195bae60-7fac-4457-89e3-1f1f9521f2bf",
+        "1aeea048-c0f5-423d-be97-228a39f51370",
+        "2058c7dd-776e-489d-9fe1-bbff06a135a3",
+        "23678c60-05af-4dba-afc1-bea7d12cf60f",
+        "29474be9-7d2b-434b-b585-c5c574ea6a46"
+      ],
+      "llm_label": "urban driving on a sunny day with distractions"
+    },
+    {
+      "cluster_id": 54,
+      "size": 62,
+      "magnitude": 1.2735,
+      "mag_per_clip": 0.0205,
+      "clip_ids_sample": [
+        "0359ac86-7618-44ac-8286-96c38099bda6",
+        "036786e4-9099-489c-ab56-039f618a8fb2",
+        "0410caff-8c29-4763-98fc-bdd4a09d4aac",
+        "0835b5ec-35df-4e61-bacd-1c895e2e1c6d",
+        "10f7409d-4f01-45a1-9a1e-f68c57e227e6",
+        "134851de-4570-4ddf-8337-ae8acb296518",
+        "152ba6f2-e7c3-411e-aec4-0332b1ca7af0",
+        "1761f579-3cc6-480b-9ddd-71f0d95eac9e",
+        "1b2c4ecc-5e4a-48c2-8299-7040a520d711",
+        "1d32b8fb-200f-445e-b17a-a19d2da0afc1"
+      ],
+      "llm_label": "urban driving with obstacle navigation and intersection queuing"
+    },
+    {
+      "cluster_id": 119,
+      "size": 62,
+      "magnitude": 1.1901,
+      "mag_per_clip": 0.0192,
+      "clip_ids_sample": [
+        "049ed426-22b7-4ccd-badd-550a54351081",
+        "0878fee3-7d36-49c3-a29b-2bce0812efb3",
+        "0ab59f9a-a6cf-4117-b2b7-c0938cfab47d",
+        "149d4926-67e9-49a6-bb9d-1f1388d4ff33",
+        "168fe5a0-f1bc-451d-9ac4-540fd4b68f75",
+        "17e459ab-41b7-4bad-b67a-6986e4453743",
+        "1a8fca36-77da-4474-bc72-220087605788",
+        "1ee41a60-6ff8-4a9f-8134-8eb8b8a2139f",
+        "1f7adda8-4bb2-4cc4-9f5f-ae1df8461af6",
+        "25261d3b-a235-4ba0-9fc4-f302b10138db"
+      ],
+      "llm_label": "busy morning traffic with intersection red light"
+    },
+    {
+      "cluster_id": 20,
+      "size": 64,
+      "magnitude": 1.462,
+      "mag_per_clip": 0.0228,
+      "clip_ids_sample": [
+        "00c17f08-0f88-4349-9e7b-6901278d5b33",
+        "0ff273ff-78f6-4895-b542-60ed9ba81d4a",
+        "125dbf46-b280-4dd7-a32e-c4dadb25156c",
+        "174bc645-de21-4b99-8cfa-53468cc02723",
+        "1d56b3cc-93d3-4eba-aa15-03d39a7c73fa",
+        "20a4309b-fb79-487d-b61f-75bf8189cb59",
+        "2928d08d-f72c-4f71-ba21-6fa61119e1d8",
+        "2a52c1db-7442-46c1-ac4f-68f949bbd86c",
+        "317c62de-56bf-49f4-8a20-36a7e133450c",
+        "3206aed2-2367-4bf5-9eb1-eeaec762c0a9"
+      ],
+      "llm_label": "Urban intersection with multi-lane traffic in daytime"
+    },
+    {
+      "cluster_id": 45,
+      "size": 66,
+      "magnitude": 1.1028,
+      "mag_per_clip": 0.0167,
+      "clip_ids_sample": [
+        "050752fe-7729-4960-895b-3f05c3bad41b",
+        "06578bf1-d8c3-4d94-bc0f-138143c49678",
+        "0d3e239f-2554-4959-93f0-f82fdcb0ec79",
+        "0f71a0a0-a4f8-4d14-9e97-2d05ef252c79",
+        "11fd8546-d978-4d0c-b0ce-78613f0afa20",
+        "15687e40-9b1a-45dd-b6dc-2eb1eeff3e5a",
+        "1569bc6a-289c-4809-a6f0-a154b618512d",
+        "191ffa2d-3b00-44a8-ba68-dd02e2bb39b5",
+        "19b3bc6c-02b7-42a0-9646-fb85b6aaad34",
+        "1a221abd-35b9-4cf8-988d-b962bed345a3"
+      ],
+      "llm_label": "Morning rush hour with merging and overtaking trucks."
+    },
+    {
+      "cluster_id": 83,
+      "size": 67,
+      "magnitude": 1.2656,
+      "mag_per_clip": 0.0189,
+      "clip_ids_sample": [
+        "00904520-3100-4e97-a728-b7fd984216a7",
+        "03bafa42-ba5a-452e-aa1d-93f53be6cdc9",
+        "03df9ea2-549d-4e41-bf95-7e6593dd058c",
+        "049f1baf-1f5d-4cbf-85f7-bfb40d4d12fc",
+        "04e05b20-7c19-4673-8cc7-e8c292f393d2",
+        "078cd164-a762-4a95-9fb8-2eb943d86bbe",
+        "0b13d229-5be5-4d7b-9e12-328e5cfc6c19",
+        "0becc223-cb6c-483d-97e0-035afddc80dd",
+        "128c4056-3bac-4ba8-8c0a-5c6019bdc092",
+        "15cf1607-507d-4918-8999-58931e3293df"
+      ],
+      "llm_label": "quiet residential street with low visibility in the morning"
+    },
+    {
+      "cluster_id": 16,
+      "size": 68,
+      "magnitude": 1.304,
+      "mag_per_clip": 0.0192,
+      "clip_ids_sample": [
+        "02d2c18b-1604-4370-9f15-9b512e5a509a",
+        "09e69cb0-4745-4306-8944-804e5d83ffea",
+        "0ab6e787-433e-4753-bd16-b1d171858646",
+        "0c78523b-8a39-42c6-bc6e-43bbfcd81fd3",
+        "0c7f388f-f047-43f2-8b06-44943e58cd0d",
+        "0e8fb9c6-7939-4384-8bdf-e3394ef98314",
+        "128594dd-a00d-489a-9f47-528e657995d8",
+        "13d0e50c-b1af-40f1-a51e-9bed1aa5a6b6",
+        "15e14fc5-162d-48ed-a105-f1ebbe7543cc",
+        "1ee06a9f-bf8e-40e9-a7bd-031e4ecb574d"
+      ],
+      "llm_label": "Narrow winding road with railway crossing warning"
+    },
+    {
+      "cluster_id": 18,
+      "size": 69,
+      "magnitude": 1.3332,
+      "mag_per_clip": 0.0193,
+      "clip_ids_sample": [
+        "00dbbd01-4229-437d-8f5b-cd4bb6c0596f",
+        "01da38df-4eaa-4fba-80ce-27d18fabbd0f",
+        "02f17eaf-f7e5-4071-a293-219d20986052",
+        "06731e6e-67ee-418e-84a4-feb5a0720114",
+        "0bc84267-f9a7-4065-add0-a28f4355f81b",
+        "0fae8cb6-bc79-46f4-8722-914dc2192899",
+        "146cb634-dcad-426f-8885-59423084ffab",
+        "1b54be13-4214-4a62-b5b8-4669781a8151",
+        "1f4d2548-1926-4928-8a6f-1becc4f49741",
+        "23ffa870-9b33-4aac-9008-a1928ac1c404"
+      ],
+      "llm_label": "Construction zone on a sunny day with traffic."
+    },
+    {
+      "cluster_id": 41,
+      "size": 69,
+      "magnitude": 1.1944,
+      "mag_per_clip": 0.0173,
+      "clip_ids_sample": [
+        "0e2b1cf0-f955-44e5-b84a-6d14d82d526e",
+        "10d251b8-bff3-47af-834e-3da0697656d8",
+        "13a3c2cd-9be5-44e6-ab0b-4112edf7074f",
+        "160a54f6-e640-4127-8031-afcbe235e43b",
+        "19a36172-ee60-41dd-9029-ffba0f87d2f6",
+        "240a92bc-6673-40fc-8f4c-a1ec23ce59bd",
+        "2cbe844c-b1f4-4c88-8781-f22c2e1aa9c5",
+        "31b4923f-4b4d-41db-b36a-c7bb93789719",
+        "336fbfab-2a6b-4395-885a-ec35fab35baf",
+        "36803fca-b9b6-4164-ad47-37320d45d691"
+      ],
+      "llm_label": "scenic mountain driving with clear skies and sunshine"
+    },
+    {
+      "cluster_id": 109,
+      "size": 69,
+      "magnitude": 1.1186,
+      "mag_per_clip": 0.0162,
+      "clip_ids_sample": [
+        "0000e9b8-bd42-4d20-bd98-d3cecd8726be",
+        "04d66632-3ba3-45d5-8029-b672aa49ecaf",
+        "0616baf9-d7d0-4546-b8e2-d35760ab26c4",
+        "0abe48e2-4811-4d38-aeb9-b0989e83817a",
+        "0edc0e0e-d62b-4881-bb6d-6224dc173670",
+        "14c04031-29ea-4700-be84-700b8b89ef54",
+        "15767525-89b7-4e9f-9c52-00f96d27c5f4",
+        "187a0c03-85e1-4559-9d4e-c15beafe3889",
+        "1c04867b-35b8-4adc-a6fa-7118f87e2653",
+        "1ed9623d-aca8-4f50-b463-993cc3d13eba"
+      ],
+      "llm_label": "test track driving evaluation under clear skies"
+    },
+    {
+      "cluster_id": 60,
+      "size": 73,
+      "magnitude": 1.1608,
+      "mag_per_clip": 0.0159,
+      "clip_ids_sample": [
+        "005eaa0b-d7e5-4114-973d-80973f1f7101",
+        "02fec2a7-eb00-4739-b7c8-b771feb3da9b",
+        "03f8f7a1-f698-4af5-a498-a94658a87bd1",
+        "0b07dd7f-6fe7-4dcc-8469-64565cb14981",
+        "0bf2692c-d5ed-42e3-a069-8b4b584bd789",
+        "11427e23-8dd2-4d48-86f6-72f74e4f6b23",
+        "115867cf-a1c0-43c0-80a3-73e6cba0be9f",
+        "121529c1-af3e-4f01-80e2-70791dfc1edc",
+        "14fa9f0a-beb7-4383-8738-d5fafee246fb",
+        "18f932ec-8bff-4cc9-9275-e3c2185070fb"
+      ],
+      "llm_label": "Urban driving on a narrow street with parked vehicles."
+    },
+    {
+      "cluster_id": 59,
+      "size": 76,
+      "magnitude": 1.2572,
+      "mag_per_clip": 0.0165,
+      "clip_ids_sample": [
+        "004f1e73-120a-4fe0-bf7d-9e1cd2cfcc43",
+        "01e98791-f64c-4516-ba29-1679a1877f34",
+        "03e52ac9-4dc4-449d-ad8a-6fb7c7e0a78e",
+        "04121275-fb52-4c23-9c4b-deaabae4df6b",
+        "134645d0-880e-4015-8adc-174239ec14cc",
+        "15ef3a8a-ca79-4612-9794-1376fd076658",
+        "16cf8761-43a2-4e7a-95a6-4746eba6770f",
+        "17233208-b296-4bd7-b779-b0152f40a5a7",
+        "199fabe9-cbbe-4c01-840e-5a244725151d",
+        "1a4c3790-caca-40ce-8ce6-5cf107c0f9e0"
+      ],
+      "llm_label": "urban driving on a clear sunny day"
+    },
+    {
+      "cluster_id": 73,
+      "size": 80,
+      "magnitude": 1.2282,
+      "mag_per_clip": 0.0154,
+      "clip_ids_sample": [
+        "007f9015-6e29-4210-8c42-d62ec358e2e9",
+        "013a176d-892e-47b4-ab6f-3889c5fd3b63",
+        "02269233-36f9-4de0-ab89-284ffc6e7a66",
+        "0641c8a1-ca01-45ba-a4d4-0a3394a78835",
+        "0c09b677-67e3-46b6-b3c7-502d7c522cef",
+        "0c4037e1-474e-4087-b09f-79d6c3f37bd8",
+        "0f3d73d9-5510-4544-9e76-c8e3c5348412",
+        "20280f2a-0b1c-4853-96d9-4b13f4ba15df",
+        "2901e20c-2cb8-461a-85fb-f3620835e220",
+        "2a4b00be-5369-4394-bc45-c9950df2e61c"
+      ],
+      "llm_label": "Urban road intersection with cross traffic during daytime"
+    },
+    {
+      "cluster_id": 34,
+      "size": 81,
+      "magnitude": 1.3528,
+      "mag_per_clip": 0.0167,
+      "clip_ids_sample": [
+        "00ebc523-8d7f-4702-bca3-cd3206f18824",
+        "0195ee20-b189-4f47-8185-bcba74490287",
+        "082a564b-045f-454d-af41-756e1f6dc1ec",
+        "0a0eacef-fc1e-4096-907d-0deb72384da5",
+        "0e554428-f93a-451b-9327-a2ec14b842d7",
+        "1880dca6-887b-441a-9aaa-4b8a3eeb4dd5",
+        "1b54d36b-b394-46ed-b089-9f07b738311e",
+        "1d6ef6ce-a3c2-4079-9e30-c3392bd40608",
+        "1fd30417-9b21-4924-9583-e4115e4d2315",
+        "2355a708-5768-457b-941f-882c55127239"
+      ],
+      "llm_label": "Highway driving with merging traffic and clear skies"
+    },
+    {
+      "cluster_id": 58,
+      "size": 83,
+      "magnitude": 1.1717,
+      "mag_per_clip": 0.0141,
+      "clip_ids_sample": [
+        "005e5589-81e5-4f0a-8cea-122ff76f0921",
+        "0383aa3b-3385-4f60-a9bd-3f82335e73c0",
+        "0c9472c1-a7b1-4aa5-9ac1-5470049d1ca6",
+        "19ad8d60-cc81-4c4f-86e2-7a12e7724be4",
+        "19b0df2a-a21d-4399-a93b-68bc195de63b",
+        "1b4a9784-c554-428c-9da3-bb93149713e8",
+        "1d041339-7a4c-4b53-aac6-0f38b047754c",
+        "1d87f2a0-1f28-481b-ab77-7f4e7de6c396",
+        "1dbc0639-7e07-4f9d-8e93-21f7539ad477",
+        "20047a23-8497-456b-aa36-efe4bfc36880"
+      ],
+      "llm_label": "Daytime highway congestion with clear skies"
+    },
+    {
+      "cluster_id": 30,
+      "size": 84,
+      "magnitude": 1.3583,
+      "mag_per_clip": 0.0162,
+      "clip_ids_sample": [
+        "05f74503-7d8d-4db5-81c7-da110670c095",
+        "061637f7-6647-46ef-87ea-3769cb6b80db",
+        "0910551f-498a-440b-8277-b2741f1f4f8c",
+        "0b5157a4-18d8-43b5-a8f3-6401648a2f75",
+        "0c352c59-b65b-491b-95d8-f70d0510007a",
+        "14d01be0-da9f-4bee-99e1-2e4f77da94af",
+        "18244efb-5e3d-4572-ae01-c9d850732ebf",
+        "1c5abf52-d498-4a21-b666-3308f9153fd4",
+        "1f57859b-b3a9-4b13-96f8-84b319173ef0",
+        "240ad87f-7d1c-4020-bb96-0c039d993c1f"
+      ],
+      "llm_label": "urban driving on two-way road with stop signs"
+    },
+    {
+      "cluster_id": 19,
+      "size": 85,
+      "magnitude": 1.2277,
+      "mag_per_clip": 0.0144,
+      "clip_ids_sample": [
+        "02d6d74d-4b8e-4cb7-ae16-6f7340590f04",
+        "094f0404-bf83-45d4-b743-d89eea80e6dc",
+        "0a86e74e-90e1-46f1-ba2e-97372409f4e0",
+        "0d20f2a2-031a-43ab-bcfd-76f031c4197b",
+        "0d48744f-978e-4961-b17d-a5a2867ff225",
+        "0dd7cb34-307d-4c6b-b301-122b13b42881",
+        "1cf41ee6-de78-4ce6-bc0e-66ac70a8f202",
+        "1e6fb85c-4f38-42a0-9198-33246ab10b33",
+        "1fe6d79f-72da-4165-8c84-cabf2b6c2d7a",
+        "2365c712-3fe7-4f75-86ff-57353ac70082"
+      ],
+      "llm_label": "Highway merging in foggy conditions with low visibility."
+    },
+    {
+      "cluster_id": 78,
+      "size": 86,
+      "magnitude": 1.2636,
+      "mag_per_clip": 0.0147,
+      "clip_ids_sample": [
+        "01d29037-8f41-4b29-b89b-0161165ab86a",
+        "01f46f88-a96d-436a-8f43-ab9ea51ded7d",
+        "026275a7-b82f-4a6d-a1af-8cdf9f367c38",
+        "065d27d9-f5a7-4ab5-b108-75577aa4d095",
+        "067a71fa-d6f6-4773-8d9c-8cf1131d37c5",
+        "08c06ed7-3335-4a23-b4ca-18324ffb1970",
+        "12b03eb6-32f3-4d0a-8c94-ba5262682ac9",
+        "175c1cdb-1e6b-4689-87f0-bc36ca24a74f",
+        "1b786d6f-0f06-400a-ac88-814312d3409e",
+        "1c8c22c8-f294-4edd-bedc-c5f531aac817"
+      ],
+      "llm_label": "urban road intersection with cloudy daytime conditions"
+    },
+    {
+      "cluster_id": 85,
+      "size": 87,
+      "magnitude": 1.2191,
+      "mag_per_clip": 0.014,
+      "clip_ids_sample": [
+        "04321e91-df5f-4d13-952a-4dac938f72bb",
+        "05dd0594-9820-4693-afff-e368deb7f8c0",
+        "07062d4c-513e-48f2-b73e-809762c1bb38",
+        "0af7d5e9-d259-4fc7-af2a-d3d5a0578003",
+        "0cb5e77b-fb0f-4add-a13d-538737f4d850",
+        "0e2b6bed-141f-4c32-a26f-a5e5c86f1664",
+        "13b3a6f8-0ee9-40d3-8e32-3027c45da3b2",
+        "14e1351e-7ef1-4c29-83fa-06553f10b105",
+        "166c72da-6398-4986-8e96-d4d6273a1fab",
+        "18d70781-efe0-4a50-9e07-699ef3cc5781"
+      ],
+      "llm_label": "morning intersection approach on quiet multi-lane boulevard"
+    },
+    {
+      "cluster_id": 75,
+      "size": 89,
+      "magnitude": 1.1095,
+      "mag_per_clip": 0.0125,
+      "clip_ids_sample": [
+        "024bf5a0-6e84-45f5-a5f8-0d062624cdf1",
+        "02a29ed7-f350-4800-9f0d-14d30f2db850",
+        "0431b9b2-b0d5-46bd-b86d-d15a83818aa9",
+        "0a752c3c-46af-4c46-958d-94e75ae49b22",
+        "0c8a5f1b-0e28-44d7-bf6b-759f51316a52",
+        "0d033450-e681-4cfd-a5a5-faf60ca6268b",
+        "0d820256-de74-4bfb-8bc6-9cef1c6ff4cd",
+        "1140fd45-af59-4706-86c0-078f80512737",
+        "19340e73-7b6c-4f81-acc0-b0edef2abfc4",
+        "1dae5919-40a8-46be-9f54-b03a6ea6a873"
+      ],
+      "llm_label": "Urban driving with traffic and traffic lights."
+    },
+    {
+      "cluster_id": 55,
+      "size": 93,
+      "magnitude": 1.383,
+      "mag_per_clip": 0.0149,
+      "clip_ids_sample": [
+        "021c12f4-952b-470e-b396-6a367e78bef0",
+        "02e49558-fe7c-44a2-93e5-e5cc49ebe8ff",
+        "0340cebf-c5bc-4255-a4c4-85cf71d7dc3f",
+        "04c1e47c-0dfe-41b1-88f4-dde54318f372",
+        "09b60d83-26d6-4e8b-bcbb-15fb9c878977",
+        "0d0000cb-0cc8-42bd-889e-754c60581320",
+        "0d269f0e-74bf-4cba-978b-b333c0b3de02",
+        "0dbf8b86-39ac-43be-8a12-787e35a07b2e",
+        "0e1a413d-e176-4732-9e7c-d8705e70c424",
+        "149d730b-bc01-4b4a-9c07-69d64ad0316a"
+      ],
+      "llm_label": "Urban street congestion with bus blocking lane"
+    },
+    {
+      "cluster_id": 28,
+      "size": 94,
+      "magnitude": 1.3798,
+      "mag_per_clip": 0.0147,
+      "clip_ids_sample": [
+        "064ace3d-7c10-4221-a143-c1fefd684360",
+        "073eefc8-bc05-4997-94c0-383cb32ffd8d",
+        "09eac43b-8518-4976-b90f-d015ea294ece",
+        "0e3b8db1-2ae2-4fec-92f8-7781499f3c2f",
+        "0e719924-709d-4833-8494-20dbbc1a68ef",
+        "0f7313b9-6cc2-4bfe-b860-c7e2f9446084",
+        "1cae6c33-4b26-4c7e-8645-0ff0fff3aea4",
+        "22ca73b7-415c-44db-8755-5888b35ba5ca",
+        "23f56aa1-34bf-4a6e-bc3b-f1c6e51ee68e",
+        "243a19a3-6c8c-4044-8fe5-767089213dba"
+      ],
+      "llm_label": "Urban daytime driving with sun glare and merging."
+    },
+    {
+      "cluster_id": 91,
+      "size": 97,
+      "magnitude": 1.1415,
+      "mag_per_clip": 0.0118,
+      "clip_ids_sample": [
+        "02940086-3bdb-4205-b15f-730d521110c6",
+        "02b219a2-1e2a-45bb-8272-0d84dba0d710",
+        "08404a3f-935b-4db9-9867-25a614afaf7f",
+        "0b81f52f-5ba1-4814-a5f7-43dd04282c60",
+        "0d7bbf12-9d72-49da-852c-41be1f7e7d41",
+        "0e36c2f2-10f4-420f-a2c4-5f2f1733c154",
+        "11d49ba4-147e-4d72-884e-6f355dc71520",
+        "1a04136f-906b-4bd1-ba53-2371187d4406",
+        "1b60eee9-f851-4ae0-b25b-838ea0c6266f",
+        "1e085cdb-d854-467a-8cac-86c61e3716d5"
+      ],
+      "llm_label": "Morning traffic navigating around a stalled vehicle."
+    },
+    {
+      "cluster_id": 23,
+      "size": 98,
+      "magnitude": 1.384,
+      "mag_per_clip": 0.0141,
+      "clip_ids_sample": [
+        "006466b0-21ca-428f-8a97-bfd479cd09f6",
+        "023764a7-a0ed-4a74-b05c-3e9b350db8cb",
+        "034a0da7-e463-4904-8a80-6427978cfcb6",
+        "06cc81ed-f1ed-492c-9167-8cd3d3eff847",
+        "06d4e765-45ec-475c-adb1-611ab70097db",
+        "06e3f453-3425-4747-bde8-6bc483eb18ad",
+        "07d5b310-6905-43da-83bf-f674294f2895",
+        "097c95ce-c8f4-4c55-9b82-b63a4eef43a1",
+        "09f9dd6c-0fe3-427e-ad43-6c927e055661",
+        "0a95c233-36cf-4071-a5b3-6425e712a42e"
+      ],
+      "llm_label": "urban driving with moderate traffic and pedestrian crosswalk"
+    },
+    {
+      "cluster_id": 33,
+      "size": 102,
+      "magnitude": 1.247,
+      "mag_per_clip": 0.0122,
+      "clip_ids_sample": [
+        "054d7a1f-77cd-429e-a766-8b1f1da8431a",
+        "071e7d7c-8a6d-41c8-9c28-26aefbacd190",
+        "0bf96cf7-b4b0-43aa-af5d-656f6bf29e5c",
+        "0c4d2977-4cf8-477d-8e0a-f8bb2a8db4f5",
+        "10e3dc4b-2b77-4529-9d62-5e51eecd5fa1",
+        "19dbd0c6-25db-4f0b-b1e9-0a771a5b04a3",
+        "1af42f01-fc63-4722-bfb8-7f15eacc69f5",
+        "1cf1afdb-43d7-42ea-a57b-5c9eda82c5ce",
+        "1e42fd5c-c0de-417f-a26b-80d37deae7f0",
+        "2169e892-8aca-4f64-ba03-9c64fb77ad52"
+      ],
+      "llm_label": "Gated area access in sunny conditions"
+    },
+    {
+      "cluster_id": 42,
+      "size": 111,
+      "magnitude": 1.3831,
+      "mag_per_clip": 0.0125,
+      "clip_ids_sample": [
+        "0585e528-2944-4d29-b296-366797e65edd",
+        "06607ced-3359-496f-b578-4c0eaa7c5fe7",
+        "0da620a8-72bc-4553-bb18-2040ff71d2f4",
+        "0ec635ba-6148-42f7-a0a3-85d3f0e7fd4d",
+        "0f910d56-1009-48e1-8dd1-5d904939d335",
+        "146a0df9-bc65-476b-8752-6694ddeca24a",
+        "14c6b68a-0193-40c7-a294-7a0447f9159e",
+        "1525092e-b23a-4e8f-bf3f-aac27aeb5402",
+        "171f195f-54cd-46c3-ab62-8f2588f7f18b",
+        "19fffa86-e789-4f2a-af03-f719c7e52b15"
+      ],
+      "llm_label": "Straight highway driving in clear weather conditions"
+    },
+    {
+      "cluster_id": 113,
+      "size": 112,
+      "magnitude": 1.2064,
+      "mag_per_clip": 0.0108,
+      "clip_ids_sample": [
+        "016ab91d-ddd8-4ec5-b218-27e9359690d6",
+        "02d3029d-ae91-4fb9-9bcd-1695323683f2",
+        "05c741c0-620a-420c-862d-8b8e6379f6b6",
+        "09682e4c-a4eb-4a01-b79e-e2fd9d57baec",
+        "0a23deb1-f525-422a-abb3-cc622bb8b82e",
+        "0a8f093b-883a-49c0-bdd9-de70a3315277",
+        "0af4589c-9bb2-463e-b593-96c0f4da03ea",
+        "0b189430-fe90-4e11-9e1d-f3b6325d130a",
+        "12a1386a-f731-4e49-9110-e54e1815a9d0",
+        "13a4a73f-98dd-4056-97c5-92e8db80cebc"
+      ],
+      "llm_label": "Morning traffic congestion with truck disruptions"
+    },
+    {
+      "cluster_id": 47,
+      "size": 114,
+      "magnitude": 1.1682,
+      "mag_per_clip": 0.0102,
+      "clip_ids_sample": [
+        "0045ad63-c0c2-4282-b205-5a69ff4a87ca",
+        "01c9cb56-5755-4ce7-b29f-703898f991df",
+        "081d36c1-6ed8-4ec9-a81b-f806a3398c27",
+        "09b0f07d-c080-4f24-b7e1-2520c1e636dd",
+        "0a9ae47f-73da-4f84-89c7-582756b4b963",
+        "0d925c9f-4b05-491b-98e6-86a6d07e6c3b",
+        "19d5e03d-1728-490c-a675-0d2bdeea5b13",
+        "1bd77f28-a0ac-4798-b3be-0c345ddb7535",
+        "1c7972b6-fdca-45de-a7b6-1946e45c8322",
+        "1f2c2c68-f621-4d95-8bc5-580e30d53498"
+      ],
+      "llm_label": "busy morning traffic with stalled vehicle hazard"
+    },
+    {
+      "cluster_id": 72,
+      "size": 115,
+      "magnitude": 1.2675,
+      "mag_per_clip": 0.011,
+      "clip_ids_sample": [
+        "00948c8c-e41f-4c37-8253-3a88c57f37c7",
+        "03485486-f0ed-4b9c-b5d8-3053c1246c5d",
+        "05d5db55-f465-43d4-9ba2-34894fb155c7",
+        "07d38147-856e-4098-bafb-41af272ea3ca",
+        "09706f26-a78f-4dcd-8936-fc6c769d38db",
+        "0c615d28-8bb6-456c-b806-c1a7be6b2037",
+        "11736a37-8182-4f01-b099-541dcf479d5c",
+        "1190da0a-599d-41d5-acb1-279f1e3e5500",
+        "1251e0ec-ac67-48df-8bb8-008ec937155e",
+        "14543b93-f2a7-420c-a01f-41639282d131"
+      ],
+      "llm_label": "Urban driving with parked cars and pedestrians"
+    },
+    {
+      "cluster_id": 68,
+      "size": 116,
+      "magnitude": 1.3224,
+      "mag_per_clip": 0.0114,
+      "clip_ids_sample": [
+        "023ce839-a1e9-441e-ae6c-7d5baf6bd7b4",
+        "04672470-728f-44d7-9a92-b1d30ddbc25e",
+        "0567eecd-c67e-40bf-be5c-afaa46132b9e",
+        "09bf2897-071f-4186-a8ef-e204ea5529fa",
+        "0ad409dc-3b8a-4854-ac68-648b1e86c663",
+        "0b0d1d62-1f22-4c3c-8a82-ea5c4b0fa306",
+        "10eeebf6-d5ee-42c9-9c88-f16b2443ac3a",
+        "12c1c6cc-dee8-4cea-98fe-ee15050178dc",
+        "13391a01-6805-457b-9ccf-abf37cc2a6be",
+        "1a03e8ee-00e2-4863-bf5d-94edbb12272a"
+      ],
+      "llm_label": "Congested highway driving with merging vehicles."
+    },
+    {
+      "cluster_id": 102,
+      "size": 117,
+      "magnitude": 1.3174,
+      "mag_per_clip": 0.0113,
+      "clip_ids_sample": [
+        "010adc09-7e45-41d9-abef-fe9803401e4f",
+        "0130d47c-bee7-4a8e-803c-079f38f6a747",
+        "0a64c42a-07ab-4e60-b233-4b6d42106b11",
+        "0de44679-10fd-4c8f-9c1f-8f3ff7d38699",
+        "10dbb1a5-a38b-44f3-9514-177bd8b6330f",
+        "110248bc-43a2-43f4-963f-6136f9b06d3f",
+        "11bc28de-c948-4df0-a566-bba35875c8db",
+        "163bd8e9-21a6-494f-a363-acbcfa82cdff",
+        "17075a0a-7341-4883-833e-0fe6a3dae9c6",
+        "172a4a7d-6885-41b1-a334-6ae8210a0b06"
+      ],
+      "llm_label": "Freeway driving with sun glare and merging."
+    },
+    {
+      "cluster_id": 86,
+      "size": 119,
+      "magnitude": 1.2229,
+      "mag_per_clip": 0.0103,
+      "clip_ids_sample": [
+        "0164941b-9e71-4719-a0e8-bcb6851d6589",
+        "06864359-abc5-43ed-86fb-4686829a23a4",
+        "06b6ccf9-1ef4-461c-afe0-f59bfbde928d",
+        "09c31ff9-7eea-4bea-9438-05224975fdcb",
+        "0b8ee37c-afe0-4f02-b859-9fe7a176a76a",
+        "0d4abf06-e427-4516-8e81-c398a902ddc8",
+        "0d4eb710-65ca-4893-aced-1edd86b8a88d",
+        "12190383-d5ad-4de1-b37d-d773024181f4",
+        "1562979a-e2c2-442d-83d2-cf89abe76376",
+        "18a6f685-ea59-4eb4-9643-7a759c3dfb5a"
+      ],
+      "llm_label": "Quiet suburban street with pedestrian crossings."
+    },
+    {
+      "cluster_id": 15,
+      "size": 125,
+      "magnitude": 1.3837,
+      "mag_per_clip": 0.0111,
+      "clip_ids_sample": [
+        "01ce1969-9b42-44ff-9427-04a84bdfa1f2",
+        "041946d6-440c-4a20-9c0e-cf3e627244cf",
+        "06fca159-7963-4609-a452-23ab1f8f64d3",
+        "0f04d845-295e-426f-ac37-a008865766e1",
+        "112a0c04-a310-4641-8729-5416475a9e1e",
+        "12bf4d08-dccc-46c1-b12e-a0cb464dc17d",
+        "1343c2e7-d07f-4197-a62b-9e21f6eac6cd",
+        "1802e87c-e4d4-47ec-b7d3-ff1c51d72930",
+        "191c2cfb-51c9-4cb1-b59f-123a1f6315e9",
+        "191f04c2-f753-437f-9dd4-552e1ab77dee"
+      ],
+      "llm_label": "Two-lane road driving with opposing traffic and signage"
+    },
+    {
+      "cluster_id": 52,
+      "size": 127,
+      "magnitude": 1.199,
+      "mag_per_clip": 0.0094,
+      "clip_ids_sample": [
+        "031715e9-0e5c-453d-b176-c1bffe707945",
+        "04c8799b-e19c-4446-ae50-3bf58ded5d68",
+        "06609989-aea9-4cf6-85aa-41a237e333a3",
+        "0b36949b-ee97-4dca-b70b-a5102d612053",
+        "0bf60502-cf94-44a1-9771-37b454429579",
+        "0bf737e8-1ad1-4ddd-9493-c21ad5f7a7b3",
+        "0cd8652c-afa5-43c5-9440-53b27ba8ee77",
+        "0d2917bc-e974-44e8-818c-4504906b0083",
+        "0e94107c-e105-494c-866a-8e59ecaf2b58",
+        "11fe7dce-929c-4d55-a6fb-2df0f5b2bd56"
+      ],
+      "llm_label": "Narrow residential street with parked cars"
+    },
+    {
+      "cluster_id": 117,
+      "size": 135,
+      "magnitude": 1.1115,
+      "mag_per_clip": 0.0082,
+      "clip_ids_sample": [
+        "009929d5-ccb9-43dd-9f28-b041ba0f341c",
+        "06af0416-a593-4231-9755-bc7b0e24cc4f",
+        "086c5691-7571-42c0-a795-7c96f95ba754",
+        "094cabec-0a24-4d66-9e11-4ea8d6201c5e",
+        "0a67a7a1-4069-4a8c-a3e3-55bdc89a58f6",
+        "0c0bd549-07a4-41cb-a7df-772ed956e077",
+        "0d096f8a-3312-4580-ac8a-77315e10e39a",
+        "0dde06d3-a7ef-4531-8199-3d8cb8ef050f",
+        "0f38500e-ec90-49d7-8106-c89e0dae3b66",
+        "10085d94-5672-4bce-bd45-a77acb5a6dee"
+      ],
+      "llm_label": "Automotive repair and parking garage scenarios."
+    },
+    {
+      "cluster_id": 122,
+      "size": 135,
+      "magnitude": 1.3199,
+      "mag_per_clip": 0.0098,
+      "clip_ids_sample": [
+        "01b8b93f-806e-43dc-8fd3-f7f1db9279a0",
+        "03afc02b-fc7e-42ec-9b4b-e050a587376f",
+        "04eaea8b-d1ff-43ac-aeaa-970fdba8404f",
+        "05c34ed3-a83f-4d12-9deb-d6f0d05d2a00",
+        "091aa914-926a-4744-8d6e-d4476cf8d470",
+        "0968bf3a-8798-4613-bc1e-e3d4b5716e88",
+        "0c15db09-c75e-4c3b-921a-0331e011a2b9",
+        "0c986357-7b62-4bf3-9e44-0b8c1b70cd8a",
+        "0cb146c8-f877-4d11-ac73-ed7b68a9eae5",
+        "0cd72f2d-f4f8-4aff-b463-da5f1e42f544"
+      ],
+      "llm_label": "Morning driving with fog and low visibility."
+    },
+    {
+      "cluster_id": 12,
+      "size": 146,
+      "magnitude": 1.0746,
+      "mag_per_clip": 0.0074,
+      "clip_ids_sample": [
+        "00bb5e79-31b9-4d13-9b71-2492c3fbf544",
+        "019ae623-2bd4-4e7a-9639-1dd7a26fd7d4",
+        "01fdf647-644c-4df1-a6aa-ca201fab5963",
+        "023ba48e-c10f-455c-b635-d8581f87cff9",
+        "053deab4-ccc2-4869-8663-c99d89363295",
+        "0d0f9880-66fc-45bb-a2f4-04f778f678c6",
+        "0de06892-384f-4ddc-a501-8555d6a2da3d",
+        "1026e613-6655-4054-aa05-7781301925d9",
+        "10390837-1e13-4d20-9154-9fcd3faad941",
+        "11669989-94ac-48d4-9004-f37629913b46"
+      ],
+      "llm_label": "Parking lot navigation in heavy rain and limited visibility."
+    },
+    {
+      "cluster_id": 98,
+      "size": 146,
+      "magnitude": 1.3139,
+      "mag_per_clip": 0.009,
+      "clip_ids_sample": [
+        "03d9469f-04e0-4ec9-b522-b2f202a43233",
+        "056afc3f-0f16-4eee-bc59-ec48a6c10b32",
+        "07f250b7-30c3-4ec9-826b-15254829fbc2",
+        "08c38b91-bfd9-48d5-9917-3772d741e484",
+        "09030e70-4883-43a1-be75-73aa004385e1",
+        "0a01fefb-354a-4236-99fa-85aae60a2553",
+        "0a466509-92c3-4153-8ca2-7d14a43d28e2",
+        "0ab3fce8-a945-4022-a6ba-61d92df914fd",
+        "0dd3eb7f-47a1-40d5-a228-d06ea1288839",
+        "0ede1a77-ea57-4e41-a44f-b7461af6d481"
+      ],
+      "llm_label": "Morning traffic disruption due to stalled vehicles"
+    },
+    {
+      "cluster_id": 29,
+      "size": 151,
+      "magnitude": 1.4567,
+      "mag_per_clip": 0.0096,
+      "clip_ids_sample": [
+        "00b81ebd-5d8f-428b-834d-1ff63e6fb12d",
+        "0139e8c9-b43e-406a-81ef-3a3de49140dc",
+        "02df7cb2-e64f-41da-be87-b0d533249af5",
+        "04707aad-5280-41a7-8ece-40c905e9251c",
+        "047608ad-1b04-4f0d-a5e4-90c82b5eb74f",
+        "0495fce3-b58a-467d-829a-0b03768882d2",
+        "04fd63e2-2dc6-4376-83df-a195822239e4",
+        "09434058-40cb-4e06-b22f-2531442b75a3",
+        "09b21553-3c4e-48b3-9192-b8f411d82c84",
+        "0a119d27-7022-41f6-aa84-a095c97f85fa"
+      ],
+      "llm_label": "urban street navigation with reduced visibility"
+    },
+    {
+      "cluster_id": 112,
+      "size": 151,
+      "magnitude": 1.208,
+      "mag_per_clip": 0.008,
+      "clip_ids_sample": [
+        "005c77ac-a579-44e9-b744-0630660c1326",
+        "00e5b403-1a0f-4046-a27a-3dac9c838717",
+        "036f015e-e49a-40f5-83b7-5721d5f180bd",
+        "03ecb761-69ec-4f73-a4aa-fcb1b4acc9bd",
+        "04988c5b-3833-4e9c-96c6-e6b23bc52783",
+        "04bce3c7-e2fc-4fa9-b52b-b1e4a15662da",
+        "063dbec7-0a7a-4b09-9625-796b222ab6df",
+        "074715e0-358e-4425-ac95-9735b097e5d2",
+        "088ad332-fc20-49ad-bae2-6a40095f987e",
+        "0a723163-ab09-4676-b5ae-d8f18366c54e"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 120,
+      "size": 158,
+      "magnitude": 1.1977,
+      "mag_per_clip": 0.0076,
+      "clip_ids_sample": [
+        "009069e0-04e8-49a0-b834-44bd14e55512",
+        "05329def-5839-4436-a75a-b24f4126eb74",
+        "05df59e3-0d11-47da-b62b-f870e0343994",
+        "0669f920-6c98-44aa-9f71-fb89c6afb47e",
+        "073c9bc7-4212-405b-aefa-56d81aaa79cf",
+        "09ffcdd8-c3da-4bb2-a3a8-b0bc4a085cc2",
+        "0dc0c970-b225-4928-b34d-01fa9c1d2741",
+        "0eb8bdd6-3e33-4a46-95d6-dbd3e955d04d",
+        "0fb31d57-3a97-44bf-9224-ef8536bcf6d0",
+        "11005e7d-d597-4580-9dd0-2bb07110b3e8"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 61,
+      "size": 160,
+      "magnitude": 1.25,
+      "mag_per_clip": 0.0078,
+      "clip_ids_sample": [
+        "01976b77-468c-447c-84e6-c56b85519af8",
+        "019b1f3a-6434-4038-8a59-ac0016c0cab0",
+        "02bf2ace-6c9a-4c3e-bcb6-edfeeafb64b4",
+        "036cf3e6-096a-40fc-86c6-43256936a93b",
+        "05c66993-06a5-4884-849f-ae8380e364bf",
+        "06cab62b-005c-4ea9-80f9-d81bd4a5b451",
+        "0710d5db-5a0e-4805-a259-286b71a0ec54",
+        "07a15957-c1a0-4ef3-86b0-bc10f476083a",
+        "092bd6a3-83df-4fac-a493-d9a3fe3c51b2",
+        "095e77ce-6f43-4ae3-a35f-1c90942cd0a4"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 31,
+      "size": 170,
+      "magnitude": 1.3437,
+      "mag_per_clip": 0.0079,
+      "clip_ids_sample": [
+        "0088c34f-a0a5-4ff8-bc1a-e9a2d1262c34",
+        "00feb735-452f-447c-add1-21dc59ae90ba",
+        "01092799-9746-4440-a0d3-42b3131b3e39",
+        "01febf8b-b6bd-4c6a-aed9-41045c72a8fd",
+        "028720ea-a13c-43ff-a0b0-19270f1802ad",
+        "0a650eca-2b9e-482e-958c-5a99b0129ce7",
+        "0b501241-5ce3-45a1-92bb-298c2b761687",
+        "0b7449b9-8354-4b56-a422-bcabbbc80167",
+        "0c443b5c-f22e-45a8-8e8b-a1c93742a1b1",
+        "108cde2f-d29d-4b60-a090-5dce618f1cd5"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 36,
+      "size": 171,
+      "magnitude": 1.2828,
+      "mag_per_clip": 0.0075,
+      "clip_ids_sample": [
+        "0113c64f-c0f8-4d0a-bd47-d00dbd8c5385",
+        "01fbc807-3183-4118-ab5a-3e38224d3108",
+        "01fbfd66-4e7a-473b-aeef-bad0abf78722",
+        "0250cddb-7a09-4a89-8dfa-bc8db17c28c2",
+        "02832086-4d4e-43c4-b63d-b8989874c025",
+        "02b14d7f-3d84-480e-8443-4a596bf4abd7",
+        "07df34a7-bcdb-4ed8-ad4d-78d78eb13a46",
+        "08a3c97c-628e-4fa3-85e9-faadb1a61ec4",
+        "093b38b2-7d12-4f8d-bdc7-361ab3a20a50",
+        "0a622090-e64e-40e1-bc9f-89c9a7f95aa6"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 84,
+      "size": 173,
+      "magnitude": 1.2018,
+      "mag_per_clip": 0.0069,
+      "clip_ids_sample": [
+        "00d02fac-cef4-47d6-bc0e-9bdd4bcc5b8b",
+        "0201d7d5-3919-440d-9df4-58c01ac6b2b8",
+        "0473310f-008d-474f-9f8e-f20828b8a12b",
+        "04b45d4c-6fc4-4e24-a879-04430278e0b1",
+        "05b50766-4011-4503-8575-049f17346042",
+        "06315f6b-cfea-433b-93c1-602884cd42eb",
+        "0764bcd8-dfa7-4329-bfcc-34ba5d402ff9",
+        "088d9b43-34de-4566-94fd-05e05bc60792",
+        "094c17bf-a6ee-4957-a08a-1ceff372cf8c",
+        "09828432-6c89-4fe4-8738-bfbb603ca975"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 82,
+      "size": 174,
+      "magnitude": 1.1827,
+      "mag_per_clip": 0.0068,
+      "clip_ids_sample": [
+        "009cd675-d07c-4372-b32c-08e01a27fbae",
+        "028af484-28b0-4fb2-8955-945f2b201ae8",
+        "033f859a-6cc5-4cbe-9a30-bf0bd6963d5a",
+        "063704ea-4686-4f75-952f-530b14f21aca",
+        "0639fa36-8254-4835-b1e7-9f66785c78ec",
+        "080a17f8-f6c9-4921-be14-7b97d0d59089",
+        "09d7621d-4a9e-46d8-b9af-f0b876373256",
+        "0c1e0178-e05b-403c-acc7-77642d9815f4",
+        "100576b8-fb75-40c8-9e27-dbcd4dc80ef7",
+        "11a8f83a-bae9-476e-bc70-b0067cad34a0"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 63,
+      "size": 175,
+      "magnitude": 1.3659,
+      "mag_per_clip": 0.0078,
+      "clip_ids_sample": [
+        "01b3a555-fb4e-43db-959d-1c9c95ab6303",
+        "024e9ee3-306b-4c47-8d5e-b573a14d0afa",
+        "03acaee4-7b6e-43db-b43d-98bb0c2d99b0",
+        "05102de2-52d5-43af-86c2-f47bc9909ad3",
+        "076cb5a7-6888-4c0b-adc6-20e2f9d27983",
+        "07ce299a-5a07-4262-9dc2-e8423f20d652",
+        "080a58a9-9198-40fb-9a23-846b13ab9aff",
+        "08edea8b-e838-4d0c-9519-5b32dab0fd3b",
+        "0a0726be-7b3f-42e0-abbc-a90b402c6877",
+        "0b43ee5d-3d44-477e-b75b-9af04f3e2f47"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 77,
+      "size": 178,
+      "magnitude": 1.3956,
+      "mag_per_clip": 0.0078,
+      "clip_ids_sample": [
+        "0180f11f-4d01-4529-b59f-10fcc048461b",
+        "04ac6dd4-01f7-4e36-8b39-0ebd7719b45e",
+        "065eee7a-ccac-4516-917f-114e5be06075",
+        "06c569c4-9fe8-4bb1-9851-e39f166d87af",
+        "0897e40f-5d78-4ee6-8f79-3b07396f2843",
+        "0aaee52f-9aa9-4412-9bf3-fa3faaa38d05",
+        "0c7215d2-6167-43dc-800c-5771cebb8103",
+        "0cfaea75-8d72-4e25-801e-d1b2c521bd18",
+        "0ff74fcc-f797-4457-b943-4d9ed6a13b7a",
+        "10714fe9-8cbb-46bc-a87f-1297ce2fbd6b"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 35,
+      "size": 182,
+      "magnitude": 1.5698,
+      "mag_per_clip": 0.0086,
+      "clip_ids_sample": [
+        "013d0ef2-8317-422b-8d7c-6e3502789216",
+        "01b2c36a-0f18-4b38-b5ef-ea2d2bdd94a9",
+        "03da202b-a209-47e5-998f-761be50b49ef",
+        "06c51759-8d3d-4588-8fb9-9a656c0fd3f5",
+        "06fcfb21-3741-4098-aaec-dd36182c2114",
+        "077b8f09-1836-4dc4-837a-a93fb0cd9fbc",
+        "0820345c-75a2-40ea-b35f-3cf154bdd7ae",
+        "0830cb00-038f-46df-a921-2debd4d7a3d6",
+        "086b16b1-153a-4204-88c8-7a1a77342544",
+        "08d522a7-1485-433c-8a80-6a1db1bbb3d6"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 49,
+      "size": 192,
+      "magnitude": 1.4804,
+      "mag_per_clip": 0.0077,
+      "clip_ids_sample": [
+        "007efbf6-bcd7-4fc1-b32e-2e779642a154",
+        "00c3a162-a2f4-4a71-959b-2cf98fffacdf",
+        "013fce3a-b807-4252-8f05-dd4050b800bc",
+        "0311c200-1ad2-46f7-b980-2a0a1d90603f",
+        "038b1812-75dc-4e09-8273-74be3bb04272",
+        "0752dd65-424a-4574-98a8-ca81fef7c15b",
+        "07c48fe3-6a33-4fc8-aa7f-c503cfb58c04",
+        "08d37b5a-e0c0-4d38-91e8-adb3f4b1e31d",
+        "0b6ae98e-0261-4b49-b1f4-4b6298617b3c",
+        "0b6f0a85-76b6-4749-89ef-a19479be0b05"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 48,
+      "size": 200,
+      "magnitude": 1.1348,
+      "mag_per_clip": 0.0057,
+      "clip_ids_sample": [
+        "0205ec6c-d15e-4c25-82c0-8f8d9c3717c9",
+        "05f13949-243a-4b42-b6c0-50b2b898894e",
+        "069c478b-c84f-46d0-8eae-86e1a458a7cb",
+        "06afc199-d58f-4ed1-b083-dff4ad588afb",
+        "095c1015-907e-489d-9e41-ab5c65a675f5",
+        "099de11e-cf2d-4443-9743-23cb251c26e3",
+        "0b450626-3ecd-410c-ac38-e9df2780b9d0",
+        "0eee4b89-2386-4654-8fdd-d3bef85bd57b",
+        "0f33106d-6058-4f3b-809e-fc36fb6d1258",
+        "0fba601e-86d7-4612-b2fd-2a24fcf1bd9f"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 95,
+      "size": 202,
+      "magnitude": 1.1432,
+      "mag_per_clip": 0.0057,
+      "clip_ids_sample": [
+        "1354999b-3c17-4e19-a80e-a00e7b3d7d40",
+        "19483f73-264c-45f6-bc92-ee07fcdc0411",
+        "de2c1664-ba0c-4b80-9d99-76badcea5d91",
+        "ce336fe2-0b1f-4864-961b-70f0b0ce367c",
+        "7f0764a4-24ed-43c4-bbb5-9576f992ef53",
+        "7b4eb47c-fb4c-412d-a736-ddac566b764c",
+        "0447165c-a111-41a4-97f8-ffedb9175eed",
+        "66b62d9e-c444-4fb9-a8ca-f2180b79c41c",
+        "cb6aec56-f1f2-4735-aebf-106db9c37bb5",
+        "234a7a58-9deb-4f8a-844a-8b433b44ab1b"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 11,
+      "size": 205,
+      "magnitude": 1.1185,
+      "mag_per_clip": 0.0056,
+      "clip_ids_sample": [
+        "c2e6e949-da6b-4dcb-ae4a-294c2225ea79",
+        "a2c52420-6fb5-489d-8227-693eb4e70263",
+        "f4640c4b-fe3f-4a84-a26a-4c06a11892bc",
+        "541f3389-09c6-440f-a5c3-38d106b4cc03",
+        "0ed3c207-8c12-4f9f-a138-e29eb2af2a55",
+        "6ab14e0a-1458-442e-b40f-d12897af8d84",
+        "5e5c7725-2229-4965-bc94-eb80cab6ab80",
+        "a6d0e4c2-fa02-4f83-86ec-15353db3540e",
+        "1f12717a-b4cf-4de8-9a5b-fdf3357d8eec",
+        "e61a74a1-4d3c-4f0d-b545-eec8514c4543"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 26,
+      "size": 209,
+      "magnitude": 1.6178,
+      "mag_per_clip": 0.0081,
+      "clip_ids_sample": [
+        "076e869c-45ca-4b56-bc31-e4a032726edb",
+        "805b83ed-2c79-43b8-84f1-c95498605d55",
+        "6904ad0d-d1b8-4799-ad8c-93a39c193ddc",
+        "14b8f39b-f950-4475-a55b-3a0b9d338427",
+        "cacac2e3-7cfb-4da1-9cda-dda6bb37d84e",
+        "b764ac48-9a5d-4d27-a8ba-1aaef8146db0",
+        "e5ed8042-5302-46be-94e3-473bb0d9435a",
+        "0e32a57f-d4f6-459b-811c-201e749b215f",
+        "e3ca131d-090e-4841-a4bf-0215b02e4a43",
+        "33c1a28b-dca5-4045-b422-e021f80c6ff8"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 104,
+      "size": 221,
+      "magnitude": 1.2209,
+      "mag_per_clip": 0.0061,
+      "clip_ids_sample": [
+        "390ca340-c5f2-4286-aaca-d43795ca32c7",
+        "4fdd36df-d1b6-4ed3-aa56-8b73b86d3407",
+        "dfe01786-23cb-4d2c-b442-7d886b1739b0",
+        "20ef83b1-6990-45dd-b9e7-e3417a8f46e4",
+        "ff34ee8f-8d79-41da-ae1d-ba87efd408ef",
+        "d73875b9-8233-4594-a301-363724e2ff7d",
+        "f6fe7e46-2981-4fae-bcf5-5cd4918e2114",
+        "a5b08d5a-2688-49fa-8d61-118a99a21422",
+        "270ab7d7-456b-4d59-9946-4a32c9518eff",
+        "743e3044-f035-4dc4-970d-3550cf28ed41"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 79,
+      "size": 223,
+      "magnitude": 1.3653,
+      "mag_per_clip": 0.0068,
+      "clip_ids_sample": [
+        "920ecbeb-a6bd-4f3d-8ba5-3cc3f34c9482",
+        "3ed22972-b180-4f19-899b-ef2d23dc5c96",
+        "c9b486c2-8bea-4436-845b-bfff7a4df866",
+        "47a42b4d-4714-4870-a12d-e2c2d0ae749a",
+        "4c5a7ecc-c197-4931-823b-087340063c28",
+        "30e65481-48ff-4e65-9589-30efd872eefe",
+        "9c892e05-ce95-4eb7-8bc6-ae18f9ac1a44",
+        "867714b1-2b5a-4b3f-a362-f8a2c08d237f",
+        "d19d4b13-82ec-4347-8d1f-9942b90ff501",
+        "7adb836a-b5f6-4586-9f87-c03503ae8ce1"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 51,
+      "size": 253,
+      "magnitude": 1.379,
+      "mag_per_clip": 0.0069,
+      "clip_ids_sample": [
+        "7aa13e41-56de-4d61-bd7d-4a1192999550",
+        "53998be7-d558-431a-9bba-fbd51d4096f2",
+        "12d81cea-833c-459d-86b8-eb6ecbdb91b2",
+        "beb16aa3-1668-498d-a4d5-f080786f78a1",
+        "da331463-19b2-4fc8-968d-e82e5deb3f05",
+        "7163fb04-4dab-429d-bd69-4f2a481ff0bc",
+        "ec627732-2a17-495d-b534-303a24929ac0",
+        "24b4900d-33c9-4288-92c9-224b8fc660f7",
+        "f999a3b6-d0be-466f-872c-461d36fcd258",
+        "8a4afb44-873a-46ca-b998-f86bd7c43fdc"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 76,
+      "size": 261,
+      "magnitude": 1.4965,
+      "mag_per_clip": 0.0075,
+      "clip_ids_sample": [
+        "85fecf74-37f7-47f7-bf7e-bbf08357a14e",
+        "6e8ca8aa-233e-4d2c-906e-2febf950b201",
+        "4a52b405-2971-4adb-8879-9645194145dd",
+        "5442203c-6a7e-4d01-ad38-ffe5a8d9a02a",
+        "556c5958-ca52-4b4d-a57d-4ab2507cfe21",
+        "b0931fed-af0c-49cd-8f87-0903473cb45a",
+        "47e753cb-f821-415c-9202-1bbac9dfd06f",
+        "3e9fef3a-9918-43f5-8e4d-54455ac55d0c",
+        "6737c342-f91d-4a18-b531-a536c29c8249",
+        "24010cab-f06b-40fd-9bdb-1b21f26bab2e"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 115,
+      "size": 261,
+      "magnitude": 1.3484,
+      "mag_per_clip": 0.0067,
+      "clip_ids_sample": [
+        "501e716f-1ce8-420e-a720-5f2d6661653f",
+        "66672ff9-7ad1-4a20-9af8-73510f285c3b",
+        "af205bd0-bf0f-438e-9d3a-8edfeb5886f0",
+        "d3f03dbe-0417-4d0b-b063-2c8f2753e24b",
+        "4254b0de-238b-47ea-aed6-f257a8cec08a",
+        "dbcb8d71-ea79-4052-a22e-1c302e0f41a9",
+        "a1b784f3-5244-4400-91f9-bc601671b975",
+        "8db7bfe9-8241-4ce6-93f1-bff0e06e3b40",
+        "81080213-5679-49a5-8bc2-672916af27e9",
+        "687fd026-f314-4f08-a890-496fe3e4d606"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 97,
+      "size": 267,
+      "magnitude": 1.2323,
+      "mag_per_clip": 0.0062,
+      "clip_ids_sample": [
+        "ea2bf533-a84f-4834-b110-be0af225df54",
+        "be87895d-6e32-402b-979a-1c94620fe7ce",
+        "e64fa72a-bdeb-4f0b-ac8b-097feb92abcd",
+        "9c92fd2c-cc0c-4933-8945-1329201b974f",
+        "70e154b8-520c-49a3-b8da-e2066be83bd1",
+        "b95721be-984c-46df-994a-72adcfe9a342",
+        "e4cc657e-f3be-41c3-9b62-8a5f4f726e1f",
+        "cfdd65d8-9970-4bbf-b278-55abe75646d1",
+        "c706161e-45cf-44b8-8f0b-18a56ef2e1e4",
+        "aaf9777c-92e3-4d6b-b796-38afbd9555df"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 70,
+      "size": 268,
+      "magnitude": 1.2375,
+      "mag_per_clip": 0.0062,
+      "clip_ids_sample": [
+        "80d4de25-83e2-410e-a611-c6704a95cc68",
+        "04c74cbb-43e3-426a-b9d2-a0e4ca5a6cce",
+        "20e10963-eba5-44d1-ad83-84bc277a0adc",
+        "340aeafe-12b2-41e1-b58f-bf9e4f70464c",
+        "f54d7c51-6064-4239-9d23-1ee0a6214cb3",
+        "735a0258-8444-4ca4-929d-460f44642506",
+        "0eb49731-9f3e-4250-b154-f9919646cf93",
+        "7a9c3aa7-5f6e-401c-8afc-a73d6c30f85a",
+        "d46863a9-acd3-4fbb-a51c-6d5f27291c60",
+        "feda9a5e-d3bd-4630-bd67-ff17d5b2b0c0"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 81,
+      "size": 277,
+      "magnitude": 1.3161,
+      "mag_per_clip": 0.0066,
+      "clip_ids_sample": [
+        "2196621d-efab-4ff8-85e9-fff5812ea814",
+        "21fe338a-8d3d-424d-b706-a84128ab3a22",
+        "0f3ec1c9-bf34-431a-bcd5-71a2e7055ff6",
+        "92ce988e-6e99-4252-b3f7-8582f12a28b8",
+        "8c12f553-8155-4796-8cb1-675eb6d7f491",
+        "8636649d-e523-49f2-bb7e-cefd4f7d2ebc",
+        "adb0a0b8-07ae-4ad8-bff9-afb799481089",
+        "986af20e-5e10-420a-ae5f-8d5daab36e5d",
+        "2c2e7282-5ee5-473a-b3d8-d26622a5c0a4",
+        "205cda04-4c3d-4881-bc32-580cbbe20c91"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 110,
+      "size": 279,
+      "magnitude": 1.2351,
+      "mag_per_clip": 0.0062,
+      "clip_ids_sample": [
+        "34218451-9004-4d1b-a463-2de04a654143",
+        "49419bcc-77fc-481c-9648-c1d397f74498",
+        "fab12a57-4a75-4d64-a1d4-eaf4592f28ee",
+        "3553d2fc-3c8c-48be-a7a4-cf50e142da44",
+        "f56efd23-c530-485c-ae3a-19b4ed2e2360",
+        "0709a31f-9e0d-41e2-a00c-5816e805876e",
+        "70a5d5e0-e6d5-48e2-aa43-d69a722f3835",
+        "9d8df2ed-c9ec-4291-b7f0-50e9bf2895b6",
+        "3c836d4a-eebb-4eca-add1-5dd0d4e02890",
+        "fb37cd12-cf29-42bf-a881-f619e1610f2b"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 50,
+      "size": 289,
+      "magnitude": 1.5581,
+      "mag_per_clip": 0.0078,
+      "clip_ids_sample": [
+        "5c152df2-a511-4ab2-95be-4ad7f8267bc6",
+        "2182773f-f2d3-4168-bb58-623db92acea0",
+        "471a1a14-5a03-4136-9aa8-34e35cbe184b",
+        "47eb142c-35f2-4e0d-afd1-10e1dc7c4acb",
+        "3c4b6816-b6a1-4f8a-a5f0-0e860697df53",
+        "9fe87ec4-6111-4338-a62c-3d0465874730",
+        "50541ebc-13b9-45e3-bfc5-60cd4f0e3ea2",
+        "d71128fc-21c7-49e2-8601-d35af8a8d936",
+        "f83b6743-4730-4a99-9766-9e063a5e9c03",
+        "1aa5e4cb-672a-461f-a3ea-21739cb06342"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 10,
+      "size": 290,
+      "magnitude": 1.0915,
+      "mag_per_clip": 0.0055,
+      "clip_ids_sample": [
+        "b552193f-f161-4dba-bdea-484d87508f84",
+        "85325d11-d65c-4cba-8818-bfd2fe662bcf",
+        "9aba6b5a-6327-40ee-8005-a12af8d319e4",
+        "958b4a02-b7e6-468a-96fb-6a9cc1ef0b3d",
+        "3d8534a5-0954-429e-b641-1db0f24ce96f",
+        "ff5b450b-655e-444b-ba3c-9ac8597913ad",
+        "32fe8634-8516-402c-bcdd-af81d373a8e9",
+        "499722a5-ffb5-4be0-9faf-8dae9f2b5554",
+        "d8e1cb73-134c-4a1b-8d7c-bd972c9caa04",
+        "1b95025b-8e00-4a3b-83a5-b0bb2e92dd75"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 17,
+      "size": 290,
+      "magnitude": 1.3137,
+      "mag_per_clip": 0.0066,
+      "clip_ids_sample": [
+        "e139f761-83ee-4f7e-88ee-1caf026e15e9",
+        "86ce35e0-8403-4413-a22a-7e27b18bb672",
+        "00810551-2dd4-4d64-a2a6-dc499da773d4",
+        "bb173f3f-f054-4d90-a2f8-4864fa6ec043",
+        "acdebd5e-04f7-4ffd-9c42-f45d39971b7c",
+        "2cc46fc8-e2e5-4734-b002-c397e4ff30c2",
+        "b28c02d0-6b2b-4a47-87b0-95e0fd56aa8f",
+        "d9a15a27-48ee-4f29-b5ce-a39ba992bf45",
+        "c5f3b85a-afe7-48f9-8a86-7acb8f564268",
+        "a6666979-dd08-450d-ab95-6bfc6d70162c"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 39,
+      "size": 303,
+      "magnitude": 1.5616,
+      "mag_per_clip": 0.0078,
+      "clip_ids_sample": [
+        "f82c8b03-dbed-4a26-95b9-ae690204ecb5",
+        "0b3df5fd-5abe-4a15-91e4-62c04395f80c",
+        "cf5f7e0a-abf6-4dc5-877d-787f59c52500",
+        "4cda1aed-4a02-443f-bbf9-cf68f0e0ef27",
+        "0a77ce2f-4bdd-4413-9755-496ce5dd0b7a",
+        "473999db-cd1d-4fb4-a2ca-6587ea67ca97",
+        "4871389f-a51c-47ac-be85-98d9dbfd716f",
+        "beffd490-d1f6-4fc5-b662-38accac3b440",
+        "117544a6-3602-4a58-b538-0c9c9a003919",
+        "290d452f-ee5b-4f1f-8ffa-ddde67335283"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 93,
+      "size": 325,
+      "magnitude": 1.2765,
+      "mag_per_clip": 0.0064,
+      "clip_ids_sample": [
+        "2699c78b-2378-46e6-8e80-19902380b3f6",
+        "7388b168-01ce-47d1-8577-b93d5c8583b6",
+        "79b6591f-22bb-4592-af6f-b0e6f51b0f4e",
+        "6b619c07-a4cd-4079-84e9-62eba2cbf6d7",
+        "46da29c8-5987-410d-9a7f-cc471227ddfe",
+        "5b1932f4-073b-4dfb-826b-e1d696d90ea6",
+        "f41fc6a1-a42e-4cbb-9996-1bab1f7dda47",
+        "9de1dde1-245f-45ec-9a9e-1a96fab03b01",
+        "57f1a196-e687-466b-9bd5-9eddc0cee9b0",
+        "2e3812b0-c10d-4aba-b24c-6db172e6729b"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 118,
+      "size": 337,
+      "magnitude": 1.3189,
+      "mag_per_clip": 0.0066,
+      "clip_ids_sample": [
+        "ca2f8e6b-f7c7-4aea-a3c5-5e5a336977c5",
+        "c8c2274a-6e61-4091-a30b-531dc541c231",
+        "f5ef6f3c-d561-43d7-9267-c90259e0c48f",
+        "c8ea6efb-bccd-4816-9a56-b67cc8c93408",
+        "94a270b3-a71f-4641-a9cb-f4e189c8c512",
+        "23b41ac7-6c1b-492f-b611-c93f52accd78",
+        "a1309be3-373f-4159-a868-19f329046adc",
+        "3dc50330-a57e-4380-b48c-d2e07298a850",
+        "ce7e8801-ead4-47f2-9ba2-73cbbe03ec10",
+        "3dbec885-86bd-4a9a-bd6d-d461bf190e86"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 69,
+      "size": 349,
+      "magnitude": 1.294,
+      "mag_per_clip": 0.0065,
+      "clip_ids_sample": [
+        "32e7e5c2-424f-403f-a98c-599f1f6bed89",
+        "d27dfe3b-bc89-4fcc-8c22-91598c223be9",
+        "254afb97-5933-4338-b005-1126ed751f9b",
+        "3cf6f017-0331-4fd8-a67b-89c2438d17c5",
+        "d9049f15-3c28-4449-bd0c-0cc5edfeb957",
+        "9e761b88-b4e9-4a33-ade2-50eba891c3d2",
+        "08f51fc0-dd33-4c7a-b8b7-552a43ea0ade",
+        "12ca6745-6dbf-4a1f-905c-6e1592ed3e13",
+        "d8e4b5b2-df01-4a34-abfe-4ad5a27d7f7b",
+        "5904d63f-18d9-48a5-a633-ecf282d0dbec"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 108,
+      "size": 350,
+      "magnitude": 1.2328,
+      "mag_per_clip": 0.0062,
+      "clip_ids_sample": [
+        "c6ed2ae1-2d60-48aa-92e7-e9951000af38",
+        "44febe22-83ba-4d69-92e3-30e070224833",
+        "844c2864-da92-4a82-abab-4bf9628905e1",
+        "85b29296-7f04-4b9e-bcae-05deaaa9356e",
+        "96e53034-7f05-4764-92d5-9ed920c5fd05",
+        "f57381c7-ee21-4fa7-832b-f8a5bac02c7b",
+        "4996428d-68c5-4451-b44a-378474ac75fb",
+        "c922305d-990e-46e3-9f5e-789e37858dd9",
+        "3cbe6533-635a-4d53-a259-26b2cee8709b",
+        "6a9c5a3a-c805-4871-8cc9-7517232f95e7"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 89,
+      "size": 353,
+      "magnitude": 1.3529,
+      "mag_per_clip": 0.0068,
+      "clip_ids_sample": [
+        "6042a08b-5fb6-4c3d-a29e-d3df04544b77",
+        "5fbba989-ceab-40ea-a752-c4c77019c922",
+        "5acc84e6-01b8-4dd4-853f-35195a59cbf0",
+        "b8926917-3912-4fc3-8d54-1a037d9808c3",
+        "0f0bd00a-4167-409c-a0ec-5f2c81337c91",
+        "63dbc6b4-e34b-4cd5-99bf-7b63e3f9dedb",
+        "e6eec81a-2a37-4533-a209-45abdd0fc822",
+        "cb703504-94e3-4044-8fa4-7c445fc5d5d8",
+        "f24d5781-cfc8-4198-b346-707536c4e19f",
+        "eb12fd0f-5f1e-45a3-bdc8-3558cdf95082"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 38,
+      "size": 360,
+      "magnitude": 1.3792,
+      "mag_per_clip": 0.0069,
+      "clip_ids_sample": [
+        "f14b6cbf-66f3-4993-9c7c-f9b3367e1d66",
+        "f6cd5885-49b8-4846-a39d-a57e5f6804ed",
+        "1f1d49f8-9789-473a-a000-6416f5a6f88f",
+        "1932382e-8745-464d-b97d-82dbd8d9858b",
+        "87e2e49b-4616-4e92-97c1-77b7be03b331",
+        "906aff3f-87b9-4548-93cb-3030bd80b593",
+        "41f3d27d-8ddc-4fcd-879d-29139c4dec43",
+        "7c1f6572-06fd-4814-8a8e-5edf004ac0a1",
+        "99f5b2d5-cae5-451b-980b-a24e9540313a",
+        "4890003a-4795-43e8-b44d-b51ed63f0f7d"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 88,
+      "size": 368,
+      "magnitude": 1.3073,
+      "mag_per_clip": 0.0065,
+      "clip_ids_sample": [
+        "ef37a8a1-ea7c-4c62-ab98-42645a971c37",
+        "a9507007-e8a4-4ec4-ab2c-d061726b2b59",
+        "ad3eaad3-f628-4f56-9275-fd88e62414b7",
+        "f1040a2e-6024-459f-92b1-ba75066a43aa",
+        "6b50f2c8-f1d2-4958-9992-2fd048b61313",
+        "a90bc0a6-7a35-4616-911b-1be573f72477",
+        "982443d3-4feb-4d44-891e-bf222f6db2d2",
+        "ae7eb353-4e5f-4b56-8901-aab360dd64c8",
+        "6088c9cc-9c9a-4522-8005-1d2463b7d194",
+        "98538d90-3bac-41b8-86a6-cbab97ee01c6"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 64,
+      "size": 371,
+      "magnitude": 1.2182,
+      "mag_per_clip": 0.0061,
+      "clip_ids_sample": [
+        "0e1f78bb-d849-4196-95af-14d5dfa0d7a3",
+        "272ac262-7fdf-4d5e-a5b9-d54a72df1151",
+        "9b87c1c6-4b66-41dd-bf4b-4581f044e781",
+        "d3860ae4-cbb5-4b79-a043-0ddfa8094a41",
+        "d243158b-6ee9-4130-86f1-e9cb6eedb0f2",
+        "29ebfc7a-d3f1-472c-8dfa-cdf6baba8cdf",
+        "9eb0ec48-0e0a-4dca-8c63-e2059cb21dd5",
+        "186653cf-5c0c-4fef-b756-e3d68f42cf9c",
+        "4f7ad64c-418d-434e-90d0-32e07c814353",
+        "6671045d-fa61-428d-8068-42faa9c2cbb5"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 40,
+      "size": 376,
+      "magnitude": 1.3386,
+      "mag_per_clip": 0.0067,
+      "clip_ids_sample": [
+        "aaa9c436-a2ba-4539-8298-dc5322bc1b11",
+        "07f7b41f-b007-48d1-905e-b3385e8e897f",
+        "b1eb1ec3-d3e0-45e0-ae30-420257da32b4",
+        "b4f869d4-efd4-4448-b82c-96c28ef23c1c",
+        "3a6fe65f-d16b-4191-9ae6-cda57ac4bb1a",
+        "b605b50d-ccb9-43a5-afc3-aa871660474d",
+        "524eb8b2-cbd8-4e90-babe-14c9b2205f49",
+        "011f5c13-8d7c-46fe-a1bc-37013a334679",
+        "83a14297-89df-4b91-a6fd-00a531354d48",
+        "8ee6f015-eeea-4105-bd55-c23d5759e62f"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 71,
+      "size": 417,
+      "magnitude": 1.4456,
+      "mag_per_clip": 0.0072,
+      "clip_ids_sample": [
+        "ca32667b-61df-4d9d-aec4-0a0481d054d5",
+        "cbfd2f88-4839-4b11-878a-e11f6d6cb133",
+        "a2241f06-f153-4fa6-a2d6-c73dcab74ac5",
+        "6983b7cb-6998-4852-bdaf-5821437e2112",
+        "a3627c0f-3655-4bb9-9c7a-4c7fbd7e2e0c",
+        "025d7076-309b-4e5f-99fa-3dd85a2e9328",
+        "02697a7d-8096-49c8-8913-a2a8e0a94f30",
+        "6c776ef3-3691-4909-8c12-354b4e174a96",
+        "3a1d3db7-7d5c-49eb-b85a-7e51eeedc8e7",
+        "c33e6ede-630b-4558-a23b-0c9f70a7cee6"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 96,
+      "size": 444,
+      "magnitude": 1.3091,
+      "mag_per_clip": 0.0065,
+      "clip_ids_sample": [
+        "47d0c9e7-150b-4b86-b13a-afa831eb7a25",
+        "ce36f4d5-76df-4e03-8833-087cb61f5373",
+        "c074a845-bc67-4081-a9c0-b733decc7546",
+        "97a58537-4b81-4db0-94f6-5f023c6e7803",
+        "94f6c536-378f-44b5-9db5-2c5bdb96f0d1",
+        "232aa9fe-c34e-4664-ac0d-6dc584e50697",
+        "07054c19-f27f-42cc-8413-35e05c924d06",
+        "1688eebb-8f2c-4ddd-9be0-3b09fc6f4cf7",
+        "f768ae6d-46b9-4167-8650-43a2b738ddf8",
+        "15ffe372-9e07-4e23-8f0a-5598fd1cd50a"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 22,
+      "size": 466,
+      "magnitude": 1.7963,
+      "mag_per_clip": 0.009,
+      "clip_ids_sample": [
+        "4fe64d82-8dea-401e-b8bd-fd6ace48826f",
+        "75a64d7c-1448-4875-ae4b-1bb043fe848e",
+        "6daf262f-7da9-4426-ba7b-b08e3f875484",
+        "41547231-7f71-4bda-abe0-80caa98ccbb1",
+        "44c64f43-9a99-4843-a551-36d7a5ac42e7",
+        "ca8ac4a7-479a-4364-92cc-5310b0cf4158",
+        "14992c90-dbbb-4a6b-aa5a-7a61580e2c53",
+        "f2846443-eff0-442c-b1aa-787c0d6f9131",
+        "1cc552b0-f44f-474f-aa4f-732b05c8607f",
+        "c2880090-bcd2-47cc-9ef8-af2b8b983e90"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 90,
+      "size": 499,
+      "magnitude": 1.4206,
+      "mag_per_clip": 0.0071,
+      "clip_ids_sample": [
+        "aa319a13-dc63-4ce9-b176-d75a8d0356d8",
+        "966db25c-226a-4365-a27d-b0711595b0c8",
+        "174bb704-0c88-4902-80ba-5b6b3241ec97",
+        "38ab2f77-d7ac-4220-8b90-d214be54c0e3",
+        "5e8b8f0b-2b8b-447d-be1e-69e6313472dd",
+        "89badb2c-6de1-437b-a8bf-42f8ca0a701d",
+        "35bd5d76-1e87-4c2a-bf0f-617bdf8e1922",
+        "39142c91-f082-41c0-a234-84915daf68c6",
+        "cd7c26e8-ef07-413d-9cd7-13c3a6a22177",
+        "026c3105-349c-474a-a1a8-ea8e1718a0bc"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 9,
+      "size": 500,
+      "magnitude": 1.0988,
+      "mag_per_clip": 0.0055,
+      "clip_ids_sample": [
+        "99f0887e-7eba-41c8-959f-6e9c46560a70",
+        "5d49c5fc-a9b2-4800-a547-0744afce3663",
+        "dc00658f-db1c-41a1-adc5-e20dd7454a81",
+        "54f8acad-f961-4325-b12a-fc456ab6b76e",
+        "001660a5-0df5-4ecd-8fb8-319e5219db7b",
+        "4e32a97c-fcdc-459c-9b57-9418c189db0e",
+        "f08c06a2-9e68-460d-87ef-52bdb9530dad",
+        "e1278365-e007-455e-b496-b24f3a2ec115",
+        "de23b587-4615-4736-870e-e904583d8be7",
+        "9de41d79-61f6-4497-852c-3b1e4db19457"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 103,
+      "size": 505,
+      "magnitude": 1.3544,
+      "mag_per_clip": 0.0068,
+      "clip_ids_sample": [
+        "d2c835fa-fb07-4a8e-81a8-41f81d9170f1",
+        "35e55fa9-b3ce-417c-b02f-c8772a64b276",
+        "ae06d2cd-a5a6-44ed-8b9d-11c12cb23784",
+        "f842e3ea-f2d9-40fe-921e-e7dea34f0bb0",
+        "dfeeae56-5663-496f-ab10-f82ee3679ba0",
+        "39c606bf-965f-4183-b626-8626bb6f39cd",
+        "243df2a4-ede3-4bc8-bd4e-80b82da5af06",
+        "e0147d28-c865-4569-9b3d-c608a012f3d9",
+        "1a4d9fda-0255-4863-86b0-47a3e11b3fdd",
+        "eca44272-617f-460b-8fa9-0dd9b823dcd1"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 27,
+      "size": 521,
+      "magnitude": 1.5047,
+      "mag_per_clip": 0.0075,
+      "clip_ids_sample": [
+        "05487d35-cedb-4cde-b73d-cfb40bae68e7",
+        "7791a233-c11a-4315-a2f3-26b7070bb767",
+        "5c36d3c0-5b83-41ff-af78-42dd12f3f81b",
+        "fc8c128a-c738-448a-b4ed-3b2dc88e0d46",
+        "b7b4a89b-18c2-45bc-be9d-de72bd31d41c",
+        "04a7af5e-1c1a-4711-8140-03fb71610d5d",
+        "dd371cf6-032b-4af5-9a93-db954c2a3f04",
+        "231f4e50-7ed8-4aef-a205-af2c5dd4b963",
+        "b93661b4-3481-4f33-9466-96f56811dceb",
+        "39dba23e-c483-40d6-812b-f25c00120d02"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 67,
+      "size": 566,
+      "magnitude": 1.2013,
+      "mag_per_clip": 0.006,
+      "clip_ids_sample": [
+        "cee93642-3e15-4e77-8921-fa4299ad9783",
+        "f6c1e728-0217-4844-a1d6-6d2f536f78ab",
+        "8ea7fb77-5502-490b-ba1b-da6bdab98d8c",
+        "ff6ba27c-ad4f-4c8c-8db2-d1970bcbd986",
+        "821cb0e2-eaf6-42e7-8ef1-d8df22cadec6",
+        "64899e71-006c-4a56-850f-e6b40d2ebf80",
+        "5a5b198b-7c0c-4297-b790-c1089764ced6",
+        "9c0607fb-ca11-4a26-ae87-d3f3181011eb",
+        "5869d5e8-9dc5-44e7-ace3-4cb730a7199e",
+        "f38876c9-6eee-4946-ad8b-0cd039bed068"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 114,
+      "size": 586,
+      "magnitude": 1.2596,
+      "mag_per_clip": 0.0063,
+      "clip_ids_sample": [
+        "4873f22f-36cb-4520-a3db-2cd8fad6983f",
+        "a4d72008-24ea-4ab4-a943-542c4f08f92c",
+        "a7714295-0b14-42af-8be7-d045d8df3aa8",
+        "f2f396d4-3c77-4bdb-86ce-8e62925be7cb",
+        "34dd9d57-cdd6-497b-938b-d83618c246b3",
+        "48020db7-5430-427f-a645-3242a623fccb",
+        "1db584b3-8bdf-40be-ad1a-737446d2bfc0",
+        "1e4d5361-444b-446b-8fda-f4554ad20b4c",
+        "93b364d0-9525-4ebf-a23c-d07da083b27f",
+        "86a334a7-0614-4782-bbb8-d7048c98f015"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 100,
+      "size": 644,
+      "magnitude": 1.2616,
+      "mag_per_clip": 0.0063,
+      "clip_ids_sample": [
+        "cd9d135a-e300-4706-a80a-f075572c59bb",
+        "b19200ff-6739-450a-b509-558e1388b3b6",
+        "45731110-2cf7-46f3-bfc8-ca5f19c93537",
+        "d9492b19-4c88-4e35-9b3d-63819e135383",
+        "c44e01e5-408e-4135-a83f-c6e42e71b0d4",
+        "0cc443c2-df20-41cc-9b46-7e1830db82c7",
+        "334bffcd-1af9-4d7e-8a86-788be24cb4e0",
+        "b335deaa-ff82-4fad-9d1e-0d41170c64d9",
+        "830ea7ee-4136-460e-8ded-25707c8a8485",
+        "2034092a-9f43-4d7a-bca0-47c354bb6127"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 107,
+      "size": 704,
+      "magnitude": 1.3007,
+      "mag_per_clip": 0.0065,
+      "clip_ids_sample": [
+        "1af982d3-37f8-423f-b55f-e3bc3061b64b",
+        "5a6ab073-ceda-4830-8875-944e3e3d23c6",
+        "f4f92af5-8728-4d35-b9fb-2f3a85a56e37",
+        "9d8813bf-982d-46e7-8d99-2fc0f06d3d64",
+        "227aab7d-188d-49a6-94df-2a24c0edc0e0",
+        "8e05955b-0e1b-4667-ba8a-d2f02c00c3ba",
+        "60ec50da-33ac-4cfe-9287-4cf8645b0fec",
+        "f1b1fd65-5db3-4d9b-b0eb-a44ffe19a3d5",
+        "1422f79d-67b7-48e9-b187-fc8d55dce1cc",
+        "b25ad89c-4785-44f7-a458-4aaba2d14e34"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 65,
+      "size": 720,
+      "magnitude": 1.7778,
+      "mag_per_clip": 0.0089,
+      "clip_ids_sample": [
+        "85b790bf-886a-4dbc-95d6-1d47c24da383",
+        "202b68ad-4d8e-47b0-96d2-4838f291f3fc",
+        "aa3e8dbd-85d9-411e-aec7-f14a81099169",
+        "735fb900-5b7e-4397-8f32-c3eed0c73e0f",
+        "bfb1d024-bfd0-496f-842e-d14c34871668",
+        "71fdce24-4538-43ef-a604-a932a1c52305",
+        "c7acf8d7-9979-4d17-84f9-9ec6a8d9176b",
+        "9755f232-01c4-408e-a5ee-6c5fa62a1b9f",
+        "d1dbf992-b8d4-4c9d-b2d7-0091ec720f6c",
+        "1aecf0ef-bbd4-4553-abb2-33cafe2fa8a0"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 57,
+      "size": 758,
+      "magnitude": 1.3989,
+      "mag_per_clip": 0.007,
+      "clip_ids_sample": [
+        "571eb982-12e9-4d6b-b0ee-ba37cab91f86",
+        "fe4ed1cf-da88-44a8-a2ae-a92e4e927b05",
+        "407f52b7-b7f3-4d76-b0d5-2a15defbfc33",
+        "b051751b-fe0c-4df6-bfee-ff11a29f5916",
+        "5f056f34-7167-483a-9347-b2c82bb87164",
+        "f2457c9f-75fc-4895-8f67-c85db0999eb2",
+        "43acf887-7f3f-4060-b6ca-0d632ac915c5",
+        "7947dc68-2ea2-42f6-a0bd-a282ea8db677",
+        "cd6062e3-2855-4b58-a48d-8645cf6dcd8a",
+        "ef23e820-4cb4-4088-a9dd-4377a0253c68"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 92,
+      "size": 888,
+      "magnitude": 1.2192,
+      "mag_per_clip": 0.0061,
+      "clip_ids_sample": [
+        "de2f8318-910e-4a21-b552-3fcb05a6035f",
+        "96065378-2b5e-40ab-af0b-edc92a6de2cd",
+        "939042a4-b8b5-46bd-836b-ce99c762733b",
+        "b8f1b63f-674c-4ade-aa8e-4ab0fdcccbdc",
+        "51114403-32b0-499d-8a69-ce6cb6e2861b",
+        "cf5bfc18-e84f-4961-9bc3-614313f5af9d",
+        "dbbadfa3-146e-45ab-97c2-9fa61436836a",
+        "5ad2f7ef-92e5-4705-81c5-edfaef149b8d",
+        "f4ae39b9-2436-4e6b-8b55-c2672feaafcd",
+        "01e4b854-fb1a-4cce-ae73-d835aec30bc3"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 121,
+      "size": 924,
+      "magnitude": 1.3007,
+      "mag_per_clip": 0.0065,
+      "clip_ids_sample": [
+        "3cf13741-d216-44b0-905b-1c883cf8718d",
+        "4e7b0ea0-26be-4775-a5ff-3ffb3104bde8",
+        "4d9dd0e9-b702-4db1-8b3f-14062cf22c38",
+        "0ec93bfc-93d5-4d9e-90d5-5c2c2f0554e3",
+        "63b0df66-67e7-45d4-a01c-02759670e0c8",
+        "2ff32f05-03dc-4ebd-94a8-58639fb1cc98",
+        "cecaa7c0-8966-447e-a92a-4da80aeb6d26",
+        "0d8272c4-12d2-48b4-afdb-c55940abb7ab",
+        "5c39655f-d413-408b-9818-89c0dad99c18",
+        "7b4cee06-a904-40cf-8179-a7c971524555"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 123,
+      "size": 930,
+      "magnitude": 1.4021,
+      "mag_per_clip": 0.007,
+      "clip_ids_sample": [
+        "2e02f954-0185-4112-9ff2-8f7b1a6a2f20",
+        "5ddb7dd6-9fda-44bc-bb0a-f8649aff4b0b",
+        "ab41bfb5-f277-4569-bb80-82604d13ec2e",
+        "5559ad95-7129-4e83-8952-12c087c76e32",
+        "9124fb62-127e-4295-88c9-a89566dcca27",
+        "46105ae6-70c6-488b-8058-afb62316bbef",
+        "6e6bf434-ccc6-4b9d-85db-ba88f2506861",
+        "00a5bfd5-ce48-4bef-84e6-3b8ea138a517",
+        "edd66e7b-2961-41fc-b789-8f3f23ee39cc",
+        "52fcdd8a-9e69-479e-b3ce-2a6aa52285f9"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 94,
+      "size": 931,
+      "magnitude": 1.2682,
+      "mag_per_clip": 0.0063,
+      "clip_ids_sample": [
+        "3ea915f4-44ab-47f4-9bd1-bd32d478bb9c",
+        "e0ad6c63-8309-40b4-96bf-e40270d93630",
+        "cc8ddec7-1255-4ed1-8df2-2ecc48710423",
+        "1bd3682d-30e6-4512-af7a-a0cf107937b9",
+        "89f23814-e45c-4f16-a1a9-e23767616e26",
+        "82186957-3a03-490b-98f4-f75b095c6e5d",
+        "0e4c0bb6-3853-4399-b7e8-43c99ee25277",
+        "0a4b35ef-13c4-49b1-a383-0244b8ff53c4",
+        "6b9f93f3-cfc8-457a-a570-a20ec74f0817",
+        "01c93bc2-e2eb-434c-8289-94dbc2f272b8"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 37,
+      "size": 952,
+      "magnitude": 1.4269,
+      "mag_per_clip": 0.0071,
+      "clip_ids_sample": [
+        "f0bf6514-2259-4ae7-b20f-bde5003b146e",
+        "bb7ded68-041c-4b39-b0b5-d31d4d190ef5",
+        "37dc3e0a-43c8-4139-9ce4-16a6a8aea8b2",
+        "8d8b7355-a83f-4743-bb45-072c1a214b10",
+        "b54edadf-b613-4150-9e39-3907abb4fee7",
+        "00f47745-81b2-4fc5-a233-2e54351f23a1",
+        "d8e2a2e5-8114-46b7-911e-ba582120833a",
+        "81381633-0a92-4518-972a-f7b418beedf1",
+        "77e64bef-350a-4fb5-87d3-5ade14027707",
+        "52f018cb-1b28-4cbf-9bcc-03d63729b882"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 66,
+      "size": 965,
+      "magnitude": 1.2917,
+      "mag_per_clip": 0.0065,
+      "clip_ids_sample": [
+        "1a9fa0f8-ab0b-4cbb-bb26-5049bb21c8c4",
+        "5dcdcd09-8f2f-4cc4-95d2-fde89f8f8fb4",
+        "4fd55a64-895b-456b-874a-2d7499bcbd7b",
+        "fa291344-4634-4620-a2fe-70a11cbd285b",
+        "9cb761e9-65b7-4526-9327-eea8b3f0b4f1",
+        "9c3b17f2-5475-40bf-a133-dc33c6e53567",
+        "f4d91a34-3e96-4c9a-be9a-548831cc1fe7",
+        "27dd18c1-6339-4365-b79e-04f601cb2593",
+        "ce3a1625-bad5-4d77-937a-8a3a97cba2d1",
+        "b5f8ca32-1ddf-455e-b72b-5e4680f5ab6b"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 43,
+      "size": 969,
+      "magnitude": 1.3158,
+      "mag_per_clip": 0.0066,
+      "clip_ids_sample": [
+        "81a715dd-e059-4808-941e-59902ac3e56c",
+        "02e3eb5a-ed0d-4b01-a291-4bfd77eaf0ae",
+        "d8b3977c-d12f-4f07-9cc9-b7806b83da2a",
+        "0c1d981d-be49-4084-a71c-eb53f73be66f",
+        "f92923f0-4bc0-434e-bf72-68268bd44044",
+        "79639dac-c39d-4343-bd0b-e074379ccc25",
+        "2b94cb66-e921-4384-b230-e2660ec1f517",
+        "49ff3655-4a8d-4a6d-b013-8e2c2bf473f8",
+        "6df6507b-f201-4489-9198-f24d362fdf91",
+        "a910786c-f788-4765-bd4f-80f65586bcf0"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 4,
+      "size": 1247,
+      "magnitude": 1.5298,
+      "mag_per_clip": 0.0076,
+      "clip_ids_sample": [
+        "69d0348f-902b-444d-ab20-eb0f318b0337",
+        "cd24239f-9814-4140-b165-17ba527bce26",
+        "2e171cf2-3a5e-4350-a637-f7f89414860b",
+        "d165b76e-5ae0-4a1f-b9e8-08d34ec7e904",
+        "ae1d90d0-3fdb-42b8-87b9-3dc9e15b6bc2",
+        "379d4b80-59e4-462a-b095-455afed0e672",
+        "d0bbd15d-14a0-4fb0-a0f5-844269572d04",
+        "bb9d66b0-1650-42d6-b867-34df723a3f50",
+        "f6a449a7-1e1f-4734-ae8c-8848034f6909",
+        "5fab66a9-286d-4299-a061-8f7d9aaea039"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 105,
+      "size": 1268,
+      "magnitude": 1.479,
+      "mag_per_clip": 0.0074,
+      "clip_ids_sample": [
+        "91ce9745-4f59-41f7-a341-1bd6306589a0",
+        "34e2c850-96e4-4913-8ee1-364757a30fc6",
+        "da7a842d-07d5-4d13-879e-d9c99e5c0374",
+        "e6d7eb8a-1ad9-4360-a3d0-36e4178354c2",
+        "99b60dd4-100c-4c4e-a77e-1c2a56157160",
+        "f1cab7a1-edfe-4911-aa20-2b14b4998d56",
+        "1dff9d59-b205-4a68-907e-a2ee7bad3efb",
+        "786c2b8c-cb84-45e3-bdf5-425aef654254",
+        "be2a6576-ec53-404d-b5f8-0b233b5371db",
+        "3e420e17-442d-48c0-b82d-a02450756d73"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 74,
+      "size": 1294,
+      "magnitude": 1.4073,
+      "mag_per_clip": 0.007,
+      "clip_ids_sample": [
+        "92b2b345-65a6-4df0-8d7a-8fbd5b359d03",
+        "7895102a-6ee2-448f-8ed3-7949e3fdbed1",
+        "9f729fd6-4f86-4950-b012-8d10a0372eef",
+        "54cbb5b7-e22c-4e74-8aa0-2969f2de0f32",
+        "88942545-a238-4ac7-b201-ed100a862abc",
+        "8311e506-70f5-47cc-818f-0c41d903d3bf",
+        "59ab66fe-fbc2-485d-ba3e-11d216621721",
+        "d41981ac-bfff-4d22-b30a-f7cde23391f6",
+        "585fd07f-d0fc-49a2-b92a-d3f5698b6e95",
+        "96b46446-9c17-4267-b2e1-35c336663494"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 14,
+      "size": 1307,
+      "magnitude": 1.8177,
+      "mag_per_clip": 0.0091,
+      "clip_ids_sample": [
+        "c3719493-98fa-4423-b598-2a6d215ee1df",
+        "73625226-aef9-495f-bca5-f52b1dbe3a88",
+        "0210bd6f-8291-4800-98d6-8448f025d835",
+        "fde019d0-d403-448b-b1e3-960590788ad5",
+        "b9ac4fdb-da54-4893-865c-900e836857bb",
+        "dbad8456-ec38-4b97-bed2-4cedf137ca3c",
+        "ce51177b-58e3-4957-a7b6-1bbdda03dd17",
+        "55e9ab0f-bcd3-4955-a7a2-9ea60dd0b141",
+        "e6838c21-2c66-4569-97eb-374be6418db2",
+        "4fc035cd-5776-4af0-ba7e-1aa47cd63087"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 13,
+      "size": 1467,
+      "magnitude": 1.461,
+      "mag_per_clip": 0.0073,
+      "clip_ids_sample": [
+        "694b0046-61c3-47bb-b8c7-e809a15231d2",
+        "f4cc198f-9576-4f94-a551-3d877d90e6e0",
+        "46d9b64f-f665-4029-bc7b-794f5cd80e5a",
+        "56afcbae-4280-462b-a20a-903b3dbdbbb5",
+        "ec14d021-8f5c-4255-8084-0ebe80f01803",
+        "84ee9626-b2cd-44ac-b1d1-09beacd1f114",
+        "50e13736-7518-4589-898c-2b469b05c584",
+        "d1b408cb-ebdd-4f57-8653-13506d7fa88f",
+        "a827ca5c-207c-4929-8d80-b1c6254d4d60",
+        "651ec0cc-f03e-4632-9924-eecdd26d8612"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 62,
+      "size": 1527,
+      "magnitude": 1.4912,
+      "mag_per_clip": 0.0075,
+      "clip_ids_sample": [
+        "214eff81-7352-4a2c-b8ae-105ae5b3f0a4",
+        "3fd623c3-d3e5-483b-b844-1ef5effa2386",
+        "858bbf99-1080-4509-bbb3-4a27b9fb290e",
+        "4df3bc5f-a1a5-451a-a3e3-90d6d1b26e91",
+        "bc35ba71-ba7e-4aa4-b8e6-0306c9204740",
+        "f14e3ed1-bc2f-482c-bad4-a6eefd936c20",
+        "b61f36a2-83c9-4b48-81da-2feeed9d8419",
+        "f3cdfcda-d39b-40b9-af5b-c1ce6886e169",
+        "4dd0c383-c6ea-4552-a553-84ef0031f986",
+        "bd014ecc-ce09-4bd0-962a-d9bbf823982c"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 87,
+      "size": 1635,
+      "magnitude": 1.3898,
+      "mag_per_clip": 0.0069,
+      "clip_ids_sample": [
+        "17987c71-4fd6-4685-830b-a5e228a1b0fb",
+        "01ed789d-85bd-4e6f-923d-b185dd59fed9",
+        "96e5d433-72d8-4d6e-b3c3-df32ac157548",
+        "d236d4db-9c15-4d19-81de-cb94bc984902",
+        "adc70047-aa57-4dd8-a776-aa0434fbe2f3",
+        "5df08d78-b6fe-4790-8c49-0e86cb85429e",
+        "84140b71-60b1-416a-9a30-81d4425312cb",
+        "67d20ae1-1057-4a0e-86a6-32e3797924fd",
+        "1e578de4-fd08-4066-b7b2-eb0f854e831c",
+        "01939ea8-df5e-4dcc-983e-01c5291c91d9"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 116,
+      "size": 1908,
+      "magnitude": 1.582,
+      "mag_per_clip": 0.0079,
+      "clip_ids_sample": [
+        "b7f6aea6-acce-4b03-a0ca-cfc58160955b",
+        "4e029a4c-9107-46bc-95c0-72be814ac821",
+        "7a84944b-85de-490e-8b1e-228048bd028e",
+        "168347a4-85d1-4658-b1a0-ffee33234d09",
+        "60a67624-0873-44b5-9ee5-77d9fb9d20c0",
+        "e0b397ce-73cc-4620-920a-4ecf1ee5ccff",
+        "9c655a9d-788d-48f2-8091-e5400561db5d",
+        "5627c79e-7285-480a-af24-b17b8c4ff978",
+        "b6212d33-ba5d-4fb0-85ff-9cd98962e632",
+        "b052e3f8-fdee-41d4-acab-ef811b6a9693"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 6,
+      "size": 3195,
+      "magnitude": 1.6611,
+      "mag_per_clip": 0.0083,
+      "clip_ids_sample": [
+        "41cc788a-0fbd-4603-9d4b-170faba6733f",
+        "a9b03175-31eb-4251-b269-dae17db67fc1",
+        "41f2b9c7-4ca3-4bf8-9e32-2136cb66cb10",
+        "81fb199a-e504-4570-a4be-03836032af88",
+        "fc07cf20-ef53-4232-8713-ef4b2b7c235f",
+        "5ce8d468-dc70-4c5c-bff9-afa95727d42e",
+        "42e7ede5-306b-4627-be95-67397fbdb7db",
+        "816bafa5-b9bf-4cd5-b100-0e8cb6582bb7",
+        "a0fdaa02-a6d5-44a6-bba8-50e264f150bd",
+        "36e28d57-5698-42ef-80e1-974841d4b3db"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 99,
+      "size": 4259,
+      "magnitude": 1.9199,
+      "mag_per_clip": 0.0096,
+      "clip_ids_sample": [
+        "688fd761-04c0-4762-a15e-b193779981cc",
+        "60c1488e-72e9-4c6b-8234-aeb735597014",
+        "e6c4d567-7be6-4abc-9c04-32bb162d1f6c",
+        "3227701d-b00b-4b9a-a4b8-4de2c15509a7",
+        "767a4065-e15f-4b61-ab77-70ef954099ec",
+        "c339efcd-1052-4316-9a57-37aa489cd755",
+        "ad041ef0-353f-4904-b852-832345692eb7",
+        "a5f5a09f-aaa1-4c70-99e1-9f4c10cdfbf6",
+        "75bc9b7c-3089-4bfe-bace-940120003e4e",
+        "90ccec51-1ea2-4a62-8b8c-f278f3729dee"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 101,
+      "size": 5603,
+      "magnitude": 1.9879,
+      "mag_per_clip": 0.0099,
+      "clip_ids_sample": [
+        "63b340df-e989-4a8e-9ffc-fa2f87a2b918",
+        "5e81028b-1786-48ba-b12f-e95ee7b5a95b",
+        "aba0dac6-2e50-4ba1-b155-529b8c9e98b1",
+        "7a2b2531-115b-458e-bb5e-13c215ebb5de",
+        "5b845c2f-431c-43c4-85e7-4a0f41211f14",
+        "c373dfd3-fea9-44a1-bfe5-f2e428cd80db",
+        "c26dfa2e-613e-40b6-9114-77dcd4f33b4d",
+        "05ae00e1-b9f2-486c-8a0d-7c30f9600252",
+        "9491d16c-c24d-4ac1-9ade-366f26e0929f",
+        "35f96431-e83d-41a3-a461-3f51d42f88be"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 2,
+      "size": 11459,
+      "magnitude": 2.1801,
+      "mag_per_clip": 0.0109,
+      "clip_ids_sample": [
+        "846b4db9-7dd3-44ff-b199-3b62c14bf7b3",
+        "7803f211-9df5-454d-8e49-6e6d9c122542",
+        "30c495f5-e910-4c76-af7e-9c1060994236",
+        "9bf2249a-305e-4f83-b41e-2e47cdc5b2e9",
+        "bfafc48c-34ec-47f7-aa7b-ffa271558e8c",
+        "b0393240-fa77-4fca-a5da-c5c9136a1a87",
+        "6806f8e8-9177-475b-bb0a-b25dbfc2e705",
+        "239c758a-d5ee-48d6-ab29-026b394c71a3",
+        "4d6a57e0-a3a6-4134-9e63-784a1456be58",
+        "9dcfdf7b-b997-464e-bd93-16d443f9bb69"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 0,
+      "size": 11533,
+      "magnitude": 2.102,
+      "mag_per_clip": 0.0105,
+      "clip_ids_sample": [
+        "59e10877-a75c-4e1c-9dab-1000240ba275",
+        "7d942f02-63af-42aa-bf7f-6c98f333b611",
+        "6e7f4e64-0049-46bb-bde4-bdc4f40997cb",
+        "1672b35a-9b64-4346-be60-7e241626712f",
+        "1687a244-bf0f-450f-bd6b-23901ed8107c",
+        "5647e616-2e59-4ffc-8b18-b277bc4c0269",
+        "7e1111e1-b6b7-4978-9f3c-4e9a239704e3",
+        "a23d98a0-015f-46e7-a023-6b04a1035827",
+        "3983b2ad-f569-4283-9183-5333436d471c",
+        "9571c867-5140-4584-ba45-8b44242403cd"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 1,
+      "size": 15860,
+      "magnitude": 2.2767,
+      "mag_per_clip": 0.0114,
+      "clip_ids_sample": [
+        "1fc3fb77-1439-4b42-a989-b62730148cec",
+        "8213ef9d-bda7-4e88-8c48-a97f446b3856",
+        "cf5a67c8-8daa-4cf7-acfb-2ade595e96f7",
+        "0d773519-bb8f-4836-b3bf-14ef8ffedbb9",
+        "ddbf6859-45f8-4f24-9c3a-e5b1689dfe29",
+        "2bebd72d-b8b1-438e-9938-21205b57e500",
+        "c43467e0-1281-4b36-a90e-dfd63baa2a04",
+        "4c6e7253-4214-4ed3-b917-a2f8450306ae",
+        "bbe0df5c-71a5-4277-97b4-f7855cef6465",
+        "6005faef-d111-4391-8b0d-e31ae2dfb6a9"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 8,
+      "size": 25014,
+      "magnitude": 2.8615,
+      "mag_per_clip": 0.0143,
+      "clip_ids_sample": [
+        "a3993fb0-0698-4120-b783-e22303c09dc8",
+        "7a8e28ba-5de7-4486-9148-3def5adff91d",
+        "7da0f63b-4b3a-4fc8-b6fb-efa894ed86a2",
+        "cc7f6ec2-5902-4360-8ffe-dacdfe6d8285",
+        "9a1fdccf-641e-4348-989c-135c68d0da90",
+        "855d1839-0f1b-41ea-9bce-c58e6d72a770",
+        "301ff74d-673a-4370-851e-70b1cf6e2305",
+        "c3589ecc-7f54-472b-9fd1-098e33182931",
+        "ade01655-3b4b-4561-86b3-ffaca52fd257",
+        "300157fe-f27b-4e8d-af9a-b4f5724abccf"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 3,
+      "size": 55211,
+      "magnitude": 4.8151,
+      "mag_per_clip": 0.0241,
+      "clip_ids_sample": [
+        "e9a3ebee-a169-4a0a-be67-6e7f6dc52a50",
+        "f056306c-5630-4bfa-bb4b-ac4d4930b8f8",
+        "829320e2-ba11-48e9-8196-1247e5709b5f",
+        "592079b3-b427-446c-84d3-90b78c4af8e7",
+        "84ea3d44-b131-40ca-b5d0-c8493d53ce63",
+        "fad3612f-43f1-4e0e-b775-384dc4c78e8c",
+        "7ebe438c-20af-4b57-b128-907ba1a01e07",
+        "d4a2ea1e-ec12-4981-955e-44f99f820ff7",
+        "dd31efa3-966f-4a54-90e2-0e97afcb54c3",
+        "af881b1e-e464-4766-9a50-b62dc19ad9fb"
+      ],
+      "llm_label": ""
+    },
+    {
+      "cluster_id": 7,
+      "size": 61909,
+      "magnitude": 4.5854,
+      "mag_per_clip": 0.0229,
+      "clip_ids_sample": [
+        "8a210de0-94ef-4587-ba76-b883cfd7732b",
+        "ef040c22-9514-4841-b758-c558b0fdd341",
+        "bfd87a11-184c-472a-a9bc-594664dabd05",
+        "73139065-5692-45cd-8452-d7a162f376cf",
+        "ab7fdd6f-0c33-49fd-84b5-9bde9837ebc4",
+        "812ab572-e92d-4397-aed8-cd40640469bd",
+        "8ceddace-35f5-438c-b3e3-82ea13404523",
+        "51b5c28f-4b2b-4465-b24e-0d1d8d72c145",
+        "733c98ca-0e43-4257-89f5-9ff2bac969bd",
+        "0fb43ad7-4a54-407c-8c33-70c6e1187e3d"
+      ],
+      "llm_label": ""
+    }
+  ],
+  "bottom_50_gap_candidates": [
+    {
+      "cluster_id": 24,
+      "size": 50,
+      "magnitude": 1.378,
+      "mag_per_clip": 0.0276,
+      "clip_ids_sample": [
+        "0ea89dad-eeec-4b33-be2c-1e7bdb366e5c",
+        "1be3f5ea-f238-41a9-8124-1c48263c481b",
+        "1dcfa915-c1f2-4e1a-ab36-47ba4241a331",
+        "2b17fe38-5d71-4cf0-a113-ae4abc60f88b",
+        "310c4324-d97c-4c43-bab8-62b728fe9532",
+        "3aaaca59-bdb0-4ee1-a835-42e1476b5832",
+        "3bc3ac65-9f5d-40df-9c33-5d46783eb40b",
+        "46aae0b9-763d-4956-83ef-e2cff301eea4",
+        "487ec592-0f79-420c-ab3d-81036e48ec09",
+        "4a73e4ad-c09f-4963-bd47-5adcbb5d7a76"
+      ],
+      "llm_label": "urban driving in moderate traffic under overcast skies"
+    },
+    {
+      "cluster_id": 46,
+      "size": 50,
+      "magnitude": 1.1442,
+      "mag_per_clip": 0.0229,
+      "clip_ids_sample": [
+        "091dbd2d-e39c-4178-b25f-ae2d1b5f46cf",
+        "173a415b-9024-4e67-bbd2-9b2d53a367a0",
+        "18101c44-7699-48c7-a603-d1ac5ec87ce8",
+        "18298cea-36a0-4b4b-8661-a6e193291b00",
+        "25c01fa3-5e02-42ab-89fe-ede3233dbc1a",
+        "28c1f4f5-8249-4b72-bd24-e8a12f96aee2",
+        "2b24aca1-161e-4afe-b944-a1f61cea980a",
+        "2b511809-fec7-480f-8220-10015c493151",
+        "36430b45-5a9f-4a2b-bccd-70d9e616b281",
+        "46c9b24c-2b1b-4539-a68b-824b50730c3d"
+      ],
+      "llm_label": "Driving in a quiet suburban neighborhood on a sunny day"
+    },
+    {
+      "cluster_id": 44,
+      "size": 51,
+      "magnitude": 1.2181,
+      "mag_per_clip": 0.0239,
+      "clip_ids_sample": [
+        "0e6e8174-1fdf-489c-80e9-0fa998756fa2",
+        "15262f3b-3cd3-4f8a-89ba-4b1a5416c718",
+        "19699ecc-0cd9-40c9-ac3f-9888f2236319",
+        "1c9d1b6c-b031-4d4d-84b8-6701db2f02e4",
+        "1e554c14-fdcb-45f4-86ae-66d8882cef24",
+        "1eb35f25-40f7-43c4-92a3-115ce3967c53",
+        "1ef3064e-6e73-46bb-957c-2390f2819408",
+        "29568f6c-ec5f-474d-a7c3-801848fe2fe8",
+        "2a25ad74-3622-4883-b8ca-770f4c68442d",
+        "30de7d88-2cb0-4252-83a2-3caf6f68122c"
+      ],
+      "llm_label": "Residential driving on a sunny day"
+    },
+    {
+      "cluster_id": 25,
+      "size": 53,
+      "magnitude": 1.3564,
+      "mag_per_clip": 0.0256,
+      "clip_ids_sample": [
+        "017827f4-3142-40ed-a659-2fc3b7440f97",
+        "02a8effa-5547-4c54-b733-4fe1b62cb598",
+        "0ca7c235-528d-4671-9cdf-4b599edfc3d6",
+        "101a7f8c-fb3f-4b13-b609-516cfb48181e",
+        "12439bb4-ca96-4794-a970-124ffaa475ab",
+        "130f75d0-c95d-480d-9c02-7a02bba35da5",
+        "168078db-03ae-4754-85d8-3e5c9bc53d59",
+        "1790c4f9-e113-462d-837c-3e77bb253c64",
+        "1bfcc513-0396-46ca-9a17-75a9f99359cb",
+        "242e8c5e-8ad8-4b70-bbe6-a1dfa46b8847"
+      ],
+      "llm_label": "twilight highway driving with occasional merging vehicles"
+    },
+    {
+      "cluster_id": 56,
+      "size": 53,
+      "magnitude": 1.3033,
+      "mag_per_clip": 0.0246,
+      "clip_ids_sample": [
+        "0411633e-3f3f-4de2-8fd8-2d3555602c12",
+        "043aa241-6d8c-492b-b811-3d274c709b6c",
+        "051b420f-57f6-4553-b044-69f980dfc993",
+        "09374303-5c5c-435d-a9e5-8b8fb8609463",
+        "09eb77c8-9139-4317-962b-411f4a583865",
+        "124e23f4-fc37-488b-a03f-923f9f19ba35",
+        "18b7f444-7d5c-4eee-91b0-3ebaa9a15cb8",
+        "18d0bd5b-956c-48b1-a52f-983321eda761",
+        "1f4d95f8-9f11-4c81-aef1-b9d4619b2902",
+        "269a599e-8a2a-4b13-85af-94fc3376d133"
+      ],
+      "llm_label": "Two-laned road driving in low-light conditions."
+    },
+    {
+      "cluster_id": 21,
+      "size": 55,
+      "magnitude": 1.4934,
+      "mag_per_clip": 0.0272,
+      "clip_ids_sample": [
+        "004d4a47-2b27-4174-a1b8-0363d81ffc1d",
+        "0859260b-901a-4d80-bd65-b0c45a946465",
+        "121ede31-f08e-4257-ae97-f0df83c3cb98",
+        "12378a2b-3190-4768-b356-4d5798ccde2c",
+        "12a8ac81-4082-4dce-b1e0-f33804b02414",
+        "14dc2458-65df-42d8-a22f-aca042d12ed6",
+        "1a3902b7-0586-4112-8d6b-f1af81e3feed",
+        "1e4569b6-e0be-4810-92e9-4820b70a4d01",
+        "21f7a461-5716-451a-8c49-f9769e8e3485",
+        "2e0bb0ff-e2a0-476a-a00c-ba5b9f64fc2a"
+      ],
+      "llm_label": "Urban driving with obstacles and cautious navigation."
+    },
+    {
+      "cluster_id": 53,
+      "size": 56,
+      "magnitude": 1.2452,
+      "mag_per_clip": 0.0222,
+      "clip_ids_sample": [
+        "01d54f47-1d3a-46ae-874a-24bfcb02bed3",
+        "0377361c-3a61-48a8-b9b0-c53c0e6c9bec",
+        "050cba30-7f48-4bb0-b4e7-060faa41b03e",
+        "0767d882-91ef-4b08-8906-e67b9a850b1c",
+        "0a73f5c4-38ec-4633-a4b7-0e8f3dd327a9",
+        "0bf3ff88-2631-45fe-93c2-1a85a40268b8",
+        "0c827dc9-588c-45c3-b27f-bbdb4156c55b",
+        "106223bb-fe9f-471d-982b-add17d28af07",
+        "1831abd2-1687-4eb7-bec2-8ed8eabafda4",
+        "1b053d56-07a8-4190-bc99-ee79c4e55d85"
+      ],
+      "llm_label": "Multi-lane road with moderate traffic and construction."
+    },
+    {
+      "cluster_id": 111,
+      "size": 56,
+      "magnitude": 1.1479,
+      "mag_per_clip": 0.0205,
+      "clip_ids_sample": [
+        "0d6e8cf8-1fee-4456-987f-47341265279c",
+        "0d792b6d-3f3e-4fc7-8397-245747506bd2",
+        "1078e3d3-edea-4bbb-8994-f0d0d8c2e5bc",
+        "10d1637c-1870-41e9-9aaa-8af812de15a0",
+        "139cdf55-c245-48f1-ae1a-5bccfe7eae07",
+        "1502f377-db35-49ef-8db5-2d7a34b140f7",
+        "16ba9326-37dc-4184-a223-9f5374779fff",
+        "182fff50-d1ab-482d-b2fc-58299533f5a3",
+        "1bc93e58-d203-4b62-9bd7-00454f94a851",
+        "21fbae71-d38a-4e02-b30a-2c63087ea27a"
+      ],
+      "llm_label": "Morning highway merging with busy traffic flow"
+    },
+    {
+      "cluster_id": 80,
+      "size": 57,
+      "magnitude": 1.1779,
+      "mag_per_clip": 0.0207,
+      "clip_ids_sample": [
+        "07654095-d102-4adf-b40d-e2b7fd7abb82",
+        "08077200-7b53-4ab3-a318-7c3bdd556e5d",
+        "0a1f449b-c57a-4393-b9b2-0056d3eea497",
+        "0b02896e-477f-49fa-ac50-e8c9aee4f76f",
+        "0f9ca3d5-dfe6-49bf-831d-6af41de1e635",
+        "105fd5aa-c3c6-4593-938b-612c1b5a2a78",
+        "17a6fead-6d9a-4bba-8b0e-3ddccc8c35b4",
+        "24db8ca5-6c66-413b-a3ba-3e7e8ff372be",
+        "24e040f9-61b6-472a-9bfd-985bb629a0b3",
+        "26792826-de6d-4cb6-966e-04b4510ca029"
+      ],
+      "llm_label": "busy freeway driving with heavy traffic and stalls"
+    },
+    {
+      "cluster_id": 106,
+      "size": 57,
+      "magnitude": 1.1192,
+      "mag_per_clip": 0.0196,
+      "clip_ids_sample": [
+        "03e3eee4-8b47-487a-bc51-3d648a8f538c",
+        "052075df-cc75-413a-8644-d7d7d50eb50c",
+        "09629e3b-3546-4921-8e3f-b6578e7f989b",
+        "172566e6-14c2-4bfa-aebf-b82781a06b7c",
+        "1b4ec297-45c2-407b-ae80-696338b3cd67",
+        "1e3443fe-e4be-4e1a-b072-200be5164a14",
+        "1f236a18-31f0-486c-908c-c849a26cc0a9",
+        "20357a58-2c26-40e1-ad03-ded014da28d1",
+        "22712f79-7158-44d3-8d2c-deb5df5042fe",
+        "2d0ddaf4-5461-4059-aef9-ce7c0a4e98b0"
+      ],
+      "llm_label": "Rural driving at dusk with limited visibility"
+    },
+    {
+      "cluster_id": 5,
+      "size": 60,
+      "magnitude": 1.3397,
+      "mag_per_clip": 0.0223,
+      "clip_ids_sample": [
+        "05d133d7-0495-4955-b912-ec502df74f66",
+        "06dda8d4-1f45-4516-8dc9-3fe550b8e6b6",
+        "085aedb0-6e2b-494d-9066-caf90a35731d",
+        "0a1adee5-3561-40e6-85ad-93d2a02dd1bf",
+        "0c57ecbd-6c2b-4d99-96e7-23f628a016dc",
+        "0c969790-a08f-4156-aabb-574ce4b82611",
+        "0e108459-0871-46cd-a76c-afde298bbc5a",
+        "11cc197a-13a6-43cb-ae71-15dcaaf19e90",
+        "148fa2ee-b837-407e-aca7-31503aa6637f",
+        "17a9a382-42fc-4105-85ee-3886a6c29406"
+      ],
+      "llm_label": "toll plaza traffic in clear daytime conditions"
+    },
+    {
+      "cluster_id": 32,
+      "size": 60,
+      "magnitude": 1.2444,
+      "mag_per_clip": 0.0207,
+      "clip_ids_sample": [
+        "056fbecd-d715-4167-9dd6-f09e8447102a",
+        "092a85a2-b696-416d-ada9-a2d652a9222a",
+        "0d4d2a16-b307-4be1-911e-5d194e43aac8",
+        "0f29301b-29bd-498f-9149-9a468f1ce62a",
+        "153da1c9-d099-4801-a75c-ab1b008c0e19",
+        "195bae60-7fac-4457-89e3-1f1f9521f2bf",
+        "1aeea048-c0f5-423d-be97-228a39f51370",
+        "2058c7dd-776e-489d-9fe1-bbff06a135a3",
+        "23678c60-05af-4dba-afc1-bea7d12cf60f",
+        "29474be9-7d2b-434b-b585-c5c574ea6a46"
+      ],
+      "llm_label": "urban driving on a sunny day with distractions"
+    },
+    {
+      "cluster_id": 54,
+      "size": 62,
+      "magnitude": 1.2735,
+      "mag_per_clip": 0.0205,
+      "clip_ids_sample": [
+        "0359ac86-7618-44ac-8286-96c38099bda6",
+        "036786e4-9099-489c-ab56-039f618a8fb2",
+        "0410caff-8c29-4763-98fc-bdd4a09d4aac",
+        "0835b5ec-35df-4e61-bacd-1c895e2e1c6d",
+        "10f7409d-4f01-45a1-9a1e-f68c57e227e6",
+        "134851de-4570-4ddf-8337-ae8acb296518",
+        "152ba6f2-e7c3-411e-aec4-0332b1ca7af0",
+        "1761f579-3cc6-480b-9ddd-71f0d95eac9e",
+        "1b2c4ecc-5e4a-48c2-8299-7040a520d711",
+        "1d32b8fb-200f-445e-b17a-a19d2da0afc1"
+      ],
+      "llm_label": "urban driving with obstacle navigation and intersection queuing"
+    },
+    {
+      "cluster_id": 119,
+      "size": 62,
+      "magnitude": 1.1901,
+      "mag_per_clip": 0.0192,
+      "clip_ids_sample": [
+        "049ed426-22b7-4ccd-badd-550a54351081",
+        "0878fee3-7d36-49c3-a29b-2bce0812efb3",
+        "0ab59f9a-a6cf-4117-b2b7-c0938cfab47d",
+        "149d4926-67e9-49a6-bb9d-1f1388d4ff33",
+        "168fe5a0-f1bc-451d-9ac4-540fd4b68f75",
+        "17e459ab-41b7-4bad-b67a-6986e4453743",
+        "1a8fca36-77da-4474-bc72-220087605788",
+        "1ee41a60-6ff8-4a9f-8134-8eb8b8a2139f",
+        "1f7adda8-4bb2-4cc4-9f5f-ae1df8461af6",
+        "25261d3b-a235-4ba0-9fc4-f302b10138db"
+      ],
+      "llm_label": "busy morning traffic with intersection red light"
+    },
+    {
+      "cluster_id": 20,
+      "size": 64,
+      "magnitude": 1.462,
+      "mag_per_clip": 0.0228,
+      "clip_ids_sample": [
+        "00c17f08-0f88-4349-9e7b-6901278d5b33",
+        "0ff273ff-78f6-4895-b542-60ed9ba81d4a",
+        "125dbf46-b280-4dd7-a32e-c4dadb25156c",
+        "174bc645-de21-4b99-8cfa-53468cc02723",
+        "1d56b3cc-93d3-4eba-aa15-03d39a7c73fa",
+        "20a4309b-fb79-487d-b61f-75bf8189cb59",
+        "2928d08d-f72c-4f71-ba21-6fa61119e1d8",
+        "2a52c1db-7442-46c1-ac4f-68f949bbd86c",
+        "317c62de-56bf-49f4-8a20-36a7e133450c",
+        "3206aed2-2367-4bf5-9eb1-eeaec762c0a9"
+      ],
+      "llm_label": "Urban intersection with multi-lane traffic in daytime"
+    },
+    {
+      "cluster_id": 45,
+      "size": 66,
+      "magnitude": 1.1028,
+      "mag_per_clip": 0.0167,
+      "clip_ids_sample": [
+        "050752fe-7729-4960-895b-3f05c3bad41b",
+        "06578bf1-d8c3-4d94-bc0f-138143c49678",
+        "0d3e239f-2554-4959-93f0-f82fdcb0ec79",
+        "0f71a0a0-a4f8-4d14-9e97-2d05ef252c79",
+        "11fd8546-d978-4d0c-b0ce-78613f0afa20",
+        "15687e40-9b1a-45dd-b6dc-2eb1eeff3e5a",
+        "1569bc6a-289c-4809-a6f0-a154b618512d",
+        "191ffa2d-3b00-44a8-ba68-dd02e2bb39b5",
+        "19b3bc6c-02b7-42a0-9646-fb85b6aaad34",
+        "1a221abd-35b9-4cf8-988d-b962bed345a3"
+      ],
+      "llm_label": "Morning rush hour with merging and overtaking trucks."
+    },
+    {
+      "cluster_id": 83,
+      "size": 67,
+      "magnitude": 1.2656,
+      "mag_per_clip": 0.0189,
+      "clip_ids_sample": [
+        "00904520-3100-4e97-a728-b7fd984216a7",
+        "03bafa42-ba5a-452e-aa1d-93f53be6cdc9",
+        "03df9ea2-549d-4e41-bf95-7e6593dd058c",
+        "049f1baf-1f5d-4cbf-85f7-bfb40d4d12fc",
+        "04e05b20-7c19-4673-8cc7-e8c292f393d2",
+        "078cd164-a762-4a95-9fb8-2eb943d86bbe",
+        "0b13d229-5be5-4d7b-9e12-328e5cfc6c19",
+        "0becc223-cb6c-483d-97e0-035afddc80dd",
+        "128c4056-3bac-4ba8-8c0a-5c6019bdc092",
+        "15cf1607-507d-4918-8999-58931e3293df"
+      ],
+      "llm_label": "quiet residential street with low visibility in the morning"
+    },
+    {
+      "cluster_id": 16,
+      "size": 68,
+      "magnitude": 1.304,
+      "mag_per_clip": 0.0192,
+      "clip_ids_sample": [
+        "02d2c18b-1604-4370-9f15-9b512e5a509a",
+        "09e69cb0-4745-4306-8944-804e5d83ffea",
+        "0ab6e787-433e-4753-bd16-b1d171858646",
+        "0c78523b-8a39-42c6-bc6e-43bbfcd81fd3",
+        "0c7f388f-f047-43f2-8b06-44943e58cd0d",
+        "0e8fb9c6-7939-4384-8bdf-e3394ef98314",
+        "128594dd-a00d-489a-9f47-528e657995d8",
+        "13d0e50c-b1af-40f1-a51e-9bed1aa5a6b6",
+        "15e14fc5-162d-48ed-a105-f1ebbe7543cc",
+        "1ee06a9f-bf8e-40e9-a7bd-031e4ecb574d"
+      ],
+      "llm_label": "Narrow winding road with railway crossing warning"
+    },
+    {
+      "cluster_id": 18,
+      "size": 69,
+      "magnitude": 1.3332,
+      "mag_per_clip": 0.0193,
+      "clip_ids_sample": [
+        "00dbbd01-4229-437d-8f5b-cd4bb6c0596f",
+        "01da38df-4eaa-4fba-80ce-27d18fabbd0f",
+        "02f17eaf-f7e5-4071-a293-219d20986052",
+        "06731e6e-67ee-418e-84a4-feb5a0720114",
+        "0bc84267-f9a7-4065-add0-a28f4355f81b",
+        "0fae8cb6-bc79-46f4-8722-914dc2192899",
+        "146cb634-dcad-426f-8885-59423084ffab",
+        "1b54be13-4214-4a62-b5b8-4669781a8151",
+        "1f4d2548-1926-4928-8a6f-1becc4f49741",
+        "23ffa870-9b33-4aac-9008-a1928ac1c404"
+      ],
+      "llm_label": "Construction zone on a sunny day with traffic."
+    },
+    {
+      "cluster_id": 41,
+      "size": 69,
+      "magnitude": 1.1944,
+      "mag_per_clip": 0.0173,
+      "clip_ids_sample": [
+        "0e2b1cf0-f955-44e5-b84a-6d14d82d526e",
+        "10d251b8-bff3-47af-834e-3da0697656d8",
+        "13a3c2cd-9be5-44e6-ab0b-4112edf7074f",
+        "160a54f6-e640-4127-8031-afcbe235e43b",
+        "19a36172-ee60-41dd-9029-ffba0f87d2f6",
+        "240a92bc-6673-40fc-8f4c-a1ec23ce59bd",
+        "2cbe844c-b1f4-4c88-8781-f22c2e1aa9c5",
+        "31b4923f-4b4d-41db-b36a-c7bb93789719",
+        "336fbfab-2a6b-4395-885a-ec35fab35baf",
+        "36803fca-b9b6-4164-ad47-37320d45d691"
+      ],
+      "llm_label": "scenic mountain driving with clear skies and sunshine"
+    },
+    {
+      "cluster_id": 109,
+      "size": 69,
+      "magnitude": 1.1186,
+      "mag_per_clip": 0.0162,
+      "clip_ids_sample": [
+        "0000e9b8-bd42-4d20-bd98-d3cecd8726be",
+        "04d66632-3ba3-45d5-8029-b672aa49ecaf",
+        "0616baf9-d7d0-4546-b8e2-d35760ab26c4",
+        "0abe48e2-4811-4d38-aeb9-b0989e83817a",
+        "0edc0e0e-d62b-4881-bb6d-6224dc173670",
+        "14c04031-29ea-4700-be84-700b8b89ef54",
+        "15767525-89b7-4e9f-9c52-00f96d27c5f4",
+        "187a0c03-85e1-4559-9d4e-c15beafe3889",
+        "1c04867b-35b8-4adc-a6fa-7118f87e2653",
+        "1ed9623d-aca8-4f50-b463-993cc3d13eba"
+      ],
+      "llm_label": "test track driving evaluation under clear skies"
+    },
+    {
+      "cluster_id": 60,
+      "size": 73,
+      "magnitude": 1.1608,
+      "mag_per_clip": 0.0159,
+      "clip_ids_sample": [
+        "005eaa0b-d7e5-4114-973d-80973f1f7101",
+        "02fec2a7-eb00-4739-b7c8-b771feb3da9b",
+        "03f8f7a1-f698-4af5-a498-a94658a87bd1",
+        "0b07dd7f-6fe7-4dcc-8469-64565cb14981",
+        "0bf2692c-d5ed-42e3-a069-8b4b584bd789",
+        "11427e23-8dd2-4d48-86f6-72f74e4f6b23",
+        "115867cf-a1c0-43c0-80a3-73e6cba0be9f",
+        "121529c1-af3e-4f01-80e2-70791dfc1edc",
+        "14fa9f0a-beb7-4383-8738-d5fafee246fb",
+        "18f932ec-8bff-4cc9-9275-e3c2185070fb"
+      ],
+      "llm_label": "Urban driving on a narrow street with parked vehicles."
+    },
+    {
+      "cluster_id": 59,
+      "size": 76,
+      "magnitude": 1.2572,
+      "mag_per_clip": 0.0165,
+      "clip_ids_sample": [
+        "004f1e73-120a-4fe0-bf7d-9e1cd2cfcc43",
+        "01e98791-f64c-4516-ba29-1679a1877f34",
+        "03e52ac9-4dc4-449d-ad8a-6fb7c7e0a78e",
+        "04121275-fb52-4c23-9c4b-deaabae4df6b",
+        "134645d0-880e-4015-8adc-174239ec14cc",
+        "15ef3a8a-ca79-4612-9794-1376fd076658",
+        "16cf8761-43a2-4e7a-95a6-4746eba6770f",
+        "17233208-b296-4bd7-b779-b0152f40a5a7",
+        "199fabe9-cbbe-4c01-840e-5a244725151d",
+        "1a4c3790-caca-40ce-8ce6-5cf107c0f9e0"
+      ],
+      "llm_label": "urban driving on a clear sunny day"
+    },
+    {
+      "cluster_id": 73,
+      "size": 80,
+      "magnitude": 1.2282,
+      "mag_per_clip": 0.0154,
+      "clip_ids_sample": [
+        "007f9015-6e29-4210-8c42-d62ec358e2e9",
+        "013a176d-892e-47b4-ab6f-3889c5fd3b63",
+        "02269233-36f9-4de0-ab89-284ffc6e7a66",
+        "0641c8a1-ca01-45ba-a4d4-0a3394a78835",
+        "0c09b677-67e3-46b6-b3c7-502d7c522cef",
+        "0c4037e1-474e-4087-b09f-79d6c3f37bd8",
+        "0f3d73d9-5510-4544-9e76-c8e3c5348412",
+        "20280f2a-0b1c-4853-96d9-4b13f4ba15df",
+        "2901e20c-2cb8-461a-85fb-f3620835e220",
+        "2a4b00be-5369-4394-bc45-c9950df2e61c"
+      ],
+      "llm_label": "Urban road intersection with cross traffic during daytime"
+    },
+    {
+      "cluster_id": 34,
+      "size": 81,
+      "magnitude": 1.3528,
+      "mag_per_clip": 0.0167,
+      "clip_ids_sample": [
+        "00ebc523-8d7f-4702-bca3-cd3206f18824",
+        "0195ee20-b189-4f47-8185-bcba74490287",
+        "082a564b-045f-454d-af41-756e1f6dc1ec",
+        "0a0eacef-fc1e-4096-907d-0deb72384da5",
+        "0e554428-f93a-451b-9327-a2ec14b842d7",
+        "1880dca6-887b-441a-9aaa-4b8a3eeb4dd5",
+        "1b54d36b-b394-46ed-b089-9f07b738311e",
+        "1d6ef6ce-a3c2-4079-9e30-c3392bd40608",
+        "1fd30417-9b21-4924-9583-e4115e4d2315",
+        "2355a708-5768-457b-941f-882c55127239"
+      ],
+      "llm_label": "Highway driving with merging traffic and clear skies"
+    },
+    {
+      "cluster_id": 58,
+      "size": 83,
+      "magnitude": 1.1717,
+      "mag_per_clip": 0.0141,
+      "clip_ids_sample": [
+        "005e5589-81e5-4f0a-8cea-122ff76f0921",
+        "0383aa3b-3385-4f60-a9bd-3f82335e73c0",
+        "0c9472c1-a7b1-4aa5-9ac1-5470049d1ca6",
+        "19ad8d60-cc81-4c4f-86e2-7a12e7724be4",
+        "19b0df2a-a21d-4399-a93b-68bc195de63b",
+        "1b4a9784-c554-428c-9da3-bb93149713e8",
+        "1d041339-7a4c-4b53-aac6-0f38b047754c",
+        "1d87f2a0-1f28-481b-ab77-7f4e7de6c396",
+        "1dbc0639-7e07-4f9d-8e93-21f7539ad477",
+        "20047a23-8497-456b-aa36-efe4bfc36880"
+      ],
+      "llm_label": "Daytime highway congestion with clear skies"
+    },
+    {
+      "cluster_id": 30,
+      "size": 84,
+      "magnitude": 1.3583,
+      "mag_per_clip": 0.0162,
+      "clip_ids_sample": [
+        "05f74503-7d8d-4db5-81c7-da110670c095",
+        "061637f7-6647-46ef-87ea-3769cb6b80db",
+        "0910551f-498a-440b-8277-b2741f1f4f8c",
+        "0b5157a4-18d8-43b5-a8f3-6401648a2f75",
+        "0c352c59-b65b-491b-95d8-f70d0510007a",
+        "14d01be0-da9f-4bee-99e1-2e4f77da94af",
+        "18244efb-5e3d-4572-ae01-c9d850732ebf",
+        "1c5abf52-d498-4a21-b666-3308f9153fd4",
+        "1f57859b-b3a9-4b13-96f8-84b319173ef0",
+        "240ad87f-7d1c-4020-bb96-0c039d993c1f"
+      ],
+      "llm_label": "urban driving on two-way road with stop signs"
+    },
+    {
+      "cluster_id": 19,
+      "size": 85,
+      "magnitude": 1.2277,
+      "mag_per_clip": 0.0144,
+      "clip_ids_sample": [
+        "02d6d74d-4b8e-4cb7-ae16-6f7340590f04",
+        "094f0404-bf83-45d4-b743-d89eea80e6dc",
+        "0a86e74e-90e1-46f1-ba2e-97372409f4e0",
+        "0d20f2a2-031a-43ab-bcfd-76f031c4197b",
+        "0d48744f-978e-4961-b17d-a5a2867ff225",
+        "0dd7cb34-307d-4c6b-b301-122b13b42881",
+        "1cf41ee6-de78-4ce6-bc0e-66ac70a8f202",
+        "1e6fb85c-4f38-42a0-9198-33246ab10b33",
+        "1fe6d79f-72da-4165-8c84-cabf2b6c2d7a",
+        "2365c712-3fe7-4f75-86ff-57353ac70082"
+      ],
+      "llm_label": "Highway merging in foggy conditions with low visibility."
+    },
+    {
+      "cluster_id": 78,
+      "size": 86,
+      "magnitude": 1.2636,
+      "mag_per_clip": 0.0147,
+      "clip_ids_sample": [
+        "01d29037-8f41-4b29-b89b-0161165ab86a",
+        "01f46f88-a96d-436a-8f43-ab9ea51ded7d",
+        "026275a7-b82f-4a6d-a1af-8cdf9f367c38",
+        "065d27d9-f5a7-4ab5-b108-75577aa4d095",
+        "067a71fa-d6f6-4773-8d9c-8cf1131d37c5",
+        "08c06ed7-3335-4a23-b4ca-18324ffb1970",
+        "12b03eb6-32f3-4d0a-8c94-ba5262682ac9",
+        "175c1cdb-1e6b-4689-87f0-bc36ca24a74f",
+        "1b786d6f-0f06-400a-ac88-814312d3409e",
+        "1c8c22c8-f294-4edd-bedc-c5f531aac817"
+      ],
+      "llm_label": "urban road intersection with cloudy daytime conditions"
+    },
+    {
+      "cluster_id": 85,
+      "size": 87,
+      "magnitude": 1.2191,
+      "mag_per_clip": 0.014,
+      "clip_ids_sample": [
+        "04321e91-df5f-4d13-952a-4dac938f72bb",
+        "05dd0594-9820-4693-afff-e368deb7f8c0",
+        "07062d4c-513e-48f2-b73e-809762c1bb38",
+        "0af7d5e9-d259-4fc7-af2a-d3d5a0578003",
+        "0cb5e77b-fb0f-4add-a13d-538737f4d850",
+        "0e2b6bed-141f-4c32-a26f-a5e5c86f1664",
+        "13b3a6f8-0ee9-40d3-8e32-3027c45da3b2",
+        "14e1351e-7ef1-4c29-83fa-06553f10b105",
+        "166c72da-6398-4986-8e96-d4d6273a1fab",
+        "18d70781-efe0-4a50-9e07-699ef3cc5781"
+      ],
+      "llm_label": "morning intersection approach on quiet multi-lane boulevard"
+    },
+    {
+      "cluster_id": 75,
+      "size": 89,
+      "magnitude": 1.1095,
+      "mag_per_clip": 0.0125,
+      "clip_ids_sample": [
+        "024bf5a0-6e84-45f5-a5f8-0d062624cdf1",
+        "02a29ed7-f350-4800-9f0d-14d30f2db850",
+        "0431b9b2-b0d5-46bd-b86d-d15a83818aa9",
+        "0a752c3c-46af-4c46-958d-94e75ae49b22",
+        "0c8a5f1b-0e28-44d7-bf6b-759f51316a52",
+        "0d033450-e681-4cfd-a5a5-faf60ca6268b",
+        "0d820256-de74-4bfb-8bc6-9cef1c6ff4cd",
+        "1140fd45-af59-4706-86c0-078f80512737",
+        "19340e73-7b6c-4f81-acc0-b0edef2abfc4",
+        "1dae5919-40a8-46be-9f54-b03a6ea6a873"
+      ],
+      "llm_label": "Urban driving with traffic and traffic lights."
+    },
+    {
+      "cluster_id": 55,
+      "size": 93,
+      "magnitude": 1.383,
+      "mag_per_clip": 0.0149,
+      "clip_ids_sample": [
+        "021c12f4-952b-470e-b396-6a367e78bef0",
+        "02e49558-fe7c-44a2-93e5-e5cc49ebe8ff",
+        "0340cebf-c5bc-4255-a4c4-85cf71d7dc3f",
+        "04c1e47c-0dfe-41b1-88f4-dde54318f372",
+        "09b60d83-26d6-4e8b-bcbb-15fb9c878977",
+        "0d0000cb-0cc8-42bd-889e-754c60581320",
+        "0d269f0e-74bf-4cba-978b-b333c0b3de02",
+        "0dbf8b86-39ac-43be-8a12-787e35a07b2e",
+        "0e1a413d-e176-4732-9e7c-d8705e70c424",
+        "149d730b-bc01-4b4a-9c07-69d64ad0316a"
+      ],
+      "llm_label": "Urban street congestion with bus blocking lane"
+    },
+    {
+      "cluster_id": 28,
+      "size": 94,
+      "magnitude": 1.3798,
+      "mag_per_clip": 0.0147,
+      "clip_ids_sample": [
+        "064ace3d-7c10-4221-a143-c1fefd684360",
+        "073eefc8-bc05-4997-94c0-383cb32ffd8d",
+        "09eac43b-8518-4976-b90f-d015ea294ece",
+        "0e3b8db1-2ae2-4fec-92f8-7781499f3c2f",
+        "0e719924-709d-4833-8494-20dbbc1a68ef",
+        "0f7313b9-6cc2-4bfe-b860-c7e2f9446084",
+        "1cae6c33-4b26-4c7e-8645-0ff0fff3aea4",
+        "22ca73b7-415c-44db-8755-5888b35ba5ca",
+        "23f56aa1-34bf-4a6e-bc3b-f1c6e51ee68e",
+        "243a19a3-6c8c-4044-8fe5-767089213dba"
+      ],
+      "llm_label": "Urban daytime driving with sun glare and merging."
+    },
+    {
+      "cluster_id": 91,
+      "size": 97,
+      "magnitude": 1.1415,
+      "mag_per_clip": 0.0118,
+      "clip_ids_sample": [
+        "02940086-3bdb-4205-b15f-730d521110c6",
+        "02b219a2-1e2a-45bb-8272-0d84dba0d710",
+        "08404a3f-935b-4db9-9867-25a614afaf7f",
+        "0b81f52f-5ba1-4814-a5f7-43dd04282c60",
+        "0d7bbf12-9d72-49da-852c-41be1f7e7d41",
+        "0e36c2f2-10f4-420f-a2c4-5f2f1733c154",
+        "11d49ba4-147e-4d72-884e-6f355dc71520",
+        "1a04136f-906b-4bd1-ba53-2371187d4406",
+        "1b60eee9-f851-4ae0-b25b-838ea0c6266f",
+        "1e085cdb-d854-467a-8cac-86c61e3716d5"
+      ],
+      "llm_label": "Morning traffic navigating around a stalled vehicle."
+    },
+    {
+      "cluster_id": 23,
+      "size": 98,
+      "magnitude": 1.384,
+      "mag_per_clip": 0.0141,
+      "clip_ids_sample": [
+        "006466b0-21ca-428f-8a97-bfd479cd09f6",
+        "023764a7-a0ed-4a74-b05c-3e9b350db8cb",
+        "034a0da7-e463-4904-8a80-6427978cfcb6",
+        "06cc81ed-f1ed-492c-9167-8cd3d3eff847",
+        "06d4e765-45ec-475c-adb1-611ab70097db",
+        "06e3f453-3425-4747-bde8-6bc483eb18ad",
+        "07d5b310-6905-43da-83bf-f674294f2895",
+        "097c95ce-c8f4-4c55-9b82-b63a4eef43a1",
+        "09f9dd6c-0fe3-427e-ad43-6c927e055661",
+        "0a95c233-36cf-4071-a5b3-6425e712a42e"
+      ],
+      "llm_label": "urban driving with moderate traffic and pedestrian crosswalk"
+    },
+    {
+      "cluster_id": 33,
+      "size": 102,
+      "magnitude": 1.247,
+      "mag_per_clip": 0.0122,
+      "clip_ids_sample": [
+        "054d7a1f-77cd-429e-a766-8b1f1da8431a",
+        "071e7d7c-8a6d-41c8-9c28-26aefbacd190",
+        "0bf96cf7-b4b0-43aa-af5d-656f6bf29e5c",
+        "0c4d2977-4cf8-477d-8e0a-f8bb2a8db4f5",
+        "10e3dc4b-2b77-4529-9d62-5e51eecd5fa1",
+        "19dbd0c6-25db-4f0b-b1e9-0a771a5b04a3",
+        "1af42f01-fc63-4722-bfb8-7f15eacc69f5",
+        "1cf1afdb-43d7-42ea-a57b-5c9eda82c5ce",
+        "1e42fd5c-c0de-417f-a26b-80d37deae7f0",
+        "2169e892-8aca-4f64-ba03-9c64fb77ad52"
+      ],
+      "llm_label": "Gated area access in sunny conditions"
+    },
+    {
+      "cluster_id": 42,
+      "size": 111,
+      "magnitude": 1.3831,
+      "mag_per_clip": 0.0125,
+      "clip_ids_sample": [
+        "0585e528-2944-4d29-b296-366797e65edd",
+        "06607ced-3359-496f-b578-4c0eaa7c5fe7",
+        "0da620a8-72bc-4553-bb18-2040ff71d2f4",
+        "0ec635ba-6148-42f7-a0a3-85d3f0e7fd4d",
+        "0f910d56-1009-48e1-8dd1-5d904939d335",
+        "146a0df9-bc65-476b-8752-6694ddeca24a",
+        "14c6b68a-0193-40c7-a294-7a0447f9159e",
+        "1525092e-b23a-4e8f-bf3f-aac27aeb5402",
+        "171f195f-54cd-46c3-ab62-8f2588f7f18b",
+        "19fffa86-e789-4f2a-af03-f719c7e52b15"
+      ],
+      "llm_label": "Straight highway driving in clear weather conditions"
+    },
+    {
+      "cluster_id": 113,
+      "size": 112,
+      "magnitude": 1.2064,
+      "mag_per_clip": 0.0108,
+      "clip_ids_sample": [
+        "016ab91d-ddd8-4ec5-b218-27e9359690d6",
+        "02d3029d-ae91-4fb9-9bcd-1695323683f2",
+        "05c741c0-620a-420c-862d-8b8e6379f6b6",
+        "09682e4c-a4eb-4a01-b79e-e2fd9d57baec",
+        "0a23deb1-f525-422a-abb3-cc622bb8b82e",
+        "0a8f093b-883a-49c0-bdd9-de70a3315277",
+        "0af4589c-9bb2-463e-b593-96c0f4da03ea",
+        "0b189430-fe90-4e11-9e1d-f3b6325d130a",
+        "12a1386a-f731-4e49-9110-e54e1815a9d0",
+        "13a4a73f-98dd-4056-97c5-92e8db80cebc"
+      ],
+      "llm_label": "Morning traffic congestion with truck disruptions"
+    },
+    {
+      "cluster_id": 47,
+      "size": 114,
+      "magnitude": 1.1682,
+      "mag_per_clip": 0.0102,
+      "clip_ids_sample": [
+        "0045ad63-c0c2-4282-b205-5a69ff4a87ca",
+        "01c9cb56-5755-4ce7-b29f-703898f991df",
+        "081d36c1-6ed8-4ec9-a81b-f806a3398c27",
+        "09b0f07d-c080-4f24-b7e1-2520c1e636dd",
+        "0a9ae47f-73da-4f84-89c7-582756b4b963",
+        "0d925c9f-4b05-491b-98e6-86a6d07e6c3b",
+        "19d5e03d-1728-490c-a675-0d2bdeea5b13",
+        "1bd77f28-a0ac-4798-b3be-0c345ddb7535",
+        "1c7972b6-fdca-45de-a7b6-1946e45c8322",
+        "1f2c2c68-f621-4d95-8bc5-580e30d53498"
+      ],
+      "llm_label": "busy morning traffic with stalled vehicle hazard"
+    },
+    {
+      "cluster_id": 72,
+      "size": 115,
+      "magnitude": 1.2675,
+      "mag_per_clip": 0.011,
+      "clip_ids_sample": [
+        "00948c8c-e41f-4c37-8253-3a88c57f37c7",
+        "03485486-f0ed-4b9c-b5d8-3053c1246c5d",
+        "05d5db55-f465-43d4-9ba2-34894fb155c7",
+        "07d38147-856e-4098-bafb-41af272ea3ca",
+        "09706f26-a78f-4dcd-8936-fc6c769d38db",
+        "0c615d28-8bb6-456c-b806-c1a7be6b2037",
+        "11736a37-8182-4f01-b099-541dcf479d5c",
+        "1190da0a-599d-41d5-acb1-279f1e3e5500",
+        "1251e0ec-ac67-48df-8bb8-008ec937155e",
+        "14543b93-f2a7-420c-a01f-41639282d131"
+      ],
+      "llm_label": "Urban driving with parked cars and pedestrians"
+    },
+    {
+      "cluster_id": 68,
+      "size": 116,
+      "magnitude": 1.3224,
+      "mag_per_clip": 0.0114,
+      "clip_ids_sample": [
+        "023ce839-a1e9-441e-ae6c-7d5baf6bd7b4",
+        "04672470-728f-44d7-9a92-b1d30ddbc25e",
+        "0567eecd-c67e-40bf-be5c-afaa46132b9e",
+        "09bf2897-071f-4186-a8ef-e204ea5529fa",
+        "0ad409dc-3b8a-4854-ac68-648b1e86c663",
+        "0b0d1d62-1f22-4c3c-8a82-ea5c4b0fa306",
+        "10eeebf6-d5ee-42c9-9c88-f16b2443ac3a",
+        "12c1c6cc-dee8-4cea-98fe-ee15050178dc",
+        "13391a01-6805-457b-9ccf-abf37cc2a6be",
+        "1a03e8ee-00e2-4863-bf5d-94edbb12272a"
+      ],
+      "llm_label": "Congested highway driving with merging vehicles."
+    },
+    {
+      "cluster_id": 102,
+      "size": 117,
+      "magnitude": 1.3174,
+      "mag_per_clip": 0.0113,
+      "clip_ids_sample": [
+        "010adc09-7e45-41d9-abef-fe9803401e4f",
+        "0130d47c-bee7-4a8e-803c-079f38f6a747",
+        "0a64c42a-07ab-4e60-b233-4b6d42106b11",
+        "0de44679-10fd-4c8f-9c1f-8f3ff7d38699",
+        "10dbb1a5-a38b-44f3-9514-177bd8b6330f",
+        "110248bc-43a2-43f4-963f-6136f9b06d3f",
+        "11bc28de-c948-4df0-a566-bba35875c8db",
+        "163bd8e9-21a6-494f-a363-acbcfa82cdff",
+        "17075a0a-7341-4883-833e-0fe6a3dae9c6",
+        "172a4a7d-6885-41b1-a334-6ae8210a0b06"
+      ],
+      "llm_label": "Freeway driving with sun glare and merging."
+    },
+    {
+      "cluster_id": 86,
+      "size": 119,
+      "magnitude": 1.2229,
+      "mag_per_clip": 0.0103,
+      "clip_ids_sample": [
+        "0164941b-9e71-4719-a0e8-bcb6851d6589",
+        "06864359-abc5-43ed-86fb-4686829a23a4",
+        "06b6ccf9-1ef4-461c-afe0-f59bfbde928d",
+        "09c31ff9-7eea-4bea-9438-05224975fdcb",
+        "0b8ee37c-afe0-4f02-b859-9fe7a176a76a",
+        "0d4abf06-e427-4516-8e81-c398a902ddc8",
+        "0d4eb710-65ca-4893-aced-1edd86b8a88d",
+        "12190383-d5ad-4de1-b37d-d773024181f4",
+        "1562979a-e2c2-442d-83d2-cf89abe76376",
+        "18a6f685-ea59-4eb4-9643-7a759c3dfb5a"
+      ],
+      "llm_label": "Quiet suburban street with pedestrian crossings."
+    },
+    {
+      "cluster_id": 15,
+      "size": 125,
+      "magnitude": 1.3837,
+      "mag_per_clip": 0.0111,
+      "clip_ids_sample": [
+        "01ce1969-9b42-44ff-9427-04a84bdfa1f2",
+        "041946d6-440c-4a20-9c0e-cf3e627244cf",
+        "06fca159-7963-4609-a452-23ab1f8f64d3",
+        "0f04d845-295e-426f-ac37-a008865766e1",
+        "112a0c04-a310-4641-8729-5416475a9e1e",
+        "12bf4d08-dccc-46c1-b12e-a0cb464dc17d",
+        "1343c2e7-d07f-4197-a62b-9e21f6eac6cd",
+        "1802e87c-e4d4-47ec-b7d3-ff1c51d72930",
+        "191c2cfb-51c9-4cb1-b59f-123a1f6315e9",
+        "191f04c2-f753-437f-9dd4-552e1ab77dee"
+      ],
+      "llm_label": "Two-lane road driving with opposing traffic and signage"
+    },
+    {
+      "cluster_id": 52,
+      "size": 127,
+      "magnitude": 1.199,
+      "mag_per_clip": 0.0094,
+      "clip_ids_sample": [
+        "031715e9-0e5c-453d-b176-c1bffe707945",
+        "04c8799b-e19c-4446-ae50-3bf58ded5d68",
+        "06609989-aea9-4cf6-85aa-41a237e333a3",
+        "0b36949b-ee97-4dca-b70b-a5102d612053",
+        "0bf60502-cf94-44a1-9771-37b454429579",
+        "0bf737e8-1ad1-4ddd-9493-c21ad5f7a7b3",
+        "0cd8652c-afa5-43c5-9440-53b27ba8ee77",
+        "0d2917bc-e974-44e8-818c-4504906b0083",
+        "0e94107c-e105-494c-866a-8e59ecaf2b58",
+        "11fe7dce-929c-4d55-a6fb-2df0f5b2bd56"
+      ],
+      "llm_label": "Narrow residential street with parked cars"
+    },
+    {
+      "cluster_id": 117,
+      "size": 135,
+      "magnitude": 1.1115,
+      "mag_per_clip": 0.0082,
+      "clip_ids_sample": [
+        "009929d5-ccb9-43dd-9f28-b041ba0f341c",
+        "06af0416-a593-4231-9755-bc7b0e24cc4f",
+        "086c5691-7571-42c0-a795-7c96f95ba754",
+        "094cabec-0a24-4d66-9e11-4ea8d6201c5e",
+        "0a67a7a1-4069-4a8c-a3e3-55bdc89a58f6",
+        "0c0bd549-07a4-41cb-a7df-772ed956e077",
+        "0d096f8a-3312-4580-ac8a-77315e10e39a",
+        "0dde06d3-a7ef-4531-8199-3d8cb8ef050f",
+        "0f38500e-ec90-49d7-8106-c89e0dae3b66",
+        "10085d94-5672-4bce-bd45-a77acb5a6dee"
+      ],
+      "llm_label": "Automotive repair and parking garage scenarios."
+    },
+    {
+      "cluster_id": 122,
+      "size": 135,
+      "magnitude": 1.3199,
+      "mag_per_clip": 0.0098,
+      "clip_ids_sample": [
+        "01b8b93f-806e-43dc-8fd3-f7f1db9279a0",
+        "03afc02b-fc7e-42ec-9b4b-e050a587376f",
+        "04eaea8b-d1ff-43ac-aeaa-970fdba8404f",
+        "05c34ed3-a83f-4d12-9deb-d6f0d05d2a00",
+        "091aa914-926a-4744-8d6e-d4476cf8d470",
+        "0968bf3a-8798-4613-bc1e-e3d4b5716e88",
+        "0c15db09-c75e-4c3b-921a-0331e011a2b9",
+        "0c986357-7b62-4bf3-9e44-0b8c1b70cd8a",
+        "0cb146c8-f877-4d11-ac73-ed7b68a9eae5",
+        "0cd72f2d-f4f8-4aff-b463-da5f1e42f544"
+      ],
+      "llm_label": "Morning driving with fog and low visibility."
+    },
+    {
+      "cluster_id": 12,
+      "size": 146,
+      "magnitude": 1.0746,
+      "mag_per_clip": 0.0074,
+      "clip_ids_sample": [
+        "00bb5e79-31b9-4d13-9b71-2492c3fbf544",
+        "019ae623-2bd4-4e7a-9639-1dd7a26fd7d4",
+        "01fdf647-644c-4df1-a6aa-ca201fab5963",
+        "023ba48e-c10f-455c-b635-d8581f87cff9",
+        "053deab4-ccc2-4869-8663-c99d89363295",
+        "0d0f9880-66fc-45bb-a2f4-04f778f678c6",
+        "0de06892-384f-4ddc-a501-8555d6a2da3d",
+        "1026e613-6655-4054-aa05-7781301925d9",
+        "10390837-1e13-4d20-9154-9fcd3faad941",
+        "11669989-94ac-48d4-9004-f37629913b46"
+      ],
+      "llm_label": "Parking lot navigation in heavy rain and limited visibility."
+    },
+    {
+      "cluster_id": 98,
+      "size": 146,
+      "magnitude": 1.3139,
+      "mag_per_clip": 0.009,
+      "clip_ids_sample": [
+        "03d9469f-04e0-4ec9-b522-b2f202a43233",
+        "056afc3f-0f16-4eee-bc59-ec48a6c10b32",
+        "07f250b7-30c3-4ec9-826b-15254829fbc2",
+        "08c38b91-bfd9-48d5-9917-3772d741e484",
+        "09030e70-4883-43a1-be75-73aa004385e1",
+        "0a01fefb-354a-4236-99fa-85aae60a2553",
+        "0a466509-92c3-4153-8ca2-7d14a43d28e2",
+        "0ab3fce8-a945-4022-a6ba-61d92df914fd",
+        "0dd3eb7f-47a1-40d5-a228-d06ea1288839",
+        "0ede1a77-ea57-4e41-a44f-b7461af6d481"
+      ],
+      "llm_label": "Morning traffic disruption due to stalled vehicles"
+    },
+    {
+      "cluster_id": 29,
+      "size": 151,
+      "magnitude": 1.4567,
+      "mag_per_clip": 0.0096,
+      "clip_ids_sample": [
+        "00b81ebd-5d8f-428b-834d-1ff63e6fb12d",
+        "0139e8c9-b43e-406a-81ef-3a3de49140dc",
+        "02df7cb2-e64f-41da-be87-b0d533249af5",
+        "04707aad-5280-41a7-8ece-40c905e9251c",
+        "047608ad-1b04-4f0d-a5e4-90c82b5eb74f",
+        "0495fce3-b58a-467d-829a-0b03768882d2",
+        "04fd63e2-2dc6-4376-83df-a195822239e4",
+        "09434058-40cb-4e06-b22f-2531442b75a3",
+        "09b21553-3c4e-48b3-9192-b8f411d82c84",
+        "0a119d27-7022-41f6-aa84-a095c97f85fa"
+      ],
+      "llm_label": "urban street navigation with reduced visibility"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "bm25": {
+    "overall": {
+      "recall@5": 0.8533,
+      "mrr@5": 0.9361,
+      "latency_mean_ms": 1.04,
+      "latency_median_ms": 0.82,
+      "n_queries": 60
+    },
+    "per_level": {
+      "L0": {
+        "recall@5": 0.93,
+        "mrr@5": 1.0,
+        "n_queries": 20
+      },
+      "L1": {
+        "recall@5": 0.94,
+        "mrr@5": 1.0,
+        "n_queries": 10
+      },
+      "L2": {
+        "recall@5": 0.7067,
+        "mrr@5": 0.8222,
+        "n_queries": 15
+      },
+      "L3": {
+        "recall@5": 0.9,
+        "mrr@5": 0.95,
+        "n_queries": 10
+      },
+      "L4": {
+        "recall@5": 0.72,
+        "mrr@5": 0.8667,
+        "n_queries": 5
+      }
+    }
+  },
+  "embedding": {
+    "overall": {
+      "recall@5": 0.8267,
+      "mrr@5": 0.9208,
+      "latency_mean_ms": 5.32,
+      "latency_median_ms": 5.31,
+      "n_queries": 60
+    },
+    "per_level": {
+      "L0": {
+        "recall@5": 0.88,
+        "mrr@5": 0.95,
+        "n_queries": 20
+      },
+      "L1": {
+        "recall@5": 0.94,
+        "mrr@5": 1.0,
+        "n_queries": 10
+      },
+      "L2": {
+        "recall@5": 0.7067,
+        "mrr@5": 0.9111,
+        "n_queries": 15
+      },
+      "L3": {
+        "recall@5": 0.9,
+        "mrr@5": 0.95,
+        "n_queries": 10
+      },
+      "L4": {
+        "recall@5": 0.6,
+        "mrr@5": 0.6167,
+        "n_queries": 5
+      }
+    }
+  },
+  "hybrid": {
+    "overall": {
+      "recall@5": 0.66,
+      "mrr@5": 0.7931,
+      "latency_mean_ms": 144.46,
+      "latency_median_ms": 123.8,
+      "n_queries": 60
+    },
+    "per_level": {
+      "L0": {
+        "recall@5": 0.72,
+        "mrr@5": 0.75,
+        "n_queries": 20
+      },
+      "L1": {
+        "recall@5": 0.92,
+        "mrr@5": 1.0,
+        "n_queries": 10
+      },
+      "L2": {
+        "recall@5": 0.5733,
+        "mrr@5": 0.7333,
+        "n_queries": 15
+      },
+      "L3": {
+        "recall@5": 0.52,
+        "mrr@5": 0.9,
+        "n_queries": 10
+      },
+      "L4": {
+        "recall@5": 0.44,
+        "mrr@5": 0.5167,
+        "n_queries": 5
+      }
+    }
+  }
+}

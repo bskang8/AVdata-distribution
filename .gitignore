@@ -31,6 +31,9 @@ data/artifacts/*/hnsw.index
 data/artifacts/*/bm25s_index/
 data/artifacts/*/odd_tags.json
 
+# Experiment large binary outputs
+experiments/*/results/*.npy
+
 # Runtime logs
 logs/
 
