@@ -4,7 +4,7 @@
     "clip_id": "e73225e5-9341-40e6-90e4-706c5ffa2b09",
     "log_density": -100551.1484,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -13,7 +13,7 @@
     "clip_id": "6c4c8acb-2179-491d-9bca-c88242a5c4ef",
     "log_density": -54330.2695,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -22,7 +22,7 @@
     "clip_id": "e8770620-5491-4b43-ba35-8f4efcc8d660",
     "log_density": -49807.0781,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -31,7 +31,7 @@
     "clip_id": "47302f29-4895-4ed0-8053-11601eec80e1",
     "log_density": -49236.5391,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -40,7 +40,7 @@
     "clip_id": "ef742bb7-c767-4848-a15b-7d39c565b45e",
     "log_density": -48191.707,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -49,7 +49,7 @@
     "clip_id": "b47ef138-e450-4b29-ba47-f43a1b3d27af",
     "log_density": -47603.7812,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 7,
     "is_noise": false
   },
@@ -58,7 +58,7 @@
     "clip_id": "2a711866-1b04-4af3-b803-92d3b430c426",
     "log_density": -44718.3398,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -67,7 +67,7 @@
     "clip_id": "22c6d697-1495-49ef-8e70-5f5e802aa7f1",
     "log_density": -43736.043,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -76,7 +76,7 @@
     "clip_id": "c1b03100-af82-4ade-8784-4f97bc5c7bef",
     "log_density": -42164.0547,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -85,7 +85,7 @@
     "clip_id": "ba4ce69e-8a13-4316-91b2-bbb49eb132af",
     "log_density": -42031.8867,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -94,7 +94,7 @@
     "clip_id": "e6175236-27a4-45e1-9785-ddaaa4d046c1",
     "log_density": -40783.6758,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -103,7 +103,7 @@
     "clip_id": "29ed72c0-b773-40a0-81d3-f01f67e2681a",
     "log_density": -40662.1016,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -112,7 +112,7 @@
     "clip_id": "11005e7d-d597-4580-9dd0-2bb07110b3e8",
     "log_density": -40632.0938,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 120,
     "is_noise": false
   },
@@ -121,7 +121,7 @@
     "clip_id": "41109ba9-51bb-4437-ae62-2bd659c8c0f0",
     "log_density": -40469.2773,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -130,7 +130,7 @@
     "clip_id": "02003bcc-d16f-4fcf-bc2c-9ccbe882a907",
     "log_density": -40288.5156,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -139,7 +139,7 @@
     "clip_id": "a507a602-850b-4cbe-9858-9da6a5943d24",
     "log_density": -40269.625,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -148,7 +148,7 @@
     "clip_id": "b626e4d3-71ca-4385-8df4-46c389517c78",
     "log_density": -40031.8125,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -157,7 +157,7 @@
     "clip_id": "307de72f-59d6-4054-8e63-d940e317a003",
     "log_density": -39049.4297,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -166,7 +166,7 @@
     "clip_id": "3db09eb4-bf63-419b-a8d0-cfcebf178eeb",
     "log_density": -39029.8203,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -175,7 +175,7 @@
     "clip_id": "c9ac058f-f4c9-43d2-bcb3-50995c7087ef",
     "log_density": -38973.4023,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -184,7 +184,7 @@
     "clip_id": "e8fc3b69-9e81-41e7-a76e-6c2c883a0e20",
     "log_density": -38766.1719,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 62,
     "is_noise": false
   },
@@ -193,7 +193,7 @@
     "clip_id": "5ef3d491-5a26-44e6-ac38-e358104c1fcf",
     "log_density": -38455.418,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -202,7 +202,7 @@
     "clip_id": "45ea3329-891b-4781-a8e5-be82b79b28a5",
     "log_density": -38351.3789,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -211,7 +211,7 @@
     "clip_id": "efb16ac0-b7c6-4c6e-8c26-16da772bae32",
     "log_density": -36917.457,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -220,7 +220,7 @@
     "clip_id": "ad0aac27-8772-47c5-984e-d5d9644e42b9",
     "log_density": -36731.582,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -229,7 +229,7 @@
     "clip_id": "06309361-82f1-4795-9b6d-40103c62b5a0",
     "log_density": -36608.8867,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 121,
     "is_noise": false
   },
@@ -238,7 +238,7 @@
     "clip_id": "504e1636-9971-4977-a3cb-9caf70691eae",
     "log_density": -36524.3438,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -247,7 +247,7 @@
     "clip_id": "60734325-0762-4f56-9c66-9be5410edf7e",
     "log_density": -36034.2109,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -256,7 +256,7 @@
     "clip_id": "89278466-fc73-41bb-b041-5e62701ddbe3",
     "log_density": -35971.707,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -265,7 +265,7 @@
     "clip_id": "baf6a484-ca4f-4814-878b-bf26842ea933",
     "log_density": -35182.7539,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -274,7 +274,7 @@
     "clip_id": "9d3face8-8106-49f5-ae3e-e31bf6ef1ba8",
     "log_density": -35169.0312,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -283,7 +283,7 @@
     "clip_id": "2b06be5b-06d1-4f2b-8fa6-f51e477ef3c2",
     "log_density": -34793.6992,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -292,7 +292,7 @@
     "clip_id": "8b38659d-45c9-4edb-b4c4-58cb83be1fec",
     "log_density": -34771.8867,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -301,7 +301,7 @@
     "clip_id": "3f922bf0-d24a-49b7-acf3-0ca73c71dce3",
     "log_density": -34522.3672,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -310,7 +310,7 @@
     "clip_id": "9da215b5-aa86-4ef4-aa5d-03b07e0a5580",
     "log_density": -34489.0234,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -319,7 +319,7 @@
     "clip_id": "38335601-ec22-4caf-abaa-3951ef0725fd",
     "log_density": -33693.1484,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -328,7 +328,7 @@
     "clip_id": "ac4a4871-c3b7-47b6-9df0-c1a565f3cae3",
     "log_density": -33630.0391,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -337,7 +337,7 @@
     "clip_id": "3b7ebac7-6d32-4f0c-9258-3918d8af313f",
     "log_density": -33579.7344,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -346,7 +346,7 @@
     "clip_id": "a22a589e-ef06-415f-8ae6-9f3ae6899f29",
     "log_density": -33412.6289,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -355,7 +355,7 @@
     "clip_id": "e0d36c76-d595-47ea-8598-1bc657d27121",
     "log_density": -33283.7891,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -364,7 +364,7 @@
     "clip_id": "d0be7928-8a8a-4d57-8b7a-1e3e5b18f499",
     "log_density": -33205.7383,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -373,7 +373,7 @@
     "clip_id": "b0c61161-3da2-4099-a90f-3d620fd3c783",
     "log_density": -32934.4766,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -382,7 +382,7 @@
     "clip_id": "e6ca0e11-0670-4abb-bb9c-64525ccb5168",
     "log_density": -32662.5664,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -391,7 +391,7 @@
     "clip_id": "df383419-7f68-42a8-a889-782f150c25d6",
     "log_density": -32406.0977,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -400,7 +400,7 @@
     "clip_id": "d20e4358-41b3-464e-b0d6-3240b9b9631f",
     "log_density": -32224.6914,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -409,7 +409,7 @@
     "clip_id": "94a32f23-adee-4dd1-962e-886b7a7ae9ec",
     "log_density": -31909.4824,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 43,
     "is_noise": false
   },
@@ -418,7 +418,7 @@
     "clip_id": "1f30c346-8ef2-48f2-91ce-09fe9d67718b",
     "log_density": -31906.4141,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -427,7 +427,7 @@
     "clip_id": "906afa4d-a635-43a8-b515-68889c7904c1",
     "log_density": -31862.9844,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -436,7 +436,7 @@
     "clip_id": "5fe81bb1-f154-41d3-97a1-c1ce7301a64f",
     "log_density": -31641.5547,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -445,7 +445,7 @@
     "clip_id": "85c51b65-1ab4-4730-a2dc-f046a347333c",
     "log_density": -31411.541,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -454,7 +454,7 @@
     "clip_id": "0cc28c5d-db20-443c-b88e-9f565565e4f4",
     "log_density": -31388.6055,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -463,7 +463,7 @@
     "clip_id": "24bee322-1e14-410f-a032-75ba963ad82d",
     "log_density": -31328.9336,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -472,7 +472,7 @@
     "clip_id": "faf9d8a3-616a-4dd2-b52b-14dcac372f2f",
     "log_density": -31210.5645,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -481,7 +481,7 @@
     "clip_id": "e0d19150-757f-4ba7-a0b4-c798bfdacaf2",
     "log_density": -31144.4961,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -490,7 +490,7 @@
     "clip_id": "714730f2-8e62-4ec5-b5fc-9848829a77c6",
     "log_density": -31054.6582,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -499,7 +499,7 @@
     "clip_id": "fb40bedf-6a64-4c35-ba93-c71f2466356a",
     "log_density": -30986.7637,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -508,7 +508,7 @@
     "clip_id": "264a3867-cd75-437e-ab11-ac893ccc4201",
     "log_density": -30978.998,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -517,7 +517,7 @@
     "clip_id": "c2d39008-7797-4eeb-965f-8a9eadd71985",
     "log_density": -30953.418,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -526,7 +526,7 @@
     "clip_id": "500681f2-f335-4770-95b3-2a0d910f3cb0",
     "log_density": -30707.668,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -535,7 +535,7 @@
     "clip_id": "a8dc5c9a-2792-40c5-91e3-fb03e3fc6c9c",
     "log_density": -30680.7285,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -544,7 +544,7 @@
     "clip_id": "6987ab9a-a1f7-4557-aa8d-481599431b98",
     "log_density": -30574.0898,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -553,7 +553,7 @@
     "clip_id": "5e267aca-b459-44f7-884f-3e40c835e1b3",
     "log_density": -30491.6777,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -562,7 +562,7 @@
     "clip_id": "5328ebc1-3663-4c14-a991-1b570afba2ed",
     "log_density": -30485.5098,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -571,7 +571,7 @@
     "clip_id": "2b4fe4bc-ef5e-42c4-b514-45e3f979304c",
     "log_density": -30450.8086,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -580,7 +580,7 @@
     "clip_id": "254e386b-1301-4ce3-ac45-d2f3b401c693",
     "log_density": -30435.9609,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -589,7 +589,7 @@
     "clip_id": "404ecead-7df7-421c-ab50-9809b2c5bd13",
     "log_density": -30143.1777,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -598,7 +598,7 @@
     "clip_id": "5607ed69-212d-450d-9107-cec6cb22ff75",
     "log_density": -30121.75,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -607,7 +607,7 @@
     "clip_id": "e5c255b8-8cf6-4daa-9980-7f3f7d42f08f",
     "log_density": -30052.9863,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -616,7 +616,7 @@
     "clip_id": "df9902e8-5519-4747-97f7-f74ad346a9b3",
     "log_density": -30005.5996,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -625,7 +625,7 @@
     "clip_id": "9fc24b6e-3ece-4a3b-bb00-eb3454b1eabb",
     "log_density": -29992.9941,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -634,7 +634,7 @@
     "clip_id": "a063858d-2741-495e-b057-cf80bbae5909",
     "log_density": -29987.0703,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -643,7 +643,7 @@
     "clip_id": "8da14cc6-0ef2-4c70-bc96-569f1ef5c6c6",
     "log_density": -29955.9844,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -652,7 +652,7 @@
     "clip_id": "9e9aa032-ade4-4959-ad1f-d8644b0c0095",
     "log_density": -29908.0898,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -661,7 +661,7 @@
     "clip_id": "60b34190-1677-451d-99d0-dbe0808eb8a9",
     "log_density": -29860.7637,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -670,7 +670,7 @@
     "clip_id": "01b3a555-fb4e-43db-959d-1c9c95ab6303",
     "log_density": -29842.5977,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -679,7 +679,7 @@
     "clip_id": "b004e61b-79b9-46d1-9975-0c1f07913d5f",
     "log_density": -29742.1484,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -688,7 +688,7 @@
     "clip_id": "40981ae4-0df0-4068-b668-9524ad3b536c",
     "log_density": -29699.1133,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -697,7 +697,7 @@
     "clip_id": "1856860b-596f-4b7e-a368-bfcb80276219",
     "log_density": -29682.1426,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -706,7 +706,7 @@
     "clip_id": "e4dc8384-be8f-42f2-b5aa-055cb432db7e",
     "log_density": -29650.0996,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -715,7 +715,7 @@
     "clip_id": "97621627-7a6d-493d-a60a-83a300587bb7",
     "log_density": -29606.252,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -724,7 +724,7 @@
     "clip_id": "b1c9503d-a023-4b34-a33e-dc755a27e243",
     "log_density": -29552.4648,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -733,7 +733,7 @@
     "clip_id": "f289f3c3-333f-4bf9-ac88-a45137609e23",
     "log_density": -29518.9863,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -742,7 +742,7 @@
     "clip_id": "7c4a9f8d-cefd-40c5-9429-5e3700b1a4bd",
     "log_density": -29496.6602,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -751,7 +751,7 @@
     "clip_id": "019321d2-67a1-459c-8857-e6014e3a49e7",
     "log_density": -29456.1836,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -760,7 +760,7 @@
     "clip_id": "75bf2591-4b49-4a10-87a3-fb8ca4110aac",
     "log_density": -29414.3398,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -769,7 +769,7 @@
     "clip_id": "b2ab0cfa-6de0-43e1-a317-fb7632578eb8",
     "log_density": -29398.0938,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -778,7 +778,7 @@
     "clip_id": "d768e691-dd6f-4c7a-a77e-0932ad0612b6",
     "log_density": -29363.7461,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -787,7 +787,7 @@
     "clip_id": "b03e1aa7-651b-4d3c-a534-11597745fab0",
     "log_density": -29281.5957,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -796,7 +796,7 @@
     "clip_id": "677f0595-0add-4d62-ae85-f7d972cee77e",
     "log_density": -29258.7129,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -805,7 +805,7 @@
     "clip_id": "4d43f5af-aec3-404c-83e4-9e2edbc65dd5",
     "log_density": -29208.7969,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -814,7 +814,7 @@
     "clip_id": "85d09602-5f89-4a53-8af2-6f8145d3e7b3",
     "log_density": -29190.5195,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -823,7 +823,7 @@
     "clip_id": "17268a5f-ef10-4481-8f3c-aeb9e6bd8242",
     "log_density": -29127.9277,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -832,7 +832,7 @@
     "clip_id": "b013dfad-5c0c-4845-b5f4-ad9769abec22",
     "log_density": -29111.9023,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -841,7 +841,7 @@
     "clip_id": "d172afb9-6ed9-4d7e-93e3-81a5394ac227",
     "log_density": -29062.125,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -850,7 +850,7 @@
     "clip_id": "a50e8238-fb62-4872-b289-2eda22249969",
     "log_density": -29050.8242,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -859,7 +859,7 @@
     "clip_id": "7d9872ce-4186-4990-99e8-495db2b22c8d",
     "log_density": -29031.6016,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -868,7 +868,7 @@
     "clip_id": "f88d2ac6-311e-42c2-a5ab-70e92f1a8219",
     "log_density": -28963.7012,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -877,7 +877,7 @@
     "clip_id": "97d2bdca-6829-4999-9d4e-ea9a5a675177",
     "log_density": -28869.4609,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -886,7 +886,7 @@
     "clip_id": "be9d14f9-5fc6-491a-86b5-9c915d8f3589",
     "log_density": -28777.4473,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -895,7 +895,7 @@
     "clip_id": "2ed4658b-3534-480a-81a2-d00ef306cf0e",
     "log_density": -28708.7656,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -904,7 +904,7 @@
     "clip_id": "b3d28cd5-5592-4fc9-8b5b-6c7a01f592e6",
     "log_density": -28583.2969,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -913,7 +913,7 @@
     "clip_id": "a6c52d53-4f38-4b6c-9a7f-46f2ab1bc9d5",
     "log_density": -28579.4219,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -922,7 +922,7 @@
     "clip_id": "5f0cf4ce-e64e-4bd6-9068-584794acd03e",
     "log_density": -28490.9023,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -931,7 +931,7 @@
     "clip_id": "d02a617d-6a85-44fa-985a-7c9b9d74086c",
     "log_density": -28431.1133,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 63,
     "is_noise": false
   },
@@ -940,7 +940,7 @@
     "clip_id": "a616cfe9-3e97-4103-9604-b947786a4168",
     "log_density": -28358.5039,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -949,7 +949,7 @@
     "clip_id": "35e478de-086e-4187-80dc-e11ee880aff4",
     "log_density": -28301.8516,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -958,7 +958,7 @@
     "clip_id": "e079131b-be71-4025-9ffe-2e5790b14bf7",
     "log_density": -28260.6699,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -967,7 +967,7 @@
     "clip_id": "bf9dda31-e3cf-4620-b043-03612b605ae0",
     "log_density": -28228.8652,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -976,7 +976,7 @@
     "clip_id": "4a7feb0a-4ac9-47af-aed8-fec24c0ac821",
     "log_density": -28220.1348,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -985,7 +985,7 @@
     "clip_id": "347a2dd1-3b4c-4bc9-83b9-62cfe00d8e98",
     "log_density": -28195.8711,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -994,7 +994,7 @@
     "clip_id": "2062c8ef-7a59-41f9-ac6f-2718cf44445f",
     "log_density": -28181.1191,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1003,7 +1003,7 @@
     "clip_id": "1e4f9083-7c23-4eb3-a7d7-d7231396c9c7",
     "log_density": -28057.0488,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1012,7 +1012,7 @@
     "clip_id": "d5213656-8a1c-417d-9695-b48a7cb328ff",
     "log_density": -27918.584,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1021,7 +1021,7 @@
     "clip_id": "51875dc5-6f50-40f5-871b-152ca81621d0",
     "log_density": -27805.8164,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1030,7 +1030,7 @@
     "clip_id": "0f021dd2-ba9b-47b2-a5f9-9871642f9a80",
     "log_density": -27757.5137,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1039,7 +1039,7 @@
     "clip_id": "d4bec33e-f48f-43f0-be66-69d8722fa074",
     "log_density": -27641.4355,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1048,7 +1048,7 @@
     "clip_id": "0fc26e37-d743-483d-a691-40a4b5c3b1a1",
     "log_density": -27627.7695,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1057,7 +1057,7 @@
     "clip_id": "103769ef-f758-4873-a34f-5773e69dd01f",
     "log_density": -27576.041,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1066,7 +1066,7 @@
     "clip_id": "910fb468-5e97-4ac2-bf68-8bf00b9d649c",
     "log_density": -27191.8125,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1075,7 +1075,7 @@
     "clip_id": "64c4507c-8b71-4b0e-ba4c-9f76218d82ce",
     "log_density": -27134.5059,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1084,7 +1084,7 @@
     "clip_id": "fc02d550-aca9-4a2c-9981-84c1e1cc8caf",
     "log_density": -27081.7188,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1093,7 +1093,7 @@
     "clip_id": "e258d806-dfc1-48c1-b398-0eaaa05075ee",
     "log_density": -26772.4375,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1102,7 +1102,7 @@
     "clip_id": "d2b2ee2f-8094-4b8b-9857-b8f71afb38c9",
     "log_density": -26520.1816,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1111,7 +1111,7 @@
     "clip_id": "16922799-defb-4dc1-9591-89bd47ee8f2a",
     "log_density": -26493.1445,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1120,7 +1120,7 @@
     "clip_id": "8e5de123-558d-48de-a063-fe7d3d106503",
     "log_density": -26437.793,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1129,7 +1129,7 @@
     "clip_id": "937ba0da-e485-4957-920e-1971760d3daa",
     "log_density": -26190.9355,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1138,7 +1138,7 @@
     "clip_id": "87d4a214-a0ef-4bf2-b17b-09c43464a1bf",
     "log_density": -26118.3613,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1147,7 +1147,7 @@
     "clip_id": "c2c6fb9f-c24e-4406-a1e8-37f82dc6b9e3",
     "log_density": -25896.7812,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1156,7 +1156,7 @@
     "clip_id": "cc72ccfd-8d7e-4805-a773-f4a83b964439",
     "log_density": -25890.3086,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1165,7 +1165,7 @@
     "clip_id": "7e50e9ac-ab9e-4d5d-9835-4d659a787375",
     "log_density": -25833.9512,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1174,7 +1174,7 @@
     "clip_id": "6fb41267-fe85-46a8-ada0-81cdf6ce2fa3",
     "log_density": -25815.1582,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1183,7 +1183,7 @@
     "clip_id": "531504ca-d500-4258-96af-6526c07ffd84",
     "log_density": -25593.7422,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1192,7 +1192,7 @@
     "clip_id": "7aac11c5-359d-4153-9068-f9ec47e6b7d1",
     "log_density": -25541.5859,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1201,7 +1201,7 @@
     "clip_id": "901af07f-1ade-4366-9a15-acf8744fa233",
     "log_density": -25502.3281,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1210,7 +1210,7 @@
     "clip_id": "62caaa24-e6e4-49bb-a52a-ae8ed4f90125",
     "log_density": -25418.8438,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1219,7 +1219,7 @@
     "clip_id": "4b1b7583-b9ef-419d-b600-63ca2a885c20",
     "log_density": -25373.1035,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1228,7 +1228,7 @@
     "clip_id": "59857e9f-e173-4a5d-ab8b-294d362f3b42",
     "log_density": -25167.7715,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1237,7 +1237,7 @@
     "clip_id": "5f37f6fd-7ae8-4b64-bc38-4fe4bc34c3f7",
     "log_density": -25154.498,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1246,7 +1246,7 @@
     "clip_id": "5e8605c7-1b2d-45c6-8c06-de3750bbab25",
     "log_density": -25147.0469,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1255,7 +1255,7 @@
     "clip_id": "34226720-8869-4f9b-ac91-76bdc4f80afc",
     "log_density": -25136.8809,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1264,7 +1264,7 @@
     "clip_id": "c59b3ac9-1931-496a-a1c4-4d6af797e35d",
     "log_density": -25076.3086,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1273,7 +1273,7 @@
     "clip_id": "b34c63da-6442-42c7-93d0-7418f8e16e4a",
     "log_density": -25061.8828,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1282,7 +1282,7 @@
     "clip_id": "ea966c12-2cc6-4fcc-8c9e-0109fdab068d",
     "log_density": -24978.2402,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1291,7 +1291,7 @@
     "clip_id": "ff68163e-0f7d-40e4-8171-1a70a4830f26",
     "log_density": -24693.8652,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1300,7 +1300,7 @@
     "clip_id": "f52889eb-d0eb-4c79-954a-878e43d4847c",
     "log_density": -24633.2812,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1309,7 +1309,7 @@
     "clip_id": "c93c5fdc-c72b-4753-8b6d-4c138a26dbc6",
     "log_density": -24612.793,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1318,7 +1318,7 @@
     "clip_id": "c0db555c-c56f-4535-af0b-f81dbb61a544",
     "log_density": -24578.0137,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1327,7 +1327,7 @@
     "clip_id": "4f60f720-7fbd-4c7b-9737-8ac02c0fe1b8",
     "log_density": -24574.1016,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1336,7 +1336,7 @@
     "clip_id": "825bcde7-6aec-40e5-8beb-1a20e63e7315",
     "log_density": -24547.0371,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1345,7 +1345,7 @@
     "clip_id": "a6f22e5e-6e3c-48f6-81ef-3d795faba42a",
     "log_density": -24516.1328,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1354,7 +1354,7 @@
     "clip_id": "b751561f-8bba-4f15-acc7-d3c49bf95ecf",
     "log_density": -24419.8828,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1363,7 +1363,7 @@
     "clip_id": "ecdeb2a2-c17d-46c3-ae2d-6ae066f7243b",
     "log_density": -24407.6465,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1372,7 +1372,7 @@
     "clip_id": "f0282b44-856c-4f99-83b5-955fa4e25d75",
     "log_density": -24366.3105,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1381,7 +1381,7 @@
     "clip_id": "a7873841-b177-444f-b75f-404e62c29187",
     "log_density": -24261.8672,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1390,7 +1390,7 @@
     "clip_id": "9cf9d3f2-5c8e-4c8a-b5d5-529f5521acae",
     "log_density": -24170.8555,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1399,7 +1399,7 @@
     "clip_id": "5d0f64c7-5219-429b-942e-dade2af4fc60",
     "log_density": -24103.7949,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 93,
     "is_noise": false
   },
@@ -1408,7 +1408,7 @@
     "clip_id": "e4938a0a-dca5-47c8-b5f1-6b48e9255a35",
     "log_density": -24033.6289,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1417,7 +1417,7 @@
     "clip_id": "12623dda-14dd-45b0-a0fa-ffc9837a60f1",
     "log_density": -23984.875,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1426,7 +1426,7 @@
     "clip_id": "f38efdef-eb72-4a26-8f05-0f1336ab2b79",
     "log_density": -23876.0273,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1435,7 +1435,7 @@
     "clip_id": "76b574cd-d198-47d2-bed4-696217109a72",
     "log_density": -23846.6348,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1444,7 +1444,7 @@
     "clip_id": "7190c1d0-10f1-4491-a7bf-fe9bedc8f254",
     "log_density": -23825.0645,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1453,7 +1453,7 @@
     "clip_id": "133f08ba-5f00-4f7d-93cb-ae76460bdfa8",
     "log_density": -23819.9512,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1462,7 +1462,7 @@
     "clip_id": "7a5d0ea6-b9f1-4340-b1ed-916716a7d059",
     "log_density": -23811.1152,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1471,7 +1471,7 @@
     "clip_id": "4bbae209-9b1e-41c6-80f3-dc1d7b9b7a86",
     "log_density": -23805.1562,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1480,7 +1480,7 @@
     "clip_id": "dc592065-1c47-47f2-8492-6516a4cdb553",
     "log_density": -23725.584,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1489,7 +1489,7 @@
     "clip_id": "41dd2824-3883-473b-8cbc-2f581c0ff1de",
     "log_density": -23619.7324,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1498,7 +1498,7 @@
     "clip_id": "1cce492f-4c7c-442b-b2d2-aa923886a420",
     "log_density": -23471.3691,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1507,7 +1507,7 @@
     "clip_id": "8e99257f-249c-475c-885e-ce55ef6e2565",
     "log_density": -23459.8574,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1516,7 +1516,7 @@
     "clip_id": "ce1de5d7-96b8-478c-b17b-39d99fdbcfb4",
     "log_density": -23351.0898,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1525,7 +1525,7 @@
     "clip_id": "3af1183f-333d-4f88-9fcb-bfb9c0a905d1",
     "log_density": -22759.7148,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1534,7 +1534,7 @@
     "clip_id": "e1676226-84a2-47ff-960b-05e0694cf3ff",
     "log_density": -22620.6582,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1543,7 +1543,7 @@
     "clip_id": "72d2e5d0-ceec-49b3-b23a-e6362aa6ba89",
     "log_density": -22619.5625,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": 93,
     "is_noise": false
   },
@@ -1552,7 +1552,7 @@
     "clip_id": "cb430083-f10c-4234-9435-9ac5fc728b0c",
     "log_density": -21875.7734,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1561,7 +1561,7 @@
     "clip_id": "08709761-fe02-4e11-807b-a7d4e95074be",
     "log_density": -21369.5723,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1570,7 +1570,7 @@
     "clip_id": "a73e5033-3bfa-4b11-89e9-0639c295a769",
     "log_density": -21336.6133,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1579,7 +1579,7 @@
     "clip_id": "eb0ceb55-a75b-4f11-ba88-26e47b31da29",
     "log_density": -19545.6875,
     "nearest_cluster": 2,
-    "scenario_name": "cluster_2",
+    "scenario_name": "Rural night driving with limited visibility conditions.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1588,7 +1588,7 @@
     "clip_id": "dd04fe0a-4a9a-41c4-bb0a-f15d5fd35a78",
     "log_density": -6581.2256,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 7,
     "is_noise": false
   },
@@ -1597,7 +1597,7 @@
     "clip_id": "4188bf45-5445-4ced-8006-6d1db6a05827",
     "log_density": -4633.5732,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1606,7 +1606,7 @@
     "clip_id": "b89c9d8b-d25b-4012-b47d-3c34a19298b5",
     "log_density": -4200.7329,
     "nearest_cluster": 1,
-    "scenario_name": "cluster_1",
+    "scenario_name": "Driving on a snowy multi-lane highway in winter.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1615,7 +1615,7 @@
     "clip_id": "4af592d5-10a6-4102-9217-cae1a667e831",
     "log_density": -3473.364,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1624,7 +1624,7 @@
     "clip_id": "6eae6515-6a5c-4a5e-ad2b-edf8c6675b18",
     "log_density": -3445.6912,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1633,7 +1633,7 @@
     "clip_id": "9c373f7f-c3bd-402e-bd22-a3e617859c4e",
     "log_density": -3438.7092,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1642,7 +1642,7 @@
     "clip_id": "76f80f73-5a79-48d5-836e-62ba91c50c93",
     "log_density": -3426.6243,
     "nearest_cluster": 1,
-    "scenario_name": "cluster_1",
+    "scenario_name": "Driving on a snowy multi-lane highway in winter.",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1651,7 +1651,7 @@
     "clip_id": "16135176-11d4-43f4-bd19-9d30ff69aa3d",
     "log_density": -3382.1929,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1660,7 +1660,7 @@
     "clip_id": "b6c7b0ca-dde1-4478-8d89-f1de43a94440",
     "log_density": -3380.9465,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1669,7 +1669,7 @@
     "clip_id": "9949c6fb-dc30-4cbc-a64d-60024fac1126",
     "log_density": -3374.7444,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1678,7 +1678,7 @@
     "clip_id": "b18446d8-c2bc-40be-ac87-f8f7bcfe19d6",
     "log_density": -3373.29,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1687,7 +1687,7 @@
     "clip_id": "080ca5f2-0e84-45cb-8ce4-4664ab76e0d3",
     "log_density": -3371.176,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1696,7 +1696,7 @@
     "clip_id": "30d3538a-f898-499e-8a22-8b6e9eba7d53",
     "log_density": -3362.0049,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1705,7 +1705,7 @@
     "clip_id": "6f734535-d534-4bdf-987f-f809ef1a151e",
     "log_density": -3296.0571,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1714,7 +1714,7 @@
     "clip_id": "c1a81a7f-347a-4a9b-ac2d-2da603d1e751",
     "log_density": -3283.4539,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1723,7 +1723,7 @@
     "clip_id": "09f52ae4-ba51-4907-b7c3-3ffdcd53c609",
     "log_density": -3222.7437,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1732,7 +1732,7 @@
     "clip_id": "eb978dad-40fc-4bd2-9134-4058e0b3fe47",
     "log_density": -3220.7864,
     "nearest_cluster": 116,
-    "scenario_name": "cluster_116",
+    "scenario_name": "quiet morning parking lot driving",
     "original_cluster": -1,
     "is_noise": true
   },
@@ -1741,7 +1741,7 @@
     "clip_id": "60f2ec66-118c-4c87-9479-a624497618e6",
     "log_density": -3132.561,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1750,7 +1750,7 @@
     "clip_id": "3c43f7e3-d862-4475-a3dd-9bcbb7826572",
     "log_density": -3087.1409,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1759,7 +1759,7 @@
     "clip_id": "62d45d34-c2b0-49b8-9e9a-6bc53928ee0c",
     "log_density": -3081.4697,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1768,7 +1768,7 @@
     "clip_id": "4c3ad39c-fd0f-471b-a974-0c398d89ae67",
     "log_density": -3057.0239,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1777,7 +1777,7 @@
     "clip_id": "2a7a9d48-88c6-40bb-a81c-1fe00b56c25b",
     "log_density": -2921.4253,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1786,7 +1786,7 @@
     "clip_id": "7c7fdcb0-a990-4091-ad9c-9da992e4bb31",
     "log_density": -2898.179,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": 3,
     "is_noise": false
   },
@@ -1795,7 +1795,7 @@
     "clip_id": "d49a85b7-67f8-4e40-a9a6-218e96092740",
     "log_density": -2887.0635,
     "nearest_cluster": 8,
-    "scenario_name": "cluster_8",
+    "scenario_name": "Driving in heavy rain at night in urban area",
     "original_cluster": -1,
     "is_noise": true
   }

@@ -971,7 +971,7 @@
         "088ad332-fc20-49ad-bae2-6a40095f987e",
         "0a723163-ab09-4676-b5ae-d8f18366c54e"
       ],
-      "llm_label": ""
+      "llm_label": "driving in a quiet residential neighborhood in morning"
     },
     {
       "cluster_id": 120,
@@ -990,7 +990,7 @@
         "0fb31d57-3a97-44bf-9224-ef8536bcf6d0",
         "11005e7d-d597-4580-9dd0-2bb07110b3e8"
       ],
-      "llm_label": ""
+      "llm_label": "urban morning traffic with unexpected merging vehicles"
     },
     {
       "cluster_id": 61,
@@ -1009,7 +1009,7 @@
         "092bd6a3-83df-4fac-a493-d9a3fe3c51b2",
         "095e77ce-6f43-4ae3-a35f-1c90942cd0a4"
       ],
-      "llm_label": ""
+      "llm_label": "Residential driving with pedestrians and prohibited signs."
     },
     {
       "cluster_id": 31,
@@ -1028,7 +1028,7 @@
         "0c443b5c-f22e-45a8-8e8b-a1c93742a1b1",
         "108cde2f-d29d-4b60-a090-5dce618f1cd5"
       ],
-      "llm_label": ""
+      "llm_label": "Highway driving in moderate traffic with merging vehicles."
     },
     {
       "cluster_id": 36,
@@ -1047,7 +1047,7 @@
         "093b38b2-7d12-4f8d-bdc7-361ab3a20a50",
         "0a622090-e64e-40e1-bc9f-89c9a7f95aa6"
       ],
-      "llm_label": ""
+      "llm_label": "rural road driving with merging traffic"
     },
     {
       "cluster_id": 84,
@@ -1066,7 +1066,7 @@
         "094c17bf-a6ee-4957-a08a-1ceff372cf8c",
         "09828432-6c89-4fe4-8738-bfbb603ca975"
       ],
-      "llm_label": ""
+      "llm_label": "Countryside driving on a sunny day with traffic."
     },
     {
       "cluster_id": 82,
@@ -1085,7 +1085,7 @@
         "100576b8-fb75-40c8-9e27-dbcd4dc80ef7",
         "11a8f83a-bae9-476e-bc70-b0067cad34a0"
       ],
-      "llm_label": ""
+      "llm_label": "urban boulevard with moderate traffic on a sunny day"
     },
     {
       "cluster_id": 63,
@@ -1104,7 +1104,7 @@
         "0a0726be-7b3f-42e0-abbc-a90b402c6877",
         "0b43ee5d-3d44-477e-b75b-9af04f3e2f47"
       ],
-      "llm_label": ""
+      "llm_label": "Rural driving on two-way road with stalled vehicle."
     },
     {
       "cluster_id": 77,
@@ -1123,7 +1123,7 @@
         "0ff74fcc-f797-4457-b943-4d9ed6a13b7a",
         "10714fe9-8cbb-46bc-a87f-1297ce2fbd6b"
       ],
-      "llm_label": ""
+      "llm_label": "Urban road driving with overcast weather conditions"
     },
     {
       "cluster_id": 35,
@@ -1142,7 +1142,7 @@
         "086b16b1-153a-4204-88c8-7a1a77342544",
         "08d522a7-1485-433c-8a80-6a1db1bbb3d6"
       ],
-      "llm_label": ""
+      "llm_label": "Winding road driving in lush greenery and curves"
     },
     {
       "cluster_id": 49,
@@ -1161,7 +1161,7 @@
         "0b6ae98e-0261-4b49-b1f4-4b6298617b3c",
         "0b6f0a85-76b6-4749-89ef-a19479be0b05"
       ],
-      "llm_label": ""
+      "llm_label": "Urban driving with glare on multi-lane road."
     },
     {
       "cluster_id": 48,
@@ -1180,7 +1180,7 @@
         "0f33106d-6058-4f3b-809e-fc36fb6d1258",
         "0fba601e-86d7-4612-b2fd-2a24fcf1bd9f"
       ],
-      "llm_label": ""
+      "llm_label": "Stalled vehicle in busy morning traffic"
     },
     {
       "cluster_id": 95,
@@ -1199,7 +1199,7 @@
         "cb6aec56-f1f2-4735-aebf-106db9c37bb5",
         "234a7a58-9deb-4f8a-844a-8b433b44ab1b"
       ],
-      "llm_label": ""
+      "llm_label": "heavy traffic on multi-lane freeway with close proximity"
     },
     {
       "cluster_id": 11,
@@ -1218,7 +1218,7 @@
         "1f12717a-b4cf-4de8-9a5b-fdf3357d8eec",
         "e61a74a1-4d3c-4f0d-b545-eec8514c4543"
       ],
-      "llm_label": ""
+      "llm_label": "Driving in a wet parking lot during rain"
     },
     {
       "cluster_id": 26,
@@ -1237,7 +1237,7 @@
         "e3ca131d-090e-4841-a4bf-0215b02e4a43",
         "33c1a28b-dca5-4045-b422-e021f80c6ff8"
       ],
-      "llm_label": ""
+      "llm_label": "Urban driving with cyclists on a sunny day"
     },
     {
       "cluster_id": 104,
@@ -1256,7 +1256,7 @@
         "270ab7d7-456b-4d59-9946-4a32c9518eff",
         "743e3044-f035-4dc4-970d-3550cf28ed41"
       ],
-      "llm_label": ""
+      "llm_label": "Rural driving on a clear sunny day"
     },
     {
       "cluster_id": 79,
@@ -1275,7 +1275,7 @@
         "d19d4b13-82ec-4347-8d1f-9942b90ff501",
         "7adb836a-b5f6-4586-9f87-c03503ae8ce1"
       ],
-      "llm_label": ""
+      "llm_label": "Congested highway with stalled vehicles and merging traffic."
     },
     {
       "cluster_id": 51,
@@ -1294,7 +1294,7 @@
         "f999a3b6-d0be-466f-872c-461d36fcd258",
         "8a4afb44-873a-46ca-b998-f86bd7c43fdc"
       ],
-      "llm_label": ""
+      "llm_label": "Downtown daytime driving with clear skies."
     },
     {
       "cluster_id": 76,
@@ -1313,7 +1313,7 @@
         "6737c342-f91d-4a18-b531-a536c29c8249",
         "24010cab-f06b-40fd-9bdb-1b21f26bab2e"
       ],
-      "llm_label": ""
+      "llm_label": "urban driving with pedestrian crossings and overcast sky"
     },
     {
       "cluster_id": 115,
@@ -1332,7 +1332,7 @@
         "81080213-5679-49a5-8bc2-672916af27e9",
         "687fd026-f314-4f08-a890-496fe3e4d606"
       ],
-      "llm_label": ""
+      "llm_label": "urban street congested with morning traffic"
     },
     {
       "cluster_id": 97,
@@ -1351,7 +1351,7 @@
         "c706161e-45cf-44b8-8f0b-18a56ef2e1e4",
         "aaf9777c-92e3-4d6b-b796-38afbd9555df"
       ],
-      "llm_label": ""
+      "llm_label": "Morning highway driving with yield sign approach."
     },
     {
       "cluster_id": 70,
@@ -1370,7 +1370,7 @@
         "d46863a9-acd3-4fbb-a51c-6d5f27291c60",
         "feda9a5e-d3bd-4630-bd67-ff17d5b2b0c0"
       ],
-      "llm_label": ""
+      "llm_label": "multi-laned road with stalled car and pedestrians"
     },
     {
       "cluster_id": 81,
@@ -1389,7 +1389,7 @@
         "2c2e7282-5ee5-473a-b3d8-d26622a5c0a4",
         "205cda04-4c3d-4881-bc32-580cbbe20c91"
       ],
-      "llm_label": ""
+      "llm_label": "Urban intersection with traffic signals on a sunny day"
     },
     {
       "cluster_id": 110,
@@ -1408,7 +1408,7 @@
         "3c836d4a-eebb-4eca-add1-5dd0d4e02890",
         "fb37cd12-cf29-42bf-a881-f619e1610f2b"
       ],
-      "llm_label": ""
+      "llm_label": "Morning rush hour traffic with overtaking vehicles"
     },
     {
       "cluster_id": 50,
@@ -1427,7 +1427,7 @@
         "f83b6743-4730-4a99-9766-9e063a5e9c03",
         "1aa5e4cb-672a-461f-a3ea-21739cb06342"
       ],
-      "llm_label": ""
+      "llm_label": "Narrow residential street with parked cars"
     },
     {
       "cluster_id": 10,
@@ -1446,7 +1446,7 @@
         "d8e1cb73-134c-4a1b-8d7c-bd972c9caa04",
         "1b95025b-8e00-4a3b-83a5-b0bb2e92dd75"
       ],
-      "llm_label": ""
+      "llm_label": "Nighttime parking lot navigation in heavy rain"
     },
     {
       "cluster_id": 17,
@@ -1465,7 +1465,7 @@
         "c5f3b85a-afe7-48f9-8a86-7acb8f564268",
         "a6666979-dd08-450d-ab95-6bfc6d70162c"
       ],
-      "llm_label": ""
+      "llm_label": "Freeway entrance ramp in quiet early morning"
     },
     {
       "cluster_id": 39,
@@ -1484,7 +1484,7 @@
         "117544a6-3602-4a58-b538-0c9c9a003919",
         "290d452f-ee5b-4f1f-8ffa-ddde67335283"
       ],
-      "llm_label": ""
+      "llm_label": "Rural driving with construction and cloudy conditions"
     },
     {
       "cluster_id": 93,
@@ -1503,7 +1503,7 @@
         "57f1a196-e687-466b-9bd5-9eddc0cee9b0",
         "2e3812b0-c10d-4aba-b24c-6db172e6729b"
       ],
-      "llm_label": ""
+      "llm_label": "rural morning drive with low traffic"
     },
     {
       "cluster_id": 118,
@@ -1522,7 +1522,7 @@
         "ce7e8801-ead4-47f2-9ba2-73cbbe03ec10",
         "3dbec885-86bd-4a9a-bd6d-d461bf190e86"
       ],
-      "llm_label": ""
+      "llm_label": "Urban morning driving with light traffic."
     },
     {
       "cluster_id": 69,
@@ -1541,7 +1541,7 @@
         "d8e4b5b2-df01-4a34-abfe-4ad5a27d7f7b",
         "5904d63f-18d9-48a5-a633-ecf282d0dbec"
       ],
-      "llm_label": ""
+      "llm_label": "Urban driving amid moderate traffic and glare."
     },
     {
       "cluster_id": 108,
@@ -1560,7 +1560,7 @@
         "3cbe6533-635a-4d53-a259-26b2cee8709b",
         "6a9c5a3a-c805-4871-8cc9-7517232f95e7"
       ],
-      "llm_label": ""
+      "llm_label": "Rural driving on gravel road under clear skies"
     },
     {
       "cluster_id": 89,
@@ -1579,7 +1579,7 @@
         "f24d5781-cfc8-4198-b346-707536c4e19f",
         "eb12fd0f-5f1e-45a3-bdc8-3558cdf95082"
       ],
-      "llm_label": ""
+      "llm_label": "Residential driving with barricades in the morning."
     },
     {
       "cluster_id": 38,
@@ -1598,7 +1598,7 @@
         "99f5b2d5-cae5-451b-980b-a24e9540313a",
         "4890003a-4795-43e8-b44d-b51ed63f0f7d"
       ],
-      "llm_label": ""
+      "llm_label": "Rural road driving with clear skies and cyclists"
     },
     {
       "cluster_id": 88,
@@ -1617,7 +1617,7 @@
         "6088c9cc-9c9a-4522-8005-1d2463b7d194",
         "98538d90-3bac-41b8-86a6-cbab97ee01c6"
       ],
-      "llm_label": ""
+      "llm_label": "urban intersection during clear daytime conditions"
     },
     {
       "cluster_id": 64,
@@ -1636,7 +1636,7 @@
         "4f7ad64c-418d-434e-90d0-32e07c814353",
         "6671045d-fa61-428d-8068-42faa9c2cbb5"
       ],
-      "llm_label": ""
+      "llm_label": "Residential driving in sunny neighborhood with parked vehicles."
     },
     {
       "cluster_id": 40,
@@ -1655,7 +1655,7 @@
         "83a14297-89df-4b91-a6fd-00a531354d48",
         "8ee6f015-eeea-4105-bd55-c23d5759e62f"
       ],
-      "llm_label": ""
+      "llm_label": "Mountain road driving with moderate traffic and overcast skies."
     },
     {
       "cluster_id": 71,
@@ -1674,7 +1674,7 @@
         "3a1d3db7-7d5c-49eb-b85a-7e51eeedc8e7",
         "c33e6ede-630b-4558-a23b-0c9f70a7cee6"
       ],
-      "llm_label": ""
+      "llm_label": "Sunny suburban two-lane road with parked cars"
     },
     {
       "cluster_id": 96,
@@ -1693,7 +1693,7 @@
         "f768ae6d-46b9-4167-8650-43a2b738ddf8",
         "15ffe372-9e07-4e23-8f0a-5598fd1cd50a"
       ],
-      "llm_label": ""
+      "llm_label": "Highway driving in bright sunlight with moderate traffic"
     },
     {
       "cluster_id": 22,
@@ -1712,7 +1712,7 @@
         "1cc552b0-f44f-474f-aa4f-732b05c8607f",
         "c2880090-bcd2-47cc-9ef8-af2b8b983e90"
       ],
-      "llm_label": ""
+      "llm_label": "Rural road driving with low visibility and queued traffic"
     },
     {
       "cluster_id": 90,
@@ -1731,7 +1731,7 @@
         "cd7c26e8-ef07-413d-9cd7-13c3a6a22177",
         "026c3105-349c-474a-a1a8-ea8e1718a0bc"
       ],
-      "llm_label": ""
+      "llm_label": "Urban street traffic in the morning."
     },
     {
       "cluster_id": 9,
@@ -1750,7 +1750,7 @@
         "de23b587-4615-4736-870e-e904583d8be7",
         "9de41d79-61f6-4497-852c-3b1e4db19457"
       ],
-      "llm_label": ""
+      "llm_label": "Nighttime parking lot driving in heavy rain."
     },
     {
       "cluster_id": 103,
@@ -1769,7 +1769,7 @@
         "1a4d9fda-0255-4863-86b0-47a3e11b3fdd",
         "eca44272-617f-460b-8fa9-0dd9b823dcd1"
       ],
-      "llm_label": ""
+      "llm_label": "Driving on a rural road at dusk with clouds"
     },
     {
       "cluster_id": 27,
@@ -1788,7 +1788,7 @@
         "b93661b4-3481-4f33-9466-96f56811dceb",
         "39dba23e-c483-40d6-812b-f25c00120d02"
       ],
-      "llm_label": ""
+      "llm_label": "Sunny freeway driving with moderate traffic and merging vehicles"
     },
     {
       "cluster_id": 67,
@@ -1807,7 +1807,7 @@
         "5869d5e8-9dc5-44e7-ace3-4cb730a7199e",
         "f38876c9-6eee-4946-ad8b-0cd039bed068"
       ],
-      "llm_label": ""
+      "llm_label": "urban driving in congested residential area"
     },
     {
       "cluster_id": 114,
@@ -1826,7 +1826,7 @@
         "93b364d0-9525-4ebf-a23c-d07da083b27f",
         "86a334a7-0614-4782-bbb8-d7048c98f015"
       ],
-      "llm_label": ""
+      "llm_label": "busy morning traffic with lane merging and hazards"
     },
     {
       "cluster_id": 100,
@@ -1845,7 +1845,7 @@
         "830ea7ee-4136-460e-8ded-25707c8a8485",
         "2034092a-9f43-4d7a-bca0-47c354bb6127"
       ],
-      "llm_label": ""
+      "llm_label": "Rural driving on clear, dry roads."
     },
     {
       "cluster_id": 107,
@@ -1864,7 +1864,7 @@
         "1422f79d-67b7-48e9-b187-fc8d55dce1cc",
         "b25ad89c-4785-44f7-a458-4aaba2d14e34"
       ],
-      "llm_label": ""
+      "llm_label": "Rural road driving with tree-lined surroundings"
     },
     {
       "cluster_id": 65,
@@ -1883,7 +1883,7 @@
         "d1dbf992-b8d4-4c9d-b2d7-0091ec720f6c",
         "1aecf0ef-bbd4-4553-abb2-33cafe2fa8a0"
       ],
-      "llm_label": ""
+      "llm_label": "urban traffic with pedestrians at a clear intersection"
     },
     {
       "cluster_id": 57,
@@ -1902,7 +1902,7 @@
         "cd6062e3-2855-4b58-a48d-8645cf6dcd8a",
         "ef23e820-4cb4-4088-a9dd-4377a0253c68"
       ],
-      "llm_label": ""
+      "llm_label": "rural morning drive with minimal traffic"
     },
     {
       "cluster_id": 92,
@@ -1921,7 +1921,7 @@
         "f4ae39b9-2436-4e6b-8b55-c2672feaafcd",
         "01e4b854-fb1a-4cce-ae73-d835aec30bc3"
       ],
-      "llm_label": ""
+      "llm_label": "Congested urban driving with merging vehicles in rain"
     },
     {
       "cluster_id": 121,
@@ -1940,7 +1940,7 @@
         "5c39655f-d413-408b-9818-89c0dad99c18",
         "7b4cee06-a904-40cf-8179-a7c971524555"
       ],
-      "llm_label": ""
+      "llm_label": "morning urban traffic with unexpected stalled vehicles"
     },
     {
       "cluster_id": 123,
@@ -1959,7 +1959,7 @@
         "edd66e7b-2961-41fc-b789-8f3f23ee39cc",
         "52fcdd8a-9e69-479e-b3ce-2a6aa52285f9"
       ],
-      "llm_label": ""
+      "llm_label": "Residential street driving in early morning calm."
     },
     {
       "cluster_id": 94,
@@ -1978,7 +1978,7 @@
         "6b9f93f3-cfc8-457a-a570-a20ec74f0817",
         "01c93bc2-e2eb-434c-8289-94dbc2f272b8"
       ],
-      "llm_label": ""
+      "llm_label": "Dense freeway traffic with merging vehicles"
     },
     {
       "cluster_id": 37,
@@ -1997,7 +1997,7 @@
         "77e64bef-350a-4fb5-87d3-5ade14027707",
         "52f018cb-1b28-4cbf-9bcc-03d63729b882"
       ],
-      "llm_label": ""
+      "llm_label": "Urban driving on a straight, multi-laned road"
     },
     {
       "cluster_id": 66,
@@ -2016,7 +2016,7 @@
         "ce3a1625-bad5-4d77-937a-8a3a97cba2d1",
         "b5f8ca32-1ddf-455e-b72b-5e4680f5ab6b"
       ],
-      "llm_label": ""
+      "llm_label": "Driving in a narrow suburban street with parked cars."
     },
     {
       "cluster_id": 43,
@@ -2035,7 +2035,7 @@
         "6df6507b-f201-4489-9198-f24d362fdf91",
         "a910786c-f788-4765-bd4f-80f65586bcf0"
       ],
-      "llm_label": ""
+      "llm_label": "quiet urban driving in sunny morning conditions"
     },
     {
       "cluster_id": 4,
@@ -2054,7 +2054,7 @@
         "f6a449a7-1e1f-4734-ae8c-8848034f6909",
         "5fab66a9-286d-4299-a061-8f7d9aaea039"
       ],
-      "llm_label": ""
+      "llm_label": "Driving in a tunnel with moderate to heavy traffic"
     },
     {
       "cluster_id": 105,
@@ -2073,7 +2073,7 @@
         "be2a6576-ec53-404d-b5f8-0b233b5371db",
         "3e420e17-442d-48c0-b82d-a02450756d73"
       ],
-      "llm_label": ""
+      "llm_label": "Rural two-way road driving with merging traffic."
     },
     {
       "cluster_id": 74,
@@ -2092,7 +2092,7 @@
         "585fd07f-d0fc-49a2-b92a-d3f5698b6e95",
         "96b46446-9c17-4267-b2e1-35c336663494"
       ],
-      "llm_label": ""
+      "llm_label": "Multi-lane road with green light and merging traffic"
     },
     {
       "cluster_id": 14,
@@ -2111,7 +2111,7 @@
         "e6838c21-2c66-4569-97eb-374be6418db2",
         "4fc035cd-5776-4af0-ba7e-1aa47cd63087"
       ],
-      "llm_label": ""
+      "llm_label": "Urban traffic congestion on city streets during daytime"
     },
     {
       "cluster_id": 13,
@@ -2130,7 +2130,7 @@
         "a827ca5c-207c-4929-8d80-b1c6254d4d60",
         "651ec0cc-f03e-4632-9924-eecdd26d8612"
       ],
-      "llm_label": ""
+      "llm_label": "Driving in heavy fog on a two-way street"
     },
     {
       "cluster_id": 62,
@@ -2149,7 +2149,7 @@
         "4dd0c383-c6ea-4552-a553-84ef0031f986",
         "bd014ecc-ce09-4bd0-962a-d9bbf823982c"
       ],
-      "llm_label": ""
+      "llm_label": "Driving through a quiet residential neighborhood."
     },
     {
       "cluster_id": 87,
@@ -2168,7 +2168,7 @@
         "1e578de4-fd08-4066-b7b2-eb0f854e831c",
         "01939ea8-df5e-4dcc-983e-01c5291c91d9"
       ],
-      "llm_label": ""
+      "llm_label": "Urban daytime left-turn at traffic signal."
     },
     {
       "cluster_id": 116,
@@ -2187,7 +2187,7 @@
         "b6212d33-ba5d-4fb0-85ff-9cd98962e632",
         "b052e3f8-fdee-41d4-acab-ef811b6a9693"
       ],
-      "llm_label": ""
+      "llm_label": "quiet morning parking lot driving"
     },
     {
       "cluster_id": 6,
@@ -2206,7 +2206,7 @@
         "a0fdaa02-a6d5-44a6-bba8-50e264f150bd",
         "36e28d57-5698-42ef-80e1-974841d4b3db"
       ],
-      "llm_label": ""
+      "llm_label": "Rural driving in heavy rainfall with limited visibility."
     },
     {
       "cluster_id": 99,
@@ -2225,7 +2225,7 @@
         "75bc9b7c-3089-4bfe-bace-940120003e4e",
         "90ccec51-1ea2-4a62-8b8c-f278f3729dee"
       ],
-      "llm_label": ""
+      "llm_label": "highway driving with moderate traffic conditions"
     },
     {
       "cluster_id": 101,
@@ -2244,7 +2244,7 @@
         "9491d16c-c24d-4ac1-9ade-366f26e0929f",
         "35f96431-e83d-41a3-a461-3f51d42f88be"
       ],
-      "llm_label": ""
+      "llm_label": "Freeway driving with moderate traffic and overcast sky"
     },
     {
       "cluster_id": 2,
@@ -2263,7 +2263,7 @@
         "4d6a57e0-a3a6-4134-9e63-784a1456be58",
         "9dcfdf7b-b997-464e-bd93-16d443f9bb69"
       ],
-      "llm_label": ""
+      "llm_label": "Rural night driving with limited visibility conditions."
     },
     {
       "cluster_id": 0,
@@ -2282,7 +2282,7 @@
         "3983b2ad-f569-4283-9183-5333436d471c",
         "9571c867-5140-4584-ba45-8b44242403cd"
       ],
-      "llm_label": ""
+      "llm_label": "rural two-lane road with oncoming traffic"
     },
     {
       "cluster_id": 1,
@@ -2301,7 +2301,7 @@
         "bbe0df5c-71a5-4277-97b4-f7855cef6465",
         "6005faef-d111-4391-8b0d-e31ae2dfb6a9"
       ],
-      "llm_label": ""
+      "llm_label": "Driving on a snowy multi-lane highway in winter."
     },
     {
       "cluster_id": 8,
@@ -2320,7 +2320,7 @@
         "ade01655-3b4b-4561-86b3-ffaca52fd257",
         "300157fe-f27b-4e8d-af9a-b4f5724abccf"
       ],
-      "llm_label": ""
+      "llm_label": "Driving in heavy rain at night in urban area"
     },
     {
       "cluster_id": 3,
@@ -2339,7 +2339,7 @@
         "dd31efa3-966f-4a54-90e2-0e97afcb54c3",
         "af881b1e-e464-4766-9a50-b62dc19ad9fb"
       ],
-      "llm_label": ""
+      "llm_label": "Nighttime driving in narrow urban streets with hazards"
     },
     {
       "cluster_id": 7,
@@ -2358,7 +2358,7 @@
         "733c98ca-0e43-4257-89f5-9ff2bac969bd",
         "0fb43ad7-4a54-407c-8c33-70c6e1187e3d"
       ],
-      "llm_label": ""
+      "llm_label": "Lane merging near an intersection with parked cars"
     }
   ],
   "bottom_50_gap_candidates": [
