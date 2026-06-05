@@ -251,47 +251,74 @@ def detect_gaps(
 ) -> list[dict]:
     """
     전체 데이터셋에 대해 log-density 계산 → 하위 top_n = 갭 후보.
-    각 갭 클립에 대해 latent z 에서 가장 가까운 클러스터를 역추적해 시나리오 이름 반환.
+
+    역추적 전략 (후보 C — HDBSCAN 우선 + UMAP nearest 보완):
+      - original_cluster != -1 → HDBSCAN 레이블 직접 사용 (재학습 불필요)
+      - original_cluster == -1 → UMAP(X_sc) 공간 nearest cluster 탐색
+    log_density 계산은 latent z 공간 (SANFlow 본래 목적) 그대로 유지.
     """
     label_map: dict[int, str] = {
         c["cluster_id"]: c["llm_label"] or f"cluster_{c['cluster_id']}"
         for c in cluster_analysis["clusters"]
     }
-    K_clusters = base.K - 1   # noise bucket은 마지막 인덱스
+    K_clusters = base.K - 1   # noise bucket은 마지막 인덱스 (= K)
 
     flow_list.eval(); base.eval()
 
-    # 메모리 절약: 배치 처리
+    # ── UMAP 공간 클러스터 중심 (noise 포인트 역추적용) ──────────────────────────
+    # noise bucket(K_clusters) 제외, 클러스터 0..K_clusters-1 의 X_sc 평균
+    cluster_means_umap = np.stack([
+        X_sc[labels_mapped == k].mean(axis=0)
+        for k in range(K_clusters)
+    ])  # (K_clusters, D)
+
+    # ── log-density 배치 계산 ────────────────────────────────────────────────────
     CHUNK = 8192
-    log_dens_list, nearest_list = [], []
+    log_dens_list = []
 
     with torch.no_grad():
         for start in range(0, len(X_sc), CHUNK):
             bx = torch.tensor(X_sc[start:start + CHUNK], dtype=torch.float32)
             z, ld = _eval_direction(flow_list, bx)
-            nk    = base.nearest(z)
+            nk    = base.nearest(z)          # z 공간 nearest (log_prob 계산 전용)
             lp    = base.log_prob(z, nk)
             log_dens_list.append((lp + ld).numpy())
-            nearest_list.append(nk.numpy())
 
     log_dens = np.concatenate(log_dens_list)   # (N,)
-    nearest  = np.concatenate(nearest_list)    # (N,)
+    gap_idx  = np.argsort(log_dens)[:top_n]
 
-    gap_idx = np.argsort(log_dens)[:top_n]
+    # ── noise 갭 포인트에 대해 UMAP-space nearest cluster 일괄 계산 ─────────────
+    noise_mask = labels_mapped[gap_idx] == K_clusters
+    noise_positions = X_sc[gap_idx[noise_mask]]   # (n_noise, D)
 
+    if len(noise_positions) > 0:
+        dists = np.linalg.norm(
+            noise_positions[:, None, :] - cluster_means_umap[None, :, :],
+            axis=-1,
+        )  # (n_noise, K_clusters)
+        umap_nearest = dists.argmin(axis=1)   # (n_noise,)
+    else:
+        umap_nearest = np.array([], dtype=int)
+
+    # ── 결과 조립 ────────────────────────────────────────────────────────────────
+    noise_ptr = 0
     results = []
     for rank, i in enumerate(gap_idx):
-        k         = int(nearest[i])
-        orig_lbl  = int(labels_mapped[i])
-        is_noise  = (orig_lbl == K_clusters)   # noise bucket
-        # nearest cluster가 noise bucket이면 실제 클러스터 ID는 -1
-        display_k = -1 if k == K_clusters else k
+        orig_lbl = int(labels_mapped[i])
+        is_noise = (orig_lbl == K_clusters)
+
+        if is_noise:
+            assigned_k = int(umap_nearest[noise_ptr])
+            noise_ptr += 1
+        else:
+            assigned_k = orig_lbl   # HDBSCAN 레이블이 곧 정답
+
         results.append({
             "rank":             rank + 1,
             "clip_id":          clip_ids[i],
             "log_density":      round(float(log_dens[i]), 4),
-            "nearest_cluster":  display_k,
-            "scenario_name":    label_map.get(display_k, f"cluster_{display_k}"),
+            "nearest_cluster":  assigned_k,
+            "scenario_name":    label_map.get(assigned_k, f"cluster_{assigned_k}"),
             "original_cluster": -1 if is_noise else orig_lbl,
             "is_noise":         bool(is_noise),
         })
