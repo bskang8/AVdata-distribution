@@ -20,7 +20,87 @@
 
 ---
 
-## 2. 정량적 규모
+## 2. 두 공간의 정의
+
+버그를 이해하려면 "UMAP 공간"과 "SANFlow latent 공간"이 각각 무엇인지 명확히 구분해야 한다.
+
+### 2-1. UMAP 공간 (원본 입력 공간)
+
+```
+클립 영상
+  ↓  BGE-M3 임베딩 모델
+1024차원 벡터  (클립의 의미론적 내용 표현)
+  ↓  UMAP 차원 축소
+10차원 벡터  ← 이것이 "UMAP 공간"의 한 점
+```
+
+**UMAP 공간에서 두 점이 가깝다 = 두 클립의 시각적·의미론적 내용이 유사하다.**
+
+- 축: 의미론적 유사성을 보존하도록 학습된 10개의 추상 차원
+- 거리: 실제 시나리오 유사도를 반영
+- HDBSCAN이 이 공간에서 클러스터를 만들었고, cluster 2 = 이 공간에서 서로 가까운 11,459개 클립의 무리
+
+```
+UMAP 공간 (10D) 개념도
+
+  cluster 63 ●●●        cluster 2 ■■■■■■■■■
+  (rural stalled)  ...  (rural night)    ← 공간적으로 구분된 클러스터들
+       ●
+      noise ×  ← ef742bb7: cluster 63 근방 (거리 ~0.1)
+                  cluster 2까지 거리 ~11
+```
+
+### 2-2. SANFlow latent 공간 (flow 변환 후 공간)
+
+SANFlow는 UMAP 공간의 점 `x`를 **Normalizing Flow(MAF)**라는 학습된 변환 함수로 다른 공간의 점 `z`로 보낸다.
+
+```
+x (UMAP 10D)  →  flow (MAF 6블록)  →  z (latent 10D)  ← 이것이 "latent 공간"
+```
+
+**학습 목표**: cluster k 소속 클립은 flow 후 z가 N(μ_k, σ_k) 근방에 모이도록
+
+```
+UMAP 공간              SANFlow latent 공간
+
+cluster 2 ■■■■   →   z ≈ N(μ₂, σ₂) ●●●   ← cluster 2 클립들이 μ₂ 근방으로 모임
+cluster 63 ●●●  →   z ≈ N(μ₆₃, σ₆₃) ▲▲▲  ← cluster 63 클립들이 μ₆₃ 근방으로 모임
+noise ×          →   z ≈ N(μ_noise, σ_noise) ×  ← noise bucket으로 밀려남
+```
+
+**latent 공간에서 두 점이 가깝다 = flow가 같은 Gaussian 근방으로 매핑했다.**  
+이는 원본 시나리오 유사도가 아니라 **flow가 학습한 변환 구조**에 의해 결정된다.
+
+### 2-3. 두 공간이 다른 이유 — noise 포인트의 경우
+
+```
+                      UMAP 공간               SANFlow latent 공간
+                      ─────────────────────   ──────────────────────────
+cluster 2 클립        μ₂_umap 근방            μ₂_latent 근방  (flow가 여기로 보냄)
+cluster 63 클립       μ₆₃_umap 근방           μ₆₃_latent 근방 (flow가 여기로 보냄)
+noise 클립 (ef742bb7) μ₆₃_umap 근방 (거리 0.1)  ??? (flow가 어디로 보낼지 예측 불가)
+                                              ↑ 학습 신호가 없어서 임의의 위치로 이동
+```
+
+flow는 **cluster 소속 클립들만 제대로 훈련된 변환**이다.  
+noise 클립(-1)은 학습 시 noise bucket으로 배정돼 별도 Gaussian에 매핑되도록 훈련되는데,  
+이 변환이 반드시 UMAP 공간의 이웃 구조를 보존하지 않는다.
+
+결과:  
+`ef742bb7`은 **UMAP 공간에서 cluster 63/121 근방에 있지만**,  
+flow를 통과하면 **latent 공간에서 μ₂ (cluster 2) 쪽으로 밀려간다.**
+
+### 2-4. 한 문장 요약
+
+> **UMAP 공간** = "이 클립이 어떤 시나리오와 비슷하게 생겼는가"를 나타내는 공간  
+> **SANFlow latent 공간** = "flow가 이 클립을 어느 Gaussian에 넣으려 했는가"를 나타내는 공간  
+>
+> 두 공간은 cluster 소속 클립에서는 대체로 일치하지만,  
+> **noise 포인트에서는 완전히 어긋난다** — 이것이 이번 버그의 본질이다.
+
+---
+
+## 3. 정량적 규모 (버그 영향 범위)
 
 ### 2-1. UMAP 공간 vs SANFlow latent 공간 nearest cluster 비교
 
@@ -61,7 +141,7 @@ SANFlow는 **158개(97.5%)를 단일 cluster 2**("Rural night driving")로 잘�
 
 ---
 
-## 3. 근본 원인 분석
+## 4. 근본 원인 분석
 
 ### 3-1. 코드 흐름 재현
 
@@ -130,7 +210,7 @@ log p(z) 값이 매우 낮게 나오는 것이 SANFlow의 의도된 동작.
 
 ---
 
-## 4. 해결 방향 후보
+## 5. 해결 방향 후보
 
 ### 후보 A — UMAP 공간 기반 nearest cluster 역추적 (단순 교체)
 
@@ -194,7 +274,7 @@ nearest_k = argmin(dist_k)
 
 ---
 
-## 5. 후보 평가 기준
+## 6. 후보 평가 기준
 
 | 기준 | 가중치 | 설명 |
 |------|--------|------|
@@ -213,7 +293,7 @@ nearest_k = argmin(dist_k)
 
 ---
 
-## 6. 권고 방향
+## 7. 권고 방향
 
 **1순위: 후보 C** (HDBSCAN 우선 + UMAP nearest 보완)
 
@@ -227,7 +307,7 @@ nearest_k = argmin(dist_k)
 
 ---
 
-## 7. 다음 스텝 (수정 구현 전 확인 사항)
+## 8. 다음 스텝 (수정 구현 전 확인 사항)
 
 - [ ] 후보 C 방식으로 `sanflow_gaps.json` 재생성 스크립트 작성
 - [ ] 재생성 전/후 캡션 매칭 정확도 정량 비교 (샘플 20개 수동 검증)
