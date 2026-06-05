@@ -17,12 +17,15 @@ from types import SimpleNamespace
 import httpx
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
 from avdata.config import (
+    EXP002_RESULTS_DIR,
     INDEX_DIR,
     ODD_FIELDS,
     ODD_TAGS_PATH,
+    SANFLOW_GAP_PATH,
     TAGS_DIR,
 )
 
@@ -37,10 +40,10 @@ st.set_page_config(
 )
 
 # ── Constants ──────────────────────────────────────────────────────────────────
-ODD_COVERAGE_PATH = TAGS_DIR / "odd_coverage.json"
-LONGTAIL_PATH     = INDEX_DIR / "longtail_clips.json"
-UMAP_PATH         = INDEX_DIR / "umap_coords.parquet"
-DIST_HTML_PATH    = INDEX_DIR / "distribution.html"
+ODD_COVERAGE_PATH  = TAGS_DIR / "odd_coverage.json"
+LONGTAIL_PATH      = INDEX_DIR / "longtail_clips.json"
+UMAP_PATH          = INDEX_DIR / "umap_coords.parquet"
+DIST_HTML_PATH     = INDEX_DIR / "distribution.html"
 
 TAG_COLORS = {
     # time_of_day
@@ -114,6 +117,13 @@ def load_longtail() -> list[str]:
 
 
 @st.cache_data(show_spinner=False)
+def load_gaps() -> list[dict]:
+    if not SANFLOW_GAP_PATH.exists():
+        return []
+    return json.loads(SANFLOW_GAP_PATH.read_text())
+
+
+@st.cache_data(show_spinner=False)
 def transcode_to_h264(video_path: str) -> bytes | None:
     """HEVC(H.265) → H.264 변환 후 bytes 반환. clip_id 단위로 캐시됨."""
     if not Path(video_path).exists():
@@ -138,6 +148,43 @@ def transcode_to_h264(video_path: str) -> bytes | None:
         return None
     finally:
         Path(tmp_path).unlink(missing_ok=True)
+
+
+# ── Video popup dialog ────────────────────────────────────────────────────────
+@st.dialog("영상 재생", width="large")
+def _video_popup(clip_id: str) -> None:
+    from avdata.config import CAPTION_SUFFIX, CAPTIONS_DIR, VIDEO_SUFFIX, VIDEOS_DIR
+    st.caption(f"Clip ID: `{clip_id}`")
+
+    vid_file = VIDEOS_DIR / (clip_id + VIDEO_SUFFIX)
+    cap_file = CAPTIONS_DIR / (clip_id + CAPTION_SUFFIX)
+
+    col_vid, col_cap = st.columns([1, 1])
+
+    with col_vid:
+        if not vid_file.exists():
+            st.error("영상 파일을 찾을 수 없습니다.")
+        else:
+            with st.spinner("HEVC → H.264 변환 중… (최초 재생 시 약 3초)"):
+                video_bytes = transcode_to_h264(str(vid_file))
+            if video_bytes:
+                st.video(video_bytes, format="video/mp4")
+            else:
+                st.error("영상 변환에 실패했습니다.")
+
+    with col_cap:
+        st.markdown("**캡션**")
+        if cap_file.exists():
+            st.markdown(
+                f'<div style="height:360px;overflow-y:auto;font-size:13px;'
+                f'line-height:1.7;background:#f8f9fb;padding:10px 14px;'
+                f'border-radius:6px;border:1px solid #e0e6f0">'
+                f'{cap_file.read_text(encoding="utf-8", errors="replace")}'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+        else:
+            st.info("캡션 파일이 없습니다.")
 
 
 # ── Helper: render ODD tag pills ───────────────────────────────────────────────
@@ -347,85 +394,226 @@ def tab_coverage():
 
 # ── Tab 3: Distribution ────────────────────────────────────────────────────────
 def tab_distribution():
+    # Video popup trigger: set by play buttons, cleared here to prevent re-open loop
+    trigger = st.session_state.get("video_trigger")
+    if trigger:
+        del st.session_state["video_trigger"]
+        _video_popup(trigger)
+
     st.subheader("임베딩 공간 분포 시각화 (UMAP)")
 
     umap_df = load_umap()
     longtail = set(load_longtail())
 
     if umap_df is None:
-        # fallback: embed pre-built HTML if parquet not available
         if DIST_HTML_PATH.exists():
             st.info("umap_coords.parquet 없음 — 사전 생성된 distribution.html을 표시합니다.")
             html = DIST_HTML_PATH.read_text(encoding="utf-8")
             st.components.v1.html(html, height=900, scrolling=True)
         else:
             st.warning("분포 데이터가 없습니다. `phase4/distribution_analysis.py`를 먼저 실행하세요.")
-        return
-
-    # ── Controls ──
-    col_color, col_filter, _ = st.columns([2, 2, 4])
-    with col_color:
-        color_by = st.selectbox(
-            "색상 기준",
-            ["density", "time_of_day", "weather", "road_type", "hazard_level", "longtail"],
-        )
-    with col_filter:
-        if color_by in ODD_FIELDS:
-            filter_val = st.multiselect(f"{color_by} 필터", ODD_FIELDS[color_by])
-        else:
-            filter_val = []
-
-    df = umap_df.copy()
-    if filter_val and color_by in df.columns:
-        df = df[df[color_by].isin(filter_val)]
-
-    df["longtail"] = df["clip_id"].isin(longtail).map({True: "long-tail", False: "normal"})
-
-    # ── Scatter plot ──
-    if color_by == "density":
-        fig = px.scatter(
-            df, x="x", y="y", color="density",
-            color_continuous_scale="Plasma",
-            opacity=0.6, hover_data=["clip_id", "time_of_day", "weather", "road_type"],
-            labels={"density": "밀도"},
-            title="임베딩 밀도 분포 (높을수록 일반적인 시나리오)",
-        )
     else:
-        col = "longtail" if color_by == "longtail" else color_by
-        color_map = {"long-tail": "#EF4444", "normal": "#6366F1"} if color_by == "longtail" else None
-        fig = px.scatter(
-            df, x="x", y="y", color=col,
-            opacity=0.6,
-            hover_data=["clip_id", "time_of_day", "weather", "road_type", "hazard_level"],
-            color_discrete_map=color_map,
-            title=f"{color_by} 별 클러스터 분포",
-        )
+        # ── Controls ──
+        col_color, col_filter, _ = st.columns([2, 2, 4])
+        with col_color:
+            color_by = st.selectbox(
+                "색상 기준",
+                ["density", "time_of_day", "weather", "road_type", "hazard_level", "longtail"],
+            )
+        with col_filter:
+            if color_by in ODD_FIELDS:
+                filter_val = st.multiselect(f"{color_by} 필터", ODD_FIELDS[color_by])
+            else:
+                filter_val = []
 
-    fig.update_traces(marker=dict(size=3))
-    fig.update_layout(
-        height=600,
-        margin=dict(l=0, r=0, t=50, b=0),
-        xaxis=dict(showticklabels=False, title=""),
-        yaxis=dict(showticklabels=False, title=""),
-        legend=dict(itemsizing="constant"),
-    )
-    st.plotly_chart(fig, use_container_width=True)
+        df = umap_df.copy()
+        if filter_val and color_by in df.columns:
+            df = df[df[color_by].isin(filter_val)]
 
-    # ── Long-tail stats ──
-    if longtail:
-        st.markdown(f"**Long-tail 클립:** {len(longtail):,}개 (밀도 하위 5%)")
-        with st.expander("Long-tail 클립 ID 목록 보기"):
-            st.dataframe(
-                pd.DataFrame({"clip_id": list(longtail)[:500]}),
-                use_container_width=True, height=300,
+        df["longtail"] = df["clip_id"].isin(longtail).map({True: "long-tail", False: "normal"})
+
+        if color_by == "density":
+            fig = px.scatter(
+                df, x="x", y="y", color="density",
+                color_continuous_scale="Plasma",
+                opacity=0.6, hover_data=["clip_id", "time_of_day", "weather", "road_type"],
+                labels={"density": "밀도"},
+                title="임베딩 밀도 분포 (높을수록 일반적인 시나리오)",
+            )
+        else:
+            col = "longtail" if color_by == "longtail" else color_by
+            color_map = {"long-tail": "#EF4444", "normal": "#6366F1"} if color_by == "longtail" else None
+            fig = px.scatter(
+                df, x="x", y="y", color=col,
+                opacity=0.6,
+                hover_data=["clip_id", "time_of_day", "weather", "road_type", "hazard_level"],
+                color_discrete_map=color_map,
+                title=f"{color_by} 별 클러스터 분포",
             )
 
-    # ── Pre-built full dashboard ──
-    if DIST_HTML_PATH.exists():
-        st.markdown("---")
-        with st.expander("전체 대시보드 보기 (사전 생성된 HTML)"):
-            html = DIST_HTML_PATH.read_text(encoding="utf-8")
-            st.components.v1.html(html, height=900, scrolling=True)
+        fig.update_traces(marker=dict(size=3))
+        fig.update_layout(
+            height=600,
+            margin=dict(l=0, r=0, t=50, b=0),
+            xaxis=dict(showticklabels=False, title=""),
+            yaxis=dict(showticklabels=False, title=""),
+            legend=dict(itemsizing="constant"),
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        # ── Pre-built full dashboard ──
+        if DIST_HTML_PATH.exists():
+            with st.expander("전체 대시보드 보기 (사전 생성된 HTML)"):
+                html = DIST_HTML_PATH.read_text(encoding="utf-8")
+                st.components.v1.html(html, height=900, scrolling=True)
+
+    # ── Long-tail clips ──────────────────────────────────────────────────────────
+    st.markdown("---")
+    st.subheader("Long-tail 클립 목록")
+    if not longtail:
+        st.warning("Long-tail 데이터가 없습니다.")
+    else:
+        st.caption(f"밀도 하위 5% 클립 {len(longtail):,}개 — 행을 선택하면 영상을 재생할 수 있습니다.")
+        lt_df = pd.DataFrame({"clip_id": list(longtail)})
+        sel_lt = st.dataframe(
+            lt_df,
+            use_container_width=True,
+            height=320,
+            on_select="rerun",
+            selection_mode="single-row",
+            hide_index=True,
+            key="lt_sel",
+        )
+        if sel_lt.selection.rows:
+            chosen_lt = lt_df.iloc[sel_lt.selection.rows[0]]["clip_id"]
+            c1, c2 = st.columns([5, 1])
+            c1.info(f"선택된 클립: `{chosen_lt}`")
+            if c2.button("▶ 영상 재생", key="lt_play", type="primary", use_container_width=True):
+                st.session_state["video_trigger"] = chosen_lt
+                st.rerun()
+
+    # ── SANFlow 갭 탐지 결과 ─────────────────────────────────────────────────────
+    st.markdown("---")
+    st.subheader("SANFlow 갭 탐지 결과 (Phase B)")
+
+    gaps = load_gaps()
+    if not gaps:
+        st.warning("갭 데이터가 없습니다. `phase6/fit_sanflow.py`를 먼저 실행하세요.")
+        return
+
+    # Summary metrics
+    noise_cnt = sum(1 for g in gaps if g["is_noise"])
+    m1, m2, m3, m4 = st.columns(4)
+    m1.metric("갭 후보", f"{len(gaps)}개")
+    m2.metric("noise 갭 (새 시나리오)", f"{noise_cnt}개 ({noise_cnt/len(gaps)*100:.0f}%)")
+    m3.metric("cluster-edge 갭", f"{len(gaps)-noise_cnt}개")
+    m4.metric("log_density 범위", f"{min(g['log_density'] for g in gaps):.0f} ~ {max(g['log_density'] for g in gaps):.0f}")
+
+    gap_df = pd.DataFrame([{
+        "rank":         g["rank"],
+        "clip_id":      g["clip_id"],
+        "log_density":  round(g["log_density"], 1),
+        "scenario":     g["scenario_name"],
+        "유형":          "noise" if g["is_noise"] else "cluster-edge",
+        "nearest_cluster": g["nearest_cluster"],
+    } for g in gaps])
+
+    # Distribution charts (2×2)
+    densities = gap_df["log_density"].tolist()
+    ch1, ch2 = st.columns(2)
+
+    with ch1:
+        fig_rank = go.Figure()
+        fig_rank.add_trace(go.Scatter(
+            x=gap_df["rank"], y=densities,
+            mode="markers+lines",
+            marker=dict(color=densities, colorscale="RdYlGn", size=6,
+                        colorbar=dict(title="log p(x)", len=0.55, thickness=12)),
+            line=dict(color="#d0d0d0", width=1),
+            hovertemplate="Rank %{x}<br>log p(x): %{y:.0f}<extra></extra>",
+        ))
+        fig_rank.update_layout(
+            title="Rank별 log_density (갭 심각도)",
+            xaxis_title="Rank (1 = 가장 희귀)", yaxis_title="log p(x)",
+            height=320, margin=dict(t=45, b=45, l=65, r=15),
+            plot_bgcolor="#fafafa",
+        )
+        st.plotly_chart(fig_rank, use_container_width=True)
+
+    with ch2:
+        sc = gap_df.groupby("scenario").size().reset_index(name="count").sort_values("count")
+        fig_sc = px.bar(
+            sc, x="count", y="scenario", orientation="h",
+            title="시나리오별 갭 클립 수",
+            color="count", color_continuous_scale="Reds",
+            text="count",
+        )
+        fig_sc.update_traces(textposition="outside")
+        fig_sc.update_layout(
+            height=320, margin=dict(t=45, b=45, l=10, r=50),
+            coloraxis_showscale=False, yaxis_title="",
+        )
+        st.plotly_chart(fig_sc, use_container_width=True)
+
+    ch3, ch4 = st.columns([1, 2])
+
+    with ch3:
+        noise_counts = gap_df["유형"].value_counts().reset_index()
+        noise_counts.columns = ["유형", "count"]
+        fig_pie = px.pie(
+            noise_counts, values="count", names="유형",
+            title="갭 유형 분류",
+            hole=0.45,
+            color="유형",
+            color_discrete_map={"noise": "#e74c3c", "cluster-edge": "#3498db"},
+        )
+        fig_pie.update_layout(height=320, margin=dict(t=45, b=10, l=10, r=10))
+        st.plotly_chart(fig_pie, use_container_width=True)
+
+    with ch4:
+        main_d  = [d for d in densities if d > -60000]
+        out_d   = [d for d in densities if d <= -60000]
+        fig_hist = go.Figure()
+        fig_hist.add_trace(go.Histogram(x=main_d,  nbinsx=30, name="일반 갭 (rank 2~200)",
+                                        marker_color="#3b6fd4", opacity=0.75))
+        fig_hist.add_trace(go.Histogram(x=out_d,   nbinsx=5,  name="극단 이상치 (rank 1)",
+                                        marker_color="#e74c3c", opacity=0.85))
+        fig_hist.update_layout(
+            title="log_density 분포 히스토그램",
+            barmode="overlay",
+            xaxis_title="log p(x)", yaxis_title="클립 수",
+            height=320, margin=dict(t=45, b=45, l=60, r=15),
+            plot_bgcolor="#fafafa",
+            legend=dict(x=0.55, y=0.95, font=dict(size=11)),
+        )
+        st.plotly_chart(fig_hist, use_container_width=True)
+
+    # Gap list with click-to-play
+    st.caption("행을 선택하면 영상을 재생할 수 있습니다. rank 1이 가장 희귀한 시나리오입니다.")
+    sel_gap = st.dataframe(
+        gap_df,
+        use_container_width=True,
+        height=420,
+        on_select="rerun",
+        selection_mode="single-row",
+        hide_index=True,
+        key="gap_sel",
+        column_config={
+            "rank":             st.column_config.NumberColumn("순위",    width="small"),
+            "clip_id":          st.column_config.TextColumn("Clip ID",  width="medium"),
+            "log_density":      st.column_config.NumberColumn("log p(x)", format="%.1f", width="small"),
+            "scenario":         st.column_config.TextColumn("시나리오"),
+            "유형":              st.column_config.TextColumn("유형",     width="small"),
+            "nearest_cluster":  st.column_config.NumberColumn("클러스터", width="small"),
+        },
+    )
+    if sel_gap.selection.rows:
+        chosen_gap = gap_df.iloc[sel_gap.selection.rows[0]]["clip_id"]
+        g1, g2 = st.columns([5, 1])
+        g1.info(f"선택된 클립: `{chosen_gap}`")
+        if g2.button("▶ 영상 재생", key="gap_play", type="primary", use_container_width=True):
+            st.session_state["video_trigger"] = chosen_gap
+            st.rerun()
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
