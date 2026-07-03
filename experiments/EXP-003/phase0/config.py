@@ -1,8 +1,11 @@
 """Phase 0 전역 설정 — 경로와 알고리즘 파라미터만 관리"""
 
+import os
+
 # ── 경로 (여기만 수정) ──────────────────────────────────────
 CAPTIONS_DIR = '/Data1/home/bskang/cds-data/caption_v3/captions'
-OUTPUT_DIR   = 'phase0'   # 스크립트 실행 디렉토리(EXP-003/) 기준 상대 경로
+# 출력 디렉터리: 이 파일 위치 기준 → 실행 위치와 무관하게 항상 같은 경로
+OUTPUT_DIR   = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output')
 # ──────────────────────────────────────────────────────────────
 
 # 0-A: FAISS k-NN
