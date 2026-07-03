@@ -34,6 +34,9 @@ data/artifacts/*/odd_tags.json
 # Experiment large binary outputs
 experiments/*/results/*.npy
 
+# Phase 0 output — 실험 산출물 (대용량 npy/npz 및 생성 파일)
+experiments/EXP-003/phase0/output/
+
 # Runtime logs
 logs/
 
