@@ -14,7 +14,12 @@ K_KNN = 50                    # LID 안정성용 (Ma et al. ICLR 2018: k ≥ 20 
 # 0-B: Effective N + Vendi
 K_UNIQUENESS        = 20      # soft_commonness 측정 반경 (중복성)
 K_DENSITY           = 10      # local_density 측정 반경 (즉각적 밀집도)
-VENDI_ANCHOR_GLOBAL = 2000    # 전체 Vendi Nyström 앵커 수
+VENDI_ANCHOR_GLOBAL = 2000    # Nyström 앵커 수 (run당)
+
+# 0-B: Vendi 반복 샘플링 — Sequential Stopping Rule (Law & Kelton 2000)
+VENDI_MIN_RUNS  = 5     # 최소 실행 횟수 (파일럿)
+VENDI_MAX_RUNS  = 30    # 안전 상한
+VENDI_TARGET_CV = 0.02  # 평균 상대 표준오차 수렴 기준 (2%)
 
 # 0-C: LID
 K_LID                = 20     # Ma et al. MLE 추정에 사용하는 이웃 수
