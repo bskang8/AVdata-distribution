@@ -1,0 +1,113 @@
+"""Phase 0 공용 유틸리티 — 순수 함수만 포함, 부작용 없음"""
+
+import os
+import numpy as np
+from config import OUTPUT_DIR, CAPTIONS_DIR
+
+
+def P(fname):
+    """OUTPUT_DIR 기준 파일 경로 반환"""
+    return os.path.join(OUTPUT_DIR, fname)
+
+
+def require_files(*fnames, step=''):
+    """필수 입력 파일 존재 확인 — 없으면 명확한 오류 메시지"""
+    missing = [f for f in fnames if not os.path.exists(P(f))]
+    if missing:
+        hint = f"\n  → 이전 단계를 먼저 실행하세요." + (f" [{step}]" if step else "")
+        raise FileNotFoundError(f"필수 파일 없음: {missing}{hint}")
+
+
+def load_captions():
+    """캡션 텍스트와 clip_id 로드.
+    파일 포맷: {clip_id}.camera_front_wide_120fov.txt (평문 캡션)
+    """
+    captions, clip_ids = [], []
+    for fname in sorted(os.listdir(CAPTIONS_DIR)):
+        if not fname.endswith('.txt'):
+            continue
+        clip_id = fname.split('.')[0]
+        with open(os.path.join(CAPTIONS_DIR, fname), encoding='utf-8') as f:
+            caption = f.read().strip()
+        if not caption:
+            continue
+        captions.append(caption)
+        clip_ids.append(clip_id)
+    return captions, clip_ids
+
+
+def compute_lid_mle(knn_sim_arr, k_lid=20):
+    """Ma et al. (ICLR 2018) MLE — 극값 이론 기반 LID 추정.
+    LID(x) = -[ (1/k) Σ log(r_j / r_k) ]^{-1}
+    """
+    knn_dist   = 1.0 - knn_sim_arr[:, :k_lid]
+    r_max      = knn_dist[:, -1:] + 1e-10
+    log_ratios = np.log(knn_dist / r_max + 1e-10)
+    lid        = -1.0 / (log_ratios.mean(axis=1) + 1e-10)
+    return np.clip(lid, 1.0, 200.0)
+
+
+def gmm_threshold(data, max_k=3):
+    """BIC 최적 K → brentq 실제 교차점 임계값 반환.
+    K=1: median 폴백. K=2: 두 성분 교차점. K=3: BIC 개선 ≥3%이면 최솟값 쌍 교차점.
+    반환: (threshold, best_k, bics_dict)
+    """
+    from sklearn.mixture import GaussianMixture
+    from scipy import optimize
+
+    data_2d = data.reshape(-1, 1)
+    gmms, bics = {}, {}
+    for k in range(1, max_k + 1):
+        g = GaussianMixture(n_components=k, random_state=42, n_init=5).fit(data_2d)
+        bics[k]  = g.bic(data_2d)
+        gmms[k]  = g
+    best_k = min(bics, key=bics.get)
+
+    if best_k == 1:
+        return float(np.median(data)), 1, bics
+
+    use_k3 = (best_k == 3 and
+               (bics[2] - bics[3]) / max(abs(bics[2]), 1.0) >= 0.03)
+    if use_k3:
+        g3       = gmms[3]
+        means3   = g3.means_.flatten()
+        stds3    = np.sqrt(g3.covariances_.flatten())
+        weights3 = g3.weights_.flatten()
+        idx3     = np.argsort(means3)
+        best_thresh, best_pdf_min = None, np.inf
+        for i in range(len(idx3) - 1):
+            ma, sa, wa = means3[idx3[i]],   stds3[idx3[i]],   weights3[idx3[i]]
+            mb, sb, wb = means3[idx3[i+1]], stds3[idx3[i+1]], weights3[idx3[i+1]]
+            def _diff(x, ma=ma, sa=sa, wa=wa, mb=mb, sb=sb, wb=wb):
+                return (wa/sa*np.exp(-0.5*((x-ma)/sa)**2) -
+                        wb/sb*np.exp(-0.5*((x-mb)/sb)**2))
+            def _sum(x, ma=ma, sa=sa, wa=wa, mb=mb, sb=sb, wb=wb):
+                return (wa/sa*np.exp(-0.5*((x-ma)/sa)**2) +
+                        wb/sb*np.exp(-0.5*((x-mb)/sb)**2))
+            try:
+                t = optimize.brentq(_diff, ma, mb)
+                v = _sum(t)
+                if v < best_pdf_min:
+                    best_pdf_min, best_thresh = v, t
+            except ValueError:
+                pass
+        if best_thresh is not None:
+            return float(best_thresh), best_k, bics
+
+    # K=2 기준 교차점 (K=3 BIC 미달 또는 교차점 없음 폴백 포함)
+    g2      = gmms[2]
+    means   = g2.means_.flatten()
+    stds    = np.sqrt(g2.covariances_.flatten())
+    weights = g2.weights_.flatten()
+    idx     = np.argsort(means)
+    m1, s1, w1 = means[idx[0]], stds[idx[0]], weights[idx[0]]
+    m2, s2, w2 = means[idx[1]], stds[idx[1]], weights[idx[1]]
+
+    def pdf_diff(x):
+        return (w1/s1*np.exp(-0.5*((x-m1)/s1)**2) -
+                w2/s2*np.exp(-0.5*((x-m2)/s2)**2))
+    try:
+        threshold = optimize.brentq(pdf_diff, m1, m2)
+    except ValueError:
+        threshold = float(np.mean([m1, m2]))
+    return float(threshold), best_k, bics
