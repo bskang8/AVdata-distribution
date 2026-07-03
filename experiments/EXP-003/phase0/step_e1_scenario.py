@@ -8,20 +8,45 @@ import numpy as np
 import joblib
 from config import (VENDI_ANCHOR_SCENARIO, SIL_K_CANDIDATES, SIL_FLAT_THRESHOLD,
                     K_SCENARIO_FALLBACK, MIN_HEALTHY_SIZE, MIN_Q0_PCT,
-                    BOUNDARY_MARGIN_SCENARIO, Q5_CONCENTRATION_MULT, PRUNE_DOMINANT_MULT)
+                    BOUNDARY_MARGIN_SCENARIO, Q5_CONCENTRATION_MULT, PRUNE_DOMINANT_MULT,
+                    VENDI_MIN_RUNS, VENDI_MAX_RUNS, VENDI_TARGET_CV, VENDI_SUPPRESSION_HIGH)
 from utils import P, require_files, load_captions, already_done
 
 
-def _vendi_score(embeddings, n_anchor, seed):
-    """시나리오 내 임베딩 다양성 — Nyström 근사"""
-    n        = len(embeddings)
-    anc_used = min(n, n_anchor)
-    rng      = np.random.default_rng(seed)
-    anc      = embeddings[rng.choice(n, anc_used, replace=False)]
-    K_kk     = (anc @ anc.T).astype(np.float64)
-    ev       = np.maximum(np.linalg.eigvalsh(K_kk), 0)
-    ev_n     = ev / (ev.sum() + 1e-12)
-    return float(np.exp(-np.sum(ev_n * np.log(ev_n + 1e-12)))), anc_used
+def _vendi_stable(embeddings, weights, n_anchor, rng):
+    """시나리오 내 random + dedup Vendi — Sequential Stopping Rule"""
+    n = len(embeddings)
+
+    def _once(idx):
+        anc = embeddings[idx].astype(np.float64)
+        K = anc @ anc.T
+        ev = np.maximum(np.linalg.eigvalsh(K), 0)
+        p = ev / (ev.sum() + 1e-12)
+        return float(np.exp(-np.sum(p * np.log(p + 1e-12))))
+
+    if n <= n_anchor:
+        v = _once(np.arange(n))
+        entry = {'mean': round(v, 3), 'std': 0.0, 'cv': 0.0, 'n_runs': 1, 'converged': True}
+        return entry, entry
+
+    def _run(p=None):
+        scores = []
+        for _ in range(VENDI_MAX_RUNS):
+            idx = rng.choice(n, n_anchor, replace=False, p=p)
+            scores.append(_once(idx))
+            if len(scores) >= VENDI_MIN_RUNS:
+                se = np.std(scores, ddof=1) / np.sqrt(len(scores))
+                if se / (np.mean(scores) + 1e-10) < VENDI_TARGET_CV:
+                    break
+        arr = np.array(scores)
+        return {'mean':      round(float(arr.mean()), 3),
+                'std':       round(float(arr.std(ddof=1)), 3),
+                'cv':        round(float(arr.std(ddof=1) / (arr.mean() + 1e-10)), 4),
+                'n_runs':    len(scores),
+                'converged': len(scores) < VENDI_MAX_RUNS}
+
+    probs = weights / (weights.sum() + 1e-10)
+    return _run(p=None), _run(p=probs)
 
 
 def _prune_flag(q1_pct, q5_pct, vendi, median_vendi,
@@ -115,8 +140,12 @@ def run(force=False):
         dominant_q = int(max(q_dist, key=q_dist.get).replace('Q', ''))
 
         top_terms = list(feature_names[kmeans_e1.cluster_centers_[k].argsort()[-12:][::-1]])
-        eff_n     = float(uniqueness_weight[k_mask].sum())
-        vendi_k, anc_used = _vendi_score(embeddings_f32[k_mask], VENDI_ANCHOR_SCENARIO, 42 + k)
+        eff_n         = float(uniqueness_weight[k_mask].sum())
+        local_weights = uniqueness_weight[k_mask]
+        scen_rng      = np.random.default_rng(42 + k)
+        v_random, v_dedup = _vendi_stable(
+            embeddings_f32[k_mask], local_weights, VENDI_ANCHOR_SCENARIO, scen_rng)
+        sup_ratio = round(v_dedup['mean'] / (v_random['mean'] + 1e-10), 3)
 
         dq = density_quartile[k_mask]
         lq = lid_quartile[k_mask]
@@ -132,9 +161,11 @@ def run(force=False):
             'mean_lid':         round(float(lid_per_clip[k_mask].mean()), 2),
             'lid_quartile_dist': {str(q): round(float((lq==q).mean()), 3) for q in range(4)},
             'lid_reliable_ratio': round(float(lid_reliable[k_mask].mean()), 3),
-            'vendi_score':      round(vendi_k, 1),
-            'vendi_anchor_used': anc_used,
-            'vendi_reliable':   anc_used >= VENDI_ANCHOR_SCENARIO,
+            'vendi_score':           round(v_random['mean'], 1),  # backward compat
+            'vendi_random':          v_random,
+            'vendi_dedup':           v_dedup,
+            'vendi_suppression_ratio': sup_ratio,
+            'vendi_reliable':        v_random['converged'],
         }
 
     # prune_flag 부여
@@ -201,6 +232,7 @@ def run(force=False):
 
     # Vendi 분산 + 두 공간 독립성 (NMI/ARI)
     vendi_arr = np.array([scenario_profiles[k]['vendi_score'] for k in range(K_scenario)])
+    sup_arr   = np.array([scenario_profiles[k]['vendi_suppression_ratio'] for k in range(K_scenario)])
     sorted_v  = np.sort(vendi_arr)
     n_s       = len(sorted_v)
     gini      = float((2*np.sum(np.arange(1,n_s+1)*sorted_v))/(n_s*sorted_v.sum()) - (n_s+1)/n_s)
@@ -217,6 +249,10 @@ def run(force=False):
         'vendi_unreliable_count': int(sum(
             1 for k in range(K_scenario) if not scenario_profiles[k]['vendi_reliable']
         )),
+        'suppression_ratio_mean':   round(float(sup_arr.mean()), 3),
+        'suppression_ratio_max':    round(float(sup_arr.max()), 3),
+        'suppression_ratio_min':    round(float(sup_arr.min()), 3),
+        'high_suppression_count':   int((sup_arr >= VENDI_SUPPRESSION_HIGH).sum()),
         'nmi_scenario_vs_quadrant':  round(nmi_sq, 4),
         'ari_scenario_vs_quadrant':  round(ari_sq, 4),
         'two_space_independence_ok': nmi_sq < 0.15 and ari_sq < 0.1,

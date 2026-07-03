@@ -104,10 +104,15 @@
 > (2) 0-E-1 `healthy_scenarios`: `MIN_Q0_PCT = 40` 조건 추가 — Q0 지배도 보장 (dominant만으로 부족)  
 > (3) 0-E-1 `caution_scenarios`: `_caution_note()` 함수로 케이스 A/B 분리 — 수동 검토자 맥락 제공  
 > (4) Phase 0 통합 산출물: 다운스트림 연결표 추가 — Phase 0 → Phase A~D 산출물 흐름 명시  
-> **v12 변경점 (최신)**:  
+> **v12 변경점 (유지)**:  
 > (1) 0-C: k-민감도 분석 추가 (`lid_k15/k25`, `k_sensitive_rate`, `flipd_recommended`) — "MLE로 충분" 주장의 실증 근거 확보  
 > (2) 0-D: `lid_margin`·`lid_boundary_zone` 연산 추가 + `thresholds.json`에 `q3_boundary_rate` 저장 — 경계 구역 정량화  
-> (3) 0-D-val: Targeted FLIPD 검증 서브 실험 추가 (조건부: `flipd_recommended=True` OR `q3_boundary_rate > 0.3`) — Q3 결정 신뢰도 FLIPD 보정
+> (3) 0-D-val: Targeted FLIPD 검증 서브 실험 추가 (조건부: `flipd_recommended=True` OR `q3_boundary_rate > 0.3`) — Q3 결정 신뢰도 FLIPD 보정  
+> **v13 변경점 (최신)**:  
+> (1) 0-B: Vendi 단일 실행 → **3전략 + Sequential Stopping Rule** — random(균등)/dedup(고유성 비례)/topk(상위 Effective_N 풀) 세 전략, 평균 SE/mean < 2% 수렴 시 중단(Law & Kelton 2000, min=5·max=30회). `vendi_suppression_ratio`(dedup/random) 추가 — 다양성 억압이 중복 때문인지 커버리지 자체가 좁은지 진단  
+> (2) 0-E-1: per-scenario Vendi 단일 실행 → **random+dedup Sequential Stopping** — 시나리오별 `vendi_suppression_ratio` 산출. `scenario_diversity_summary`에 억압 계수 통계(`suppression_ratio_mean/max/min`, `high_suppression_count`) 추가  
+> (3) 0-E-2: `vendi_suppression_ratio >= VENDI_SUPPRESSION_HIGH(2.0)` → `COLLECT_HIGH_PRIORITY` 추가 승격 — 억압 계수 이상치로 즉각 수집 우선순위 상향. `gap_slices`·`collect_candidates`에 `vendi_suppression_ratio` 필드 전달  
+> (4) config.py: `VENDI_MIN_RUNS=5`, `VENDI_MAX_RUNS=30`, `VENDI_TARGET_CV=0.02`, `VENDI_SUPPRESSION_HIGH=2.0` 파라미터 추가 — 재현성 및 수렴 기준 명시
 
 ---
 
@@ -204,18 +209,50 @@ near_dup_hard = (knn_sim[:, :20] > 0.95).sum(axis=1)
 uniqueness_hard = 1.0 / (1.0 + near_dup_hard.astype(float))
 effective_N_hard = float(uniqueness_hard.sum())
 
-# --- Vendi Score: Nyström 근사로 N²→ O(N·m) ---
+# --- Vendi Score: 3전략 + Sequential Stopping Rule (Law & Kelton 2000) ---
 # 전체 유사도 행렬 고유값 스펙트럼의 지수 엔트로피 → 실질 다양성 차원 수
-m = 2000
+# 3전략: random(현재 분포) / dedup(중복 제거 후) / topk(상위 Effective_N 풀 상한)
+# Sequential Stopping: SE/mean < VENDI_TARGET_CV(2%)이면 중단 (min=5, max=30회)
 rng = np.random.default_rng(42)
-anchor_idx = rng.choice(len(embeddings_f32), m, replace=False)
-anchors = embeddings_f32[anchor_idx]
-K_mm = (anchors @ anchors.T).astype(np.float64)
-eigenvalues = np.linalg.eigvalsh(K_mm)
-eigenvalues = np.maximum(eigenvalues, 0)
-ev_norm = eigenvalues / (eigenvalues.sum() + 1e-12)
-vendi_score = float(np.exp(-np.sum(ev_norm * np.log(ev_norm + 1e-12))))
-vendi_diversity_ratio = vendi_score / len(knn_sim)
+
+def _vendi_once(anchors):
+    K  = anchors.astype(np.float64) @ anchors.astype(np.float64).T
+    ev = np.maximum(np.linalg.eigvalsh(K), 0)
+    p  = ev / (ev.sum() + 1e-12)
+    return float(np.exp(-np.sum(p * np.log(p + 1e-12))))
+
+def _vendi_until_stable(embeddings, n_anchor, rng, p=None):
+    scores = []
+    for _ in range(VENDI_MAX_RUNS):
+        idx = rng.choice(len(embeddings), n_anchor, replace=False, p=p)
+        scores.append(_vendi_once(embeddings[idx]))
+        if len(scores) >= VENDI_MIN_RUNS:
+            se = np.std(scores, ddof=1) / np.sqrt(len(scores))
+            if se / (np.mean(scores) + 1e-10) < VENDI_TARGET_CV:
+                break
+    arr = np.array(scores)
+    return {'mean': round(float(arr.mean()), 3), 'std': round(float(arr.std(ddof=1)), 3),
+            'cv': round(float(arr.std(ddof=1)/(arr.mean()+1e-10)), 4),
+            'n_runs': len(scores), 'converged': len(scores) < VENDI_MAX_RUNS}
+
+# random: 균등 샘플링 — 학습 시 모델이 받는 다양성 신호
+v_random = _vendi_until_stable(embeddings_f32, 2000, rng, p=None)
+# dedup: 고유성 비례 샘플링 — 중복 제거 후 분포
+probs = uniqueness_weight / uniqueness_weight.sum()
+v_dedup = _vendi_until_stable(embeddings_f32, 2000, rng, p=probs)
+# topk: 상위 Effective_N개 풀에서 샘플링 — 이상적 dedup 상한
+pool_size = min(len(embeddings_f32), int(np.ceil(effective_N)))
+pool_emb  = embeddings_f32[np.argsort(uniqueness_weight)[-pool_size:]]
+if pool_size <= 2000:
+    v_topk = {'mean': round(_vendi_once(pool_emb), 3), 'std': 0.0, 'cv': 0.0,
+              'n_runs': 1, 'converged': True, 'pool_size': pool_size, 'mode': 'deterministic'}
+else:
+    v_topk = _vendi_until_stable(pool_emb, 2000, rng, p=None)
+    v_topk.update({'pool_size': pool_size, 'mode': 'sampled'})
+
+suppression_ratio = round(v_dedup['mean'] / (v_random['mean'] + 1e-10), 3)
+# suppression_ratio ≈ 1.0: 다양성 부족이 중복 때문이 아닌 커버리지 자체 문제
+# suppression_ratio > 2.0: 중복이 다양성을 크게 억압 → 적극적 dedup 효과 기대 가능
 
 # --- 연속 밀도장: k-NN 기반 (UMAP 왜곡 없는 원래 임베딩 공간 밀도) ---
 # k=10: 즉각적 이웃 밀도 (uniqueness의 k=20보다 좁은 반경 — 0-D 분류 기준)
@@ -229,13 +266,15 @@ result_B = {
     'effective_N_soft': effective_N,
     'effective_N_hard': effective_N_hard,
     'redundancy_ratio': 1 - effective_N / len(knn_sim),
-    # grey_zone_contribution: SoftDedup이 HardDedup보다 독립으로 인정하는 추가 클립 기여량
-    # = cosine sim 0.95 미만이지만 0.7~0.95 구간의 "부분 중복" 클립들의 soft uniqueness 합
-    # 클 수록 D_train에 완전 중복은 아니지만 매우 유사한 클립이 많음
-    # → Q1 프루닝 임계값 설정 시 이 값이 크면 보수적으로 접근할 것
     'grey_zone_contribution': round(effective_N - effective_N_hard, 1),
-    'vendi_score': vendi_score,
-    'vendi_diversity_ratio': vendi_diversity_ratio,
+    # 3전략 Vendi (v13 신규)
+    'vendi_random':  v_random,   # 현재 분포 — 균등 샘플링
+    'vendi_dedup':   v_dedup,    # 중복 제거 후 — 고유성 비례 샘플링
+    'vendi_topk':    v_topk,     # 상위 Effective_N 풀 상한
+    'vendi_suppression_ratio': suppression_ratio,  # dedup/random 비율 (≈1 → 커버리지 문제, >2 → 중복 억압)
+    # 하위 호환용
+    'vendi_score':          v_random['mean'],
+    'vendi_diversity_ratio': round(v_random['mean'] / len(knn_sim), 5),
     'density_p10': float(np.percentile(local_density, 10)),
     'density_median': float(np.median(local_density)),
     'density_p75': float(np.percentile(local_density, 75)),
@@ -781,18 +820,13 @@ for k in range(K_scenario):
     # Effective N: 이 시나리오의 실질 독립 정보량
     eff_n = float(uniqueness_weight[k_mask].sum())
 
-    # 시나리오별 Vendi Score: TF-IDF 시나리오 내 클립들의 임베딩 공간 다양성 독립 측정
+    # 시나리오별 Vendi: random + dedup Sequential Stopping (v13 신규)
     # Vendi 비가산적: 글로벌 값과 합산 불가 — 시나리오 간 상대 비교용
-    k_emb = embeddings_f32[k_mask]
-    n_k = len(k_emb)
-    rng_vendi = np.random.default_rng(42 + k)   # 시나리오별 독립 시드
-    vendi_anchor_used = min(n_k, VENDI_ANCHOR)   # 실제 사용 앵커 수 — 시나리오 크기 < VENDI_ANCHOR이면 앵커 축소
-    anc_idx = rng_vendi.choice(n_k, vendi_anchor_used, replace=False)
-    k_anchors = k_emb[anc_idx]
-    K_kk = (k_anchors @ k_anchors.T).astype(np.float64)
-    ev_k = np.maximum(np.linalg.eigvalsh(K_kk), 0)
-    ev_k_norm = ev_k / (ev_k.sum() + 1e-12)
-    vendi_k = float(np.exp(-np.sum(ev_k_norm * np.log(ev_k_norm + 1e-12))))
+    local_weights = uniqueness_weight[k_mask]
+    scen_rng      = np.random.default_rng(42 + k)   # 시나리오별 독립 시드
+    v_random_k, v_dedup_k = _vendi_stable(embeddings_f32[k_mask], local_weights, VENDI_ANCHOR_SCENARIO, scen_rng)
+    # _vendi_stable: n<=n_anchor이면 전부 사용(결정적), 아니면 Sequential Stopping
+    sup_ratio_k = round(v_dedup_k['mean'] / (v_random_k['mean'] + 1e-10), 3)
 
     # 분포 형태: density/LID의 평균만으로 숨겨지는 양극 vs 균일 구조 포착
     # density_quartile: 0=희소(하위25%), 3=조밀(상위25%)
@@ -812,9 +846,11 @@ for k in range(K_scenario):
         'mean_lid': round(float(lid_per_clip[k_mask].mean()), 2),
         'lid_quartile_dist': {str(q): round(float((lq == q).mean()), 3) for q in range(4)},
         'lid_reliable_ratio': round(float(lid_reliable[k_mask].mean()), 3),
-        'vendi_score': round(vendi_k, 1),
-        'vendi_anchor_used': vendi_anchor_used,          # 실제 사용 앵커 수
-        'vendi_reliable': vendi_anchor_used >= VENDI_ANCHOR,  # False이면 타 시나리오와 직접 비교 주의
+        'vendi_score':             round(v_random_k['mean'], 1),  # backward compat
+        'vendi_random':            v_random_k,
+        'vendi_dedup':             v_dedup_k,
+        'vendi_suppression_ratio': sup_ratio_k,
+        'vendi_reliable':          v_random_k['converged'],  # Sequential Stopping 수렴 여부
     }
 
 # 프루닝 신호 플래그: Q1(신뢰 기반 단조) + Q5(불신뢰 기반 단조) 합산
@@ -922,43 +958,41 @@ with open('phase0/healthy_scenarios.json', 'w') as f:
 # tfidf_vectorizer 저장 — 0-E-2 독립 실행 지원 (X_tfidf 재생성 가능)
 joblib.dump(tfidf_e1, 'phase0/tfidf_vectorizer.joblib')
 
-# 시나리오 간 Vendi 분산 집계
-# "전역 Vendi가 높다"는 것이 "모든 시나리오가 고르게 다양한가" vs "특정 시나리오에 다양성이 집중되는가"를 구분 불가
-# → Gini 계수와 CV로 다양성 불균등도를 단일 지표로 요약
+# 시나리오 간 Vendi 분산 + 억압 계수 집계 (v13 신규: suppression_ratio_* 추가)
 vendi_arr = np.array([scenario_profiles[k]['vendi_score'] for k in range(K_scenario)])
+sup_arr   = np.array([scenario_profiles[k]['vendi_suppression_ratio'] for k in range(K_scenario)])
 vendi_mean = float(vendi_arr.mean())
 vendi_std  = float(vendi_arr.std())
 sorted_v = np.sort(vendi_arr)
 n_s = len(sorted_v)
 gini_vendi = float((2 * np.sum(np.arange(1, n_s + 1) * sorted_v)) / (n_s * sorted_v.sum()) - (n_s + 1) / n_s)
-# TF-IDF 시나리오 레이블 vs 임베딩 사분면 독립성 검증 (NMI/ARI)
-# 두 공간이 독립적이어야 교차표에서 진정한 새 정보가 발생한다는 설계 전제를 실증
-# NMI > 0.15 또는 ARI > 0.1 이면 두 공간이 강하게 공유 구조 → 교차표 신규 정보량 제한적
 nmi_scenario_quadrant = float(normalized_mutual_info_score(scenario_labels, quadrant))
 ari_scenario_quadrant = float(adjusted_rand_score(scenario_labels, quadrant))
 
 scenario_diversity_summary = {
     'vendi_mean': round(vendi_mean, 1),
     'vendi_std':  round(vendi_std, 1),
-    'vendi_cv':   round(vendi_std / (vendi_mean + 1e-6), 3),   # 변동계수 — 규모 독립적 불균등도
-    'vendi_gini': round(max(gini_vendi, 0.0), 3),               # 0=균등, 1=극단 집중
+    'vendi_cv':   round(vendi_std / (vendi_mean + 1e-6), 3),
+    'vendi_gini': round(max(gini_vendi, 0.0), 3),
     'vendi_max_scenario': int(np.argmax(vendi_arr)),
     'vendi_min_scenario': int(np.argmin(vendi_arr)),
-    # vendi_unreliable_count: 앵커 축소로 인해 타 시나리오와 직접 비교가 불가능한 시나리오 수
-    # vendi_min_scenario가 unreliable이면 "다양성 최소" 해석을 신뢰하지 말 것
     'vendi_unreliable_count': int(sum(
         1 for k in range(K_scenario)
         if not scenario_profiles[k]['vendi_reliable']
     )),
-    'nmi_scenario_vs_quadrant': round(nmi_scenario_quadrant, 4),  # TF-IDF 시나리오 ↔ 임베딩 사분면 공유 정보량
-    'ari_scenario_vs_quadrant': round(ari_scenario_quadrant, 4),  # 우연 보정 일치도
+    # v13 신규: 억압 계수 통계 — 전체 시나리오의 dedup 효과 분포
+    # high_suppression_count > 0: 중복이 다양성을 강하게 억압하는 시나리오 존재 → dedup 우선 처리
+    'suppression_ratio_mean':   round(float(sup_arr.mean()), 3),
+    'suppression_ratio_max':    round(float(sup_arr.max()), 3),
+    'suppression_ratio_min':    round(float(sup_arr.min()), 3),
+    'high_suppression_count':   int((sup_arr >= VENDI_SUPPRESSION_HIGH).sum()),
+    'nmi_scenario_vs_quadrant': round(nmi_scenario_quadrant, 4),
+    'ari_scenario_vs_quadrant': round(ari_scenario_quadrant, 4),
     'two_space_independence_ok': nmi_scenario_quadrant < 0.15 and ari_scenario_quadrant < 0.1,
-    # False이면 두 공간이 강하게 공유 구조 — 교차표 신규 정보량 제한적, 설계 전제 재검토 필요
     'note': (
-        'vendi_cv > 0.5 또는 vendi_gini > 0.3이면 다양성이 특정 시나리오에 집중 → '
-        '수집 우선순위 설계 시 저Vendi 시나리오(vendi_min_scenario)를 별도 확인. '
-        'vendi_unreliable_count > 0이면 min/max 시나리오가 소규모(앵커 축소)일 수 있음 — scenario_profiles의 vendi_reliable 확인. '
-        'two_space_independence_ok=False이면 TF-IDF 시나리오와 임베딩 사분면이 강하게 공유 구조 — 교차표 설계 전제 재검토.'
+        'vendi_cv > 0.5 또는 vendi_gini > 0.3이면 다양성이 특정 시나리오에 집중. '
+        'high_suppression_count > 0이면 중복 억압 시나리오 → dedup 후 재측정 권장. '
+        'two_space_independence_ok=False이면 교차표 설계 전제 재검토.'
     ),
 }
 with open('phase0/scenario_diversity_summary.json', 'w') as f:
@@ -1658,3 +1692,8 @@ experiments/EXP-003/
 | 2026-07-02 | 0-D: Q4 완전 고립 클립 집계 추가 (`ISOLATION_THRESHOLD=0.8`) → `thresholds.json`에 `q4_isolated_clip_count` 저장 — 경계 불신뢰 vs 완전 고립 이질성 진단 |
 | 2026-07-02 | 0-E-2: `_boundary_ids` 로드 추가 + `gap_slices`에 `boundary_sensitive` 플래그 전달 — `boundary_sensitive_scenarios.json`과 수동 조인 없이 Phase D에서 직접 식별 가능 |
 | 2026-07-02 | 0-E-2: `uncertain_candidates`에 `gap_specific_terms`·`boundary_sensitive` 추가 — 수동 검토 시 `gap_slices.json` 별도 조회 없이 즉시 판단 |
+| 2026-07-03 | Phase 0 v13 — Vendi 3전략 + Sequential Stopping Rule |
+| 2026-07-03 | 0-B: Vendi 단일 실행 → random/dedup/topk 3전략. `_vendi_until_stable()` Sequential Stopping (SE/mean < 2%, min=5·max=30회). `vendi_suppression_ratio` 신규 필드 추가 [v13] |
+| 2026-07-03 | 0-E-1: per-scenario Vendi → `_vendi_stable()` random+dedup Sequential Stopping. 시나리오별 `vendi_suppression_ratio` 산출. `scenario_diversity_summary`에 억압 계수 통계 4개 추가 [v13] |
+| 2026-07-03 | 0-E-2: `vendi_suppression_ratio >= 2.0` → COLLECT_HIGH_PRIORITY 승격 추가. `gap_slices`·`collect_candidates`에 `vendi_suppression_ratio` 전달 [v13] |
+| 2026-07-03 | config.py: `VENDI_MIN_RUNS`, `VENDI_MAX_RUNS`, `VENDI_TARGET_CV`, `VENDI_SUPPRESSION_HIGH` 파라미터 신규 [v13] |

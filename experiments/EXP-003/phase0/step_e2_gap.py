@@ -6,7 +6,7 @@ mean_lid 직접 사용으로 Q2 비율 순환성 제거.
 import json
 import numpy as np
 import joblib
-from config import GAP_RATIO_HIGH_PRIORITY, LID_UNCERTAIN_RATIO, MIN_GAP_SIZE
+from config import GAP_RATIO_HIGH_PRIORITY, LID_UNCERTAIN_RATIO, MIN_GAP_SIZE, VENDI_SUPPRESSION_HIGH
 from utils import P, require_files, load_captions, already_done
 
 
@@ -59,12 +59,15 @@ def run(force=False):
         mean_lid_gap          = float(lid_per_clip[k_gap].mean())
         lid_rel_ratio         = float(lid_reliable[k_gap].mean())
 
+        sup_ratio = scenario_profiles[k].get('vendi_suppression_ratio', 1.0)
+
         if lid_rel_ratio < LID_UNCERTAIN_RATIO:
             action = 'UNCERTAIN_CHECK_SEMANTIC'
         elif mean_lid_gap >= lid_threshold:
-            action = ('COLLECT_HIGH_PRIORITY'
-                      if gap_in_scenario_ratio > GAP_RATIO_HIGH_PRIORITY
-                      else 'COLLECT')
+            if gap_in_scenario_ratio > GAP_RATIO_HIGH_PRIORITY or sup_ratio >= VENDI_SUPPRESSION_HIGH:
+                action = 'COLLECT_HIGH_PRIORITY'
+            else:
+                action = 'COLLECT'
         else:
             action = 'SYNTHETIC_OR_ACCEPT'
 
@@ -94,6 +97,7 @@ def run(force=False):
             'scenario_mean_lid':     round(scen_lid, 2),
             'lid_context_caution':   lid_context_caution,
             'lid_reliable_ratio':    round(lid_rel_ratio, 3),
+            'vendi_suppression_ratio': round(sup_ratio, 3),
             'action':                action,
             'prune_flag':            scenario_profiles[k].get('prune_flag'),
             'boundary_sensitive':    k in boundary_ids,
@@ -124,6 +128,7 @@ def run(force=False):
             'gap_q2_ratio':      v['gap_q2_ratio'],
             'collect_confidence': _collect_confidence(v['gap_q2_ratio']),
             'lid_context_caution': v.get('lid_context_caution', False),
+            'vendi_suppression_ratio': v['vendi_suppression_ratio'],
             'prune_flag':        v['prune_flag'],
         }
         for k, v in gap_slices.items()

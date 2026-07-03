@@ -17,9 +17,10 @@ K_DENSITY           = 10      # local_density 측정 반경 (즉각적 밀집도
 VENDI_ANCHOR_GLOBAL = 2000    # Nyström 앵커 수 (run당)
 
 # 0-B: Vendi 반복 샘플링 — Sequential Stopping Rule (Law & Kelton 2000)
-VENDI_MIN_RUNS  = 5     # 최소 실행 횟수 (파일럿)
-VENDI_MAX_RUNS  = 30    # 안전 상한
-VENDI_TARGET_CV = 0.02  # 평균 상대 표준오차 수렴 기준 (2%)
+VENDI_MIN_RUNS       = 5     # 최소 실행 횟수 (파일럿)
+VENDI_MAX_RUNS       = 30    # 안전 상한
+VENDI_TARGET_CV      = 0.02  # 평균 상대 표준오차 수렴 기준 (2%)
+VENDI_SUPPRESSION_HIGH = 2.0  # 억압 계수 이 값 이상 → COLLECT_HIGH_PRIORITY 승격
 
 # 0-C: LID
 K_LID                = 20     # Ma et al. MLE 추정에 사용하는 이웃 수

@@ -62,7 +62,13 @@ if __name__ == '__main__':
     print("Phase 0 완료 요약")
     print("=" * 60)
     print(f"  Effective N:    {dp['effective_N_soft']:.0f}  (중복률 {dp['redundancy_ratio']:.1%})")
-    print(f"  Vendi Score:    {dp['vendi_score']:.1f}")
+    print(f"  Vendi random:   {dp['vendi_random']['mean']:.3f} ± {dp['vendi_random']['std']:.3f} "
+          f"(n={dp['vendi_random']['n_runs']}, converged={dp['vendi_random']['converged']})")
+    print(f"  Vendi dedup:    {dp['vendi_dedup']['mean']:.3f} ± {dp['vendi_dedup']['std']:.3f} "
+          f"(n={dp['vendi_dedup']['n_runs']}, converged={dp['vendi_dedup']['converged']})")
+    print(f"  Vendi topk:     {dp['vendi_topk']['mean']:.3f} ± {dp['vendi_topk']['std']:.3f} "
+          f"(pool={dp['vendi_topk']['pool_size']}, {dp['vendi_topk']['mode']})")
+    print(f"  억압 계수:      {dp['vendi_suppression_ratio']:.3f}")
     print(f"  LID 신뢰 비율:  {ls['lid_reliable_ratio']:.1%}")
     print(f"  6-분류:")
     for q, lbl in [(0,'KEEP'),(1,'PRUNE'),(2,'COLLECT'),

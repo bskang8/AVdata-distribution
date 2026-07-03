@@ -68,6 +68,8 @@ Effective N은 "83k 클립이 실질적으로 얼마나 많은 독립 시나리�
 
 그러나 Effective N은 한 가지를 놓친다. 유사도가 0.7~0.9인 "비슷하지만 같지는 않은" 클립들 사이의 다양성이다. Vendi Score(Friedman & Dieng, TMLR 2023)는 이를 해결한다. `VS = exp(H(eigenvalues(K/tr(K))))` — 커널 행렬의 전체 고유값 스펙트럼으로 다양성을 계산하므로, 클립 간 유사도 분포 전체를 반영한다.
 
+Vendi는 앵커 샘플링에 의존하므로 단일 실행이면 분산이 크다. v13에서 **3전략 + Sequential Stopping Rule**(Law & Kelton 2000)으로 개선한다: (1) `vendi_random` — 현재 분포 그대로, 모델이 실제로 받는 다양성 신호 (2) `vendi_dedup` — 고유성 비례 중요도 샘플링, 중복 제거 후 기대 다양성 (3) `vendi_topk` — 상위 Effective_N개 풀 상한, 이상적 dedup 후 최대치. 세 전략 모두 평균 SE/mean < 2%가 될 때까지 반복해 수렴을 보장한다. `vendi_suppression_ratio = vendi_dedup / vendi_random`이 핵심 진단 지표다 — 값이 1.0에 가까우면 다양성 부족의 원인이 중복이 아닌 커버리지 자체 문제임을 의미한다. 이번 데이터셋은 1.036으로, 중복을 완전히 제거해도 다양성이 3.6% 향상에 그친다.
+
 **v2 변경점**: Effective N(per-clip uniqueness_weight)은 0-D와 0-E-1에 직접 연결된다. 0-D에서 사분면별 `effective_n_contribution`을 계산하고, 0-E-1에서 시나리오별 `internal_redundancy`로 분해한다 — "글로벌 숫자"에서 "시나리오 단위 중복도"로 전환.
 
 **왜 LID + 신뢰도 플래그 + k-민감도인가 (0-C)**
@@ -111,7 +113,7 @@ v1의 0-E는 Q2+Q3(저밀도 클립)에만 GMM을 적용했다. 이 구조에는
 
 **왜 임베딩 GMM이 아닌 TF-IDF KMeans인가 (v3 변경)**: 0-D가 이미 임베딩 공간에서 밀도·LID를 계산했다. 0-E-1도 임베딩 GMM을 쓰면 같은 공간에서 클러스터링한 것이므로 0-D와 상관관계가 높고 독립적인 새 정보를 제공하지 못한다. TF-IDF는 텍스트 의미를 직접 인코딩하므로 고차원 임베딩 공간에서 인접한 클립이라도 텍스트 의미가 다를 수 있고, 역도 성립한다. 두 공간의 불일치 지점이 가장 흥미로운 분석 결과다.
 
-**per-scenario Vendi Score (v3 신규)**: 전체 Vendi Score(0-B)가 "83k 전체 다양성"을 줬다면, 시나리오별 Vendi Score는 "각 시나리오가 내부적으로 얼마나 다양한가"를 보여준다. Vendi Score가 낮은 시나리오 = 내부 반복이 많은 과잉 시나리오, 높은 시나리오 = 내부 변주가 풍부한 양질 시나리오.
+**per-scenario Vendi Score (v3 신규, v13 강화)**: 전체 Vendi Score(0-B)가 "83k 전체 다양성"을 줬다면, 시나리오별 Vendi Score는 "각 시나리오가 내부적으로 얼마나 다양한가"를 보여준다. Vendi Score가 낮은 시나리오 = 내부 반복이 많은 과잉 시나리오, 높은 시나리오 = 내부 변주가 풍부한 양질 시나리오. v13에서 단일 실행을 `random + dedup Sequential Stopping`으로 교체해 시나리오별 `vendi_suppression_ratio`를 산출한다. `suppression_ratio >= 2.0`인 시나리오는 중복이 내부 다양성을 강하게 억압하는 케이스로 dedup 우선 처리 대상이다. 이번 실행에서는 전 시나리오 억압 계수 1.020~1.057 (평균 1.031) — 모든 시나리오에서 커버리지 부족이 중복보다 큰 문제임을 확인했다.
 
 **v12 신규: NMI/ARI 독립성 검증**. TF-IDF 공간(시나리오 레이블)과 임베딩 공간(Q0~Q5 사분면) 간 독립성을 NMI < 0.15 + ARI < 0.1로 검증한다(`two_space_independence_ok` 플래그). 이 조건이 실패하면 두 공간이 예상보다 상관관계가 높다는 의미 — TF-IDF KMeans가 임베딩 기반 사분면을 단순히 복제하고 있을 수 있다. §4.8.2에서 언급한 BERTopic 재시도 트리거 조건의 하나다.
 
@@ -886,3 +888,5 @@ EXP-003의 DISC 방향이 기존 접근과 다른 점을 한 표로 정리:
 | 2026-07-03 | §5 0-D-val: 신규 항목 추가 (FLIPD 조건부 검증, flipd_validation.json 항상 기록) [v12] |
 | 2026-07-03 | §5 0-E-1: NMI/ARI two_space_independence_ok, PRUNE_DOMINANT_THRESHOLD 상대 기준선 추가 [v12] |
 | 2026-07-03 | §5 0-E-2: MIN_GAP_SIZE=50, lid_context_caution, collect_candidates 전파 추가 [v12] |
+| 2026-07-03 | §1.4 0-B: Vendi 3전략 + Sequential Stopping Rule 설명 추가, vendi_suppression_ratio 진단 의미 추가 [v13] |
+| 2026-07-03 | §1.4 0-E-1: per-scenario Vendi random+dedup Sequential Stopping 설명, suppression_ratio >= 2.0 승격 기준 추가 [v13] |
