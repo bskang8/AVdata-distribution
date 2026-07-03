@@ -9,7 +9,7 @@ import joblib
 from config import (VENDI_ANCHOR_SCENARIO, SIL_K_CANDIDATES, SIL_FLAT_THRESHOLD,
                     K_SCENARIO_FALLBACK, MIN_HEALTHY_SIZE, MIN_Q0_PCT,
                     BOUNDARY_MARGIN_SCENARIO, Q5_CONCENTRATION_MULT, PRUNE_DOMINANT_MULT)
-from utils import P, require_files, load_captions
+from utils import P, require_files, load_captions, already_done
 
 
 def _vendi_score(embeddings, n_anchor, seed):
@@ -46,7 +46,9 @@ def _caution_note(flag, q5_pct, q5_thresh):
     return 'Q1 우세이지만 Vendi 높음 — 임베딩 단조 vs 내부 다양성 불일치. 수동 검토.'
 
 
-def run():
+def run(force=False):
+    if not force and already_done('0-E-1', 'scenario_profiles.json', 'scenario_labels.npy'):
+        return
     require_files(
         'quadrant_assignment.npy', 'quadrant_profile.json', 'thresholds.json',
         'uniqueness_weight.npy', 'density_per_clip.npy', 'density_quartile.npy',

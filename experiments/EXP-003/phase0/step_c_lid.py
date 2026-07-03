@@ -6,10 +6,12 @@ k-민감도: k=15/20/25 비교로 MLE 안정성 정량화 → 0-D-val 트리거 
 import json
 import numpy as np
 from config import K_LID, LID_RELIABLE_RMAX, K_SENSITIVE_THRESHOLD
-from utils import P, require_files, compute_lid_mle
+from utils import P, require_files, compute_lid_mle, already_done
 
 
-def run():
+def run(force=False):
+    if not force and already_done('0-C', 'lid_per_clip.npy', 'lid_stats.json'):
+        return
     require_files('knn_foundation.npz', 'density_per_clip.npy', step='step_b_diversity.py')
     print("[0-C] LID + 신뢰도 + k-민감도 시작")
 

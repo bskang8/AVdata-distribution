@@ -18,6 +18,14 @@ def require_files(*fnames, step=''):
         raise FileNotFoundError(f"필수 파일 없음: {missing}{hint}")
 
 
+def already_done(step_name, *fnames):
+    """출력 파일이 모두 존재하면 스킵 메시지 출력 후 True 반환"""
+    if all(os.path.exists(P(f)) for f in fnames):
+        print(f"[{step_name}] 스킵: 출력 파일 이미 존재 (force=True로 재실행)")
+        return True
+    return False
+
+
 def load_captions():
     """캡션 텍스트와 clip_id 로드.
     파일 포맷: {clip_id}.camera_front_wide_120fov.txt (평문 캡션)

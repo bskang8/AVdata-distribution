@@ -6,10 +6,12 @@ GMM BIC K=1~3 + brentq 실제 교차점으로 임계값 결정.
 import json
 import numpy as np
 from config import ISOLATION_THRESHOLD, BOUNDARY_MARGIN_LID, K_SENSITIVE_THRESHOLD
-from utils import P, require_files, compute_lid_mle, gmm_threshold
+from utils import P, require_files, compute_lid_mle, gmm_threshold, already_done
 
 
-def run():
+def run(force=False):
+    if not force and already_done('0-D', 'quadrant_assignment.npy', 'thresholds.json'):
+        return
     require_files(
         'density_per_clip.npy', 'lid_per_clip.npy',
         'uniqueness_weight.npy', 'lid_reliable.npy',

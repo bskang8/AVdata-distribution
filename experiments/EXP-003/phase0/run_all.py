@@ -1,7 +1,8 @@
 """Phase 0 전체 순차 실행
-각 단계를 독립적으로 재실행하려면 해당 step_*.py를 직접 실행:
-  python3 step_d_quadrant.py   # 0-D부터 재실행
-  python3 step_e1_scenario.py  # 0-E-1만 재실행
+이미 완료된 단계는 자동 스킵. 재실행 방법:
+  python3 run_all.py --force          # 전체 강제 재실행
+  python3 run_all.py --force 0-D 0-E-1  # 특정 단계만 강제 재실행
+  python3 step_d_quadrant.py          # 단일 단계 직접 실행
 """
 
 import step_a_knn
@@ -27,11 +28,25 @@ STEPS = [
 ]
 
 if __name__ == '__main__':
+    import argparse
     import time
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--force', nargs='*', metavar='STEP',
+                        help='강제 재실행할 단계 (생략 시 전체, 예: --force 0-A 0-B)')
+    args = parser.parse_args()
+
+    if args.force is None:
+        forced = set()
+    elif len(args.force) == 0:
+        forced = {name for name, _ in STEPS}
+    else:
+        forced = set(args.force)
+
     timings = {}
     for name, fn in STEPS:
         t0 = time.time()
-        fn()
+        fn(force=(name in forced))
         timings[name] = round(time.time() - t0, 1)
         print()
 

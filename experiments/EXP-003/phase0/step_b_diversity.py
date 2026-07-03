@@ -6,10 +6,12 @@ Vendi Score(Nyström): 고유값 스펙트럼 기반 다양성 차원 수
 import json
 import numpy as np
 from config import K_UNIQUENESS, K_DENSITY, VENDI_ANCHOR_GLOBAL
-from utils import P, require_files
+from utils import P, require_files, already_done
 
 
-def run():
+def run(force=False):
+    if not force and already_done('0-B', 'diversity_profile.json', 'density_per_clip.npy'):
+        return
     require_files('knn_foundation.npz', 'embeddings.npy', step='step_a_knn.py')
     print("[0-B] Effective N + Vendi Score + 밀도장 시작")
 

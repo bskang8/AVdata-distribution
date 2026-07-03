@@ -7,7 +7,7 @@ SKIP 포함 항상 flipd_validation.json 기록.
 import json
 import numpy as np
 from config import K_SENSITIVE_THRESHOLD, Q3_BOUNDARY_THRESHOLD
-from utils import P, require_files, compute_lid_mle
+from utils import P, require_files, compute_lid_mle, already_done
 
 
 def _compute_flipd(knn_dist, k=20):
@@ -24,7 +24,9 @@ def _compute_flipd(knn_dist, k=20):
     return np.clip(mle * bc, 1.0, 200.0), mle
 
 
-def run():
+def run(force=False):
+    if not force and already_done('0-D-val', 'flipd_validation.json'):
+        return
     require_files(
         'lid_stats.json', 'thresholds.json',
         'quadrant_assignment.npy', 'lid_boundary_zone.npy', 'knn_foundation.npz',

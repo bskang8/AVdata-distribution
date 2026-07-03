@@ -3,11 +3,13 @@
 import numpy as np
 import os
 from config import K_KNN, OUTPUT_DIR
-from utils import P, load_captions
+from utils import P, load_captions, already_done
 
 
-def run():
+def run(force=False):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    if not force and already_done('0-A', 'knn_foundation.npz', 'embeddings.npy'):
+        return
     print("[0-A] FAISS k-NN Foundation 시작")
 
     captions, clip_ids = load_captions()

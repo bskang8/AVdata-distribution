@@ -7,7 +7,7 @@ import json
 import numpy as np
 import joblib
 from config import GAP_RATIO_HIGH_PRIORITY, LID_UNCERTAIN_RATIO, MIN_GAP_SIZE
-from utils import P, require_files, load_captions
+from utils import P, require_files, load_captions, already_done
 
 
 def _collect_confidence(gap_q2_ratio):
@@ -16,7 +16,9 @@ def _collect_confidence(gap_q2_ratio):
     return 'LOW'
 
 
-def run():
+def run(force=False):
+    if not force and already_done('0-E-2', 'collect_candidates.json'):
+        return
     require_files(
         'quadrant_assignment.npy', 'lid_per_clip.npy', 'lid_reliable.npy',
         'uniqueness_weight.npy', 'scenario_labels.npy', 'scenario_profiles.json',
