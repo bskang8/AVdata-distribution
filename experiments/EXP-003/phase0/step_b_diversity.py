@@ -3,7 +3,9 @@ Effective N(SoftDedup): 중복 보정 독립 클립 수
 Vendi Score(Nyström): 세 가지 앵커 전략으로 다양성 차원 수 추정
   - vendi_random : 균등 무작위 샘플링 — 현재 분포 그대로
   - vendi_dedup  : 중요도 샘플링(∝ uniqueness_weight) — 중복 제거 후 분포
-  - vendi_topk   : 고유성 상위 K개 앵커 — 결정적 상한 추정
+  - vendi_topk   : 고유성 상위 Effective_N개 풀에서 샘플링 — 상한 추정
+    * Effective_N ≤ anchor수: 풀 전체 사용 → 결정적 (1회)
+    * Effective_N > anchor수: 풀 안에서 균등 샘플링 → Sequential stopping
 반복 횟수: Sequential Stopping Rule (Law & Kelton 2000) 로 자동 결정.
 """
 
@@ -74,9 +76,29 @@ def run(force=False):
     probs    = uniqueness_weight / uniqueness_weight.sum()
     v_dedup  = _vendi_until_stable(embeddings_f32, VENDI_ANCHOR_GLOBAL, rng, p=probs)
 
-    # 3) Top-K: 고유성 상위 K개 앵커 — 결정적, 반복 불필요
-    topk_idx = np.argsort(uniqueness_weight)[-VENDI_ANCHOR_GLOBAL:]
-    v_topk   = round(_vendi_once(embeddings_f32[topk_idx]), 3)
+    # 3) Top-K: 고유성 상위 Effective_N개 풀에서 앵커 선택
+    #    풀 크기 = ceil(effective_N), 앵커 수 = VENDI_ANCHOR_GLOBAL
+    #    풀 ≤ 앵커수: 풀 전체 사용 → 결정적 (1회)
+    #    풀 > 앵커수: 풀 안에서 균등 무작위 샘플링 → Sequential stopping
+    pool_size = min(len(embeddings_f32), int(np.ceil(effective_N)))
+    pool_idx  = np.argsort(uniqueness_weight)[-pool_size:]
+    pool_emb  = embeddings_f32[pool_idx]
+    print(f"  [Vendi-topk]   고유 풀={pool_size}개 "
+          f"({'결정적' if pool_size <= VENDI_ANCHOR_GLOBAL else '반복 샘플링'}) 수렴 중...")
+    if pool_size <= VENDI_ANCHOR_GLOBAL:
+        # 풀 전체가 앵커 수 이하 → 전부 사용, 분산 없음
+        v_topk = {'mean':      round(_vendi_once(pool_emb), 3),
+                  'std':       0.0,
+                  'cv':        0.0,
+                  'n_runs':    1,
+                  'converged': True,
+                  'pool_size': pool_size,
+                  'mode':      'deterministic'}
+    else:
+        # 풀이 앵커 수보다 큼 → 풀 안에서 균등 샘플링 반복
+        v_topk = _vendi_until_stable(pool_emb, VENDI_ANCHOR_GLOBAL, rng, p=None)
+        v_topk['pool_size'] = pool_size
+        v_topk['mode']      = 'sampled'
 
     suppression_ratio = round(v_dedup['mean'] / (v_random['mean'] + 1e-10), 3)
 
@@ -92,7 +114,7 @@ def run(force=False):
         # Vendi 세 가지 전략
         'vendi_random':           v_random,   # 현재 분포 — 균등 샘플링
         'vendi_dedup':            v_dedup,    # 중복 제거 후 — 중요도 샘플링
-        'vendi_topk':             v_topk,     # 고유성 상위 K 앵커 — 결정적
+        'vendi_topk':             v_topk,     # 고유성 상위 Effective_N 풀 앵커
         'vendi_suppression_ratio': suppression_ratio,  # dedup/random 비율
         # 하위 호환용 (기존 코드가 참조하는 키)
         'vendi_score':            v_random['mean'],
@@ -112,7 +134,9 @@ def run(force=False):
           f"(n={v_random['n_runs']}, converged={v_random['converged']})")
     print(f"  Vendi dedup  : {v_dedup['mean']:.3f} ± {v_dedup['std']:.3f} "
           f"(n={v_dedup['n_runs']}, converged={v_dedup['converged']})")
-    print(f"  Vendi topk   : {v_topk:.3f} (결정적)")
+    topk_info = (f"{v_topk['mean']:.3f} ± {v_topk['std']:.3f} "
+                 f"(n={v_topk['n_runs']}, pool={v_topk['pool_size']}, {v_topk['mode']})")
+    print(f"  Vendi topk   : {topk_info}")
     print(f"  억압 계수(dedup/random): {suppression_ratio:.3f}")
 
 
