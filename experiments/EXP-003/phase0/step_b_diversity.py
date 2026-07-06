@@ -13,46 +13,9 @@ import json
 import numpy as np
 from scipy.stats import spearmanr
 from config import (K_UNIQUENESS, K_DENSITY, VENDI_ANCHOR_GLOBAL,
-                    VENDI_MIN_RUNS, VENDI_MAX_RUNS, VENDI_TARGET_CV,
-                    ODD_DIR, ODD_DIMS, ODD_SPEARMAN_PAIRS)
-from utils import P, require_files, already_done, load_odd_compat, odd_diversity_stats
-
-
-def _vendi_once(anchors):
-    """단일 앵커 세트에서 Vendi Score 계산"""
-    K  = anchors.astype(np.float64) @ anchors.astype(np.float64).T
-    ev = np.maximum(np.linalg.eigvalsh(K), 0)
-    p  = ev / (ev.sum() + 1e-12)
-    return float(np.exp(-np.sum(p * np.log(p + 1e-12))))
-
-
-def _vendi_until_stable(embeddings, n_anchor, rng, p=None, return_anchors=False):
-    """Sequential Stopping Rule — Law & Kelton (2000)
-    평균의 상대 표준오차(SE/mean)가 VENDI_TARGET_CV 미만이 되면 중단.
-    p=None: 균등 샘플링 / p=weights: 중요도 샘플링
-    return_anchors=True: (result, scores_list, anchor_list) 반환
-    """
-    scores, anchors_per_run = [], []
-    for _ in range(VENDI_MAX_RUNS):
-        idx = rng.choice(len(embeddings), n_anchor, replace=False, p=p)
-        scores.append(_vendi_once(embeddings[idx]))
-        if return_anchors:
-            anchors_per_run.append(idx.copy())
-        if len(scores) >= VENDI_MIN_RUNS:
-            se_of_mean = np.std(scores, ddof=1) / np.sqrt(len(scores))
-            if se_of_mean / (np.mean(scores) + 1e-10) < VENDI_TARGET_CV:
-                break
-    arr = np.array(scores)
-    result = {
-        'mean':      round(float(arr.mean()), 3),
-        'std':       round(float(arr.std(ddof=1)), 3),
-        'cv':        round(float(arr.std(ddof=1) / (arr.mean() + 1e-10)), 4),
-        'n_runs':    len(scores),
-        'converged': len(scores) < VENDI_MAX_RUNS,
-    }
-    if return_anchors:
-        return result, list(scores), anchors_per_run
-    return result
+                    VENDI_MAX_RUNS, ODD_DIR, ODD_DIMS, ODD_SPEARMAN_PAIRS)
+from utils import (P, require_files, already_done, load_odd_compat, odd_diversity_stats,
+                   _vendi_once, _vendi_until_stable)
 
 
 def run(force=False):
@@ -82,13 +45,13 @@ def run(force=False):
     # 1) Random: 균등 샘플링 — 현재 분포 그대로 (훈련 시 모델이 받는 신호)
     print("  [Vendi-random] 균등 샘플링 수렴 중...")
     v_random, _random_scores, _random_anchors = _vendi_until_stable(
-        embeddings_f32, VENDI_ANCHOR_GLOBAL, rng, p=None, return_anchors=True)
+        embeddings_f32, VENDI_ANCHOR_GLOBAL, rng, p=None)
 
     # 2) Dedup: 중요도 샘플링 ∝ uniqueness_weight — 중복 제거 후 분포
     print("  [Vendi-dedup]  중요도 샘플링 수렴 중...")
     probs    = uniqueness_weight / uniqueness_weight.sum()
     v_dedup, _dedup_scores, _dedup_anchors = _vendi_until_stable(
-        embeddings_f32, VENDI_ANCHOR_GLOBAL, rng, p=probs, return_anchors=True)
+        embeddings_f32, VENDI_ANCHOR_GLOBAL, rng, p=probs)
 
     # 3) Top-K: 고유성 상위 Effective_N개 풀에서 앵커 선택
     #    풀 크기 = ceil(effective_N), 앵커 수 = VENDI_ANCHOR_GLOBAL
@@ -114,7 +77,7 @@ def run(force=False):
     else:
         # 풀이 앵커 수보다 큼 → 풀 안에서 균등 샘플링 반복
         v_topk, _topk_scores, _topk_local = _vendi_until_stable(
-            pool_emb, VENDI_ANCHOR_GLOBAL, rng, p=None, return_anchors=True)
+            pool_emb, VENDI_ANCHOR_GLOBAL, rng, p=None)
         v_topk['pool_size'] = pool_size
         v_topk['mode']      = 'sampled'
         _topk_anchors = [pool_idx[local_idx] for local_idx in _topk_local]
@@ -157,8 +120,8 @@ def run(force=False):
         keep = (pi_a != pi_b)
         pi_a, pi_b = pi_a[keep][:ODD_SPEARMAN_PAIRS], pi_b[keep][:ODD_SPEARMAN_PAIRS]
         # ODD Hamming 거리 (string 비교)
-        odd_mat = np.array([[odd_recs[valid_idx[i]].get(d, 'unknown') for d in ODD_DIMS]
-                             for i in range(n_v)], dtype=object)
+        odd_mat = np.array([[odd_recs[vi].get(d, 'unknown') for d in ODD_DIMS]
+                             for vi in valid_idx], dtype=object)
         ham_dist = (odd_mat[pi_a] != odd_mat[pi_b]).mean(axis=1).astype(float)
         # 임베딩 코사인 거리
         emb_v    = embeddings_f32[valid_idx]

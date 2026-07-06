@@ -9,46 +9,22 @@ import joblib
 from config import (VENDI_ANCHOR_SCENARIO, SIL_K_CANDIDATES, SIL_FLAT_THRESHOLD,
                     K_SCENARIO_FALLBACK, MIN_HEALTHY_SIZE, MIN_Q0_PCT,
                     BOUNDARY_MARGIN_SCENARIO, Q5_CONCENTRATION_MULT, PRUNE_DOMINANT_MULT,
-                    VENDI_MIN_RUNS, VENDI_MAX_RUNS, VENDI_TARGET_CV, VENDI_SUPPRESSION_HIGH,
-                    ODD_DIR, ODD_DIMS)
+                    VENDI_SUPPRESSION_HIGH, ODD_DIR, ODD_DIMS)
 from utils import (P, require_files, load_captions, already_done,
-                   load_odd_compat, odd_diversity_stats)
+                   load_odd_compat, odd_diversity_stats,
+                   _vendi_once, _vendi_until_stable)
 
 
 def _vendi_stable(embeddings, weights, n_anchor, rng):
     """시나리오 내 random + dedup Vendi — Sequential Stopping Rule"""
     n = len(embeddings)
-
-    def _once(idx):
-        anc = embeddings[idx].astype(np.float64)
-        K = anc @ anc.T
-        ev = np.maximum(np.linalg.eigvalsh(K), 0)
-        p = ev / (ev.sum() + 1e-12)
-        return float(np.exp(-np.sum(p * np.log(p + 1e-12))))
-
     if n <= n_anchor:
-        v = _once(np.arange(n))
-        entry = {'mean': round(v, 3), 'std': 0.0, 'cv': 0.0, 'n_runs': 1, 'converged': True}
+        entry = {'mean': round(_vendi_once(embeddings), 3), 'std': 0.0,
+                 'cv': 0.0, 'n_runs': 1, 'converged': True}
         return entry, entry
-
-    def _run(p=None):
-        scores = []
-        for _ in range(VENDI_MAX_RUNS):
-            idx = rng.choice(n, n_anchor, replace=False, p=p)
-            scores.append(_once(idx))
-            if len(scores) >= VENDI_MIN_RUNS:
-                se = np.std(scores, ddof=1) / np.sqrt(len(scores))
-                if se / (np.mean(scores) + 1e-10) < VENDI_TARGET_CV:
-                    break
-        arr = np.array(scores)
-        return {'mean':      round(float(arr.mean()), 3),
-                'std':       round(float(arr.std(ddof=1)), 3),
-                'cv':        round(float(arr.std(ddof=1) / (arr.mean() + 1e-10)), 4),
-                'n_runs':    len(scores),
-                'converged': len(scores) < VENDI_MAX_RUNS}
-
     probs = weights / (weights.sum() + 1e-10)
-    return _run(p=None), _run(p=probs)
+    return (_vendi_until_stable(embeddings, n_anchor, rng)[0],
+            _vendi_until_stable(embeddings, n_anchor, rng, p=probs)[0])
 
 
 def _prune_flag(q1_pct, q5_pct, vendi, median_vendi,

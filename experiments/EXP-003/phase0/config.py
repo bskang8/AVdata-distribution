@@ -52,6 +52,8 @@ ODD_DIMS           = ['road_type', 'weather', 'traffic_density', 'agent_type',
 ODD_SPEARMAN_PAIRS = 5000  # 임베딩–ODD 정렬 검증용 샘플 쌍 수
 
 # 0-E-2: 갭 슬라이스
-GAP_RATIO_HIGH_PRIORITY = 0.4  # 시나리오 내 갭 비율 초과 → COLLECT_HIGH_PRIORITY
-LID_UNCERTAIN_RATIO     = 0.4  # lid_reliable 비율 미만 → UNCERTAIN_CHECK_SEMANTIC
-MIN_GAP_SIZE            = 50   # LID MLE k=20 기반 안정적 mean_lid 최소 클립 수
+GAP_RATIO_HIGH_PRIORITY   = 0.4   # 시나리오 내 갭 비율 초과 → COLLECT_HIGH_PRIORITY
+LID_UNCERTAIN_RATIO       = 0.4   # lid_reliable 비율 미만 → UNCERTAIN_CHECK_SEMANTIC
+MIN_GAP_SIZE              = 50    # LID MLE k=20 기반 안정적 mean_lid 최소 클립 수
+# ponytail: 파일럿 시나리오 odd_effective_n p75 기준 (≈22.3). ODD 다양 → 임베딩 단조여도 수집
+ODD_HIGH_PRIORITY_THRESHOLD = 22.0

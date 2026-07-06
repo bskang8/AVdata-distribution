@@ -5,7 +5,8 @@ import math
 import os
 from collections import Counter
 import numpy as np
-from config import OUTPUT_DIR, CAPTIONS_DIR
+from config import (OUTPUT_DIR, CAPTIONS_DIR,
+                    VENDI_MIN_RUNS, VENDI_MAX_RUNS, VENDI_TARGET_CV)
 
 
 def P(fname):
@@ -45,6 +46,38 @@ def load_captions():
         captions.append(caption)
         clip_ids.append(clip_id)
     return captions, clip_ids
+
+
+def _vendi_once(anchors):
+    """단일 앵커 세트에서 Vendi Score 계산"""
+    K  = anchors.astype(np.float64) @ anchors.astype(np.float64).T
+    ev = np.maximum(np.linalg.eigvalsh(K), 0)
+    p  = ev / (ev.sum() + 1e-12)
+    return float(np.exp(-np.sum(p * np.log(p + 1e-12))))
+
+
+def _vendi_until_stable(embeddings, n_anchor, rng, p=None):
+    """Sequential Stopping Rule — Law & Kelton (2000)
+    반환: (result_dict, scores_list, anchor_index_list)
+    """
+    scores, anchors_per_run = [], []
+    for _ in range(VENDI_MAX_RUNS):
+        idx = rng.choice(len(embeddings), n_anchor, replace=False, p=p)
+        scores.append(_vendi_once(embeddings[idx]))
+        anchors_per_run.append(idx.copy())
+        if len(scores) >= VENDI_MIN_RUNS:
+            se_of_mean = np.std(scores, ddof=1) / np.sqrt(len(scores))
+            if se_of_mean / (np.mean(scores) + 1e-10) < VENDI_TARGET_CV:
+                break
+    arr = np.array(scores)
+    result = {
+        'mean':      round(float(arr.mean()), 3),
+        'std':       round(float(arr.std(ddof=1)), 3),
+        'cv':        round(float(arr.std(ddof=1) / (arr.mean() + 1e-10)), 4),
+        'n_runs':    len(scores),
+        'converged': len(scores) < VENDI_MAX_RUNS,
+    }
+    return result, list(scores), anchors_per_run
 
 
 def compute_lid_mle(knn_sim_arr, k_lid=20):
@@ -116,6 +149,7 @@ def gmm_threshold(data, max_k=3):
     """
     from sklearn.mixture import GaussianMixture
     from scipy import optimize
+    from scipy.stats import norm
 
     data_2d = data.reshape(-1, 1)
     gmms, bics = {}, {}
@@ -140,12 +174,8 @@ def gmm_threshold(data, max_k=3):
         for i in range(len(idx3) - 1):
             ma, sa, wa = means3[idx3[i]],   stds3[idx3[i]],   weights3[idx3[i]]
             mb, sb, wb = means3[idx3[i+1]], stds3[idx3[i+1]], weights3[idx3[i+1]]
-            def _diff(x, ma=ma, sa=sa, wa=wa, mb=mb, sb=sb, wb=wb):
-                return (wa/sa*np.exp(-0.5*((x-ma)/sa)**2) -
-                        wb/sb*np.exp(-0.5*((x-mb)/sb)**2))
-            def _sum(x, ma=ma, sa=sa, wa=wa, mb=mb, sb=sb, wb=wb):
-                return (wa/sa*np.exp(-0.5*((x-ma)/sa)**2) +
-                        wb/sb*np.exp(-0.5*((x-mb)/sb)**2))
+            _diff = lambda x: norm.pdf(x, ma, sa)*wa - norm.pdf(x, mb, sb)*wb
+            _sum  = lambda x: norm.pdf(x, ma, sa)*wa + norm.pdf(x, mb, sb)*wb
             try:
                 t = optimize.brentq(_diff, ma, mb)
                 v = _sum(t)
@@ -165,9 +195,7 @@ def gmm_threshold(data, max_k=3):
     m1, s1, w1 = means[idx[0]], stds[idx[0]], weights[idx[0]]
     m2, s2, w2 = means[idx[1]], stds[idx[1]], weights[idx[1]]
 
-    def pdf_diff(x):
-        return (w1/s1*np.exp(-0.5*((x-m1)/s1)**2) -
-                w2/s2*np.exp(-0.5*((x-m2)/s2)**2))
+    pdf_diff = lambda x: norm.pdf(x, m1, s1)*w1 - norm.pdf(x, m2, s2)*w2
     try:
         threshold = optimize.brentq(pdf_diff, m1, m2)
     except ValueError:

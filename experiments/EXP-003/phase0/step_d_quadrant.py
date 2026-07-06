@@ -77,9 +77,6 @@ def run(force=False):
         'q4_isolated_clip_count':     q4_isolated_count,
         'q4_isolation_threshold':     ISOLATION_THRESHOLD,
     }
-    with open(P('thresholds.json'), 'w') as f:
-        json.dump(thresholds, f, indent=2)
-
     # 경계 구역 정량화 — 0-D-val 트리거 기준
     lid_margin        = (lid_per_clip - lid_threshold) / max(lid_threshold, 1.0)
     lid_boundary_zone = (np.abs(lid_margin) < BOUNDARY_MARGIN_LID) & lid_reliable & ~high_d

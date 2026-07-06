@@ -6,7 +6,8 @@ mean_lid 직접 사용으로 Q2 비율 순환성 제거.
 import json
 import numpy as np
 import joblib
-from config import GAP_RATIO_HIGH_PRIORITY, LID_UNCERTAIN_RATIO, MIN_GAP_SIZE, VENDI_SUPPRESSION_HIGH
+from config import (GAP_RATIO_HIGH_PRIORITY, LID_UNCERTAIN_RATIO, MIN_GAP_SIZE,
+                    VENDI_SUPPRESSION_HIGH, ODD_HIGH_PRIORITY_THRESHOLD)
 from utils import P, require_files, load_captions, already_done
 
 
@@ -60,16 +61,18 @@ def run(force=False):
         lid_rel_ratio         = float(lid_reliable[k_gap].mean())
 
         sup_ratio = scenario_profiles[k].get('vendi_suppression_ratio', 1.0)
+        odd_eff_n = scenario_profiles[k].get('odd_diversity', {}).get('odd_effective_n', 0.0)
+        odd_high  = odd_eff_n >= ODD_HIGH_PRIORITY_THRESHOLD
 
         if lid_rel_ratio < LID_UNCERTAIN_RATIO:
             action = 'UNCERTAIN_CHECK_SEMANTIC'
         elif mean_lid_gap >= lid_threshold:
-            if gap_in_scenario_ratio > GAP_RATIO_HIGH_PRIORITY or sup_ratio >= VENDI_SUPPRESSION_HIGH:
+            if gap_in_scenario_ratio > GAP_RATIO_HIGH_PRIORITY or sup_ratio >= VENDI_SUPPRESSION_HIGH or odd_high:
                 action = 'COLLECT_HIGH_PRIORITY'
             else:
                 action = 'COLLECT'
         else:
-            action = 'SYNTHETIC_OR_ACCEPT'
+            action = 'COLLECT_HIGH_PRIORITY' if odd_high else 'SYNTHETIC_OR_ACCEPT'
 
         gap_q_counts = {f'Q{q}': int((quadrant[k_gap] == q).sum()) for q in [2, 3, 4]}
         gap_q2_ratio = gap_q_counts['Q2'] / max(int(k_gap.sum()), 1)
@@ -98,6 +101,7 @@ def run(force=False):
             'lid_context_caution':   lid_context_caution,
             'lid_reliable_ratio':    round(lid_rel_ratio, 3),
             'vendi_suppression_ratio': round(sup_ratio, 3),
+            'odd_effective_n':        round(odd_eff_n, 3),
             'action':                action,
             'prune_flag':            scenario_profiles[k].get('prune_flag'),
             'boundary_sensitive':    k in boundary_ids,
@@ -129,6 +133,7 @@ def run(force=False):
             'collect_confidence': _collect_confidence(v['gap_q2_ratio']),
             'lid_context_caution': v.get('lid_context_caution', False),
             'vendi_suppression_ratio': v['vendi_suppression_ratio'],
+            'odd_effective_n':    v['odd_effective_n'],
             'prune_flag':        v['prune_flag'],
         }
         for k, v in gap_slices.items()
