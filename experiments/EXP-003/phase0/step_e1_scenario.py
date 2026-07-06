@@ -9,8 +9,10 @@ import joblib
 from config import (VENDI_ANCHOR_SCENARIO, SIL_K_CANDIDATES, SIL_FLAT_THRESHOLD,
                     K_SCENARIO_FALLBACK, MIN_HEALTHY_SIZE, MIN_Q0_PCT,
                     BOUNDARY_MARGIN_SCENARIO, Q5_CONCENTRATION_MULT, PRUNE_DOMINANT_MULT,
-                    VENDI_MIN_RUNS, VENDI_MAX_RUNS, VENDI_TARGET_CV, VENDI_SUPPRESSION_HIGH)
-from utils import P, require_files, load_captions, already_done
+                    VENDI_MIN_RUNS, VENDI_MAX_RUNS, VENDI_TARGET_CV, VENDI_SUPPRESSION_HIGH,
+                    ODD_DIR, ODD_DIMS)
+from utils import (P, require_files, load_captions, already_done,
+                   load_odd_compat, odd_diversity_stats)
 
 
 def _vendi_stable(embeddings, weights, n_anchor, rng):
@@ -78,12 +80,14 @@ def run(force=False):
         'quadrant_assignment.npy', 'quadrant_profile.json', 'thresholds.json',
         'uniqueness_weight.npy', 'density_per_clip.npy', 'density_quartile.npy',
         'lid_per_clip.npy', 'lid_quartile.npy', 'lid_reliable.npy',
-        'embeddings.npy',
+        'embeddings.npy', 'clip_ids.npy',
         step='step_d_quadrant.py',
     )
     print("[0-E-1] 시나리오 의미 지도 시작")
 
     captions, _ = load_captions()
+    clip_ids     = list(np.load(P('clip_ids.npy'), allow_pickle=True))
+    odd_recs     = load_odd_compat(clip_ids, ODD_DIR)
 
     quadrant          = np.load(P('quadrant_assignment.npy'))
     uniqueness_weight = np.load(P('uniqueness_weight.npy'))
@@ -146,6 +150,8 @@ def run(force=False):
         v_random, v_dedup = _vendi_stable(
             embeddings_f32[k_mask], local_weights, VENDI_ANCHOR_SCENARIO, scen_rng)
         sup_ratio = round(v_dedup['mean'] / (v_random['mean'] + 1e-10), 3)
+        k_indices = np.where(k_mask)[0]
+        odd_div_k = odd_diversity_stats([odd_recs[i] for i in k_indices], ODD_DIMS)
 
         dq = density_quartile[k_mask]
         lq = lid_quartile[k_mask]
@@ -166,6 +172,7 @@ def run(force=False):
             'vendi_dedup':           v_dedup,
             'vendi_suppression_ratio': sup_ratio,
             'vendi_reliable':        v_random['converged'],
+            'odd_diversity':         odd_div_k,
         }
 
     # prune_flag 부여

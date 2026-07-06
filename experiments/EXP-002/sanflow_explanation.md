@@ -1,8 +1,9 @@
 # SANFlow 학습 설명서
 
-**작성일**: 2026-06-04  
+**작성일**: 2026-06-04 (최종 업데이트: 2026-06-18)  
 **대상 파일**: `src/avdata/phase6/fit_sanflow.py`  
-**실행 명령**: `uv run python -m avdata.phase6.fit_sanflow --epochs 100`
+**실행 명령**: `uv run python -m avdata.phase6.fit_sanflow --epochs 100`  
+**버그 수정**: 2026-06-05 nearest_cluster 라벨 오류 수정 (UMAP 공간 기반 역추적)
 
 ---
 
@@ -296,6 +297,18 @@ experiments/EXP-002/results/
 ]
 ```
 
+**필드 의미:**
+- `rank`: 희귀도 순위 (1=가장 희귀)
+- `log_density`: 로그 확률 밀도 (낮을수록 희귀)
+- `is_noise`: `true`=완전히 새로운 시나리오 유형, `false`=기존 클러스터의 극단적 케이스
+- `nearest_cluster`: 가장 유사한 클러스터 번호 (UMAP 공간 기준)
+- `original_cluster`: HDBSCAN 원본 레이블 (-1=noise)
+
+**통계 (200개 갭):**
+- noise 갭: 162개 (81%)
+- cluster-edge 갭: 38개 (19%)
+- SANFlow vs KDE: +1.42 nats 개선 (확률 스케일 4.2배)
+
 ---
 
 ## 7. 전체 실험 흐름에서의 위치
@@ -318,3 +331,360 @@ HDBSCAN 클러스터링 (124개)
 ```
 
 SANFlow는 Phase A의 **정성적 발견**(어떤 클러스터가 작다)을 **정량적 갭 점수**(log-density)로 바꾸고, **시나리오 이름**(LLM 레이블)까지 붙여주는 것이 핵심 기여입니다.
+
+---
+
+## 8. UMAP 공간 vs SANFlow latent 공간
+
+**버그 이해의 핵심:** 두 공간은 서로 다른 목적과 특성을 가집니다.
+
+### 8-1. UMAP 공간 (원본 입력 공간)
+
+```
+클립 영상
+  ↓  BGE-M3 임베딩 모델
+1024차원 벡터  (클립의 의미론적 내용 표현)
+  ↓  UMAP 차원 축소
+10차원 벡터  ← 이것이 "UMAP 공간"의 한 점
+```
+
+**UMAP 공간에서 두 점이 가깝다 = 두 클립의 시각적·의미론적 내용이 유사하다.**
+
+- 축: 의미론적 유사성을 보존하도록 학습된 10개의 추상 차원
+- 거리: 실제 시나리오 유사도를 반영
+- HDBSCAN이 이 공간에서 클러스터를 만들었음
+
+```
+UMAP 공간 (10D) 개념도
+
+  cluster 63 ●●●        cluster 2 ■■■■■■■■■
+  (rural stalled)  ...  (rural night)    ← 공간적으로 구분된 클러스터들
+       ●
+      noise ×  ← noise 클립: cluster 63 근방 (거리 ~0.1)
+                  cluster 2까지 거리 ~11
+```
+
+### 8-2. SANFlow latent 공간 (flow 변환 후 공간)
+
+SANFlow는 UMAP 공간의 점 `x`를 **Normalizing Flow(MAF)**로 다른 공간의 점 `z`로 변환합니다.
+
+```
+x (UMAP 10D)  →  flow (MAF 6블록)  →  z (latent 10D)
+```
+
+**학습 목표**: cluster k 소속 클립은 flow 후 z가 N(μ_k, σ_k) 근방에 모이도록
+
+```
+UMAP 공간              SANFlow latent 공간
+
+cluster 2 ■■■■   →   z ≈ N(μ₂, σ₂) ●●●   ← cluster 2 클립들이 μ₂ 근방으로 모임
+cluster 63 ●●●  →   z ≈ N(μ₆₃, σ₆₃) ▲▲▲  ← cluster 63 클립들이 μ₆₃ 근방으로 모임
+noise ×          →   z ≈ ?              ← 학습 신호 없어 예측 불가
+```
+
+**latent 공간에서 두 점이 가깝다 = flow가 같은 Gaussian 근방으로 매핑했다.**  
+이는 원본 시나리오 유사도가 아니라 **flow가 학습한 변환 구조**에 의해 결정됩니다.
+
+### 8-3. 왜 두 공간이 다른가 — noise 포인트의 경우
+
+```
+                      UMAP 공간               SANFlow latent 공간
+                      ─────────────────────   ──────────────────────────
+cluster 2 클립        μ₂_umap 근방            μ₂_latent 근방  (flow가 여기로 보냄)
+cluster 63 클립       μ₆₃_umap 근방           μ₆₃_latent 근방 (flow가 여기로 보냄)
+noise 클립            μ₆₃_umap 근방 (거리 0.1)  ??? (flow가 어디로 보낼지 예측 불가)
+                                              ↑ 학습 신호가 없어서 임의의 위치로 이동
+```
+
+flow는 **cluster 소속 클립들만 제대로 훈련된 변환**입니다.  
+noise 클립(-1)은 학습 시 noise bucket으로 배정되지만, 이 변환이 반드시 UMAP 공간의 이웃 구조를 보존하지 않습니다.
+
+### 8-4. 역할 분담 (최종 설계)
+
+```
+                         log_density 계산    nearest_cluster 역추적
+                         (갭 심각도)          (시나리오 이름)
+─────────────────────────────────────────────────────────────────────
+SANFlow latent 공간        ✅ 강점              ❌ noise 포인트에서 오류
+UMAP 원본 공간             △ (KDE 필요)        ✅ 의미론적으로 정확
+```
+
+**최적 설계**: SANFlow latent 공간은 **밀도 계산**에 사용하고,  
+역추적은 **UMAP 원본 공간**에서 수행하는 것이 정확합니다.
+
+---
+
+## 9. SANFlow latent 공간을 사용하는 이유
+
+"UMAP 공간에서 바로 밀도를 계산하면 되는데 왜 굳이 flow로 변환하는가?"  
+이 선택에는 명확한 이유가 있습니다.
+
+### 9-1. 정확한 로그우도 계산
+
+**UMAP 공간에서 KDE(Kernel Density Estimation)를 쓰면:**
+
+```
+p_KDE(x) = (1/N) Σᵢ K((x - xᵢ)/h)    ← 모든 N개 데이터 포인트 기준 근사값
+                                          bandwidth h 선택에 민감
+                                          10D에서 계산 비용 O(N)
+```
+
+**SANFlow를 쓰면:**
+
+```
+log p(x) = log p_z(f⁻¹(x)) + log|det J⁻¹|    ← 변수 변환 공식 (수학적으로 정확)
+                ↑                   ↑
+       클러스터 Gaussian에서     flow의 부피 왜곡
+       z의 정확한 확률         보정항 (야코비안)
+```
+
+NF는 학습 후 한 번의 forward pass로 **정확한** log p(x)를 계산합니다.  
+KDE는 본질적으로 근사이며 고차원에서 bandwidth 선택이 어렵습니다.
+
+**실제 측정 (테스트 셋 로그우도):**
+
+| 방법 | 테스트 셋 log-likelihood | 비고 |
+|------|---------------------:|------|
+| SANFlow | **-3.5848** | 정확한 변수 변환 |
+| KDE (baseline) | -5.0082 | 10D Gaussian 커널 근사 |
+| 차이 | **+1.42 nats** | 확률 스케일로 **4.2배** 더 정확 |
+
+### 9-2. 클러스터 크기 불균형 문제 해결
+
+이 데이터셋의 클러스터 크기 분포:
+
+```
+최대 cluster (cluster 7):   61,909개
+최소 cluster (cluster 12):      146개
+크기 비율:                  1,238×
+noise 포인트:               65,893개 (22%)
+```
+
+**UMAP KDE의 문제:**
+
+```
+전역 KDE에서 밀도는 "얼마나 많은 데이터 포인트가 주변에 있는가"
+
+  cluster 7 경계 근처 포인트  → 주변에 많은 점 → 밀도 높음  (갭이 아님으로 판정)
+  cluster 12 내부 포인트      → 주변에 적은 점 → 밀도 낮음  (갭으로 판정) ← 오탐
+  
+  cluster 12가 소수인 것은 '희귀한 시나리오'이기 때문일 수도 있지만,
+  단순히 '수집량이 적은 것'일 수도 있다.
+  전역 KDE는 이 둘을 구분하지 못한다.
+```
+
+**SANFlow의 해결:**
+
+```
+클러스터 k마다 독립적인 Gaussian N(μ_k, σ_k)을 기준으로 밀도 계산
+
+  "이 포인트는 cluster k의 분포에서 얼마나 전형적인가?"
+  
+  → cluster 7 (61,909개)의 이상한 포인트  → 해당 Gaussian에서 멀리 있으면 → 갭
+  → cluster 12 (146개)의 전형적인 포인트 → 해당 Gaussian에서 가까우면  → 갭 아님
+```
+
+클러스터 크기에 관계없이 **클러스터 내에서의 이상도**를 측정하므로 크기 편향이 없습니다.
+
+### 9-3. 비선형 밀도 구조 포착
+
+UMAP 공간의 클러스터들은 구형(spherical)이 아닙니다:
+
+```
+클러스터별 내부 퍼짐(spread) 비교 — 형태가 제각각
+
+  타이트한 클러스터 (spread ≈ 0.03):
+    cluster 12: Parking lot navigation in heavy rain       → 매우 동질적
+    cluster 10: Nighttime parking lot navigation in heavy rain
+
+  넓고 복잡한 클러스터 (spread ≈ 1.0):
+    cluster 3:  Nighttime driving in narrow urban streets  → 다양한 서브 시나리오 혼재
+    cluster 7:  Lane merging near intersection with parked cars
+```
+
+KDE는 각 포인트 주변에 동일한 구형 커널을 씌우므로 비구형·비균질 분포에서 밀도를 과소/과대 추정합니다.
+
+Flow의 비선형 변환은 이런 복잡한 형태의 클러스터도 latent 공간에서 단순한 Gaussian으로 "펼쳐" 더 정확한 밀도를 추정할 수 있습니다.
+
+### 9-4. 시나리오 역추적 (가장 핵심적인 동기)
+
+이것이 SANFlow를 **표준 Normalizing Flow**와 구분짓는 핵심입니다.
+
+```
+방법                    갭 탐지     "이 갭이 어떤 시나리오인가?" 역추적
+──────────────────────  ──────────  ──────────────────────────────────────
+UMAP KDE                ✅ 가능      ❌ 불가 (전역 밀도만 있고 클러스터 정보 없음)
+표준 NF (phase5)        ✅ 가능      ❌ 불가 (단일 Gaussian 목표, 클러스터 구분 없음)
+SANFlow                 ✅ 가능      ✅ 가능 (클러스터별 Gaussian → nearest 역추적)
+```
+
+---
+
+## 10. 버그 수정 히스토리 (2026-06-05)
+
+### 10-1. 발견 경위
+
+클립 `ef742bb7-c767-4848-a15b-7d39c565b45e`의 캡션:
+
+> *"Early in the morning, the road is bustling with activity … a vehicle stalls on the left side … two pedestrians are crossing."*
+
+하지만 초기 `sanflow_gaps.json`에 기록된 `scenario_name`:
+
+> `"Rural night driving with limited visibility conditions."` ❌
+
+**캡션(아침 도심 정체, 정차 차량, 보행자)과 라벨(야간 농촌 시야 제한)이 완전히 다름.**
+
+### 10-2. 버그 원인
+
+**초기 구현**: SANFlow latent 공간에서 `base.nearest(z)`로 nearest cluster 계산
+
+```python
+# 초기 구현 (버그 있음)
+z, ld = _eval_direction(flow_list, X_sc)
+nearest_k = base.nearest(z)  # latent 공간에서 계산 ← 문제
+```
+
+**문제점**:
+- 162개 noise 갭 중 **158개가 cluster 2로 편향** (97.5%)
+- UMAP 공간에서는 cluster 63 근방(거리 0.1)이지만, latent에서는 cluster 2로 밀려남(거리 ~11)
+- **영향 범위**: 200개 갭 중 200개 전수 (100%) 불일치
+
+### 10-3. 수정 방법 (후보 C 채택)
+
+**`detect_gaps()` 함수 수정** (src/avdata/phase6/fit_sanflow.py, line 258):
+
+```python
+# 역추적 전략 (후보 C — HDBSCAN 우선 + UMAP nearest 보완):
+#   - original_cluster != -1 → HDBSCAN 레이블 직접 사용 (재학습 불필요)
+#   - original_cluster == -1 → UMAP(X_sc) 공간 nearest cluster 탐색
+# log_density 계산은 latent z 공간 (SANFlow 본래 목적) 그대로 유지.
+
+# UMAP 공간 클러스터 중심 계산
+cluster_means_umap = np.stack([
+    X_sc[labels_mapped == k].mean(axis=0)
+    for k in range(K_clusters)
+])
+
+# noise 갭 포인트에 대해 UMAP-space nearest cluster 계산
+noise_positions = X_sc[gap_idx[noise_mask]]
+dists = np.linalg.norm(
+    noise_positions[:, None, :] - cluster_means_umap[None, :, :],
+    axis=-1,
+)
+umap_nearest = dists.argmin(axis=1)
+```
+
+**핵심:**
+- **밀도 계산**: SANFlow latent 공간 (정확한 log-likelihood) ✅
+- **시나리오 역추적**: UMAP 원본 공간 (의미론적 유사도) ✅
+
+---
+
+## 11. 최종 결과 및 통계
+
+### 11-1. sanflow_gaps.json 필드 의미
+
+```json
+[
+  {
+    "rank": 1,                          // 희귀도 순위 (1=가장 희귀)
+    "clip_id": "e73225e5-9341-...",     // 클립 고유 ID
+    "log_density": -100551.1484,        // 로그 밀도 (낮을수록 희귀)
+    "nearest_cluster": 16,              // 할당된 클러스터 번호
+    "scenario_name": "Narrow winding road with railway crossing warning",
+    "original_cluster": -1,             // HDBSCAN 원본 레이블 (-1=noise)
+    "is_noise": true                    // noise 포인트 여부
+  }
+]
+```
+
+| 필드 | 의미 | 해석 |
+|------|------|------|
+| `rank` | 희귀도 순위 | 1~200, 낮을수록 더 희귀한 시나리오 |
+| `log_density` | 로그 확률 밀도 | -100551 = 극도로 희귀 vs -40000 = 상대적으로 덜 희귀 |
+| `is_noise` | noise 포인트 여부 | `true`: 완전히 새로운 시나리오 유형<br>`false`: 기존 클러스터의 극단적 케이스 |
+| `nearest_cluster` | 가장 유사한 클러스터 | 시나리오 이름 결정에 사용 (UMAP 공간 기준) |
+| `original_cluster` | HDBSCAN 원본 레이블 | `-1`: 어느 클러스터에도 속하지 않음<br>`0~123`: 해당 클러스터 소속이지만 가장자리 |
+
+### 11-2. 갭 분포 통계 (200개)
+
+| 항목 | 수량 | 비율 | 의미 |
+|------|-----:|-----:|------|
+| **noise 갭** (`is_noise=true`) | 162 | 81% | 완전히 새로운 시나리오 유형 |
+| **cluster-edge 갭** (`is_noise=false`) | 38 | 19% | 기존 클러스터의 극단적 케이스 |
+| **log_density 범위** | -100551 ~ -40783 | - | 약 2.5배 차이 |
+| **커버 클러스터** | 다양 (16, 70, 110, 119, 120, 121 등) | - | 여러 시나리오 타입에 걸쳐 분산 |
+
+### 11-3. 모델 성능 (test set, 14,959개)
+
+| 지표 | 값 | 의미 |
+|------|-----|------|
+| SANFlow log-likelihood | **-3.5848** | 정확한 변수 변환 기반 |
+| KDE baseline log-likelihood | -5.0082 | 10D Gaussian 커널 근사 |
+| **개선 폭** | **+1.42 nats** | 확률 스케일로 **4.2배** 더 정확 |
+| 학습 데이터 | 284,221개 (95%) | 전체 데이터의 95% |
+| 테스트 데이터 | 14,959개 (5%) | 과적합 감지용 |
+
+---
+
+## 12. 파일 활용처
+
+### 12-1. 시각화
+
+**파일**: `scripts/visualize_phase_a.py` (line 483)
+
+```python
+SANFLOW_GAPS_PATH = RESULTS_DIR / "sanflow_gaps.json"
+gaps = json.loads(SANFLOW_GAPS_PATH.read_text())
+
+# viz_sanflow_gaps.html 생성
+# - 갭 분포 차트
+# - 클러스터별 갭 통계
+# - log_density 히스토그램
+```
+
+### 12-2. 캡션 정제
+
+**파일**: `src/caption_refine/batch_runner.py` (line 64)
+
+```python
+from caption_refine.config import SANFLOW_GAP_PATH
+
+gaps = json.loads(SANFLOW_GAP_PATH.read_text())
+
+# 200개 갭 클립에 대해 LLM으로 상세 캡션 재생성
+# - 희귀 시나리오의 디테일 보강
+# - 평가셋 구성 시 검색 쿼리 생성에 활용
+```
+
+### 12-3. 평가셋 구성
+
+- 희귀 시나리오 위주 테스트 케이스 선정
+- Embedding vs BM25 검색 성능 비교
+- 특히 L2 인과 체인 쿼리에서 격차 측정
+
+### 12-4. 데이터 수집 우선순위
+
+```
+sanflow_gaps.json (rank 1~50)
+  → 가장 희귀한 50개 시나리오
+  → 추가 데이터 수집 시 우선 대상
+  → "이런 상황의 클립을 더 수집해야 함"
+```
+
+---
+
+## 13. 정리: SANFlow가 해결한 문제들
+
+| 문제 | 기존 방법의 한계 | SANFlow 해결 |
+|------|------------------|--------------|
+| **갭 탐지 정확도** | KDE는 근사치, bandwidth 민감 | 정확한 log-likelihood (4.2배 개선) |
+| **클러스터 불균형** | 전역 밀도는 크기 편향 | 클러스터별 Gaussian으로 공정 평가 |
+| **시나리오 역추적** | 표준 NF는 역추적 불가 | UMAP 공간 nearest로 정확한 레이블 |
+| **비선형 분포** | 구형 커널로 과소/과대 추정 | Flow가 복잡한 형태를 Gaussian으로 펼침 |
+| **자동화** | 수동 분석 필요 | 200개 갭 + 시나리오 이름 자동 생성 |
+
+**핵심 인사이트**: 
+- SANFlow latent 공간 = **밀도 계산**의 정확성
+- UMAP 원본 공간 = **시나리오 역추적**의 정확성
+- 두 공간을 적절히 분담하여 사용하는 것이 최적 설계

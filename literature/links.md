@@ -56,6 +56,24 @@
 
 ---
 
+### Eyuboglu et al. (2022) — Domino: 체계적 오류 슬라이스 자동 발견
+- **출처**: S. Eyuboglu, M. Varma, K. Saab, J.-B. Delbrouck, J. Dunnmon, J. Zou, C. Ré — Stanford — ICLR 2022
+- **파일**: `literature/papers/eyuboglu-2022-domino-systematic-errors.pdf`
+- **관련 갭**: Gap-4, Gap-1
+- **핵심 아이디어**: Cross-modal embedding + LM으로 모델이 체계적으로 실패하는 슬라이스 자동 발견 — 전체 error rate 8%인 모델이 특정 슬라이스 43% error
+- **위키 파일**: `docs/wiki/data_distribution/domino-systematic-error-discovery.md`
+
+---
+
+### Gadre et al. (2024) — DataComp: 차세대 멀티모달 데이터셋 탐색
+- **출처**: S. Y. Gadre, G. Ilharco, A. Fang, J. Hayase et al. — UW / 다수 기관 — NeurIPS 2024
+- **파일**: `literature/papers/gadre-2024-datacomp-multimodal-datasets.pdf`
+- **관련 갭**: Gap-4
+- **핵심 아이디어**: 38개 태스크에서 데이터 큐레이션 전략 비교 — 품질 필터링 먼저, 그 다음 다양성 샘플링이 평균+롱테일 성능 모두 최선
+- **위키 파일**: `docs/wiki/data_distribution/datacomp-dataset-curation-benchmark.md`
+
+---
+
 ### Herd & Burton (2024) — ML 메트릭 불확실성 (Subjective Logic)
 - **출처**: Herd, Burton — Fraunhofer IKS — ACM SAC '24
 - **파일**: `literature/papers/herd-2024-can-you-trust-your.pdf`
@@ -110,6 +128,15 @@
 
 ---
 
+### Sorscher et al. (2022) — Beyond Neural Scaling Laws: 데이터 프루닝으로 멱법칙 극복
+- **출처**: B. Sorscher, R. Geirhos, S. Shekhar, S. Ganguli, A. Morcos — Google Brain / Stanford / Meta — NeurIPS 2022
+- **파일**: `literature/papers/sorscher-2022-beyond-neural-scaling-laws.pdf`
+- **관련 갭**: Gap-4
+- **핵심 아이디어**: prototype에 가까운 "easy" 샘플 제거 시 스케일링 법칙 α 지수가 급격히 향상 — 50% 데이터로 동일 성능, "더 많은 데이터"보다 "더 좋은 구성"이 답
+- **위키 파일**: `docs/wiki/data_distribution/beyond-neural-scaling-laws.md`
+
+---
+
 ### (2024) — TrimFlow: NF 기반 AV 희귀 사건 중요도 샘플링
 - **출처**: arXiv 2024
 - **파일**: `literature/papers/trimflow-2024-normalizing-flow-rare-event-av.pdf`
@@ -125,6 +152,15 @@
 - **관련 갭**: Gap-4, Gap-6
 - **핵심 아이디어**: Poisson 분포로 차량-보행자 TTC 분포 예측; worst-case 모델로 critical 시나리오 테스트 할당 최적화
 - **위키 파일**: `docs/wiki/data_distribution/ttc-scenario-distribution.md`
+
+---
+
+### Xia et al. (2024) — LESS: 영향력 기반 타겟 데이터 선택
+- **출처**: M. Xia, S. Malladi, S. Gururangan, S. Arora, D. Chen — Princeton / AI2 — ICML 2024
+- **파일**: `literature/papers/xia-2024-less-influential-data-selection.pdf`
+- **관련 갭**: Gap-4
+- **핵심 아이디어**: LoRA gradient similarity로 influence function 근사 — 전체 데이터 5%만으로 동일 성능, 타겟 eval set 달라지면 최적 선택 데이터도 달라짐
+- **위키 파일**: `docs/wiki/data_distribution/less-influential-data-selection.md`
 
 ---
 

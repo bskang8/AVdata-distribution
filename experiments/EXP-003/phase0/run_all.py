@@ -69,6 +69,13 @@ if __name__ == '__main__':
     print(f"  Vendi topk:     {dp['vendi_topk']['mean']:.3f} ± {dp['vendi_topk']['std']:.3f} "
           f"(pool={dp['vendi_topk']['pool_size']}, {dp['vendi_topk']['mode']})")
     print(f"  억압 계수:      {dp['vendi_suppression_ratio']:.3f}")
+    odd = dp.get('odd_diversity', {})
+    align = odd.get('embedding_odd_alignment', {})
+    print(f"  ODD 고유 조합:  {odd.get('n_unique_combos', 'N/A')}  "
+          f"mean_norm_entropy={odd.get('mean_norm_entropy', 'N/A')}")
+    print(f"  ODD 커버리지:   {odd.get('found_ratio', 'N/A'):.1%}  "
+          f"임베딩 정렬={align.get('interpretation', 'N/A')} "
+          f"(ρ={align.get('spearman_rho', 'N/A')})")
     print(f"  LID 신뢰 비율:  {ls['lid_reliable_ratio']:.1%}")
     print(f"  6-분류:")
     for q, lbl in [(0,'KEEP'),(1,'PRUNE'),(2,'COLLECT'),

@@ -29,7 +29,7 @@
 | 기술 | 파일 | 관련 갭 | 적용 실험 |
 |------|------|--------|---------|
 | Regex 패턴 (현재 사용) | — | Gap-3 | EXP-001 |
-| LLM fallback (GPT-4o-mini) | — | Gap-3 | EXP-003 |
+| LLM fallback (GPT-4o-mini) | — | Gap-3 | EXP-002 |
 | **LVLM 씬 자동 태깅 (CatPipe)** | [tagging/lvlm-scene-tagging-catpipe.md](tagging/lvlm-scene-tagging-catpipe.md) | Gap-3, Gap-6 | EXP-005 |
 
 ### Evaluation (`evaluation/`)
@@ -61,6 +61,10 @@
 | **SANFlow 의미론적 Normalizing Flow** | [data_distribution/sanflow-semantic-normalizing-flow.md](data_distribution/sanflow-semantic-normalizing-flow.md) | Gap-3, Gap-4 | EXP-002 Phase B |
 | **Coverage-centric Coreset Selection** | [data_distribution/coverage-centric-coreset-selection.md](data_distribution/coverage-centric-coreset-selection.md) | Gap-3, Gap-4 | EXP-002 Phase A |
 | **FEND 롱테일 궤적 대조 학습** | [data_distribution/fend-longtail-trajectory.md](data_distribution/fend-longtail-trajectory.md) | Gap-4 | EXP-002 Phase C |
+| **Beyond Neural Scaling Laws (데이터 프루닝)** | [data_distribution/beyond-neural-scaling-laws.md](data_distribution/beyond-neural-scaling-laws.md) | Gap-4 | EXP-003 Phase 0, EXP-004 |
+| **Domino: 체계적 오류 슬라이스 발견** | [data_distribution/domino-systematic-error-discovery.md](data_distribution/domino-systematic-error-discovery.md) | Gap-4, Gap-1 | EXP-003 Phase 0, EXP-004 |
+| **LESS: 영향력 기반 데이터 선택** | [data_distribution/less-influential-data-selection.md](data_distribution/less-influential-data-selection.md) | Gap-4 | EXP-003 Phase B (대안), EXP-004 |
+| **DataComp: 데이터 큐레이션 벤치마크** | [data_distribution/datacomp-dataset-curation-benchmark.md](data_distribution/datacomp-dataset-curation-benchmark.md) | Gap-4 | EXP-003 Phase 0, EXP-004 |
 
 ### Scenario Generation (`scenario_generation/`)
 
@@ -108,6 +112,10 @@
 | Wang et al. (2023) — FEND | 분포 인식 대조 학습으로 롱테일 궤적 표현 강화 | [data_distribution/fend-longtail-trajectory.md](data_distribution/fend-longtail-trajectory.md) |
 | Li et al. (2023) — ScenarioNet | Waymo/nuScenes 통합 + 26-카테고리 시나리오 분류 체계 | [data_distribution/scenarionet-platform.md](data_distribution/scenarionet-platform.md) |
 | Shirahmad Gale Bagi et al. (2023) | 생성적 인과 표현 학습으로 OOD 모션 예측 27% 향상 | [embedding/generative-causal-ood-forecasting.md](embedding/generative-causal-ood-forecasting.md) |
+| Sorscher et al. (2022) — Beyond Scaling | "Easy" 샘플 기하 프루닝으로 스케일링 법칙 α 급격히 개선, 50% 데이터로 동일 성능 | [data_distribution/beyond-neural-scaling-laws.md](data_distribution/beyond-neural-scaling-laws.md) |
+| Eyuboglu et al. (2022) — Domino | Cross-modal embedding으로 모델 실패 슬라이스 자동 발견 (일부 슬라이스 error 5× 높음) | [data_distribution/domino-systematic-error-discovery.md](data_distribution/domino-systematic-error-discovery.md) |
+| Xia et al. (2024) — LESS | LoRA gradient similarity로 5% 데이터 선택 → 동일 성능, target-specific 선택 | [data_distribution/less-influential-data-selection.md](data_distribution/less-influential-data-selection.md) |
+| Gadre et al. (2024) — DataComp | 38개 태스크 큐레이션 벤치마크: 품질 필터 우선 → 다양성 샘플링 순서가 최선 | [data_distribution/datacomp-dataset-curation-benchmark.md](data_distribution/datacomp-dataset-curation-benchmark.md) |
 
 ---
 
@@ -118,7 +126,7 @@
 | Gap-1 | 평가셋 편향 (키워드 기반 레이블) | LLM relevance labeling, Subjective Logic CI, μODD 평가셋, 인과 관련성 스코어 | Herd, Schleiss, Chodowiec, Li, Lu |
 | Gap-2 | Hybrid = Embedding (ODD 필터 무효) | 소프트 ODD 필터, 확률 가중, state→cost 인과 필터 | Lu |
 | Gap-3 | ODD 커버리지 저조 (36~62%) | CatPipe LVLM 태깅, 4-Type 커버리지, LLM 시나리오 생성, NF 커버리지 갭 탐지 | Rivera, Chodowiec, Aasi, Li |
-| Gap-4 | 분포 편향 (정상 과다, 희귀 과소) | MOSAIC 데이터 선택, 스케일링 법칙, WOD-E2E 클러스터, TTC 분포, MAF 밀도 추정, TrimFlow IS | Dimlioglu, Naumann, Zheng, Xu, Song, Aasi, NF-KDE, TrimFlow |
+| Gap-4 | 분포 편향 (정상 과다, 희귀 과소) | MOSAIC 데이터 선택, 스케일링 법칙, WOD-E2E 클러스터, TTC 분포, MAF 밀도 추정, TrimFlow IS, **데이터 프루닝(Sorscher)**, **슬라이스 오류 발견(Domino)**, **영향력 기반 선택(LESS)**, **큐레이션 벤치마크(DataComp)** | Dimlioglu, Naumann, Zheng, Xu, Song, Aasi, NF-KDE, TrimFlow, Sorscher, Eyuboglu, Xia, Gadre |
 | Gap-5 | 워밍업 미처리 (지연 왜곡) | evaluate.py 워밍업 패치 | — |
 | Gap-6 | 쿼리 다양성 부족 | 쿼리 증강, 동의어 확장, WOD-E2E 11개 카테고리, Zheng 23개 유형 | Zheng, Xu, Song |
 
@@ -130,7 +138,8 @@
 |----|---------|---------|---------|-------|
 | EXP-005 | CatPipe로 83k 클립 재태깅 + ODD 커버리지 재측정 | Rivera 2025 | Gap-3 | 중 |
 | EXP-006 | LLM Diverse Tree로 검색 쿼리 자동 생성 | Aasi 2024 | Gap-6 | 중 |
-| EXP-007 | MOSAIC 방식 클러스터별 검색 성능 스케일링 분석 | Dimlioglu 2026 | Gap-4 | 고 |
+| EXP-003 | MOSAIC + DISC 방식: D_train 분포 프로파일링 → 4차원 갭 체계화 → 타겟 탐색 → 구성 최적화 | Dimlioglu 2026, Sorscher 2022, Eyuboglu 2022, Xia 2024, Gadre 2024 | Gap-4 | 고 |
+| EXP-004 | D_train 구성 최적화: 중복/저가치 클립 프루닝 + 갭 오버샘플링 → 도메인별 Recall@5 균등화 | Sorscher 2022, Xia 2024 | Gap-4 | 중 |
 | EXP-008 | Subjective Logic으로 Recall@5 95% CI 계산 | Herd 2024 | Gap-1 | 하 |
 | EXP-009 | WOD-E2E 11개 카테고리로 현재 데이터 커버리지 측정 | Xu 2025 | Gap-4 | 중 |
 | EXP-010 | MAF로 5D ODD 공간 갭 탐지 + KDE 대비 log-likelihood 비교 | NF-KDE 2025, TrimFlow 2024 | Gap-3, Gap-4 | 중 |

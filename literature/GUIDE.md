@@ -256,26 +256,47 @@ subjective-logic-ml-metrics.md
 
 ---
 
-## 6. 현재 등록 현황 (2026-06-02 기준)
+## 6. 현재 등록 현황 (2026-06-30 기준)
 
 | 논문 수 | 위키 파일 수 | 갭 커버리지 |
 |--------|-----------|-----------|
-| 14편 | 14개 | Gap-1~4, 6 (Gap-5 제외) |
+| 29편 | 29개 | Gap-1~4, 6 (Gap-5 제외) |
+
+> 전체 논문 목록 및 상세 정보는 `literature/links.md` 참조.
 
 ### 등록된 논문 목록
 
 | 저자 | 연도 | 핵심 주제 | 관련 갭 |
 |------|------|---------|---------|
+| (SYNERGIES) | 2025 | NF vs KDE ADS 리스크 밀도 추정 | Gap-3, Gap-4 |
 | Aasi et al. | 2024 | LLM 기반 OOD 시나리오 생성 | Gap-3, Gap-4 |
 | Chodowiec et al. | 2026 | 4-Type ODD 커버리지 프레임워크 | Gap-1, Gap-3 |
 | Dimlioglu et al. | 2026 | MOSAIC 스케일링 인식 데이터 선택 | Gap-4 |
 | Herd & Burton | 2024 | Subjective Logic ML 메트릭 | Gap-1 |
+| Huang et al. | 2022 | Density-driven OOD 탐지 정규화 | Gap-3 |
+| Kim et al. (SANFlow) | 2023 | 의미론적 Normalizing Flow 갭 탐지 | Gap-3, Gap-4 |
+| Kim et al. (TopP&R) | 2023 | Fidelity & Diversity 분리 측정 | Gap-3, Gap-4 |
+| Li et al. (PCM) | 2026 | Physics-guided 인과 장면 인코더 | Gap-1, Gap-3 |
+| Li et al. (ScenarioNet) | 2023 | 26-카테고리 시나리오 플랫폼 | Gap-3, Gap-4 |
+| Liang et al. (AIDE) | 2024 | VLM+LLM 자동 데이터 엔진 | Gap-3, Gap-4, Gap-6 |
+| Limbeck et al. | 2024 | Metric Space Magnitude 다양성 | Gap-3, Gap-4 |
+| Lu et al. (CEWM) | 2024 | Safety-aware Causal Transformer | Gap-1, Gap-2 |
+| Lv et al. (T2SG) | 2025 | 교통 위상 씬 그래프 | Gap-3 |
 | Naumann et al. | 2025 | E2E AV 스케일링 법칙 (NVIDIA) | Gap-4 |
 | Rivera et al. | 2025 | CatPipe LVLM 씬 태깅 | Gap-3, Gap-6 |
+| Rowe et al. (Scenario Dreamer) | 2025 | 벡터 잠재 확산 씬 생성 | Gap-4, Gap-6 |
 | Schleiss et al. | 2022 | μODD 정량적 안전 검증 | Gap-1, Gap-3 |
+| Shirahmad Gale Bagi et al. | 2023 | 생성적 인과 표현 OOD 예측 | Gap-1, Gap-3 |
 | Song et al. | 2022 | TTC 시나리오 분포 모델 | Gap-4, Gap-6 |
+| (TrimFlow) | 2024 | NF 기반 희귀 사건 중요도 샘플링 | Gap-4, Gap-6 |
+| Wang et al. (AdvSim) | 2021 | 안전 위험 시나리오 생성 | Gap-4, Gap-6 |
+| Wang et al. (FEND) | 2023 | 롱테일 궤적 대조 학습 | Gap-4 |
 | Xu et al. | 2025 | WOD-E2E 롱테일 데이터셋 | Gap-4, Gap-1 |
-| Zheng et al. | 2025 | ONE-Drive 스케일링 법칙 | Gap-4, Gap-6 |
+| Yang et al. (UniSim) | 2023 | NeRF 기반 폐루프 센서 시뮬레이터 | Gap-4, Gap-6 |
+| Zhang et al. (ChatScene) | 2024 | LLM → CARLA 자동 시나리오 생성 | Gap-4, Gap-6 |
+| Zhao et al. | 2024 | 데이터셋 다양성 측정 원칙 (ICML Best) | Gap-3, Gap-4 |
+| Zheng et al. (Coverage Coreset) | 2023 | 기하학적 set cover 커버리지 선택 | Gap-3, Gap-4 |
+| Zheng et al. (ONE-Drive) | 2025 | 모방학습 스케일링 법칙 | Gap-4, Gap-6 |
 
 ---
 

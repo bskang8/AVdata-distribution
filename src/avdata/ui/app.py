@@ -124,30 +124,52 @@ def load_gaps() -> list[dict]:
 
 
 @st.cache_data(show_spinner=False)
-def transcode_to_h264(video_path: str) -> bytes | None:
-    """HEVC(H.265) → H.264 변환 후 bytes 반환. clip_id 단위로 캐시됨."""
+def transcode_to_h264(video_path: str) -> tuple[bytes | None, str | None]:
+    """HEVC(H.265) → H.264 변환 후 (bytes, error_msg) 반환. clip_id 단위로 캐시됨."""
     if not Path(video_path).exists():
-        return None
+        return None, f"영상 파일을 찾을 수 없습니다: {video_path}"
     with tempfile.NamedTemporaryFile(suffix=".mp4", delete=False) as tmp:
         tmp_path = tmp.name
+    
+    # 사용 가능한 H.264 인코더 목록 (우선순위 순서)
+    # 1. h264_nvenc: NVIDIA GPU (가장 빠름)
+    # 2. libopenh264: CPU 기반
+    # 3. h264_vaapi: Intel/AMD GPU
+    encoders = [
+        ("h264_nvenc", ["-preset", "fast", "-b:v", "2M"]),
+        ("libopenh264", ["-b:v", "2M"]),
+        ("h264_vaapi", ["-b:v", "2M"]),
+    ]
+    
+    for encoder, extra_opts in encoders:
+        try:
+            result = subprocess.run(
+                [
+                    "ffmpeg", "-y", "-i", video_path,
+                    "-c:v", encoder, *extra_opts,
+                    "-c:a", "aac", "-movflags", "faststart",
+                    tmp_path,
+                ],
+                capture_output=True,
+                timeout=60,
+            )
+            if result.returncode == 0:
+                video_bytes = Path(tmp_path).read_bytes()
+                return video_bytes, None
+        except subprocess.TimeoutExpired:
+            continue
+        except Exception:
+            continue
+    
+    # 모든 인코더 실패 시 마지막 시도 결과 반환
     try:
-        result = subprocess.run(
-            [
-                "ffmpeg", "-y", "-i", video_path,
-                "-c:v", "libx264", "-preset", "fast", "-crf", "23",
-                "-c:a", "aac", "-movflags", "faststart",
-                tmp_path,
-            ],
-            capture_output=True,
-            timeout=60,
-        )
-        if result.returncode != 0:
-            return None
-        return Path(tmp_path).read_bytes()
-    except Exception:
-        return None
-    finally:
-        Path(tmp_path).unlink(missing_ok=True)
+        stderr = result.stderr.decode('utf-8', errors='replace')
+        error_msg = f"모든 H.264 인코더 실패. 마지막 시도 오류:\n{stderr[-500:]}"
+    except:
+        error_msg = "모든 H.264 인코더 실패"
+    
+    Path(tmp_path).unlink(missing_ok=True)
+    return None, error_msg
 
 
 # ── Video popup dialog ────────────────────────────────────────────────────────
@@ -166,11 +188,11 @@ def _video_popup(clip_id: str) -> None:
             st.error("영상 파일을 찾을 수 없습니다.")
         else:
             with st.spinner("HEVC → H.264 변환 중… (최초 재생 시 약 3초)"):
-                video_bytes = transcode_to_h264(str(vid_file))
+                video_bytes, error_msg = transcode_to_h264(str(vid_file))
             if video_bytes:
                 st.video(video_bytes, format="video/mp4")
             else:
-                st.error("영상 변환에 실패했습니다.")
+                st.error(f"영상 변환에 실패했습니다.\n\n{error_msg}")
 
     with col_cap:
         st.markdown("**캡션**")
@@ -324,11 +346,11 @@ def tab_search(cfg: dict):
                 with exp_cols[0]:
                     with st.expander("▶ 영상 재생", expanded=False):
                         with st.spinner("HEVC → H.264 변환 중… (첫 재생 시 약 3초)"):
-                            video_bytes = transcode_to_h264(str(vid_file))
+                            video_bytes, error_msg = transcode_to_h264(str(vid_file))
                         if video_bytes:
                             st.video(video_bytes, format="video/mp4")
                         else:
-                            st.error("영상 변환 실패")
+                            st.error(f"영상 변환 실패\n\n{error_msg}")
 
             cap_col = exp_cols[1] if has_video else exp_cols[0]
             with cap_col:
