@@ -1,6 +1,9 @@
 """Phase 0 공용 유틸리티 — 순수 함수만 포함, 부작용 없음"""
 
+import json
+import math
 import os
+from collections import Counter
 import numpy as np
 from config import OUTPUT_DIR, CAPTIONS_DIR
 
@@ -53,6 +56,57 @@ def compute_lid_mle(knn_sim_arr, k_lid=20):
     log_ratios = np.log(knn_dist / r_max + 1e-10)
     lid        = -1.0 / (log_ratios.mean(axis=1) + 1e-10)
     return np.clip(lid, 1.0, 200.0)
+
+
+def load_odd_compat(clip_ids, odd_dir):
+    """clip_ids 각각에 대해 odd_compat dict 로드 — 없으면 None"""
+    records = []
+    for cid in clip_ids:
+        try:
+            with open(os.path.join(odd_dir, f"{cid}.json")) as f:
+                records.append(json.load(f).get('odd_compat') or None)
+        except (FileNotFoundError, json.JSONDecodeError):
+            records.append(None)
+    return records
+
+
+def odd_diversity_stats(odd_records, dims):
+    """odd_compat 리스트 → 다양성 통계 dict (per-dim 엔트로피 + 고유 조합 수)"""
+    valid = [r for r in odd_records if r is not None]
+    found_ratio = round(len(valid) / max(len(odd_records), 1), 4)
+    if not valid:
+        return {'found_ratio': found_ratio, 'n_clips': 0}
+    per_dim = {}
+    for dim in dims:
+        vals = [r.get(dim, 'unknown') for r in valid]
+        n = len(vals)
+        counts = Counter(vals)
+        entropy = -sum((c / n) * math.log2(c / n + 1e-12) for c in counts.values())
+        max_h = math.log2(len(counts)) if len(counts) > 1 else 1.0
+        per_dim[dim] = {
+            'entropy':      round(entropy, 3),
+            'norm_entropy': round(entropy / (max_h + 1e-12), 3),
+            'n_unique':     len(counts),
+        }
+    combos = [tuple(r.get(d, 'unknown') for d in dims) for r in valid]
+    combo_counts = Counter(combos)
+    n = len(combos)
+    combo_entropy = -sum((cnt / n) * math.log2(cnt / n + 1e-12)
+                         for cnt in combo_counts.values())
+    odd_effective_n = round(float(2 ** combo_entropy), 3)
+
+    for dim, v in per_dim.items():
+        v['effective_n'] = round(float(2 ** v['entropy']), 3)
+
+    return {
+        'found_ratio':       found_ratio,
+        'n_clips':           len(valid),
+        'n_unique_combos':   len(combo_counts),
+        'odd_effective_n':   odd_effective_n,   # exp2(H) — 실질 ODD 조합 다양성
+        'mean_norm_entropy': round(
+            sum(v['norm_entropy'] for v in per_dim.values()) / max(len(dims), 1), 3),
+        'per_dim':           per_dim,
+    }
 
 
 def gmm_threshold(data, max_k=3):
