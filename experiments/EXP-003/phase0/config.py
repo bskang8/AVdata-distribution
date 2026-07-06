@@ -49,7 +49,7 @@ PRUNE_DOMINANT_MULT    = 1.5    # PRUNE 우세 판정 (전역 Q1+Q5 비율 × �
 ODD_DIR            = '/Data1/home/bskang/cds-data/caption_v3/odd'
 ODD_DIMS           = ['road_type', 'weather', 'traffic_density', 'agent_type',
                       'lighting', 'scene_ambiguity', 'road_divider']
-ODD_SPEARMAN_PAIRS = 5000  # 임베딩–ODD 정렬 검증용 샘플 쌍 수
+ODD_SPEARMAN_PAIRS = 10000  # 임베딩–ODD 정렬 검증용 샘플 쌍 수
 
 # 0-E-2: 갭 슬라이스
 GAP_RATIO_HIGH_PRIORITY   = 0.4   # 시나리오 내 갭 비율 초과 → COLLECT_HIGH_PRIORITY
