@@ -40,8 +40,8 @@ experiments/EXP-003/phase0/output/
 # Runtime logs
 logs/
 
-# Literature PDFs (potentially large)
-literature/papers/*.pdf
+# Literature — PDFs and all content not tracked in git
+literature/
 
 # IDE / OS
 .vscode/

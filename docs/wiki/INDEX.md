@@ -45,6 +45,9 @@
 | **Metric Space Magnitude 다양성** | [evaluation/metric-space-magnitude-diversity.md](evaluation/metric-space-magnitude-diversity.md) | Gap-3, Gap-4 | EXP-002 Phase A |
 | **Measure Dataset Diversity (ICML Best Paper)** | [evaluation/measure-dataset-diversity.md](evaluation/measure-dataset-diversity.md) | Gap-3, Gap-4 | EXP-002 방법론 근거 |
 | **Density-driven OOD 탐지** | [evaluation/density-driven-ood-detection.md](evaluation/density-driven-ood-detection.md) | Gap-3 | EXP-002 Phase A |
+| **Coverage Metrics for Scenario DB (Q1/Q2)** | [evaluation/coverage-metrics-scenario-database.md](evaluation/coverage-metrics-scenario-database.md) | Gap-1, Gap-3 | EXP-003, EXP-004 |
+| **SCOUT 경량 커버리지 레이블 예측** | [evaluation/scout-scenario-coverage.md](evaluation/scout-scenario-coverage.md) | Gap-1, Gap-3 | EXP-005 |
+| **Graph-based Coverage Analysis (GINE)** | [evaluation/graph-based-coverage-analysis.md](evaluation/graph-based-coverage-analysis.md) | Gap-1, Gap-3 | EXP-002 Phase B |
 
 ### Data Distribution (`data_distribution/`)
 
@@ -65,6 +68,9 @@
 | **Domino: 체계적 오류 슬라이스 발견** | [data_distribution/domino-systematic-error-discovery.md](data_distribution/domino-systematic-error-discovery.md) | Gap-4, Gap-1 | EXP-003 Phase 0, EXP-004 |
 | **LESS: 영향력 기반 데이터 선택** | [data_distribution/less-influential-data-selection.md](data_distribution/less-influential-data-selection.md) | Gap-4 | EXP-003 Phase B (대안), EXP-004 |
 | **DataComp: 데이터 큐레이션 벤치마크** | [data_distribution/datacomp-dataset-curation-benchmark.md](data_distribution/datacomp-dataset-curation-benchmark.md) | Gap-4 | EXP-003 Phase 0, EXP-004 |
+| **합성 데이터 E2E 효과 분석 (Unraveling)** | [data_distribution/unraveling-synthetic-data-e2e.md](data_distribution/unraveling-synthetic-data-e2e.md) | Gap-4, Gap-6 | EXP-003, EXP-004 |
+| **ADV-0 Min-Max 적대적 학습** | [data_distribution/adv0-adversarial-training.md](data_distribution/adv0-adversarial-training.md) | Gap-4 | EXP-003, EXP-004 |
+| **Counterfactual Safety Learning (Simulating Unseen)** | [data_distribution/simulating-unseen-crash.md](data_distribution/simulating-unseen-crash.md) | Gap-4, Gap-6 | EXP-003, EXP-004 |
 
 ### Scenario Generation (`scenario_generation/`)
 
@@ -76,6 +82,8 @@
 | **UniSim 신경망 센서 시뮬레이터** | [scenario_generation/unisim-neural-sensor-simulator.md](scenario_generation/unisim-neural-sensor-simulator.md) | Gap-4, Gap-6 | EXP-002 Phase D |
 | **ChatScene LLM → CARLA 자동화** | [scenario_generation/chatscene-llm-carla.md](scenario_generation/chatscene-llm-carla.md) | Gap-4, Gap-6 | EXP-002 Phase D |
 | **Scenario Dreamer 벡터 잠재 확산** | [scenario_generation/scenario-dreamer-latent-diffusion.md](scenario_generation/scenario-dreamer-latent-diffusion.md) | Gap-4, Gap-6 | EXP-002 Phase D |
+| **Cosmos-Drive-Dreams 월드 파운데이션 생성** | [scenario_generation/cosmos-drive-dreams.md](scenario_generation/cosmos-drive-dreams.md) | Gap-4, Gap-6 | EXP-003, EXP-004 |
+| **LTDA-Drive LLM 가이드 롱테일 증강** | [scenario_generation/ltda-drive-longtail-augmentation.md](scenario_generation/ltda-drive-longtail-augmentation.md) | Gap-4, Gap-6 | EXP-003, EXP-004 |
 
 ---
 
@@ -116,6 +124,14 @@
 | Eyuboglu et al. (2022) — Domino | Cross-modal embedding으로 모델 실패 슬라이스 자동 발견 (일부 슬라이스 error 5× 높음) | [data_distribution/domino-systematic-error-discovery.md](data_distribution/domino-systematic-error-discovery.md) |
 | Xia et al. (2024) — LESS | LoRA gradient similarity로 5% 데이터 선택 → 동일 성능, target-specific 선택 | [data_distribution/less-influential-data-selection.md](data_distribution/less-influential-data-selection.md) |
 | Gadre et al. (2024) — DataComp | 38개 태스크 큐레이션 벤치마크: 품질 필터 우선 → 다양성 샘플링 순서가 최선 | [data_distribution/datacomp-dataset-curation-benchmark.md](data_distribution/datacomp-dataset-curation-benchmark.md) |
+| de Gelder et al. (2025) — Coverage Metrics | Q1(ODD 커버리지) + Q2(임계 상황 커버리지) 두 가지 정량 메트릭; HighD 200k 검증 | [evaluation/coverage-metrics-scenario-database.md](evaluation/coverage-metrics-scenario-database.md) |
+| Ge et al. (2025) — Unraveling Synthetic Data | 희귀 ODD에서 합성 효과적, 일반 ODD에서 도메인 갭 유발; 최적 혼합 비율 존재 | [data_distribution/unraveling-synthetic-data-e2e.md](data_distribution/unraveling-synthetic-data-e2e.md) |
+| Mühlenstädt & Bause (2026) — Graph Coverage | 계층적 씬 그래프 + 서브그래프 동형성/GINE 임베딩으로 커버리지 분석 | [evaluation/graph-based-coverage-analysis.md](evaluation/graph-based-coverage-analysis.md) |
+| Nie et al. (2026) — ADV-0 | zero-sum Markov game defender-attacker; iterative preference learning으로 Nash Eq. 수렴 | [data_distribution/adv0-adversarial-training.md](data_distribution/adv0-adversarial-training.md) |
+| Ren et al. (2025) — Cosmos-Drive-Dreams | Cosmos-1 world FM 특화; 제어 가능 멀티뷰 주행 영상 생성; 3D 검출·E2E 성능 향상 | [scenario_generation/cosmos-drive-dreams.md](scenario_generation/cosmos-drive-dreams.md) |
+| Yildiz et al. (2025) — SCOUT | LVLM distillation surrogate로 대규모 커버리지 레이블 저비용 예측 | [evaluation/scout-scenario-coverage.md](evaluation/scout-scenario-coverage.md) |
+| Yurt et al. (2025) — LTDA-Drive | LLM 명세 + diffusion으로 롱테일 클래스 다양성 합성; 재샘플링 대비 tail class 다양성 해결 | [scenario_generation/ltda-drive-longtail-augmentation.md](scenario_generation/ltda-drive-longtail-augmentation.md) |
+| Li et al. (2025) — Simulating the Unseen | near-miss 기반 counterfactual safety learning; crash-rate prior + 생성 씬 엔진 + 인과 학습 | [data_distribution/simulating-unseen-crash.md](data_distribution/simulating-unseen-crash.md) |
 
 ---
 
