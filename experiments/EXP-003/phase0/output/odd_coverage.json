@@ -1,0 +1,5989 @@
+{
+  "n_total_files": 100398,
+  "n_loaded": 100398,
+  "odd_final": {
+    "fields": {
+      "road_type": {
+        "counts": {
+          "urban": 44042,
+          "rural": 40039,
+          "highway": 15581,
+          "unknown": 492,
+          "national_road": 242,
+          "tunnel": 2
+        },
+        "n_values_seen": 6,
+        "n_schema_vals": 5,
+        "missing_vals": [],
+        "unknown_count": 492,
+        "unknown_ratio": 0.0049
+      },
+      "lanes_ego_direction": {
+        "counts": {
+          "2": 37864,
+          "3+": 36602,
+          "1": 25351,
+          "2+": 306,
+          "3": 243,
+          "unknown": 24,
+          "4": 5,
+          "5": 3
+        },
+        "n_values_seen": 8,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 24,
+        "unknown_ratio": 0.0002
+      },
+      "lanes_opposite": {
+        "counts": {
+          "1": 58017,
+          "0": 41935,
+          "2+": 237,
+          "3+": 131,
+          "2": 44,
+          "unknown": 34
+        },
+        "n_values_seen": 6,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 34,
+        "unknown_ratio": 0.0003
+      },
+      "road_divider": {
+        "counts": {
+          "none": 62672,
+          "barrier": 20312,
+          "dashed": 17229,
+          "unknown": 116,
+          "solid": 69
+        },
+        "n_values_seen": 5,
+        "n_schema_vals": 5,
+        "missing_vals": [],
+        "unknown_count": 116,
+        "unknown_ratio": 0.0012
+      },
+      "lane_marking_quality": {
+        "counts": {
+          "clear": 95109,
+          "faint": 3965,
+          "unknown": 1072,
+          "absent": 252
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 1072,
+        "unknown_ratio": 0.0107
+      },
+      "junction_proximity": {
+        "counts": {
+          "none": 40066,
+          "post_junction": 38504,
+          "approaching": 11344,
+          "in_junction": 9122,
+          "unknown": 1362
+        },
+        "n_values_seen": 5,
+        "n_schema_vals": 5,
+        "missing_vals": [],
+        "unknown_count": 1362,
+        "unknown_ratio": 0.0136
+      },
+      "lighting_condition": {
+        "counts": {
+          "moderate": 44177,
+          "well_lit": 42404,
+          "poorly_lit": 13817
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      },
+      "precipitation": {
+        "counts": {
+          "none": 93577,
+          "rain": 5215,
+          "snow": 1600,
+          "unknown": 6
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 6,
+        "unknown_ratio": 0.0001
+      },
+      "fog": {
+        "counts": {
+          "none": 98434,
+          "present": 1960,
+          "unknown": 4
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 3,
+        "missing_vals": [],
+        "unknown_count": 4,
+        "unknown_ratio": 0.0
+      },
+      "road_surface": {
+        "counts": {
+          "dry": 79849,
+          "wet": 19051,
+          "snow": 1357,
+          "unknown": 62,
+          "uneven": 61,
+          "dirt": 7,
+          "unpaved": 4,
+          "snow-dusted": 3,
+          "gravel": 2,
+          "dusty": 1,
+          "sandy": 1
+        },
+        "n_values_seen": 11,
+        "n_schema_vals": 3,
+        "missing_vals": [],
+        "unknown_count": 62,
+        "unknown_ratio": 0.0006
+      },
+      "backlight": {
+        "counts": {
+          "none": 95997,
+          "present": 4401
+        },
+        "n_values_seen": 2,
+        "n_schema_vals": 3,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      },
+      "traffic_density": {
+        "counts": {
+          "sparse": 71665,
+          "moderate": 26546,
+          "dense": 2183,
+          "unknown": 4
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 4,
+        "unknown_ratio": 0.0
+      },
+      "road_user_types": {
+        "counts": {
+          "cars_only": 97402,
+          "mixed": 2612,
+          "pedestrians": 268,
+          "cyclists": 97,
+          "unknown": 11,
+          "emergency": 6,
+          "obstacles": 2
+        },
+        "n_values_seen": 7,
+        "n_schema_vals": 6,
+        "missing_vals": [],
+        "unknown_count": 11,
+        "unknown_ratio": 0.0001
+      },
+      "construction_zone": {
+        "counts": {
+          "none": 99073,
+          "present": 1320,
+          "unknown": 5
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 3,
+        "missing_vals": [],
+        "unknown_count": 5,
+        "unknown_ratio": 0.0
+      },
+      "special_event": {
+        "counts": {
+          "none": 100361,
+          "obstacle": 34,
+          "unknown": 3
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 5,
+        "missing_vals": [
+          "accident",
+          "emergency"
+        ],
+        "unknown_count": 3,
+        "unknown_ratio": 0.0
+      },
+      "occlusion_level": {
+        "counts": {
+          "low": 99467,
+          "medium": 807,
+          "high": 123,
+          "unknown": 1
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 1,
+        "unknown_ratio": 0.0
+      },
+      "visibility_range": {
+        "counts": {
+          "good": 86269,
+          "moderate": 9362,
+          "poor": 4767
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      },
+      "scene_ambiguity": {
+        "counts": {
+          "low": 99810,
+          "medium": 468,
+          "high": 120
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      },
+      "unexpected_element": {
+        "counts": {
+          "none": 100395,
+          "present": 3
+        },
+        "n_values_seen": 2,
+        "n_schema_vals": 3,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      }
+    },
+    "combos": {
+      "n_clips": 100398,
+      "n_observed": 7240,
+      "n_theoretical": 238878720000,
+      "coverage_ratio": 0.0,
+      "n_clean_observed": 6460,
+      "n_theoretical_clean": 806215680,
+      "coverage_ratio_clean": 8e-06,
+      "singleton_combos": 3741,
+      "top100_combos": [
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1673
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1446
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1292
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1291
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1270
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1250
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1231
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1229
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1215
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1215
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1191
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1144
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1144
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "in_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 1092
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 968
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 833
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 800
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 740
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 739
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 710
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 710
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 695
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 690
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 681
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 661
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 638
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 622
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 591
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 584
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "in_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 576
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "wet",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 574
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "approaching",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 566
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "approaching",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 528
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 519
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 518
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 488
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 482
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 471
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 467
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "in_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 467
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 458
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 458
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "approaching",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 447
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 412
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 409
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 409
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "approaching",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 402
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "approaching",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 380
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 376
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 374
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "wet",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 367
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 364
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 361
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 360
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "wet",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 359
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "wet",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 356
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "approaching",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 333
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 333
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "wet",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 327
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 308
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 307
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 307
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 302
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 300
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "in_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 298
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "in_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 295
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 292
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 284
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "wet",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 283
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 277
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 277
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 275
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "in_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 269
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 264
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 263
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 260
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 258
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 253
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 252
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "approaching",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 249
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 249
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 247
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 242
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 242
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 241
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 239
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 236
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "present",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 236
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "in_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 234
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "wet",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 234
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 231
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 228
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 226
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "poorly_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 217
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "moderate",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 215
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "in_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 213
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "none",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 210
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "approaching",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 210
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "moderate",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 209
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lane_marking_quality": "clear",
+            "junction_proximity": "post_junction",
+            "lighting_condition": "well_lit",
+            "precipitation": "none",
+            "fog": "none",
+            "road_surface": "dry",
+            "backlight": "none",
+            "traffic_density": "sparse",
+            "road_user_types": "cars_only",
+            "construction_zone": "none",
+            "special_event": "none",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "scene_ambiguity": "low",
+            "unexpected_element": "none"
+          },
+          "count": 209
+        }
+      ]
+    }
+  },
+  "odd_compat": {
+    "fields": {
+      "road_type": {
+        "counts": {
+          "urban": 44042,
+          "rural": 40039,
+          "highway": 15581,
+          "unknown": 492,
+          "national_road": 242,
+          "tunnel": 2
+        },
+        "n_values_seen": 6,
+        "n_schema_vals": 5,
+        "missing_vals": [],
+        "unknown_count": 492,
+        "unknown_ratio": 0.0049
+      },
+      "weather": {
+        "counts": {
+          "clear": 93577,
+          "rain": 5215,
+          "snow": 1600,
+          "unknown": 6
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 6,
+        "unknown_ratio": 0.0001
+      },
+      "traffic_density": {
+        "counts": {
+          "sparse": 71665,
+          "moderate": 26546,
+          "dense": 2183,
+          "unknown": 4
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 4,
+        "unknown_ratio": 0.0
+      },
+      "agent_type": {
+        "counts": {
+          "cars_only": 97402,
+          "mixed": 2612,
+          "pedestrians": 268,
+          "cyclists": 97,
+          "unknown": 11,
+          "emergency": 6,
+          "obstacles": 2
+        },
+        "n_values_seen": 7,
+        "n_schema_vals": 6,
+        "missing_vals": [],
+        "unknown_count": 11,
+        "unknown_ratio": 0.0001
+      },
+      "lanes_ego_direction": {
+        "counts": {
+          "2": 37864,
+          "3+": 36602,
+          "1": 25351,
+          "2+": 306,
+          "3": 243,
+          "unknown": 24,
+          "4": 5,
+          "5": 3
+        },
+        "n_values_seen": 8,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 24,
+        "unknown_ratio": 0.0002
+      },
+      "lanes_opposite": {
+        "counts": {
+          "1": 58017,
+          "0": 41935,
+          "2+": 237,
+          "3+": 131,
+          "2": 44,
+          "unknown": 34
+        },
+        "n_values_seen": 6,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 34,
+        "unknown_ratio": 0.0003
+      },
+      "road_divider": {
+        "counts": {
+          "none": 62672,
+          "barrier": 20312,
+          "dashed": 17229,
+          "unknown": 116,
+          "solid": 69
+        },
+        "n_values_seen": 5,
+        "n_schema_vals": 5,
+        "missing_vals": [],
+        "unknown_count": 116,
+        "unknown_ratio": 0.0012
+      },
+      "lighting": {
+        "counts": {
+          "moderate": 44177,
+          "well_lit": 42404,
+          "poorly_lit": 13817
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      },
+      "scene_ambiguity": {
+        "counts": {
+          "low": 99810,
+          "medium": 468,
+          "high": 120
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      }
+    },
+    "combos": {
+      "n_clips": 100398,
+      "n_observed": 1384,
+      "n_theoretical": 614400,
+      "coverage_ratio": 0.002253,
+      "n_clean_observed": 1317,
+      "n_theoretical_clean": 58320,
+      "coverage_ratio_clean": 0.022582,
+      "singleton_combos": 487,
+      "top100_combos": [
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 4074
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 3403
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 3376
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 3090
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 3027
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 2650
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 2419
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 2340
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 2340
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 2248
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 2241
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 2214
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 1988
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 1900
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1848
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1774
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1768
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 1717
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 1525
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1499
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 1431
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1381
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 1255
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1203
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1195
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1157
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1079
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1070
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 1028
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 978
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 973
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 917
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 909
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 888
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 879
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 739
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 726
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 708
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 698
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 667
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 647
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 625
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 590
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 575
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 567
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 561
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 540
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 521
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 476
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 461
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 449
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 447
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 429
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 426
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 418
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 418
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 415
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 407
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "mixed",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 405
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 390
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 367
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 361
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 338
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "snow",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 324
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "rain",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 315
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 307
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 248
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 244
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "mixed",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 233
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "rain",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 233
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 225
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 218
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 216
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "dashed",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 214
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 213
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "dense",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 212
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "mixed",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 209
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 204
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "dense",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 200
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "mixed",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 198
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 195
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "dense",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 192
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 191
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "dense",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 190
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 186
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 184
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 177
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 177
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 175
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 168
+        },
+        {
+          "combo": {
+            "road_type": "unknown",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 163
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "barrier",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 163
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "1",
+            "road_divider": "barrier",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 161
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "poorly_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 156
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "2",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 155
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "well_lit",
+            "scene_ambiguity": "low"
+          },
+          "count": 154
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 153
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "traffic_density": "dense",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 150
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "traffic_density": "moderate",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "3+",
+            "lanes_opposite": "0",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 150
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "rain",
+            "traffic_density": "sparse",
+            "agent_type": "cars_only",
+            "lanes_ego_direction": "1",
+            "lanes_opposite": "1",
+            "road_divider": "none",
+            "lighting": "moderate",
+            "scene_ambiguity": "low"
+          },
+          "count": 149
+        }
+      ]
+    }
+  },
+  "odd_compat_v2": {
+    "fields": {
+      "road_type": {
+        "counts": {
+          "urban": 44042,
+          "rural": 40039,
+          "highway": 15581,
+          "unknown": 492,
+          "national_road": 242,
+          "tunnel": 2
+        },
+        "n_values_seen": 6,
+        "n_schema_vals": 5,
+        "missing_vals": [],
+        "unknown_count": 492,
+        "unknown_ratio": 0.0049
+      },
+      "weather": {
+        "counts": {
+          "clear": 92314,
+          "rain": 5215,
+          "snow": 1600,
+          "fog": 1263,
+          "unknown": 6
+        },
+        "n_values_seen": 5,
+        "n_schema_vals": 5,
+        "missing_vals": [],
+        "unknown_count": 6,
+        "unknown_ratio": 0.0001
+      },
+      "lighting": {
+        "counts": {
+          "moderate": 44177,
+          "well_lit": 42404,
+          "poorly_lit": 13817
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      },
+      "agent_type": {
+        "counts": {
+          "cars_only": 97402,
+          "mixed": 2612,
+          "pedestrians": 268,
+          "cyclists": 97,
+          "unknown": 11,
+          "emergency": 6,
+          "obstacles": 2
+        },
+        "n_values_seen": 7,
+        "n_schema_vals": 6,
+        "missing_vals": [],
+        "unknown_count": 11,
+        "unknown_ratio": 0.0001
+      },
+      "traffic_density": {
+        "counts": {
+          "sparse": 71665,
+          "moderate": 26546,
+          "dense": 2183,
+          "unknown": 4
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 4,
+        "unknown_ratio": 0.0
+      },
+      "junction_proximity": {
+        "counts": {
+          "none": 40066,
+          "post_junction": 38504,
+          "approaching": 11344,
+          "in_junction": 9122,
+          "unknown": 1362
+        },
+        "n_values_seen": 5,
+        "n_schema_vals": 5,
+        "missing_vals": [],
+        "unknown_count": 1362,
+        "unknown_ratio": 0.0136
+      },
+      "road_surface": {
+        "counts": {
+          "dry": 79849,
+          "wet": 19051,
+          "snow": 1360,
+          "unknown": 138
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 138,
+        "unknown_ratio": 0.0014
+      },
+      "occlusion_level": {
+        "counts": {
+          "low": 99467,
+          "medium": 807,
+          "high": 123,
+          "unknown": 1
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 1,
+        "unknown_ratio": 0.0
+      },
+      "visibility_range": {
+        "counts": {
+          "good": 86269,
+          "moderate": 9362,
+          "poor": 4767
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 0,
+        "unknown_ratio": 0.0
+      },
+      "special_event": {
+        "counts": {
+          "none": 100361,
+          "obstacle": 34,
+          "unknown": 3
+        },
+        "n_values_seen": 3,
+        "n_schema_vals": 5,
+        "missing_vals": [
+          "accident",
+          "emergency"
+        ],
+        "unknown_count": 3,
+        "unknown_ratio": 0.0
+      },
+      "lane_marking_quality": {
+        "counts": {
+          "clear": 95109,
+          "faint": 3965,
+          "unknown": 1072,
+          "absent": 252
+        },
+        "n_values_seen": 4,
+        "n_schema_vals": 4,
+        "missing_vals": [],
+        "unknown_count": 1072,
+        "unknown_ratio": 0.0107
+      }
+    },
+    "combos": {
+      "n_clips": 100398,
+      "n_observed": 2070,
+      "n_theoretical": 15360000,
+      "coverage_ratio": 0.000135,
+      "n_clean_observed": 1562,
+      "n_theoretical_clean": 933120,
+      "coverage_ratio_clean": 0.001674,
+      "singleton_combos": 897,
+      "top100_combos": [
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 6578
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 5935
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 5217
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 4878
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 4185
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 3955
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 3914
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 2489
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "in_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 2436
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 2306
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 2288
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 2245
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 2165
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1970
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1769
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1675
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1551
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "in_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1530
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1503
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1401
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "in_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1389
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1217
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1140
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 1096
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 981
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 975
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 968
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 936
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "in_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 935
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 654
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 649
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 558
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 548
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 516
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 502
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 435
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 417
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 411
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 380
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "approaching",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 377
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "mixed",
+            "traffic_density": "moderate",
+            "junction_proximity": "in_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 374
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "rain",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 374
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 369
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 330
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 308
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 308
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 306
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "mixed",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 293
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 284
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "mixed",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 272
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "dense",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 267
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "approaching",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 264
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 262
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 240
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 231
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "snow",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 226
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "dense",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 222
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 210
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "in_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 198
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "mixed",
+            "traffic_density": "moderate",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 197
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "dense",
+            "junction_proximity": "in_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 196
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 192
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "in_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 191
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "rain",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "approaching",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 187
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 187
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 187
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 184
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "fog",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 183
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "approaching",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 180
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 178
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 174
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 166
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "mixed",
+            "traffic_density": "moderate",
+            "junction_proximity": "in_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 158
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "snow",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "faint"
+          },
+          "count": 156
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "dense",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 156
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 152
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "faint"
+          },
+          "count": 152
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 150
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "dense",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 150
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "unknown",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 142
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "fog",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 138
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 135
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "dense",
+            "junction_proximity": "none",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 133
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 129
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "mixed",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 127
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 125
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "rain",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 124
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 118
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "mixed",
+            "traffic_density": "moderate",
+            "junction_proximity": "approaching",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 117
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "mixed",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 116
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "dense",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 113
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "snow",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "faint"
+          },
+          "count": 113
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "approaching",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 112
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "well_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 110
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "rain",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "post_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "moderate",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 110
+        },
+        {
+          "combo": {
+            "road_type": "highway",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "post_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 109
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "dense",
+            "junction_proximity": "in_junction",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 105
+        },
+        {
+          "combo": {
+            "road_type": "rural",
+            "weather": "clear",
+            "lighting": "poorly_lit",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "none",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "poor",
+            "special_event": "none",
+            "lane_marking_quality": "faint"
+          },
+          "count": 104
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "rain",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "sparse",
+            "junction_proximity": "in_junction",
+            "road_surface": "wet",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 102
+        },
+        {
+          "combo": {
+            "road_type": "urban",
+            "weather": "clear",
+            "lighting": "moderate",
+            "agent_type": "cars_only",
+            "traffic_density": "moderate",
+            "junction_proximity": "unknown",
+            "road_surface": "dry",
+            "occlusion_level": "low",
+            "visibility_range": "good",
+            "special_event": "none",
+            "lane_marking_quality": "clear"
+          },
+          "count": 102
+        }
+      ]
+    }
+  }
+}

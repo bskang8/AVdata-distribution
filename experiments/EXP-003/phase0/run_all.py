@@ -12,6 +12,7 @@ import step_d_quadrant
 import step_d_val_flipd
 import step_e1_scenario
 import step_e2_gap
+import step_f_odd_coverage
 
 import json
 import numpy as np
@@ -25,6 +26,7 @@ STEPS = [
     ('0-D-val', step_d_val_flipd.run),
     ('0-E-1', step_e1_scenario.run),
     ('0-E-2', step_e2_gap.run),
+    ('0-F',   step_f_odd_coverage.run),
 ]
 
 if __name__ == '__main__':
@@ -84,4 +86,13 @@ if __name__ == '__main__':
         print(f"    Q{q} {lbl:<16}: {qp[str(q)]['count']:>6}개 ({pct:.1f}%)")
     print(f"  두 공간 독립성: {sds['two_space_independence_ok']}")
     print(f"  수집 후보:      {len(cc)}개  합성 후보: {len(sc)}개")
+    oc = json.load(open(P('odd_coverage.json')))
+    fc = oc['odd_final']['combos']
+    cc = oc['odd_compat']['combos']
+    print(f"  ODD 커버리지 (final/19필드): {fc['n_observed']:,}조합 / 이론{fc['n_theoretical']:,} "
+          f"({fc['coverage_ratio']:.4%})  클린={fc['n_clean_observed']:,}/{fc['n_theoretical_clean']:,} "
+          f"({fc['coverage_ratio_clean']:.4%})")
+    print(f"  ODD 커버리지 (compat/9필드): {cc['n_observed']:,}조합 / 이론{cc['n_theoretical']:,} "
+          f"({cc['coverage_ratio']:.4%})  클린={cc['n_clean_observed']:,}/{cc['n_theoretical_clean']:,} "
+          f"({cc['coverage_ratio_clean']:.4%})")
     print(f"\n  단계별 소요 시간: {timings}")
