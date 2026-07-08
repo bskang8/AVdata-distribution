@@ -1,0 +1,12 @@
+{
+  "mean": 14.09309196472168,
+  "median": 13.40679931640625,
+  "p10": 8.991129875183105,
+  "p90": 19.982465744018555,
+  "lid_reliable_ratio": 1.0,
+  "k_sensitive_rate": 0.035,
+  "flipd_recommended": false,
+  "k_sensitivity_note": "k_sensitive_rate > 0.05 \u2192 0-D-val FLIPD \uc2e4\ud589 \ud544\uc694",
+  "k_sensitive_rate_approx": 0.0529,
+  "k_sensitive_rate_source": "GMM BIC \uad50\ucc28\uc810 \uae30\ubc18 (0-D \ud655\uc815 \uc784\uacc4\uac12)"
+}

@@ -1,0 +1,1418 @@
+{
+  "0": {
+    "size": 5648,
+    "top_terms": [
+      "vehicle",
+      "lane",
+      "road",
+      "limited",
+      "headlights",
+      "ego",
+      "ego vehicle",
+      "highway",
+      "poorly lit",
+      "poorly",
+      "night",
+      "visibility"
+    ],
+    "quadrant_distribution": {
+      "Q0": 586,
+      "Q1": 4698,
+      "Q2": 237,
+      "Q3": 127,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 10.4,
+      "Q1_pct": 83.2,
+      "Q2_pct": 4.2,
+      "Q3_pct": 2.2,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 272.0,
+    "global_redundancy_in_dtrain": 0.952,
+    "mean_density": 0.9546,
+    "density_quartile_dist": {
+      "0": 0.056,
+      "1": 0.115,
+      "2": 0.227,
+      "3": 0.602
+    },
+    "mean_lid": 12.49,
+    "lid_quartile_dist": {
+      "0": 0.389,
+      "1": 0.263,
+      "2": 0.203,
+      "3": 0.146
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.3,
+    "vendi_random": {
+      "mean": 2.27,
+      "std": 0.021,
+      "cv": 0.0092,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.383,
+      "std": 0.022,
+      "cv": 0.0091,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.05,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 5648,
+      "n_unique_combos": 92,
+      "odd_effective_n": 8.298,
+      "mean_norm_entropy": 0.229,
+      "per_dim": {
+        "road_type": {
+          "entropy": 0.905,
+          "norm_entropy": 0.39,
+          "n_unique": 5,
+          "effective_n": 1.873
+        },
+        "weather": {
+          "entropy": 0.476,
+          "norm_entropy": 0.238,
+          "n_unique": 4,
+          "effective_n": 1.391
+        },
+        "traffic_density": {
+          "entropy": 0.057,
+          "norm_entropy": 0.029,
+          "n_unique": 4,
+          "effective_n": 1.04
+        },
+        "agent_type": {
+          "entropy": 0.02,
+          "norm_entropy": 0.008,
+          "n_unique": 6,
+          "effective_n": 1.014
+        },
+        "lighting": {
+          "entropy": 0.315,
+          "norm_entropy": 0.199,
+          "n_unique": 3,
+          "effective_n": 1.244
+        },
+        "scene_ambiguity": {
+          "entropy": 0.083,
+          "norm_entropy": 0.052,
+          "n_unique": 3,
+          "effective_n": 1.059
+        },
+        "road_divider": {
+          "entropy": 1.59,
+          "norm_entropy": 0.685,
+          "n_unique": 5,
+          "effective_n": 3.01
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "1": {
+    "size": 5307,
+    "top_terms": [
+      "vehicle",
+      "travels",
+      "ego",
+      "ego vehicle",
+      "lane",
+      "intersection",
+      "vehicle travels",
+      "road",
+      "traffic",
+      "maintains",
+      "light",
+      "remains"
+    ],
+    "quadrant_distribution": {
+      "Q0": 316,
+      "Q1": 3337,
+      "Q2": 752,
+      "Q3": 902,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 6.0,
+      "Q1_pct": 62.9,
+      "Q2_pct": 14.2,
+      "Q3_pct": 17.0,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 327.4,
+    "global_redundancy_in_dtrain": 0.938,
+    "mean_density": 0.9418,
+    "density_quartile_dist": {
+      "0": 0.281,
+      "1": 0.263,
+      "2": 0.24,
+      "3": 0.216
+    },
+    "mean_lid": 12.77,
+    "lid_quartile_dist": {
+      "0": 0.356,
+      "1": 0.274,
+      "2": 0.218,
+      "3": 0.152
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.6,
+    "vendi_random": {
+      "mean": 2.594,
+      "std": 0.032,
+      "cv": 0.0123,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.692,
+      "std": 0.04,
+      "cv": 0.0149,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.038,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 5307,
+      "n_unique_combos": 122,
+      "odd_effective_n": 22.898,
+      "mean_norm_entropy": 0.41,
+      "per_dim": {
+        "road_type": {
+          "entropy": 0.806,
+          "norm_entropy": 0.403,
+          "n_unique": 4,
+          "effective_n": 1.748
+        },
+        "weather": {
+          "entropy": 0.179,
+          "norm_entropy": 0.113,
+          "n_unique": 3,
+          "effective_n": 1.132
+        },
+        "traffic_density": {
+          "entropy": 1.195,
+          "norm_entropy": 0.754,
+          "n_unique": 3,
+          "effective_n": 2.289
+        },
+        "agent_type": {
+          "entropy": 0.251,
+          "norm_entropy": 0.108,
+          "n_unique": 5,
+          "effective_n": 1.19
+        },
+        "lighting": {
+          "entropy": 1.157,
+          "norm_entropy": 0.73,
+          "n_unique": 3,
+          "effective_n": 2.23
+        },
+        "scene_ambiguity": {
+          "entropy": 0.019,
+          "norm_entropy": 0.012,
+          "n_unique": 3,
+          "effective_n": 1.013
+        },
+        "road_divider": {
+          "entropy": 1.192,
+          "norm_entropy": 0.752,
+          "n_unique": 3,
+          "effective_n": 2.285
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "2": {
+    "size": 3131,
+    "top_terms": [
+      "parking",
+      "lot",
+      "parking lot",
+      "vehicle",
+      "low speed",
+      "ego",
+      "ego vehicle",
+      "turn",
+      "parked",
+      "low",
+      "left",
+      "navigated parking"
+    ],
+    "quadrant_distribution": {
+      "Q0": 152,
+      "Q1": 1442,
+      "Q2": 818,
+      "Q3": 719,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 4.9,
+      "Q1_pct": 46.1,
+      "Q2_pct": 26.1,
+      "Q3_pct": 23.0,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 213.8,
+    "global_redundancy_in_dtrain": 0.932,
+    "mean_density": 0.9353,
+    "density_quartile_dist": {
+      "0": 0.452,
+      "1": 0.308,
+      "2": 0.182,
+      "3": 0.059
+    },
+    "mean_lid": 13.79,
+    "lid_quartile_dist": {
+      "0": 0.256,
+      "1": 0.274,
+      "2": 0.252,
+      "3": 0.218
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.6,
+    "vendi_random": {
+      "mean": 2.585,
+      "std": 0.039,
+      "cv": 0.0152,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.631,
+      "std": 0.037,
+      "cv": 0.0142,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.018,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 3131,
+      "n_unique_combos": 96,
+      "odd_effective_n": 15.562,
+      "mean_norm_entropy": 0.345,
+      "per_dim": {
+        "road_type": {
+          "entropy": 1.383,
+          "norm_entropy": 0.692,
+          "n_unique": 4,
+          "effective_n": 2.608
+        },
+        "weather": {
+          "entropy": 0.638,
+          "norm_entropy": 0.319,
+          "n_unique": 4,
+          "effective_n": 1.556
+        },
+        "traffic_density": {
+          "entropy": 0.267,
+          "norm_entropy": 0.169,
+          "n_unique": 3,
+          "effective_n": 1.203
+        },
+        "agent_type": {
+          "entropy": 0.105,
+          "norm_entropy": 0.052,
+          "n_unique": 4,
+          "effective_n": 1.075
+        },
+        "lighting": {
+          "entropy": 1.556,
+          "norm_entropy": 0.982,
+          "n_unique": 3,
+          "effective_n": 2.94
+        },
+        "scene_ambiguity": {
+          "entropy": 0.021,
+          "norm_entropy": 0.013,
+          "n_unique": 3,
+          "effective_n": 1.015
+        },
+        "road_divider": {
+          "entropy": 0.376,
+          "norm_entropy": 0.188,
+          "n_unique": 4,
+          "effective_n": 1.298
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "3": {
+    "size": 2220,
+    "top_terms": [
+      "snow",
+      "covered",
+      "snow covered",
+      "vehicle",
+      "road",
+      "traction",
+      "lane",
+      "low traction",
+      "ego",
+      "ego vehicle",
+      "low",
+      "traction conditions"
+    ],
+    "quadrant_distribution": {
+      "Q0": 97,
+      "Q1": 1451,
+      "Q2": 367,
+      "Q3": 305,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 4.4,
+      "Q1_pct": 65.4,
+      "Q2_pct": 16.5,
+      "Q3_pct": 13.7,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 137.1,
+    "global_redundancy_in_dtrain": 0.938,
+    "mean_density": 0.9418,
+    "density_quartile_dist": {
+      "0": 0.267,
+      "1": 0.275,
+      "2": 0.255,
+      "3": 0.204
+    },
+    "mean_lid": 12.55,
+    "lid_quartile_dist": {
+      "0": 0.373,
+      "1": 0.258,
+      "2": 0.217,
+      "3": 0.153
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.5,
+    "vendi_random": {
+      "mean": 2.547,
+      "std": 0.026,
+      "cv": 0.0101,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.632,
+      "std": 0.055,
+      "cv": 0.021,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.033,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 2220,
+      "n_unique_combos": 87,
+      "odd_effective_n": 15.673,
+      "mean_norm_entropy": 0.353,
+      "per_dim": {
+        "road_type": {
+          "entropy": 0.821,
+          "norm_entropy": 0.354,
+          "n_unique": 5,
+          "effective_n": 1.767
+        },
+        "weather": {
+          "entropy": 0.906,
+          "norm_entropy": 0.572,
+          "n_unique": 3,
+          "effective_n": 1.874
+        },
+        "traffic_density": {
+          "entropy": 0.181,
+          "norm_entropy": 0.114,
+          "n_unique": 3,
+          "effective_n": 1.134
+        },
+        "agent_type": {
+          "entropy": 0.13,
+          "norm_entropy": 0.056,
+          "n_unique": 5,
+          "effective_n": 1.094
+        },
+        "lighting": {
+          "entropy": 1.345,
+          "norm_entropy": 0.848,
+          "n_unique": 3,
+          "effective_n": 2.54
+        },
+        "scene_ambiguity": {
+          "entropy": 0.045,
+          "norm_entropy": 0.028,
+          "n_unique": 3,
+          "effective_n": 1.032
+        },
+        "road_divider": {
+          "entropy": 0.992,
+          "norm_entropy": 0.496,
+          "n_unique": 4,
+          "effective_n": 1.989
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "4": {
+    "size": 10188,
+    "top_terms": [
+      "lane",
+      "vehicle",
+      "highway",
+      "ego",
+      "ego vehicle",
+      "lane highway",
+      "truck",
+      "direction",
+      "car",
+      "traffic",
+      "straight",
+      "speed"
+    ],
+    "quadrant_distribution": {
+      "Q0": 1271,
+      "Q1": 7386,
+      "Q2": 1010,
+      "Q3": 521,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 12.5,
+      "Q1_pct": 72.5,
+      "Q2_pct": 9.9,
+      "Q3_pct": 5.1,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 569.4,
+    "global_redundancy_in_dtrain": 0.944,
+    "mean_density": 0.9471,
+    "density_quartile_dist": {
+      "0": 0.132,
+      "1": 0.211,
+      "2": 0.32,
+      "3": 0.337
+    },
+    "mean_lid": 13.57,
+    "lid_quartile_dist": {
+      "0": 0.291,
+      "1": 0.266,
+      "2": 0.236,
+      "3": 0.207
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.5,
+    "vendi_random": {
+      "mean": 2.475,
+      "std": 0.031,
+      "cv": 0.0124,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.558,
+      "std": 0.021,
+      "cv": 0.0081,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.034,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 10188,
+      "n_unique_combos": 190,
+      "odd_effective_n": 21.739,
+      "mean_norm_entropy": 0.394,
+      "per_dim": {
+        "road_type": {
+          "entropy": 0.919,
+          "norm_entropy": 0.396,
+          "n_unique": 5,
+          "effective_n": 1.891
+        },
+        "weather": {
+          "entropy": 0.392,
+          "norm_entropy": 0.247,
+          "n_unique": 3,
+          "effective_n": 1.312
+        },
+        "traffic_density": {
+          "entropy": 1.0,
+          "norm_entropy": 0.631,
+          "n_unique": 3,
+          "effective_n": 2.0
+        },
+        "agent_type": {
+          "entropy": 0.056,
+          "norm_entropy": 0.035,
+          "n_unique": 3,
+          "effective_n": 1.04
+        },
+        "lighting": {
+          "entropy": 1.417,
+          "norm_entropy": 0.894,
+          "n_unique": 3,
+          "effective_n": 2.67
+        },
+        "scene_ambiguity": {
+          "entropy": 0.107,
+          "norm_entropy": 0.068,
+          "n_unique": 3,
+          "effective_n": 1.077
+        },
+        "road_divider": {
+          "entropy": 0.977,
+          "norm_entropy": 0.489,
+          "n_unique": 4,
+          "effective_n": 1.968
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "5": {
+    "size": 9182,
+    "top_terms": [
+      "lane",
+      "sedan",
+      "suv",
+      "white",
+      "vehicle",
+      "ego",
+      "ego vehicle",
+      "black",
+      "lanes",
+      "white sedan",
+      "traffic",
+      "ahead"
+    ],
+    "quadrant_distribution": {
+      "Q0": 1267,
+      "Q1": 6384,
+      "Q2": 963,
+      "Q3": 568,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 13.8,
+      "Q1_pct": 69.5,
+      "Q2_pct": 10.5,
+      "Q3_pct": 6.2,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 497.7,
+    "global_redundancy_in_dtrain": 0.946,
+    "mean_density": 0.9487,
+    "density_quartile_dist": {
+      "0": 0.145,
+      "1": 0.178,
+      "2": 0.24,
+      "3": 0.437
+    },
+    "mean_lid": 13.76,
+    "lid_quartile_dist": {
+      "0": 0.284,
+      "1": 0.254,
+      "2": 0.232,
+      "3": 0.23
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.6,
+    "vendi_random": {
+      "mean": 2.562,
+      "std": 0.042,
+      "cv": 0.0164,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.679,
+      "std": 0.034,
+      "cv": 0.0126,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.046,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 9182,
+      "n_unique_combos": 149,
+      "odd_effective_n": 23.477,
+      "mean_norm_entropy": 0.406,
+      "per_dim": {
+        "road_type": {
+          "entropy": 1.376,
+          "norm_entropy": 0.593,
+          "n_unique": 5,
+          "effective_n": 2.595
+        },
+        "weather": {
+          "entropy": 0.168,
+          "norm_entropy": 0.106,
+          "n_unique": 3,
+          "effective_n": 1.123
+        },
+        "traffic_density": {
+          "entropy": 1.133,
+          "norm_entropy": 0.715,
+          "n_unique": 3,
+          "effective_n": 2.193
+        },
+        "agent_type": {
+          "entropy": 0.024,
+          "norm_entropy": 0.015,
+          "n_unique": 3,
+          "effective_n": 1.017
+        },
+        "lighting": {
+          "entropy": 1.01,
+          "norm_entropy": 0.637,
+          "n_unique": 3,
+          "effective_n": 2.014
+        },
+        "scene_ambiguity": {
+          "entropy": 0.063,
+          "norm_entropy": 0.04,
+          "n_unique": 3,
+          "effective_n": 1.045
+        },
+        "road_divider": {
+          "entropy": 1.479,
+          "norm_entropy": 0.739,
+          "n_unique": 4,
+          "effective_n": 2.788
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "6": {
+    "size": 10115,
+    "top_terms": [
+      "light",
+      "vehicle",
+      "intersection",
+      "ego",
+      "ego vehicle",
+      "traffic light",
+      "traffic",
+      "lane",
+      "red",
+      "road",
+      "stopped",
+      "signal"
+    ],
+    "quadrant_distribution": {
+      "Q0": 1167,
+      "Q1": 6297,
+      "Q2": 1544,
+      "Q3": 1107,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 11.5,
+      "Q1_pct": 62.3,
+      "Q2_pct": 15.3,
+      "Q3_pct": 10.9,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 605.8,
+    "global_redundancy_in_dtrain": 0.94,
+    "mean_density": 0.9432,
+    "density_quartile_dist": {
+      "0": 0.233,
+      "1": 0.255,
+      "2": 0.266,
+      "3": 0.246
+    },
+    "mean_lid": 13.84,
+    "lid_quartile_dist": {
+      "0": 0.258,
+      "1": 0.273,
+      "2": 0.242,
+      "3": 0.227
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.6,
+    "vendi_random": {
+      "mean": 2.62,
+      "std": 0.05,
+      "cv": 0.019,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.701,
+      "std": 0.021,
+      "cv": 0.0077,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.031,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 10115,
+      "n_unique_combos": 192,
+      "odd_effective_n": 22.11,
+      "mean_norm_entropy": 0.379,
+      "per_dim": {
+        "road_type": {
+          "entropy": 0.44,
+          "norm_entropy": 0.22,
+          "n_unique": 4,
+          "effective_n": 1.357
+        },
+        "weather": {
+          "entropy": 0.41,
+          "norm_entropy": 0.258,
+          "n_unique": 3,
+          "effective_n": 1.329
+        },
+        "traffic_density": {
+          "entropy": 1.219,
+          "norm_entropy": 0.769,
+          "n_unique": 3,
+          "effective_n": 2.328
+        },
+        "agent_type": {
+          "entropy": 0.291,
+          "norm_entropy": 0.146,
+          "n_unique": 4,
+          "effective_n": 1.223
+        },
+        "lighting": {
+          "entropy": 1.178,
+          "norm_entropy": 0.743,
+          "n_unique": 3,
+          "effective_n": 2.263
+        },
+        "scene_ambiguity": {
+          "entropy": 0.071,
+          "norm_entropy": 0.045,
+          "n_unique": 3,
+          "effective_n": 1.05
+        },
+        "road_divider": {
+          "entropy": 1.103,
+          "norm_entropy": 0.475,
+          "n_unique": 5,
+          "effective_n": 2.148
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "7": {
+    "size": 10639,
+    "top_terms": [
+      "vehicle",
+      "lane",
+      "road",
+      "ego",
+      "ego vehicle",
+      "straight",
+      "km",
+      "rural",
+      "speed",
+      "pedestrians",
+      "traffic",
+      "low"
+    ],
+    "quadrant_distribution": {
+      "Q0": 942,
+      "Q1": 7414,
+      "Q2": 1388,
+      "Q3": 895,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 8.9,
+      "Q1_pct": 69.7,
+      "Q2_pct": 13.0,
+      "Q3_pct": 8.4,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 625.3,
+    "global_redundancy_in_dtrain": 0.941,
+    "mean_density": 0.9445,
+    "density_quartile_dist": {
+      "0": 0.189,
+      "1": 0.272,
+      "2": 0.292,
+      "3": 0.247
+    },
+    "mean_lid": 13.09,
+    "lid_quartile_dist": {
+      "0": 0.335,
+      "1": 0.259,
+      "2": 0.218,
+      "3": 0.188
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.8,
+    "vendi_random": {
+      "mean": 2.801,
+      "std": 0.049,
+      "cv": 0.0174,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.887,
+      "std": 0.037,
+      "cv": 0.0128,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.031,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 10639,
+      "n_unique_combos": 178,
+      "odd_effective_n": 16.983,
+      "mean_norm_entropy": 0.321,
+      "per_dim": {
+        "road_type": {
+          "entropy": 1.006,
+          "norm_entropy": 0.433,
+          "n_unique": 5,
+          "effective_n": 2.008
+        },
+        "weather": {
+          "entropy": 0.392,
+          "norm_entropy": 0.247,
+          "n_unique": 3,
+          "effective_n": 1.312
+        },
+        "traffic_density": {
+          "entropy": 0.114,
+          "norm_entropy": 0.057,
+          "n_unique": 4,
+          "effective_n": 1.082
+        },
+        "agent_type": {
+          "entropy": 0.122,
+          "norm_entropy": 0.047,
+          "n_unique": 6,
+          "effective_n": 1.088
+        },
+        "lighting": {
+          "entropy": 1.314,
+          "norm_entropy": 0.829,
+          "n_unique": 3,
+          "effective_n": 2.486
+        },
+        "scene_ambiguity": {
+          "entropy": 0.05,
+          "norm_entropy": 0.031,
+          "n_unique": 3,
+          "effective_n": 1.035
+        },
+        "road_divider": {
+          "entropy": 1.407,
+          "norm_entropy": 0.606,
+          "n_unique": 5,
+          "effective_n": 2.652
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "8": {
+    "size": 11798,
+    "top_terms": [
+      "parked",
+      "vehicle",
+      "parked vehicles",
+      "ego",
+      "ego vehicle",
+      "car",
+      "road",
+      "lane",
+      "street",
+      "right",
+      "vehicles",
+      "white"
+    ],
+    "quadrant_distribution": {
+      "Q0": 1936,
+      "Q1": 7121,
+      "Q2": 2011,
+      "Q3": 730,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 16.4,
+      "Q1_pct": 60.4,
+      "Q2_pct": 17.0,
+      "Q3_pct": 6.2,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 694.6,
+    "global_redundancy_in_dtrain": 0.941,
+    "mean_density": 0.944,
+    "density_quartile_dist": {
+      "0": 0.205,
+      "1": 0.272,
+      "2": 0.286,
+      "3": 0.237
+    },
+    "mean_lid": 14.85,
+    "lid_quartile_dist": {
+      "0": 0.19,
+      "1": 0.231,
+      "2": 0.274,
+      "3": 0.305
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.6,
+    "vendi_random": {
+      "mean": 2.574,
+      "std": 0.039,
+      "cv": 0.0151,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.659,
+      "std": 0.025,
+      "cv": 0.0096,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.033,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 11798,
+      "n_unique_combos": 134,
+      "odd_effective_n": 16.369,
+      "mean_norm_entropy": 0.338,
+      "per_dim": {
+        "road_type": {
+          "entropy": 1.009,
+          "norm_entropy": 0.434,
+          "n_unique": 5,
+          "effective_n": 2.013
+        },
+        "weather": {
+          "entropy": 0.34,
+          "norm_entropy": 0.215,
+          "n_unique": 3,
+          "effective_n": 1.266
+        },
+        "traffic_density": {
+          "entropy": 0.774,
+          "norm_entropy": 0.488,
+          "n_unique": 3,
+          "effective_n": 1.71
+        },
+        "agent_type": {
+          "entropy": 0.175,
+          "norm_entropy": 0.075,
+          "n_unique": 5,
+          "effective_n": 1.129
+        },
+        "lighting": {
+          "entropy": 1.333,
+          "norm_entropy": 0.841,
+          "n_unique": 3,
+          "effective_n": 2.519
+        },
+        "scene_ambiguity": {
+          "entropy": 0.025,
+          "norm_entropy": 0.016,
+          "n_unique": 3,
+          "effective_n": 1.017
+        },
+        "road_divider": {
+          "entropy": 0.689,
+          "norm_entropy": 0.297,
+          "n_unique": 5,
+          "effective_n": 1.612
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "9": {
+    "size": 8912,
+    "top_terms": [
+      "vehicle",
+      "road",
+      "curve",
+      "sharp",
+      "lane",
+      "km",
+      "ego",
+      "ego vehicle",
+      "right curve",
+      "left curve",
+      "right",
+      "turn"
+    ],
+    "quadrant_distribution": {
+      "Q0": 793,
+      "Q1": 3858,
+      "Q2": 2667,
+      "Q3": 1594,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 8.9,
+      "Q1_pct": 43.3,
+      "Q2_pct": 29.9,
+      "Q3_pct": 17.9,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 602.4,
+    "global_redundancy_in_dtrain": 0.932,
+    "mean_density": 0.9357,
+    "density_quartile_dist": {
+      "0": 0.439,
+      "1": 0.308,
+      "2": 0.193,
+      "3": 0.06
+    },
+    "mean_lid": 14.85,
+    "lid_quartile_dist": {
+      "0": 0.181,
+      "1": 0.24,
+      "2": 0.279,
+      "3": 0.3
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.9,
+    "vendi_random": {
+      "mean": 2.923,
+      "std": 0.061,
+      "cv": 0.021,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 3.02,
+      "std": 0.032,
+      "cv": 0.0106,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.033,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 8912,
+      "n_unique_combos": 154,
+      "odd_effective_n": 15.265,
+      "mean_norm_entropy": 0.316,
+      "per_dim": {
+        "road_type": {
+          "entropy": 0.778,
+          "norm_entropy": 0.335,
+          "n_unique": 5,
+          "effective_n": 1.715
+        },
+        "weather": {
+          "entropy": 0.383,
+          "norm_entropy": 0.242,
+          "n_unique": 3,
+          "effective_n": 1.304
+        },
+        "traffic_density": {
+          "entropy": 0.165,
+          "norm_entropy": 0.104,
+          "n_unique": 3,
+          "effective_n": 1.121
+        },
+        "agent_type": {
+          "entropy": 0.146,
+          "norm_entropy": 0.056,
+          "n_unique": 6,
+          "effective_n": 1.106
+        },
+        "lighting": {
+          "entropy": 1.553,
+          "norm_entropy": 0.98,
+          "n_unique": 3,
+          "effective_n": 2.934
+        },
+        "scene_ambiguity": {
+          "entropy": 0.024,
+          "norm_entropy": 0.015,
+          "n_unique": 3,
+          "effective_n": 1.017
+        },
+        "road_divider": {
+          "entropy": 1.117,
+          "norm_entropy": 0.481,
+          "n_unique": 5,
+          "effective_n": 2.169
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "10": {
+    "size": 11310,
+    "top_terms": [
+      "vehicle",
+      "turn",
+      "ego",
+      "ego vehicle",
+      "road",
+      "intersection",
+      "lane",
+      "right",
+      "left",
+      "car",
+      "pedestrian",
+      "stop"
+    ],
+    "quadrant_distribution": {
+      "Q0": 1060,
+      "Q1": 3966,
+      "Q2": 4227,
+      "Q3": 2057,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 9.4,
+      "Q1_pct": 35.1,
+      "Q2_pct": 37.4,
+      "Q3_pct": 18.2,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q2",
+    "effective_n": 792.4,
+    "global_redundancy_in_dtrain": 0.93,
+    "mean_density": 0.9332,
+    "density_quartile_dist": {
+      "0": 0.509,
+      "1": 0.309,
+      "2": 0.148,
+      "3": 0.034
+    },
+    "mean_lid": 15.72,
+    "lid_quartile_dist": {
+      "0": 0.126,
+      "1": 0.223,
+      "2": 0.286,
+      "3": 0.365
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 3.0,
+    "vendi_random": {
+      "mean": 3.036,
+      "std": 0.036,
+      "cv": 0.0119,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 3.131,
+      "std": 0.03,
+      "cv": 0.0095,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.031,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 11310,
+      "n_unique_combos": 209,
+      "odd_effective_n": 24.178,
+      "mean_norm_entropy": 0.391,
+      "per_dim": {
+        "road_type": {
+          "entropy": 1.029,
+          "norm_entropy": 0.443,
+          "n_unique": 5,
+          "effective_n": 2.041
+        },
+        "weather": {
+          "entropy": 0.399,
+          "norm_entropy": 0.252,
+          "n_unique": 3,
+          "effective_n": 1.319
+        },
+        "traffic_density": {
+          "entropy": 0.883,
+          "norm_entropy": 0.557,
+          "n_unique": 3,
+          "effective_n": 1.844
+        },
+        "agent_type": {
+          "entropy": 0.53,
+          "norm_entropy": 0.228,
+          "n_unique": 5,
+          "effective_n": 1.444
+        },
+        "lighting": {
+          "entropy": 1.265,
+          "norm_entropy": 0.798,
+          "n_unique": 3,
+          "effective_n": 2.403
+        },
+        "scene_ambiguity": {
+          "entropy": 0.052,
+          "norm_entropy": 0.033,
+          "n_unique": 3,
+          "effective_n": 1.037
+        },
+        "road_divider": {
+          "entropy": 0.858,
+          "norm_entropy": 0.429,
+          "n_unique": 4,
+          "effective_n": 1.813
+        }
+      }
+    },
+    "prune_flag": null
+  },
+  "11": {
+    "size": 11948,
+    "top_terms": [
+      "vehicle",
+      "lane",
+      "ego",
+      "ego vehicle",
+      "road",
+      "car",
+      "direction",
+      "safe",
+      "traffic",
+      "straight",
+      "collector",
+      "collector road"
+    ],
+    "quadrant_distribution": {
+      "Q0": 2123,
+      "Q1": 7377,
+      "Q2": 1710,
+      "Q3": 738,
+      "Q4": 0,
+      "Q5": 0,
+      "Q0_pct": 17.8,
+      "Q1_pct": 61.7,
+      "Q2_pct": 14.3,
+      "Q3_pct": 6.2,
+      "Q4_pct": 0.0,
+      "Q5_pct": 0.0
+    },
+    "dominant_quadrant": "Q1",
+    "effective_n": 683.6,
+    "global_redundancy_in_dtrain": 0.943,
+    "mean_density": 0.9456,
+    "density_quartile_dist": {
+      "0": 0.18,
+      "1": 0.232,
+      "2": 0.283,
+      "3": 0.304
+    },
+    "mean_lid": 14.77,
+    "lid_quartile_dist": {
+      "0": 0.197,
+      "1": 0.234,
+      "2": 0.274,
+      "3": 0.296
+    },
+    "lid_reliable_ratio": 1.0,
+    "vendi_score": 2.6,
+    "vendi_random": {
+      "mean": 2.618,
+      "std": 0.041,
+      "cv": 0.0158,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_dedup": {
+      "mean": 2.728,
+      "std": 0.034,
+      "cv": 0.0124,
+      "n_runs": 5,
+      "converged": true
+    },
+    "vendi_suppression_ratio": 1.042,
+    "vendi_reliable": true,
+    "odd_diversity": {
+      "found_ratio": 1.0,
+      "n_clips": 11948,
+      "n_unique_combos": 216,
+      "odd_effective_n": 28.49,
+      "mean_norm_entropy": 0.42,
+      "per_dim": {
+        "road_type": {
+          "entropy": 1.027,
+          "norm_entropy": 0.513,
+          "n_unique": 4,
+          "effective_n": 2.038
+        },
+        "weather": {
+          "entropy": 0.399,
+          "norm_entropy": 0.252,
+          "n_unique": 3,
+          "effective_n": 1.319
+        },
+        "traffic_density": {
+          "entropy": 1.053,
+          "norm_entropy": 0.664,
+          "n_unique": 3,
+          "effective_n": 2.075
+        },
+        "agent_type": {
+          "entropy": 0.236,
+          "norm_entropy": 0.118,
+          "n_unique": 4,
+          "effective_n": 1.178
+        },
+        "lighting": {
+          "entropy": 1.161,
+          "norm_entropy": 0.732,
+          "n_unique": 3,
+          "effective_n": 2.236
+        },
+        "scene_ambiguity": {
+          "entropy": 0.06,
+          "norm_entropy": 0.038,
+          "n_unique": 3,
+          "effective_n": 1.042
+        },
+        "road_divider": {
+          "entropy": 1.245,
+          "norm_entropy": 0.623,
+          "n_unique": 4,
+          "effective_n": 2.37
+        }
+      }
+    },
+    "prune_flag": null
+  }
+}

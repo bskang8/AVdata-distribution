@@ -1,0 +1,44 @@
+{
+  "0": {
+    "count": 11710,
+    "pct": 11.7,
+    "effective_n_contribution": 658.17626953125,
+    "mean_density": 0.945765495300293,
+    "mean_lid": 19.920366287231445
+  },
+  "1": {
+    "count": 60731,
+    "pct": 60.5,
+    "effective_n_contribution": 3192.34765625,
+    "mean_density": 0.9505529403686523,
+    "mean_lid": 11.863924980163574
+  },
+  "2": {
+    "count": 11426,
+    "pct": 11.4,
+    "effective_n_contribution": 898.2957763671875,
+    "mean_density": 0.9239932298660278,
+    "mean_lid": 21.177156448364258
+  },
+  "3": {
+    "count": 16531,
+    "pct": 16.5,
+    "effective_n_contribution": 1272.625732421875,
+    "mean_density": 0.9271172881126404,
+    "mean_lid": 13.258275032043457
+  },
+  "4": {
+    "count": 0,
+    "pct": 0.0,
+    "effective_n_contribution": 0.0,
+    "mean_density": 0.0,
+    "mean_lid": 0.0
+  },
+  "5": {
+    "count": 0,
+    "pct": 0.0,
+    "effective_n_contribution": 0.0,
+    "mean_density": 0.0,
+    "mean_lid": 0.0
+  }
+}

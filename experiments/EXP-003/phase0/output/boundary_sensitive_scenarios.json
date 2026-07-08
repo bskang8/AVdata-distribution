@@ -1,0 +1,182 @@
+[
+  {
+    "scenario_id": 0,
+    "scenario_terms": [
+      "vehicle",
+      "lane",
+      "road",
+      "limited",
+      "headlights"
+    ],
+    "mean_density": 0.9546,
+    "mean_lid": 12.49,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 1,
+    "scenario_terms": [
+      "vehicle",
+      "travels",
+      "ego",
+      "ego vehicle",
+      "lane"
+    ],
+    "mean_density": 0.9418,
+    "mean_lid": 12.77,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 2,
+    "scenario_terms": [
+      "parking",
+      "lot",
+      "parking lot",
+      "vehicle",
+      "low speed"
+    ],
+    "mean_density": 0.9353,
+    "mean_lid": 13.79,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 3,
+    "scenario_terms": [
+      "snow",
+      "covered",
+      "snow covered",
+      "vehicle",
+      "road"
+    ],
+    "mean_density": 0.9418,
+    "mean_lid": 12.55,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 4,
+    "scenario_terms": [
+      "lane",
+      "vehicle",
+      "highway",
+      "ego",
+      "ego vehicle"
+    ],
+    "mean_density": 0.9471,
+    "mean_lid": 13.57,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 5,
+    "scenario_terms": [
+      "lane",
+      "sedan",
+      "suv",
+      "white",
+      "vehicle"
+    ],
+    "mean_density": 0.9487,
+    "mean_lid": 13.76,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 6,
+    "scenario_terms": [
+      "light",
+      "vehicle",
+      "intersection",
+      "ego",
+      "ego vehicle"
+    ],
+    "mean_density": 0.9432,
+    "mean_lid": 13.84,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 7,
+    "scenario_terms": [
+      "vehicle",
+      "lane",
+      "road",
+      "ego",
+      "ego vehicle"
+    ],
+    "mean_density": 0.9445,
+    "mean_lid": 13.09,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 8,
+    "scenario_terms": [
+      "parked",
+      "vehicle",
+      "parked vehicles",
+      "ego",
+      "ego vehicle"
+    ],
+    "mean_density": 0.944,
+    "mean_lid": 14.85,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 9,
+    "scenario_terms": [
+      "vehicle",
+      "road",
+      "curve",
+      "sharp",
+      "lane"
+    ],
+    "mean_density": 0.9357,
+    "mean_lid": 14.85,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 10,
+    "scenario_terms": [
+      "vehicle",
+      "turn",
+      "ego",
+      "ego vehicle",
+      "road"
+    ],
+    "mean_density": 0.9332,
+    "mean_lid": 15.72,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  },
+  {
+    "scenario_id": 11,
+    "scenario_terms": [
+      "vehicle",
+      "lane",
+      "ego",
+      "ego vehicle",
+      "road"
+    ],
+    "mean_density": 0.9456,
+    "mean_lid": 14.77,
+    "density_near_threshold": true,
+    "lid_near_threshold": false,
+    "note": "임계값 ±5% 이내 — action 역전 가능성."
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "scenario_id": 0,
+    "scenario_terms": [
+      "vehicle",
+      "lane",
+      "road",
+      "limited",
+      "headlights",
+      "ego",
+      "ego vehicle",
+      "highway",
+      "poorly lit",
+      "poorly",
+      "night",
+      "visibility"
+    ],
+    "gap_count": 364,
+    "mean_lid": 16.67,
+    "partial_collect_flag": true,
+    "q2_effective_n": 18.1,
+    "gap_q2_ratio": 0.651,
+    "note": "Q2 클립 존재 — EXP-004 합성 전 Q2 클립 별도 수집 검토"
+  },
+  {
+    "scenario_id": 2,
+    "scenario_terms": [
+      "parking",
+      "lot",
+      "parking lot",
+      "vehicle",
+      "low speed",
+      "ego",
+      "ego vehicle",
+      "turn",
+      "parked",
+      "low",
+      "left",
+      "navigated parking"
+    ],
+    "gap_count": 1537,
+    "mean_lid": 15.35,
+    "partial_collect_flag": true,
+    "q2_effective_n": 65.2,
+    "gap_q2_ratio": 0.532,
+    "note": "Q2 클립 존재 — EXP-004 합성 전 Q2 클립 별도 수집 검토"
+  },
+  {
+    "scenario_id": 3,
+    "scenario_terms": [
+      "snow",
+      "covered",
+      "snow covered",
+      "vehicle",
+      "road",
+      "traction",
+      "lane",
+      "low traction",
+      "ego",
+      "ego vehicle",
+      "low",
+      "traction conditions"
+    ],
+    "gap_count": 672,
+    "mean_lid": 15.27,
+    "partial_collect_flag": true,
+    "q2_effective_n": 28.9,
+    "gap_q2_ratio": 0.546,
+    "note": "Q2 클립 존재 — EXP-004 합성 전 Q2 클립 별도 수집 검토"
+  },
+  {
+    "scenario_id": 7,
+    "scenario_terms": [
+      "vehicle",
+      "lane",
+      "road",
+      "ego",
+      "ego vehicle",
+      "straight",
+      "km",
+      "rural",
+      "speed",
+      "pedestrians",
+      "traffic",
+      "low"
+    ],
+    "gap_count": 2283,
+    "mean_lid": 16.12,
+    "partial_collect_flag": true,
+    "q2_effective_n": 106.5,
+    "gap_q2_ratio": 0.608,
+    "note": "Q2 클립 존재 — EXP-004 합성 전 Q2 클립 별도 수집 검토"
+  },
+  {
+    "scenario_id": 9,
+    "scenario_terms": [
+      "vehicle",
+      "road",
+      "curve",
+      "sharp",
+      "lane",
+      "km",
+      "ego",
+      "ego vehicle",
+      "right curve",
+      "left curve",
+      "right",
+      "turn"
+    ],
+    "gap_count": 4261,
+    "mean_lid": 16.28,
+    "partial_collect_flag": true,
+    "q2_effective_n": 208.8,
+    "gap_q2_ratio": 0.626,
+    "note": "Q2 클립 존재 — EXP-004 합성 전 Q2 클립 별도 수집 검토"
+  }
+]

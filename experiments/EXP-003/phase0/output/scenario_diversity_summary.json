@@ -1,0 +1,16 @@
+{
+  "vendi_mean": 2.6,
+  "vendi_std": 0.2,
+  "vendi_cv": 0.068,
+  "vendi_gini": 0.035,
+  "vendi_max_scenario": 10,
+  "vendi_min_scenario": 0,
+  "vendi_unreliable_count": 0,
+  "suppression_ratio_mean": 1.035,
+  "suppression_ratio_max": 1.05,
+  "suppression_ratio_min": 1.018,
+  "high_suppression_count": 0,
+  "nmi_scenario_vs_quadrant": 0.0336,
+  "ari_scenario_vs_quadrant": 0.0105,
+  "two_space_independence_ok": true
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "scenario_id": 6,
+    "scenario_context": [
+      "light",
+      "vehicle",
+      "intersection",
+      "ego",
+      "ego vehicle"
+    ],
+    "gap_specifics": [
+      "seconds",
+      "km",
+      "hatchback",
+      "street",
+      "tram",
+      "wet",
+      "bus",
+      "cyclist"
+    ],
+    "priority": "HIGH",
+    "gap_count": 2651,
+    "q2_effective_n": 120.7,
+    "mean_lid": 15.88,
+    "gap_q2_ratio": 0.582,
+    "collect_confidence": "HIGH",
+    "lid_context_caution": false,
+    "vendi_suppression_ratio": 1.031,
+    "odd_effective_n": 22.11,
+    "prune_flag": null
+  },
+  {
+    "scenario_id": 5,
+    "scenario_context": [
+      "lane",
+      "sedan",
+      "suv",
+      "white",
+      "vehicle"
+    ],
+    "gap_specifics": [
+      "stopped",
+      "ramp",
+      "decelerated",
+      "stop",
+      "seconds",
+      "vehicle decelerated",
+      "urban",
+      "complete"
+    ],
+    "priority": "HIGH",
+    "gap_count": 1531,
+    "q2_effective_n": 74.9,
+    "mean_lid": 16.79,
+    "gap_q2_ratio": 0.629,
+    "collect_confidence": "HIGH",
+    "lid_context_caution": false,
+    "vendi_suppression_ratio": 1.046,
+    "odd_effective_n": 23.477,
+    "prune_flag": null
+  },
+  {
+    "scenario_id": 1,
+    "scenario_context": [
+      "vehicle",
+      "travels",
+      "ego",
+      "ego vehicle",
+      "lane"
+    ],
+    "gap_specifics": [
+      "travels single",
+      "bus",
+      "km",
+      "wet",
+      "sign",
+      "truck",
+      "hatchback",
+      "ramp"
+    ],
+    "priority": "HIGH",
+    "gap_count": 1654,
+    "q2_effective_n": 59.9,
+    "mean_lid": 14.55,
+    "gap_q2_ratio": 0.455,
+    "collect_confidence": "MED",
+    "lid_context_caution": false,
+    "vendi_suppression_ratio": 1.038,
+    "odd_effective_n": 22.898,
+    "prune_flag": null
+  },
+  {
+    "scenario_id": 10,
+    "scenario_context": [
+      "vehicle",
+      "turn",
+      "ego",
+      "ego vehicle",
+      "road"
+    ],
+    "gap_specifics": [
+      "roundabout",
+      "crossing",
+      "hatchback",
+      "yield",
+      "yielding",
+      "km",
+      "cyclist",
+      "stopped"
+    ],
+    "priority": "HIGH",
+    "gap_count": 6284,
+    "q2_effective_n": 335.6,
+    "mean_lid": 16.96,
+    "gap_q2_ratio": 0.673,
+    "collect_confidence": "HIGH",
+    "lid_context_caution": true,
+    "vendi_suppression_ratio": 1.031,
+    "odd_effective_n": 24.178,
+    "prune_flag": null
+  },
+  {
+    "scenario_id": 11,
+    "scenario_context": [
+      "vehicle",
+      "lane",
+      "ego",
+      "ego vehicle",
+      "road"
+    ],
+    "gap_specifics": [
+      "bus",
+      "hatchback",
+      "seconds",
+      "zone",
+      "decelerated",
+      "wet",
+      "construction zone",
+      "roundabout"
+    ],
+    "priority": "HIGH",
+    "gap_count": 2448,
+    "q2_effective_n": 131.0,
+    "mean_lid": 17.24,
+    "gap_q2_ratio": 0.699,
+    "collect_confidence": "HIGH",
+    "lid_context_caution": true,
+    "vendi_suppression_ratio": 1.042,
+    "odd_effective_n": 28.49,
+    "prune_flag": null
+  },
+  {
+    "scenario_id": 8,
+    "scenario_context": [
+      "parked",
+      "vehicle",
+      "parked vehicles",
+      "ego",
+      "ego vehicle"
+    ],
+    "gap_specifics": [
+      "street single",
+      "hatchback",
+      "pedestrian",
+      "seconds",
+      "cyclist",
+      "truck",
+      "stop",
+      "decelerated"
+    ],
+    "priority": "NORMAL",
+    "gap_count": 2741,
+    "q2_effective_n": 153.0,
+    "mean_lid": 17.69,
+    "gap_q2_ratio": 0.734,
+    "collect_confidence": "HIGH",
+    "lid_context_caution": true,
+    "vendi_suppression_ratio": 1.033,
+    "odd_effective_n": 16.369,
+    "prune_flag": null
+  },
+  {
+    "scenario_id": 4,
+    "scenario_context": [
+      "lane",
+      "vehicle",
+      "highway",
+      "ego",
+      "ego vehicle"
+    ],
+    "gap_specifics": [
+      "ramp",
+      "seconds",
+      "gradually",
+      "decelerated",
+      "20",
+      "km 20",
+      "vehicle decelerated",
+      "entrance"
+    ],
+    "priority": "NORMAL",
+    "gap_count": 1531,
+    "q2_effective_n": 77.4,
+    "mean_lid": 16.92,
+    "gap_q2_ratio": 0.66,
+    "collect_confidence": "HIGH",
+    "lid_context_caution": true,
+    "vendi_suppression_ratio": 1.034,
+    "odd_effective_n": 21.739,
+    "prune_flag": null
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "density_threshold": 0.9363271446287166,
+  "lid_threshold": 16.85502004777887,
+  "density_gmm_best_k": 3,
+  "lid_gmm_best_k": 3,
+  "density_bics": {
+    "1": -575902.7,
+    "2": -582349.9,
+    "3": -583024.1
+  },
+  "lid_bics": {
+    "1": 589294.2,
+    "2": 576295.3,
+    "3": 574749.1
+  },
+  "lid_threshold_unimodal": false,
+  "density_threshold_unimodal": false,
+  "q4_isolated_clip_count": 0,
+  "q4_isolation_threshold": 0.8,
+  "q3_boundary_count": 6268,
+  "q3_total_count": 16531,
+  "q3_boundary_rate": 0.3792
+}
