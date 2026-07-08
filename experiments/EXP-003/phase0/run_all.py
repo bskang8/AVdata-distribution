@@ -1,32 +1,32 @@
 """Phase 0 전체 순차 실행
 이미 완료된 단계는 자동 스킵. 재실행 방법:
   python3 run_all.py --force          # 전체 강제 재실행
-  python3 run_all.py --force 0-D 0-E-1  # 특정 단계만 강제 재실행
-  python3 step_d_quadrant.py          # 단일 단계 직접 실행
+  python3 run_all.py --force 0-A 0-F-1  # 특정 단계만 강제 재실행
+  python3 step_e_quadrant.py          # 단일 단계 직접 실행
 """
 
-import step_a_knn
-import step_b_diversity
-import step_c_lid
-import step_d_quadrant
-import step_d_val_flipd
-import step_e1_scenario
-import step_e2_gap
-import step_f_odd_coverage
+import step_a_odd_coverage
+import step_b_knn
+import step_c_diversity
+import step_d_lid
+import step_e_quadrant
+import step_e_val_flipd
+import step_f1_scenario
+import step_f2_gap
 
 import json
 import numpy as np
 from utils import P
 
 STEPS = [
-    ('0-A', step_a_knn.run),
-    ('0-B', step_b_diversity.run),
-    ('0-C', step_c_lid.run),
-    ('0-D', step_d_quadrant.run),
-    ('0-D-val', step_d_val_flipd.run),
-    ('0-E-1', step_e1_scenario.run),
-    ('0-E-2', step_e2_gap.run),
-    ('0-F',   step_f_odd_coverage.run),
+    ('0-A',     step_a_odd_coverage.run),
+    ('0-B',     step_b_knn.run),
+    ('0-C',     step_c_diversity.run),
+    ('0-D',     step_d_lid.run),
+    ('0-E',     step_e_quadrant.run),
+    ('0-E-val', step_e_val_flipd.run),
+    ('0-F-1',   step_f1_scenario.run),
+    ('0-F-2',   step_f2_gap.run),
 ]
 
 if __name__ == '__main__':

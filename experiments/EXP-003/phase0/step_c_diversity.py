@@ -19,10 +19,10 @@ from utils import (P, require_files, already_done, load_odd_compat, odd_diversit
 
 
 def run(force=False):
-    if not force and already_done('0-B', 'diversity_profile.json', 'density_per_clip.npy'):
+    if not force and already_done('0-C', 'diversity_profile.json', 'density_per_clip.npy'):
         return
     require_files('knn_foundation.npz', 'embeddings.npy', step='step_a_knn.py')
-    print("[0-B] Effective N + Vendi Score + 밀도장 시작")
+    print("[0-C] Effective N + Vendi Score + 밀도장 시작")
 
     knn_sim        = np.load(P('knn_foundation.npz'))['knn_sim']
     embeddings_f32 = np.load(P('embeddings.npy'))
@@ -193,7 +193,7 @@ def run(force=False):
     np.save(P('density_quartile.npy'),  density_quartile)
     np.save(P('uniqueness_weight.npy'), uniqueness_weight)
 
-    print(f"[0-B] Effective N={effective_N:.0f} (중복률={result['redundancy_ratio']:.1%})")
+    print(f"[0-C] Effective N={effective_N:.0f} (중복률={result['redundancy_ratio']:.1%})")
     print(f"  Vendi random : {v_random['mean']:.3f} ± {v_random['std']:.3f} "
           f"(n={v_random['n_runs']}, converged={v_random['converged']})")
     print(f"  Vendi dedup  : {v_dedup['mean']:.3f} ± {v_dedup['std']:.3f} "

@@ -50,7 +50,7 @@ def _caution_note(flag, q5_pct, q5_thresh):
 
 
 def run(force=False):
-    if not force and already_done('0-E-1', 'scenario_profiles.json', 'scenario_labels.npy'):
+    if not force and already_done('0-F-1', 'scenario_profiles.json', 'scenario_labels.npy'):
         return
     require_files(
         'quadrant_assignment.npy', 'quadrant_profile.json', 'thresholds.json',
@@ -59,7 +59,7 @@ def run(force=False):
         'embeddings.npy', 'clip_ids.npy',
         step='step_d_quadrant.py',
     )
-    print("[0-E-1] 시나리오 의미 지도 시작")
+    print("[0-F-1] 시나리오 의미 지도 시작")
 
     captions, _ = load_captions()
     clip_ids     = list(np.load(P('clip_ids.npy'), allow_pickle=True))
@@ -262,7 +262,7 @@ def run(force=False):
     with open(P('boundary_sensitive_scenarios.json'), 'w') as f:
         json.dump(boundary_sensitive, f, indent=2, ensure_ascii=False)
 
-    print(f"[0-E-1] K={K_scenario}, Vendi CV={summary['vendi_cv']:.3f}, "
+    print(f"[0-F-1] K={K_scenario}, Vendi CV={summary['vendi_cv']:.3f}, "
           f"independence_ok={summary['two_space_independence_ok']}, "
           f"임계값민감={len(boundary_sensitive)}개")
 

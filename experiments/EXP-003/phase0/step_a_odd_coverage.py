@@ -189,10 +189,10 @@ def _combo_coverage(records: list, dims: list, schema: dict) -> dict:
 
 def run(force=False):
     OUT = 'odd_coverage.json'
-    if not force and already_done('0-F', OUT):
+    if not force and already_done('0-A', OUT):
         return
 
-    print('[0-F] ODD 커버리지 분석 중...')
+    print('[0-A] ODD 커버리지 분석 중...')
 
     # ── 전체 ODD JSON 로드 ────────────────────────────────────────────
     final_recs, compat_recs = [], []

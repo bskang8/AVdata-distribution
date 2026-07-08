@@ -18,7 +18,7 @@ def _collect_confidence(gap_q2_ratio):
 
 
 def run(force=False):
-    if not force and already_done('0-E-2', 'collect_candidates.json'):
+    if not force and already_done('0-F-2', 'collect_candidates.json'):
         return
     require_files(
         'quadrant_assignment.npy', 'lid_per_clip.npy', 'lid_reliable.npy',
@@ -26,7 +26,7 @@ def run(force=False):
         'thresholds.json', 'tfidf_vectorizer.joblib', 'boundary_sensitive_scenarios.json',
         step='step_e1_scenario.py',
     )
-    print("[0-E-2] 갭 슬라이스 분석 시작")
+    print("[0-F-2] 갭 슬라이스 분석 시작")
 
     captions, _ = load_captions()
 
@@ -186,7 +186,7 @@ def run(force=False):
         with open(P(fname), 'w') as f:
             json.dump(obj, f, indent=2, ensure_ascii=False)
 
-    print(f"[0-E-2] COLLECT={len(collect_candidates)}, "
+    print(f"[0-F-2] COLLECT={len(collect_candidates)}, "
           f"SYNTHETIC={len(synthetic_candidates)}, "
           f"UNCERTAIN={len(uncertain_candidates)}, "
           f"SKIPPED={len(skipped)}")

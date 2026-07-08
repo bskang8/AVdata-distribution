@@ -10,7 +10,7 @@ from utils import P, require_files, compute_lid_mle, gmm_threshold, already_done
 
 
 def run(force=False):
-    if not force and already_done('0-D', 'quadrant_assignment.npy', 'thresholds.json'):
+    if not force and already_done('0-E', 'quadrant_assignment.npy', 'thresholds.json'):
         return
     require_files(
         'density_per_clip.npy', 'lid_per_clip.npy',
@@ -19,7 +19,7 @@ def run(force=False):
         'knn_foundation.npz',
         step='step_c_lid.py',
     )
-    print("[0-D] 6-분류 Action Map 시작")
+    print("[0-E] 6-분류 Action Map 시작")
 
     density          = np.load(P('density_per_clip.npy'))
     lid_per_clip     = np.load(P('lid_per_clip.npy'))
@@ -112,7 +112,7 @@ def run(force=False):
         json.dump(lid_stats, f, indent=2)
 
     q_counts = {q: quadrant_profile[q]['count'] for q in range(6)}
-    print(f"[0-D] 임계값: density={density_threshold:.4f}(K={d_best_k}), "
+    print(f"[0-E] 임계값: density={density_threshold:.4f}(K={d_best_k}), "
           f"lid={lid_threshold:.4f}(K={l_best_k})")
     print(f"  6-분류: {q_counts}")
     print(f"  Q3 경계 구역: {_q3_boundary}/{_q3_total} "

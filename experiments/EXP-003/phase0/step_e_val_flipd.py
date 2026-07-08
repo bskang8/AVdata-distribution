@@ -25,14 +25,14 @@ def _compute_flipd(knn_dist, k=20):
 
 
 def run(force=False):
-    if not force and already_done('0-D-val', 'flipd_validation.json'):
+    if not force and already_done('0-E-val', 'flipd_validation.json'):
         return
     require_files(
         'lid_stats.json', 'thresholds.json',
         'quadrant_assignment.npy', 'lid_boundary_zone.npy', 'knn_foundation.npz',
         step='step_d_quadrant.py',
     )
-    print("[0-D-val] FLIPD 조건 확인")
+    print("[0-E-val] FLIPD 조건 확인")
 
     lid_stats  = json.load(open(P('lid_stats.json')))
     thresholds = json.load(open(P('thresholds.json')))
@@ -100,7 +100,7 @@ def run(force=False):
 
     with open(P('flipd_validation.json'), 'w') as f:
         json.dump(result, f, indent=2)
-    print(f"[0-D-val] upgrade_rate={upgrade_rate:.3f} → {result['recommended_action']}")
+    print(f"[0-E-val] upgrade_rate={upgrade_rate:.3f} → {result['recommended_action']}")
 
 
 if __name__ == '__main__':

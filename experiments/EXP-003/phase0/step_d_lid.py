@@ -10,10 +10,10 @@ from utils import P, require_files, compute_lid_mle, already_done
 
 
 def run(force=False):
-    if not force and already_done('0-C', 'lid_per_clip.npy', 'lid_stats.json'):
+    if not force and already_done('0-D', 'lid_per_clip.npy', 'lid_stats.json'):
         return
     require_files('knn_foundation.npz', 'density_per_clip.npy', step='step_b_diversity.py')
-    print("[0-C] LID + 신뢰도 + k-민감도 시작")
+    print("[0-D] LID + 신뢰도 + k-민감도 시작")
 
     knn_sim      = np.load(P('knn_foundation.npz'))['knn_sim']
     density      = np.load(P('density_per_clip.npy'))
@@ -65,7 +65,7 @@ def run(force=False):
     with open(P('lid_stats.json'), 'w') as f:
         json.dump(lid_stats, f, indent=2)
 
-    print(f"[0-C] median LID={lid_stats['median']:.2f}, "
+    print(f"[0-D] median LID={lid_stats['median']:.2f}, "
           f"신뢰 비율={lid_stats['lid_reliable_ratio']:.1%}, "
           f"k-민감도={k_sensitive_rate:.4f} "
           f"→ flipd_recommended={lid_stats['flipd_recommended']}")

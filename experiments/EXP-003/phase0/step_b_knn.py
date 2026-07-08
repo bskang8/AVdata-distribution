@@ -8,9 +8,9 @@ from utils import P, load_captions, already_done
 
 def run(force=False):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    if not force and already_done('0-A', 'knn_foundation.npz', 'embeddings.npy'):
+    if not force and already_done('0-B', 'knn_foundation.npz', 'embeddings.npy'):
         return
-    print("[0-A] FAISS k-NN Foundation 시작")
+    print("[0-B] FAISS k-NN Foundation 시작")
 
     captions, clip_ids = load_captions()
     print(f"  캡션 로드: {len(captions):,}개")
@@ -32,7 +32,7 @@ def run(force=False):
 
     np.savez(P('knn_foundation.npz'), knn_sim=knn_sim, knn_idx=knn_idx)
     np.save(P('embeddings.npy'), embeddings_f32)
-    print(f"[0-A] 완료: knn_foundation.npz, embeddings.npy  "
+    print(f"[0-B] 완료: knn_foundation.npz, embeddings.npy  "
           f"(N={len(embeddings_f32):,}, dim={embeddings_f32.shape[1]})")
 
 
