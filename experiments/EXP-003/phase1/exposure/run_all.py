@@ -1,12 +1,12 @@
 """Phase 1 전체 순차 실행 엔트리 (조달→조립→선정).
 
-각 스크립트는 단독 실행형이라 subprocess로 순서대로 돈다. 의존 DAG:
+각 스크립트(procure/·select/·root)는 단독 실행형이라 subprocess로 순서대로 돈다. 의존 DAG:
   (fetch_*)→raw → recon → transcribe_* → sources → compose → pself → analyze
-                                                  → validate → criticality → sweep
+                              → validate → criticality → extrapolate → sweep
 
 기본 스킵: 외부(raw/클립) 읽는 느린 단계는 산출물 있으면 건너뜀. 조립은 항상 재실행.
 사용:
-  python3 run_all.py                 # 2부 컴퓨트 체인(캐시 활용)
+  python3 run_all.py                 # 기본(캐시 활용) — 끝에 §8·§10·§11 요약
   python3 run_all.py --force         # 전부 강제 재실행
   python3 run_all.py --force pself    # 특정 단계만 강제
   python3 run_all.py --fetch          # 1부 API 조달부터(키 필요: set -a; . .env; set +a)
@@ -45,7 +45,6 @@ def run_stage(name, script):
     if r.returncode != 0:
         raise SystemExit(f"\n[중단] {name} 실패(exit {r.returncode}). 위 로그 확인.")
     return dt
-
 
 def summary():
     def load(f):

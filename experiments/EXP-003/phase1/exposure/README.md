@@ -113,11 +113,20 @@ CSV는 사람이 손으로 전사하다 오타·누락이 나기 쉽다. 특히 
 ```bash
 cd .../EXP-003/phase1/exposure
 
+# 전체 파이프라인 (조달→조립→선정). 외부 raw/클립 읽는 느린 단계는 캐시 스킵, 조립은 항상 재실행.
+python3 run_all.py                 # 기본(캐시 활용) — 끝에 §8·§10·§11 요약 출력
+python3 run_all.py --force         # 전부 강제 재실행
+python3 run_all.py --force pself    # 특정 단계만 강제(예: pself·criticality)
+python3 run_all.py --fetch         # 1부 API 조달(fetch_*)부터 포함 — 키 필요(아래)
+
+# 개별 실행(각 스크립트 단독 실행형)
 python3 procure/recon.py   # 조달 전: 소스 게이팅 → recon/ 갱신
 python3 loader.py          # 조달 후: CSV 8장 계약 검증 + 확률표 로드
-python3 run_all.py         # 전체 파이프라인(조달→선정)
 ```
 
+- **API 키(fetch_*·pself만 필요):** `KMA_API_KEY`(KMA)·`DATAGO_API_KEY`(KTDB=공공데이터포털)를
+  프로젝트 `.env`에 두고 실행 전 셸에 로드:  `set -a; . <project>/.env; set +a`.
+  (recon·loader·2부 조립은 키 불필요. pself/criticality는 phase0 클립 경로만 접근.)
 - **필요한 것:** 추가 설치 없음. 표준 라이브러리(`csv/glob/json/statistics/collections`)만.
   `mapping.yaml`은 코드가 읽지 않는 사람용 근거 문서다.
 - **어디서 실행하나:** 스크립트는 `__file__` 기준 절대경로(`paths.py`)라 cwd 무관하게 돈다.

@@ -6,7 +6,7 @@
 > 매 조달 후 갱신할 곳은 §0 현황표·§3 한계대장·§4 결정로그 뿐.
 >
 > **마지막 실행:** 2026-07-16 · 1부(recon 8블록·loader 계약 통과) + 2부 골격 전 체인 구축
-> (compose→pself→analyze→validate→criticality→sweep, `run_all.py`).
+> (compose→pself→analyze→validate→criticality→extrapolate→sweep, `run_all.py`).
 
 ---
 

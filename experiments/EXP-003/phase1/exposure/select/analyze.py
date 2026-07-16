@@ -120,7 +120,8 @@ def main():
     json.dump(report, open(os.path.join(OUT, "analysis.json"), "w"),
               ensure_ascii=False, indent=2)
     print(f"\n[OK] → output/analysis.json")
-    print("주의: §10 criticality(희귀-위험)는 미구현. road_type 2/4 한계로 urban·rural은 P_ext 부재.")
+    print("주의: §9 비교는 신뢰 4축(고속+국도 2종)에서만 유효. road_type 2/4 한계로 urban·rural은 "
+          "P_ext 부재(=P_self에만) → 전체 주행으로 확대해석 금지. 희귀-위험은 criticality.py(§10)·extrapolate.py.")
 
 
 if __name__ == "__main__":
