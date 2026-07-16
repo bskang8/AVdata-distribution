@@ -127,6 +127,7 @@ compose→pself→analyze→validate→criticality→sweep   # 2부 조립·선�
 | 2026-07-16 | **§11 sweep 실행**(`sweep.py`) — 스윕 대상 §6노브→crit배수로 정정 | compose가 손앵커 marginalize → 소스 스윕은 exposure에 무의미(불변 assert로 증명). 손값이 무는 곳은 crit 배수뿐 → 그걸 스윕(전부 주의, Fragile 없음) |
 | 2026-07-16 | **criticality v2 speed축 추가** | severity∝v²는 핵심 위험요인. 단 phase0 speed 미태깅 → coverage는 관측 6축 투영(speed 보유 확인 불가, §12-R gap) |
 | 2026-07-16 | **road_type⊕speed 에너지블록 가법감쇠** | 둘 다 운동에너지 severity라 곱=이중계산 → 가법결합(m+m−1)으로 겹침 제거. 한쪽 baseline이면 다른쪽 환원, highway×high만 감쇠(8→5). design "상관 블록 묶어 배수 하나" 실행 |
+| 2026-07-16 | **이웃 확률외삽 = occurrence(coverage) 외삽으로 대체** | 원논문은 failure율 외삽인데 phase1엔 모델 실패율 없음(다운스트림). 이웃 coverage로 발생가능성 외삽 → 미관측을 수집갭/희소로 분리. 최고위험(snow×fog×VRU)은 이웃도 비어 '희소'(합성)로, 흔한 미관측은 '수집갭'(실주행)으로 갈림 |
 
 ---
 
@@ -163,7 +164,10 @@ compose→pself→analyze→validate→criticality→sweep   # 2부 조립·선�
 - [x] **잔여상관(road_type~speed) 감쇠 완료**(2026-07-16) — 둘 다 에너지 severity라 곱=이중계산.
   에너지블록 **가법 결합**(m_road_type+m_speed−1)으로 대체: urban×high→speed만, highway×low→road만,
   겹치는 highway×high만 감쇠(8→5). 최상위 crit 480→360. 랭킹 물리적 정직성↑, sweep road_type Robust.
-- [ ] criticality 후속 — 이웃 확률외삽(situation-coverage-grid)으로 미관측 위험 정식 랭킹.
+- [x] **이웃 확률외삽 완료**(2026-07-16, `extrapolate.py`) — situation-coverage-grid 정신을
+  phase1에 적용. 원논문 '이웃 실패율→미관측 상한'을 **발생가능성(coverage) 외삽**으로 대체
+  (모델 실패율은 다운스트림). 미관측 774셀을 **수집갭 98**(이웃 관측→실주행 수집)·**희소 676**
+  (이웃도 빔→LTDA 합성/존재확인)로 분리. → design Step C '수집 vs 합성' 실현. `output/extrapolation.json`.
 - [ ] region/계절 층화, Dirichlet CI(§13-R 게이트 B) 등 정밀화(트리거 시).
 - [ ] road_type 2/4 한계(①)로 P_ext에 urban·rural 부재 → self는 urban/rural이 다수(축 커버 갭).
 

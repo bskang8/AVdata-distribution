@@ -33,6 +33,7 @@ STAGES = [
     ("analyze",        "analyze.py",        "output/analysis.json",    False, False),
     ("validate",       "validate.py",       None,                      False, False),  # 게이트
     ("criticality",    "criticality.py",    "output/criticality.json", True,  False),
+    ("extrapolate",    "extrapolate.py",    "output/extrapolation.json", False, False),
     ("sweep",          "sweep.py",          "output/sweep.json",       False, False),
 ]
 
@@ -51,6 +52,7 @@ def summary():
         p = os.path.join(HERE, "output", f)
         return json.load(open(p)) if os.path.exists(p) else None
     px, an, cr, sw = load("P_ext.json"), load("analysis.json"), load("criticality.json"), load("sweep.json")
+    ex = load("extrapolation.json")
     print("\n" + "=" * 60 + "\n[요약]")
     if px:
         print(f"  P_ext: {px['n_cells']}셀(신뢰 4축)")
@@ -61,6 +63,8 @@ def summary():
         if tgt:
             t0 = tgt[0]
             print(f"  §10 수집타겟 {len(tgt)}개, 최상위 crit={t0['crit']} {t0['combo']}")
+    if ex:
+        print(f"  §10+ 외삽: 수집갭 {ex['n_collection_gap']}(실주행) · 희소 {ex['n_rare_synth']}(합성)")
     if sw:
         print(f"  §11 스윕: exposure 불변={sw['exposure_invariant']}, Fragile={sw['fragile_blocks'] or '없음'}")
 

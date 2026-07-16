@@ -1,0 +1,2233 @@
+{
+  "n_clips": 100398,
+  "n_unobserved": 774,
+  "n_grid": 972,
+  "n_collection_gap": 98,
+  "n_rare_synth": 676,
+  "plausible_min": 10.0,
+  "note": "occurrence(coverage) 외삽으로 미관측 랭킹. 원논문 failure율 외삽의 대체 (phase1 모델실패율 부재). speed는 crit worst-case, coverage는 관측 6축.",
+  "collection_gap": [
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "moderate",
+        "cyclists",
+        "moderate"
+      ],
+      "crit": 23.4,
+      "est_occurrence": 611.69,
+      "n_obs_neighbors": 4,
+      "priority": 14313.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "none",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 12.6,
+      "est_occurrence": 1042.86,
+      "n_obs_neighbors": 5,
+      "priority": 13140.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "well_lit",
+        "cyclists",
+        "moderate"
+      ],
+      "crit": 15.6,
+      "est_occurrence": 797.85,
+      "n_obs_neighbors": 4,
+      "priority": 12446.4,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "none",
+        "poorly_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 11.2,
+      "est_occurrence": 802.79,
+      "n_obs_neighbors": 5,
+      "priority": 9031.3,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "moderate",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 15.6,
+      "est_occurrence": 567.36,
+      "n_obs_neighbors": 4,
+      "priority": 8850.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 12.0,
+      "est_occurrence": 643.71,
+      "n_obs_neighbors": 5,
+      "priority": 7724.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "well_lit",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 10.4,
+      "est_occurrence": 740.43,
+      "n_obs_neighbors": 3,
+      "priority": 7700.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "none",
+        "well_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 8.4,
+      "est_occurrence": 863.93,
+      "n_obs_neighbors": 5,
+      "priority": 7257.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "well_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 8.0,
+      "est_occurrence": 832.93,
+      "n_obs_neighbors": 4,
+      "priority": 6663.4,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "present",
+        "well_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 8.0,
+      "est_occurrence": 796.0,
+      "n_obs_neighbors": 7,
+      "priority": 6368.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "none",
+        "poorly_lit",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 63.0,
+      "est_occurrence": 71.77,
+      "n_obs_neighbors": 5,
+      "priority": 4521.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "poorly_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 25.0,
+      "est_occurrence": 177.5,
+      "n_obs_neighbors": 2,
+      "priority": 4437.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 15.0,
+      "est_occurrence": 272.92,
+      "n_obs_neighbors": 1,
+      "priority": 4093.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "moderate",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 19.5,
+      "est_occurrence": 194.58,
+      "n_obs_neighbors": 2,
+      "priority": 3794.4,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "moderate",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 11.2,
+      "est_occurrence": 306.25,
+      "n_obs_neighbors": 6,
+      "priority": 3445.3,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "none",
+        "poorly_lit",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 47.3,
+      "est_occurrence": 71.77,
+      "n_obs_neighbors": 3,
+      "priority": 3391.1,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "poorly_lit",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 18.8,
+      "est_occurrence": 178.75,
+      "n_obs_neighbors": 5,
+      "priority": 3351.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "well_lit",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 13.0,
+      "est_occurrence": 237.58,
+      "n_obs_neighbors": 2,
+      "priority": 3088.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "none",
+        "moderate",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 46.8,
+      "est_occurrence": 59.46,
+      "n_obs_neighbors": 4,
+      "priority": 2782.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "none",
+        "moderate",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 37.8,
+      "est_occurrence": 70.15,
+      "n_obs_neighbors": 5,
+      "priority": 2651.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "well_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 10.0,
+      "est_occurrence": 259.17,
+      "n_obs_neighbors": 2,
+      "priority": 2591.7,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "moderate",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 47.2,
+      "est_occurrence": 48.0,
+      "n_obs_neighbors": 4,
+      "priority": 2268.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "moderate",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 50.4,
+      "est_occurrence": 44.15,
+      "n_obs_neighbors": 3,
+      "priority": 2225.4,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "moderate",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 38.4,
+      "est_occurrence": 57.0,
+      "n_obs_neighbors": 5,
+      "priority": 2188.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "none",
+        "poorly_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 31.5,
+      "est_occurrence": 66.14,
+      "n_obs_neighbors": 4,
+      "priority": 2083.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "none",
+        "moderate",
+        "cyclists",
+        "moderate"
+      ],
+      "crit": 35.1,
+      "est_occurrence": 58.46,
+      "n_obs_neighbors": 3,
+      "priority": 2052.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "none",
+        "moderate",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 28.4,
+      "est_occurrence": 67.92,
+      "n_obs_neighbors": 4,
+      "priority": 1925.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "moderate",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 37.8,
+      "est_occurrence": 43.08,
+      "n_obs_neighbors": 3,
+      "priority": 1628.3,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "well_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 25.6,
+      "est_occurrence": 63.46,
+      "n_obs_neighbors": 4,
+      "priority": 1624.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "moderate",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 28.8,
+      "est_occurrence": 52.69,
+      "n_obs_neighbors": 4,
+      "priority": 1517.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "none",
+        "moderate",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 32.8,
+      "est_occurrence": 45.38,
+      "n_obs_neighbors": 4,
+      "priority": 1486.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "rain",
+        "none",
+        "poorly_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 16.9,
+      "est_occurrence": 82.43,
+      "n_obs_neighbors": 4,
+      "priority": 1391.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 31.5,
+      "est_occurrence": 42.43,
+      "n_obs_neighbors": 3,
+      "priority": 1336.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "none",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 18.0,
+      "est_occurrence": 72.21,
+      "n_obs_neighbors": 5,
+      "priority": 1299.9,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "none",
+        "moderate",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 23.4,
+      "est_occurrence": 54.21,
+      "n_obs_neighbors": 2,
+      "priority": 1268.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "none",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 18.9,
+      "est_occurrence": 60.86,
+      "n_obs_neighbors": 2,
+      "priority": 1150.2,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "poorly_lit",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 78.8,
+      "est_occurrence": 14.31,
+      "n_obs_neighbors": 3,
+      "priority": 1126.7,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "moderate",
+        "cars_only",
+        "dense"
+      ],
+      "crit": 25.2,
+      "est_occurrence": 44.57,
+      "n_obs_neighbors": 6,
+      "priority": 1123.2,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "well_lit",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 19.2,
+      "est_occurrence": 57.31,
+      "n_obs_neighbors": 3,
+      "priority": 1100.3,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "none",
+        "moderate",
+        "cyclists",
+        "moderate"
+      ],
+      "crit": 24.6,
+      "est_occurrence": 43.92,
+      "n_obs_neighbors": 3,
+      "priority": 1079.2,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "present",
+        "well_lit",
+        "mixed",
+        "moderate"
+      ],
+      "crit": 15.6,
+      "est_occurrence": 68.07,
+      "n_obs_neighbors": 3,
+      "priority": 1061.9,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 84.0,
+      "est_occurrence": 12.54,
+      "n_obs_neighbors": 2,
+      "priority": 1053.2,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "none",
+        "moderate",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 16.9,
+      "est_occurrence": 60.79,
+      "n_obs_neighbors": 7,
+      "priority": 1025.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "poorly_lit",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 30.0,
+      "est_occurrence": 33.31,
+      "n_obs_neighbors": 6,
+      "priority": 999.2,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 25.2,
+      "est_occurrence": 37.86,
+      "n_obs_neighbors": 2,
+      "priority": 954.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "none",
+        "well_lit",
+        "mixed",
+        "moderate"
+      ],
+      "crit": 11.7,
+      "est_occurrence": 73.86,
+      "n_obs_neighbors": 5,
+      "priority": 864.1,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "present",
+        "moderate",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 13.5,
+      "est_occurrence": 62.29,
+      "n_obs_neighbors": 6,
+      "priority": 840.9,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "moderate",
+        "cars_only",
+        "dense"
+      ],
+      "crit": 20.2,
+      "est_occurrence": 41.29,
+      "n_obs_neighbors": 7,
+      "priority": 832.3,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 63.0,
+      "est_occurrence": 12.69,
+      "n_obs_neighbors": 2,
+      "priority": 799.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "snow",
+        "none",
+        "moderate",
+        "cars_only",
+        "dense"
+      ],
+      "crit": 30.0,
+      "est_occurrence": 26.0,
+      "n_obs_neighbors": 6,
+      "priority": 780.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "none",
+        "moderate",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 45.0,
+      "est_occurrence": 17.08,
+      "n_obs_neighbors": 6,
+      "priority": 768.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "none",
+        "well_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 21.8,
+      "est_occurrence": 32.69,
+      "n_obs_neighbors": 4,
+      "priority": 714.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "well_lit",
+        "emergency",
+        "dense"
+      ],
+      "crit": 12.8,
+      "est_occurrence": 52.93,
+      "n_obs_neighbors": 4,
+      "priority": 677.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "poorly_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 52.5,
+      "est_occurrence": 12.71,
+      "n_obs_neighbors": 3,
+      "priority": 667.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "present",
+        "well_lit",
+        "cars_only",
+        "dense"
+      ],
+      "crit": 12.8,
+      "est_occurrence": 52.0,
+      "n_obs_neighbors": 4,
+      "priority": 665.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "none",
+        "well_lit",
+        "mixed",
+        "moderate"
+      ],
+      "crit": 8.8,
+      "est_occurrence": 75.79,
+      "n_obs_neighbors": 5,
+      "priority": 665.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "none",
+        "moderate",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 16.4,
+      "est_occurrence": 38.64,
+      "n_obs_neighbors": 2,
+      "priority": 633.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "poorly_lit",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 32.5,
+      "est_occurrence": 19.17,
+      "n_obs_neighbors": 2,
+      "priority": 622.9,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "present",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 30.0,
+      "est_occurrence": 19.75,
+      "n_obs_neighbors": 1,
+      "priority": 592.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "none",
+        "poorly_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 20.0,
+      "est_occurrence": 29.36,
+      "n_obs_neighbors": 6,
+      "priority": 587.1,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "poorly_lit",
+        "cars_only",
+        "dense"
+      ],
+      "crit": 42.0,
+      "est_occurrence": 13.79,
+      "n_obs_neighbors": 4,
+      "priority": 579.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "none",
+        "moderate",
+        "mixed",
+        "moderate"
+      ],
+      "crit": 13.2,
+      "est_occurrence": 41.29,
+      "n_obs_neighbors": 5,
+      "priority": 543.4,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "none",
+        "well_lit",
+        "cyclists",
+        "moderate"
+      ],
+      "crit": 16.4,
+      "est_occurrence": 32.62,
+      "n_obs_neighbors": 3,
+      "priority": 534.2,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "poorly_lit",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 39.4,
+      "est_occurrence": 13.21,
+      "n_obs_neighbors": 5,
+      "priority": 520.3,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "rain",
+        "none",
+        "poorly_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 37.5,
+      "est_occurrence": 13.42,
+      "n_obs_neighbors": 2,
+      "priority": 503.1,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "present",
+        "moderate",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 48.0,
+      "est_occurrence": 10.15,
+      "n_obs_neighbors": 3,
+      "priority": 487.4,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "none",
+        "poorly_lit",
+        "cars_only",
+        "moderate"
+      ],
+      "crit": 14.6,
+      "est_occurrence": 33.07,
+      "n_obs_neighbors": 5,
+      "priority": 483.7,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "poorly_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 42.0,
+      "est_occurrence": 11.21,
+      "n_obs_neighbors": 2,
+      "priority": 471.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "moderate",
+        "emergency",
+        "dense"
+      ],
+      "crit": 24.0,
+      "est_occurrence": 19.42,
+      "n_obs_neighbors": 2,
+      "priority": 466.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "none",
+        "moderate",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 30.0,
+      "est_occurrence": 15.0,
+      "n_obs_neighbors": 3,
+      "priority": 450.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "present",
+        "moderate",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 22.5,
+      "est_occurrence": 19.92,
+      "n_obs_neighbors": 3,
+      "priority": 448.1,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "clear",
+        "present",
+        "well_lit",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 12.0,
+      "est_occurrence": 37.21,
+      "n_obs_neighbors": 2,
+      "priority": 446.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "poorly_lit",
+        "cars_only",
+        "moderate"
+      ],
+      "crit": 27.3,
+      "est_occurrence": 15.79,
+      "n_obs_neighbors": 7,
+      "priority": 431.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "none",
+        "poorly_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 28.1,
+      "est_occurrence": 15.21,
+      "n_obs_neighbors": 3,
+      "priority": 427.9,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "present",
+        "poorly_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 22.5,
+      "est_occurrence": 17.86,
+      "n_obs_neighbors": 3,
+      "priority": 401.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "moderate",
+        "mixed",
+        "dense"
+      ],
+      "crit": 18.0,
+      "est_occurrence": 21.75,
+      "n_obs_neighbors": 5,
+      "priority": 391.5,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "rain",
+        "present",
+        "poorly_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 33.8,
+      "est_occurrence": 11.43,
+      "n_obs_neighbors": 4,
+      "priority": 385.7,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "rain",
+        "none",
+        "poorly_lit",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 28.1,
+      "est_occurrence": 13.67,
+      "n_obs_neighbors": 3,
+      "priority": 384.4,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "snow",
+        "none",
+        "well_lit",
+        "cars_only",
+        "dense"
+      ],
+      "crit": 20.0,
+      "est_occurrence": 18.33,
+      "n_obs_neighbors": 5,
+      "priority": 366.7,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "poorly_lit",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 31.5,
+      "est_occurrence": 11.5,
+      "n_obs_neighbors": 3,
+      "priority": 362.2,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "present",
+        "well_lit",
+        "cars_only",
+        "moderate"
+      ],
+      "crit": 10.9,
+      "est_occurrence": 28.93,
+      "n_obs_neighbors": 5,
+      "priority": 315.9,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "clear",
+        "none",
+        "well_lit",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 10.9,
+      "est_occurrence": 27.57,
+      "n_obs_neighbors": 2,
+      "priority": 301.1,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "none",
+        "moderate",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 27.0,
+      "est_occurrence": 10.77,
+      "n_obs_neighbors": 4,
+      "priority": 290.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "present",
+        "well_lit",
+        "cars_only",
+        "dense"
+      ],
+      "crit": 16.0,
+      "est_occurrence": 18.0,
+      "n_obs_neighbors": 4,
+      "priority": 288.0,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "clear",
+        "none",
+        "well_lit",
+        "emergency",
+        "dense"
+      ],
+      "crit": 16.0,
+      "est_occurrence": 17.42,
+      "n_obs_neighbors": 2,
+      "priority": 278.7,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "none",
+        "well_lit",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 18.0,
+      "est_occurrence": 14.92,
+      "n_obs_neighbors": 6,
+      "priority": 268.6,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "none",
+        "well_lit",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 18.0,
+      "est_occurrence": 13.77,
+      "n_obs_neighbors": 4,
+      "priority": 247.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "none",
+        "well_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 20.0,
+      "est_occurrence": 11.79,
+      "n_obs_neighbors": 4,
+      "priority": 235.7,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "well_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 20.0,
+      "est_occurrence": 11.71,
+      "n_obs_neighbors": 4,
+      "priority": 234.3,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "none",
+        "well_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 11.2,
+      "est_occurrence": 20.79,
+      "n_obs_neighbors": 4,
+      "priority": 233.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "well_lit",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 15.8,
+      "est_occurrence": 12.5,
+      "n_obs_neighbors": 4,
+      "priority": 196.9,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "present",
+        "well_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 12.6,
+      "est_occurrence": 14.21,
+      "n_obs_neighbors": 5,
+      "priority": 179.1,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "rain",
+        "present",
+        "well_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 15.0,
+      "est_occurrence": 11.42,
+      "n_obs_neighbors": 5,
+      "priority": 171.2,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "highway",
+        "rain",
+        "none",
+        "moderate",
+        "mixed",
+        "sparse"
+      ],
+      "crit": 16.9,
+      "est_occurrence": 10.0,
+      "n_obs_neighbors": 5,
+      "priority": 168.8,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "present",
+        "well_lit",
+        "cars_only",
+        "moderate"
+      ],
+      "crit": 15.6,
+      "est_occurrence": 10.43,
+      "n_obs_neighbors": 5,
+      "priority": 162.7,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "none",
+        "well_lit",
+        "emergency",
+        "sparse"
+      ],
+      "crit": 12.0,
+      "est_occurrence": 13.36,
+      "n_obs_neighbors": 4,
+      "priority": 160.3,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "rain",
+        "none",
+        "well_lit",
+        "cars_only",
+        "sparse"
+      ],
+      "crit": 6.8,
+      "est_occurrence": 19.71,
+      "n_obs_neighbors": 5,
+      "priority": 133.1,
+      "kind": "수집갭(실제발생 유력)"
+    },
+    {
+      "cell": [
+        "national_road",
+        "rain",
+        "none",
+        "well_lit",
+        "cars_only",
+        "moderate"
+      ],
+      "crit": 8.8,
+      "est_occurrence": 10.43,
+      "n_obs_neighbors": 5,
+      "priority": 91.5,
+      "kind": "수집갭(실제발생 유력)"
+    }
+  ],
+  "rare_synth": [
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 360.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 336.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 320.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 292.5,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 273.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 270.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 260.0,
+      "est_occurrence": 0.15,
+      "n_obs_neighbors": 1,
+      "priority": 40.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 252.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 240.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 225.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "moderate"
+      ],
+      "crit": 219.4,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "rain",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 216.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "moderate",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 216.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 210.0,
+      "est_occurrence": 2.69,
+      "n_obs_neighbors": 2,
+      "priority": 565.4,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "moderate"
+      ],
+      "crit": 204.8,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 201.6,
+      "est_occurrence": 0.15,
+      "n_obs_neighbors": 1,
+      "priority": 31.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "moderate",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 201.6,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "sparse"
+      ],
+      "crit": 200.0,
+      "est_occurrence": 0.54,
+      "n_obs_neighbors": 1,
+      "priority": 107.7,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "highway",
+        "snow",
+        "present",
+        "poorly_lit",
+        "emergency",
+        "dense"
+      ],
+      "crit": 200.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "moderate"
+      ],
+      "crit": 195.0,
+      "est_occurrence": 0.15,
+      "n_obs_neighbors": 1,
+      "priority": 30.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 192.0,
+      "est_occurrence": 0.54,
+      "n_obs_neighbors": 1,
+      "priority": 103.4,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "moderate",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 192.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "none",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 180.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "poorly_lit",
+        "emergency",
+        "dense"
+      ],
+      "crit": 180.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "rain",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 175.5,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "moderate",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 175.5,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 168.8,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 168.0,
+      "est_occurrence": 0.08,
+      "n_obs_neighbors": 1,
+      "priority": 12.9,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "poorly_lit",
+        "emergency",
+        "dense"
+      ],
+      "crit": 168.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 163.8,
+      "est_occurrence": 0.15,
+      "n_obs_neighbors": 1,
+      "priority": 25.2,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "moderate",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 163.8,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "highway",
+        "snow",
+        "present",
+        "poorly_lit",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 162.5,
+      "est_occurrence": 0.42,
+      "n_obs_neighbors": 1,
+      "priority": 67.7,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "rain",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 162.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "moderate",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 162.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "none",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 160.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "poorly_lit",
+        "emergency",
+        "dense"
+      ],
+      "crit": 160.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 157.5,
+      "est_occurrence": 2.62,
+      "n_obs_neighbors": 1,
+      "priority": 411.9,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 156.0,
+      "est_occurrence": 0.54,
+      "n_obs_neighbors": 1,
+      "priority": 84.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "moderate",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 156.0,
+      "est_occurrence": 0.23,
+      "n_obs_neighbors": 1,
+      "priority": 36.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "rain",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 151.2,
+      "est_occurrence": 0.15,
+      "n_obs_neighbors": 1,
+      "priority": 23.3,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "present",
+        "moderate",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 151.2,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "sparse"
+      ],
+      "crit": 150.0,
+      "est_occurrence": 0.54,
+      "n_obs_neighbors": 1,
+      "priority": 80.8,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "highway",
+        "snow",
+        "present",
+        "poorly_lit",
+        "mixed",
+        "dense"
+      ],
+      "crit": 150.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "none",
+        "poorly_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 146.2,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "poorly_lit",
+        "emergency",
+        "moderate"
+      ],
+      "crit": 146.2,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "rain",
+        "present",
+        "poorly_lit",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 144.0,
+      "est_occurrence": 0.54,
+      "n_obs_neighbors": 1,
+      "priority": 77.5,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "urban",
+        "snow",
+        "present",
+        "moderate",
+        "cyclists",
+        "dense"
+      ],
+      "crit": 144.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "clear",
+        "present",
+        "poorly_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 144.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "national_road",
+        "snow",
+        "present",
+        "well_lit",
+        "pedestrians",
+        "dense"
+      ],
+      "crit": 144.0,
+      "est_occurrence": 0.0,
+      "n_obs_neighbors": 0,
+      "priority": 0.0,
+      "kind": "희소→합성/존재확인"
+    },
+    {
+      "cell": [
+        "rural",
+        "snow",
+        "none",
+        "poorly_lit",
+        "pedestrians",
+        "moderate"
+      ],
+      "crit": 136.5,
+      "est_occurrence": 0.15,
+      "n_obs_neighbors": 2,
+      "priority": 21.0,
+      "kind": "희소→합성/존재확인"
+    }
+  ]
+}
