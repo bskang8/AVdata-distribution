@@ -81,8 +81,7 @@ def main():
                "note": "occurrence(coverage) 외삽으로 미관측 랭킹. 원논문 failure율 외삽의 대체 "
                        "(phase1 모델실패율 부재). speed는 crit worst-case, coverage는 관측 6축.",
                "collection_gap": gap[:100], "rare_synth": sorted(rare, key=lambda r: -r["crit"])[:50]},
-              open(os.path.join(OUT, "extrapolation.json"), "w"), ensure_ascii=False, indent=2,
-              default=lambda o: list(o) if isinstance(o, tuple) else o)
+              open(os.path.join(OUT, "extrapolation.json"), "w"), ensure_ascii=False, indent=2)
     print(f"\n[OK] → output/extrapolation.json (수집갭 {len(gap)} · 희소 {len(rare)})")
 
 

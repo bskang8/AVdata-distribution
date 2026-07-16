@@ -13,6 +13,7 @@
 """
 import json
 import os
+import statistics
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -41,17 +42,12 @@ def _rank(vals):
     return r
 
 
-def _pearson(a, b):
-    n = len(a)
-    ma, mb = sum(a) / n, sum(b) / n
-    num = sum((a[i] - ma) * (b[i] - mb) for i in range(n))
-    da = sum((x - ma) ** 2 for x in a) ** 0.5
-    db = sum((x - mb) ** 2 for x in b) ** 0.5
-    return num / (da * db) if da and db else 1.0
-
-
 def spearman(a, b):
-    return _pearson(_rank(a), _rank(b))
+    """Spearman = 순위의 Pearson. (3.12+ statistics.correlation(method='ranked')이나 3.10 호환)."""
+    try:
+        return statistics.correlation(_rank(a), _rank(b))
+    except statistics.StatisticsError:      # 분산 0(전부 동점) → 완전 상관 취급
+        return 1.0
 
 
 def jaccard(s1, s2):

@@ -38,7 +38,7 @@ STAGES = [
 ]
 
 
-def run_stage(name, script, forced):
+def run_stage(name, script):
     t0 = time.time()
     r = subprocess.run([sys.executable, script], cwd=HERE)
     dt = time.time() - t0
@@ -87,7 +87,7 @@ def main():
             print(f"── {name}: 스킵(캐시 {marker})")
             continue
         print(f"── {name}: 실행 …")
-        timings[name] = round(run_stage(name, script, forced), 1)
+        timings[name] = round(run_stage(name, script), 1)
 
     summary()
     if timings:
