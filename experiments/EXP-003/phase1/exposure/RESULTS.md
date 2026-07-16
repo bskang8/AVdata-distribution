@@ -5,7 +5,8 @@
 > availability.json, loader 출력)은 베끼지 않고 **참조**한다 — 최신값은 항상 그 파일이 정답.
 > 매 조달 후 갱신할 곳은 §0 현황표·§3 한계대장·§4 결정로그 뿐.
 >
-> **마지막 실행:** 2026-07-16 · recon 8블록 게이팅 통과 · loader 8블록 계약 통과.
+> **마지막 실행:** 2026-07-16 · 1부(recon 8블록·loader 계약 통과) + 2부 골격 전 체인 구축
+> (compose→pself→analyze→validate→criticality→sweep, `run_all.py`).
 
 ---
 
@@ -34,8 +35,8 @@
 
 ## 1. 조달 파이프라인 (작동 상세는 README로)
 
-4단계 독립 실행형. 메커니즘은 [`README.md`](README.md), 계획·CSV 계약은
-[`design.md`](../design.md) §3·§6 참조. 여기선 **실행 순서만**:
+독립 실행형 스크립트 체인(1부 조달 4단계 + 2부 조립·선정). 메커니즘은 [`README.md`](README.md),
+계획·CSV 계약은 [`design.md`](../design.md) §3·§6 참조. 여기선 **실행 순서만**:
 
 ```
 fetch_*.py        # API → raw/<source>/*   (사람이 키 세팅 후 실행)
@@ -163,13 +164,17 @@ compose→pself→analyze→validate→criticality→sweep   # 2부 조립·선�
 
 ---
 
-## 6. 부록 — §11 민감도 스윕 설계 (손앵커 검증)
+## 6. 부록 — §11 민감도 스윕 설계 (손앵커 검증) · **초안(정정됨)**
+
+> ⚠️ **이 §6은 compose/analyze/sweep가 미구현이던 시점의 원설계 초안이다.** 실제 구현에서
+> compose가 손앵커 블록을 **marginalize out** 하는 게 확정되어, 아래 6-3의 "손앵커 소스값
+> 스윕"은 **exposure 선정을 바꾸지 못함**이 판명됐다(sweep.py Part A가 불변 assert로 증명).
+> **실제 스윕 대상은 §10 criticality의 published 배수**로 정정됨 → 실행·결과는 §5의 `sweep.py`
+> 항목 및 `output/sweep.json` 참조. 아래는 그 정정 맥락을 남기기 위한 **설계 이력**이며, 본문의
+> "미구현/신설 예정"은 **작성 시점 기준**(현재는 전부 구현·실행 완료).
 
 design.md §11("손표는 주관적 → 검증 필수")의 실행 설계. 손앵커 값을 흔들어 **최종 선정(중요
 ODD 조합)이 그 추측에 얼마나 의존하는지** 측정한다.
-**실행 시점:** 이 스윕이 *측정*하는 대상(선정 산출물)은 2부 `compose`/`analyze` = design §12
-**미구현** → 지금은 그게 오면 바로 돌릴 **설계**. 흔들 대상(손앵커 값)은 `sources/*.csv`·
-`mapping.yaml`에 이미 존재.
 
 ### 6-1. 손앵커란 (요약)
 **데이터로 못 재서 사람이 손으로 박아둔 값.** SUPPORTED(weather·교통량)=실측 / HAND_ANCHOR=
