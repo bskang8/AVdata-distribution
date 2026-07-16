@@ -1,0 +1,7 @@
+road_type,hour,lighting,prob
+urban,13,well_lit,1.00
+urban,2,moderate,1.00
+rural,2,poorly_lit,1.00
+highway,2,moderate,0.50
+highway,2,poorly_lit,0.50
+national_road,2,poorly_lit,1.00

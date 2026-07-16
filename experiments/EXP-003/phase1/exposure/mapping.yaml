@@ -1,0 +1,63 @@
+# EXP-003 Phase 1 — 기관 카테고리 → ODD 값 매핑 (§5). 최대 리스크 표면.
+# 표(sources/*.csv)는 "결과", 이 파일은 그 값이 나온 "근거·감사용". 사람이 편집·검토. 자동화 금지.
+# 값 기준: ../odd_schema.md
+
+# 5-1. KMA 기상현상 → weather / fog
+weather:
+  강수없음: clear
+  비: rain
+  이슬비: rain
+  소나기: rain
+  눈: snow
+  진눈깨비: snow
+fog:
+  # 독립 축(weather와 병존 가능). 시정<1km 비율을 fog_present_prob로.
+  condition: 시정 < 1000m
+
+# 5-2. road_surface — 날씨 파생 + 지속성 (v0는 {dry,wet,snow}로 병합)
+road_surface:
+  rules:
+    - "snow  if precip == snow or (T <= 0 and precip > 0)"
+    - "wet   if precip == rain"
+    - "dry   otherwise"
+  wet_persistence_rho: 1.7   # ρ, 젖음 지속계수. 물리 튜닝 노브(§5-2). wet 비중이 self와 어긋나면 여기 먼저 조정.
+
+# 5-3. 국토부 도로등급 → road_type
+road_type:
+  고속국도: highway
+  일반국도: national_road
+  특별광역시도: urban
+  시군도_도심: urban
+  지방도: rural
+  군도_시외: rural
+  터널구간: tunnel   # ⚠️ KTDB에 터널 태그 없음 — 매핑 최대 구멍. v0는 상수 주입 or unknown 처리, 억지 매핑 금지.
+
+# 5-4. lighting — KASI day/dusk/night → 밝기(well_lit/moderate/poorly_lit)
+# 조명 인프라 차이로 (time_of_day, road_type) 조건부. 미관측 time_of_day를 밝기로 복구하는 핵심.
+lighting:
+  day:
+    "*": well_lit
+  dusk_dawn:
+    "*": moderate
+  night:
+    urban: moderate                       # 가로등
+    highway: {moderate: 0.5, poorly_lit: 0.5}   # 부분조명
+    national_road: poorly_lit
+    rural: poorly_lit
+  sun_windows:
+    day: sunrise ~ sunset
+    dusk_dawn: sunrise/sunset ± 30min
+    night: else
+
+# 5-5. agent / density / speed
+agent_type:
+  values: [cars_only, mixed, pedestrians, cyclists]
+  forbidden:
+    highway: [pedestrians, cyclists]   # 표의 0으로 표현
+density:
+  source: V/C비 (교통량/용량)
+  values: [sparse, moderate, dense]
+speed:
+  source: 등급별 속도조사
+  values: [low, mid, high]
+  rain_derate: "-10~15% (강수 시 고속 비중 하향, 계수 손지정)"

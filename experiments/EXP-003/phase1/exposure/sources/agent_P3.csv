@@ -1,0 +1,11 @@
+road_type,hour,agent_type,prob
+urban,8,cars_only,0.55
+urban,8,mixed,0.30
+urban,8,pedestrians,0.12
+urban,8,cyclists,0.03
+urban,3,cars_only,0.73
+urban,3,mixed,0.20
+urban,3,pedestrians,0.02
+urban,3,cyclists,0.05
+highway,8,cars_only,1.00
+highway,8,pedestrians,0.00

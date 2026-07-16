@@ -1,0 +1,25 @@
+{
+  "axes": [
+    "road_type",
+    "weather",
+    "fog",
+    "road_surface"
+  ],
+  "note": "신뢰 4축(손앵커 marginalize). design §7·§13-R. road_type=2/4등급(한계①)",
+  "n_cells": 12,
+  "sum": 0.99999959,
+  "P_ext": {
+    "national_road|clear|none|dry": 0.46341533,
+    "highway|clear|none|dry": 0.32600494,
+    "national_road|clear|present|dry": 0.07121442,
+    "highway|clear|present|dry": 0.05269878,
+    "national_road|rain|none|wet": 0.04132828,
+    "highway|rain|none|wet": 0.02906329,
+    "national_road|rain|present|wet": 0.00660902,
+    "highway|rain|present|wet": 0.00489897,
+    "national_road|snow|none|snow": 0.0023115,
+    "highway|snow|none|snow": 0.00164718,
+    "national_road|snow|present|snow": 0.00046647,
+    "highway|snow|present|snow": 0.00034142
+  }
+}

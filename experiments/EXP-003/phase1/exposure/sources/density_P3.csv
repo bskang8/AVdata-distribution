@@ -1,0 +1,10 @@
+road_type,hour,density,prob
+urban,8,dense,0.45
+urban,8,moderate,0.40
+urban,8,sparse,0.15
+urban,3,dense,0.05
+urban,3,moderate,0.15
+urban,3,sparse,0.80
+highway,8,dense,0.30
+highway,8,moderate,0.50
+highway,8,sparse,0.20

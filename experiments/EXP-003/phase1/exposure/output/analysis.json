@@ -1,0 +1,235 @@
+{
+  "cut": {
+    "95pct": 5,
+    "99pct": 7
+  },
+  "joint": {
+    "rows": [
+      {
+        "cell": "national_road×clear×none",
+        "P_ext": 0.4636,
+        "P_self": 0.0147,
+        "ratio": 0.03
+      },
+      {
+        "cell": "highway×clear×none",
+        "P_ext": 0.3262,
+        "P_self": 0.9095,
+        "ratio": 2.79
+      },
+      {
+        "cell": "national_road×clear×present",
+        "P_ext": 0.0712,
+        "P_self": 0.0001,
+        "ratio": 0.0
+      },
+      {
+        "cell": "highway×clear×present",
+        "P_ext": 0.0527,
+        "P_self": 0.0248,
+        "ratio": 0.47
+      },
+      {
+        "cell": "national_road×rain×none",
+        "P_ext": 0.0413,
+        "P_self": 0.0003,
+        "ratio": 0.01
+      },
+      {
+        "cell": "highway×rain×none",
+        "P_ext": 0.0291,
+        "P_self": 0.0283,
+        "ratio": 0.97
+      },
+      {
+        "cell": "national_road×rain×present",
+        "P_ext": 0.0066,
+        "P_self": 0.0001,
+        "ratio": 0.01
+      },
+      {
+        "cell": "highway×rain×present",
+        "P_ext": 0.0049,
+        "P_self": 0.016,
+        "ratio": 3.26
+      },
+      {
+        "cell": "national_road×snow×none",
+        "P_ext": 0.0023,
+        "P_self": 0.0002,
+        "ratio": 0.08
+      },
+      {
+        "cell": "highway×snow×none",
+        "P_ext": 0.0016,
+        "P_self": 0.0049,
+        "ratio": 2.95
+      },
+      {
+        "cell": "highway×snow×present",
+        "P_ext": 0.0003,
+        "P_self": 0.0013,
+        "ratio": 3.89
+      }
+    ],
+    "urgent_ext_only": [
+      [
+        "national_road×snow×present",
+        0.0005
+      ]
+    ],
+    "pself_only_limit": [
+      [
+        "urban×clear×none",
+        0.4094
+      ],
+      [
+        "rural×clear×none",
+        0.3637
+      ],
+      [
+        "urban×rain×none",
+        0.0225
+      ],
+      [
+        "rural×rain×none",
+        0.0189
+      ],
+      [
+        "rural×snow×none",
+        0.0086
+      ],
+      [
+        "rural×clear×present",
+        0.0071
+      ],
+      [
+        "urban×snow×none",
+        0.0057
+      ],
+      [
+        "rural×rain×present",
+        0.0018
+      ],
+      [
+        "urban×rain×present",
+        0.0017
+      ],
+      [
+        "urban×clear×present",
+        0.0015
+      ],
+      [
+        "rural×snow×present",
+        0.0006
+      ],
+      [
+        "urban×snow×present",
+        0.0001
+      ],
+      [
+        "tunnel×clear×none",
+        0.0
+      ]
+    ]
+  },
+  "marginals": {
+    "road_type": {
+      "rows": [
+        {
+          "cell": "national_road",
+          "P_ext": 0.5853,
+          "P_self": 0.0153,
+          "ratio": 0.03
+        },
+        {
+          "cell": "highway",
+          "P_ext": 0.4147,
+          "P_self": 0.9847,
+          "ratio": 2.37
+        }
+      ],
+      "ext_only": [],
+      "self_only": [
+        [
+          "urban",
+          0.4408
+        ],
+        [
+          "rural",
+          0.4008
+        ],
+        [
+          "tunnel",
+          0.0
+        ]
+      ]
+    },
+    "weather": {
+      "rows": [
+        {
+          "cell": "clear",
+          "P_ext": 0.9133,
+          "P_self": 0.9321,
+          "ratio": 1.02
+        },
+        {
+          "cell": "rain",
+          "P_ext": 0.0819,
+          "P_self": 0.0519,
+          "ratio": 0.63
+        },
+        {
+          "cell": "snow",
+          "P_ext": 0.0048,
+          "P_self": 0.0159,
+          "ratio": 3.34
+        }
+      ],
+      "ext_only": [],
+      "self_only": []
+    },
+    "fog": {
+      "rows": [
+        {
+          "cell": "none",
+          "P_ext": 0.8638,
+          "P_self": 0.9805,
+          "ratio": 1.14
+        },
+        {
+          "cell": "present",
+          "P_ext": 0.1362,
+          "P_self": 0.0195,
+          "ratio": 0.14
+        }
+      ],
+      "ext_only": [],
+      "self_only": []
+    },
+    "road_surface": {
+      "rows": [
+        {
+          "cell": "dry",
+          "P_ext": 0.9133,
+          "P_self": 0.7964,
+          "ratio": 0.87
+        },
+        {
+          "cell": "wet",
+          "P_ext": 0.0819,
+          "P_self": 0.19,
+          "ratio": 2.32
+        },
+        {
+          "cell": "snow",
+          "P_ext": 0.0048,
+          "P_self": 0.0136,
+          "ratio": 2.85
+        }
+      ],
+      "ext_only": [],
+      "self_only": []
+    }
+  }
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "block": "P1_weather",
+    "source": "KMA_ASOS",
+    "gate": "SUPPORTED",
+    "needs_keys": [
+      "month",
+      "hour"
+    ],
+    "achievable": [
+      "month",
+      "hour"
+    ],
+    "missing": [],
+    "vocab_found": null,
+    "vocab_missing": null,
+    "edge_tv": null,
+    "note": ""
+  },
+  {
+    "block": "P1_fog",
+    "source": "KMA_ASOS",
+    "gate": "SUPPORTED",
+    "needs_keys": [
+      "month",
+      "hour"
+    ],
+    "achievable": [
+      "month",
+      "hour"
+    ],
+    "missing": [],
+    "vocab_found": null,
+    "vocab_missing": null,
+    "edge_tv": null,
+    "note": ""
+  },
+  {
+    "block": "w_vkt",
+    "source": "KTDB",
+    "gate": "SUPPORTED",
+    "needs_keys": [],
+    "achievable": [],
+    "missing": [],
+    "vocab_found": [
+      "고속도로",
+      "일반도로"
+    ],
+    "vocab_missing": [
+      "지방도",
+      "국가지원지방도"
+    ],
+    "edge_tv": null,
+    "note": "⚠ 등급 커버 2/4 — 미확보 ['지방도', '국가지원지방도'] (itmsh_yearly 백엔드 미제공·502, 구조적 한계)"
+  },
+  {
+    "block": "w_hourly",
+    "source": "KTDB",
+    "gate": "SUPPORTED",
+    "needs_keys": [
+      "road_type"
+    ],
+    "achievable": [
+      "road_type"
+    ],
+    "missing": [],
+    "vocab_found": [
+      "고속도로",
+      "일반도로"
+    ],
+    "vocab_missing": [
+      "지방도",
+      "국가지원지방도"
+    ],
+    "edge_tv": 0.0758,
+    "note": "⚠ 등급 커버 2/4 — 미확보 ['지방도', '국가지원지방도'] (itmsh_yearly 백엔드 미제공·502, 구조적 한계); edge grade→hour: TV=0.076 ≥ eps → 조건부 정당"
+  },
+  {
+    "block": "P4_speed",
+    "source": "KTDB",
+    "gate": "HAND_ANCHOR",
+    "needs_keys": [
+      "road_type",
+      "weather"
+    ],
+    "achievable": null,
+    "missing": null,
+    "vocab_found": null,
+    "vocab_missing": null,
+    "edge_tv": null,
+    "note": "weather-dim"
+  },
+  {
+    "block": "P3_agent",
+    "source": "KoROAD",
+    "gate": "HAND_ANCHOR",
+    "needs_keys": [
+      "road_type",
+      "hour"
+    ],
+    "achievable": null,
+    "missing": null,
+    "vocab_found": null,
+    "vocab_missing": null,
+    "edge_tv": null,
+    "note": "축 부재 → §11 민감도 스윕"
+  },
+  {
+    "block": "P3_density",
+    "source": "KTDB",
+    "gate": "HAND_ANCHOR",
+    "needs_keys": [
+      "road_type",
+      "hour"
+    ],
+    "achievable": null,
+    "missing": null,
+    "vocab_found": null,
+    "vocab_missing": null,
+    "edge_tv": null,
+    "note": "V/C=용량편람(문서) 산출·API 부재"
+  },
+  {
+    "block": "P5_lighting",
+    "source": "KASI",
+    "gate": "HAND_ANCHOR",
+    "needs_keys": [
+      "road_type",
+      "hour"
+    ],
+    "achievable": null,
+    "missing": null,
+    "vocab_found": null,
+    "vocab_missing": null,
+    "edge_tv": null,
+    "note": "brightness"
+  }
+]

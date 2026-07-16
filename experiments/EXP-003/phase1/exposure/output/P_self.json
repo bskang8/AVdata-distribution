@@ -1,0 +1,60 @@
+{
+  "joint_axes": [
+    "road_type",
+    "weather",
+    "fog"
+  ],
+  "n_clips": 100398,
+  "n_clean_joint": 99900,
+  "n_joint_cells": 24,
+  "road_surface_note": "독립관측. P_ext는 weather서 규칙유도 → 결합비교 제외, marginal만 주의",
+  "P_self": {
+    "urban|clear|none": 0.40942943,
+    "rural|clear|none": 0.36372372,
+    "highway|clear|none": 0.14404404,
+    "urban|rain|none": 0.02245245,
+    "rural|rain|none": 0.01890891,
+    "rural|snow|none": 0.00857858,
+    "rural|clear|present": 0.00710711,
+    "urban|snow|none": 0.00566567,
+    "highway|rain|none": 0.00447447,
+    "highway|clear|present": 0.00392392,
+    "highway|rain|present": 0.00253253,
+    "national_road|clear|none": 0.00232232,
+    "rural|rain|present": 0.00183183,
+    "urban|rain|present": 0.00167167,
+    "urban|clear|present": 0.00151151,
+    "highway|snow|none": 0.00077077,
+    "rural|snow|present": 0.00059059,
+    "highway|snow|present": 0.00021021,
+    "urban|snow|present": 0.00013013,
+    "national_road|rain|none": 5.005e-05,
+    "national_road|snow|none": 3.003e-05,
+    "tunnel|clear|none": 2.002e-05,
+    "national_road|clear|present": 1.001e-05,
+    "national_road|rain|present": 1.001e-05
+  },
+  "marginals": {
+    "road_type": {
+      "urban": 0.440834,
+      "rural": 0.400767,
+      "highway": 0.155957,
+      "national_road": 0.002422,
+      "tunnel": 2e-05
+    },
+    "weather": {
+      "clear": 0.932116,
+      "rain": 0.051946,
+      "snow": 0.015938
+    },
+    "fog": {
+      "none": 0.980477,
+      "present": 0.019523
+    },
+    "road_surface": {
+      "dry": 0.796419,
+      "wet": 0.190016,
+      "snow": 0.013565
+    }
+  }
+}

@@ -1,0 +1,13 @@
+road_type,weather,speed,prob
+highway,clear,high,0.62
+highway,clear,mid,0.35
+highway,clear,low,0.03
+highway,rain,high,0.40
+highway,rain,mid,0.52
+highway,rain,low,0.08
+urban,clear,low,0.55
+urban,clear,mid,0.40
+urban,clear,high,0.05
+urban,rain,low,0.68
+urban,rain,mid,0.30
+urban,rain,high,0.02
