@@ -37,8 +37,7 @@ AGENT = {"cars_only": 1.0, "mixed": 1.5, "cyclists": 3.0, "pedestrians": 4.0,   
          "emergency": 2.0}                                                        # severity
 DENSITY = {"sparse": 1.0, "moderate": 1.3, "dense": 1.6}                         # 충돌점 수
 SPEED = {"low": 1.0, "mid": 2.0, "high": 4.0}                                    # severity ∝ v² (v2 추가)
-CRIT_CAP = 500.0   # 다요인 누적 상한(design "cap/log 감쇠"). 7팩터 최대곱 ~480 → 거의 안 물려
-#                    랭킹 변별 유지. 잔여상관(road_type~speed 에너지 부분중복, 눈~저시야) 정식 감쇠는 후속.
+CRIT_CAP = 500.0   # 다요인 누적 상한(design "cap/log 감쇠"). 에너지블록 감쇠 후 최대곱 ~400 → 안 물려
 
 # 관측 6축 = phase0가 태깅함 → coverage 교차 대상. speed는 클립 미태깅(연속·비태깅, §12-R)
 # → crit 랭킹엔 넣되 coverage는 6축 투영(combo[:N_OBS])으로 본다.
@@ -49,13 +48,22 @@ N_OBS = len(OBS_AXES)
 
 
 def crit(combo, tables=TABLES):
-    """∏ 블록배수, forbidden=0, CRIT_CAP 상한. tables 주입 가능(sweep용)."""
+    """crit = (∏ 독립블록) × ENERGY(road_type, speed). forbidden=0, CRIT_CAP 상한.
+
+    잔여상관 감쇠: road_type·speed 둘 다 운동에너지 severity라 상관(고속도로↔고속) →
+    곱하면 '고에너지'를 이중계산. 대신 **가법 결합** ENERGY = m_road_type + m_speed − 1:
+      · 한쪽 baseline(=1)이면 다른쪽으로 환원 (urban×high→speed만, highway×low→road만)
+      · 겹치는 highway×high만 감쇠 (2×4=8 → 2+4−1=5)
+    나머지 5블록(weather·fog·lighting·agent·density)은 독립이라 그대로 곱.
+    (TABLES 순서 [road_type, w,f,l,ag,de, speed] 가정 — 위 정의부와 일치.)
+    tables 주입 가능(sweep용)."""
     rt, ag = combo[0], combo[4]
     if rt == "highway" and ag in ("pedestrians", "cyclists"):   # forbidden(법·물리)
         return 0.0
-    prod = 1.0
-    for v, tbl in zip(combo, tables):
-        prod *= tbl[v]
+    energy = tables[0][combo[0]] + tables[-1][combo[-1]] - 1.0  # road_type ⊕ speed (감쇠)
+    prod = energy
+    for i in range(1, 6):                                        # weather·fog·lighting·agent·density (독립)
+        prod *= tables[i][combo[i]]
     return min(prod, CRIT_CAP)
 
 
@@ -124,9 +132,9 @@ def main():
         "unobserved_high_crit": [dict(crit=round(cr, 2), combo=dict(zip(AXES, c)))
                                  for cr, c in unobs],
         "note": "최종 수집타겟 = analyze §8 exposure 누적영역 ∪ 위 collection_targets. "
-                "v2: speed축 추가(severity∝v²). 단 phase0 클립이 speed 미태깅 → coverage(n_self)는 "
-                "관측 6축 투영값이라 obs>0라도 해당 speed 보유 보장 못 함(§12-R speed 관측불가). "
-                "잔여 상관(road_type~speed 에너지 부분중복)·이웃 확률외삽은 후속(situation-coverage-grid).",
+                "v2: speed축 추가(severity∝v²) + road_type⊕speed 에너지블록 가법감쇠(이중계산 제거). "
+                "단 phase0 클립이 speed 미태깅 → coverage(n_self)는 관측 6축 투영값이라 obs>0라도 "
+                "해당 speed 보유 보장 못 함(§12-R speed 관측불가). 이웃 확률외삽은 후속(situation-coverage-grid).",
     }
     json.dump(report, open(os.path.join(OUT, "criticality.json"), "w"), ensure_ascii=False, indent=2)
     print(f"\n[OK] → output/criticality.json (top30 + 타겟 {len(blind)} + 미관측 {len(unobs)})")
@@ -139,6 +147,12 @@ def _selfcheck():
     assert crit(("urban", "snow", "none", "well_lit", "cars_only", "sparse", "low")) > crit(base)
     assert crit(("urban", "clear", "none", "poorly_lit", "cars_only", "sparse", "low")) > crit(base)
     assert crit(("urban", "clear", "none", "well_lit", "cars_only", "sparse", "high")) > crit(base)
+    # 잔여상관 감쇠: highway×high = 2+4−1=5 (곱 8 아님). urban×high = 1+4−1=4 (speed만).
+    hh = ("highway", "clear", "none", "well_lit", "cars_only", "sparse", "high")
+    uh = ("urban", "clear", "none", "well_lit", "cars_only", "sparse", "high")
+    assert abs(crit(hh) - 5.0) < 1e-9, crit(hh)
+    assert abs(crit(uh) - 4.0) < 1e-9, crit(uh)
+    assert crit(hh) < ROAD_TYPE["highway"] * SPEED["high"], "감쇠 안 됨(곱=8)"
     # forbidden
     assert crit(("highway", "clear", "none", "well_lit", "pedestrians", "sparse", "high")) == 0.0
     # cap
