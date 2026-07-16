@@ -35,16 +35,21 @@
 
 ## 1. 조달 파이프라인 (작동 상세는 README로)
 
-독립 실행형 스크립트 체인(1부 조달 4단계 + 2부 조립·선정). 메커니즘은 [`README.md`](README.md),
-계획·CSV 계약은 [`design.md`](../design.md) §3·§6 참조. 여기선 **실행 순서만**:
+독립 실행형 스크립트 체인(1부 조달 + 2부 조립·선정). 메커니즘은 [`README.md`](README.md),
+계획·CSV 계약은 [`design.md`](../design.md) §3·§6 참조.
 
+**디렉토리 구조** (2026-07-16 정리 — `paths.py`로 경로 일원화, one-shot 조달 vs 재사용 코어 분리):
 ```
-fetch_*.py        # API → raw/<source>/*   (사람이 키 세팅 후 실행)
-recon.py          # raw 샘플 게이팅 → recon/{availability.json, recon_report.md}
-transcribe_*.py   # raw 실값 → sources/*.csv (SUPPORTED 블록만)
-loader.py         # sources 8장 계약검증(합=1) → {block: 확률표}  (2부 진입점)
-compose→pself→analyze→validate→criticality→sweep   # 2부 조립·선정 (output/*.json)
+paths.py                     # 공용 절대경로(ROOT·RAW·SOURCES·OUTPUT·PHASE0) 1곳
+loader.py compose.py criticality.py   # 공유 코어(남이 import) — root 유지
+run_all.py  mapping.yaml
+procure/   # 1부 조달 one-shot: fetch_kma[_full]·fetch_ktdb·recon·transcribe_{vkt,hourly,weather}
+select/    # 2부 선정 컴퓨트: pself·analyze·validate·extrapolate·sweep
+raw/ sources/ recon/ output/          # 데이터
 ```
+실행 순서(개념): `fetch_* → recon → transcribe_* → loader(계약) → compose → pself → analyze
+→ validate → criticality → extrapolate → sweep`. 서브디렉토리 스크립트는 상단 1줄로 root를
+sys.path에 얹어 `import loader/compose/criticality` + `import paths`를 그대로 쓴다.
 
 **전체 실행 엔트리:** `python3 run_all.py` — 위 체인을 의존순서로 순차 실행(외부 raw/클립
 읽는 느린 단계는 산출물 있으면 캐시 스킵, 조립은 항상 재실행). `--force [단계]` 강제 재실행,

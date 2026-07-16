@@ -2,14 +2,14 @@
 
 > 이 문서 = 스크립트 *작동법*. 실제 실행기록·결과 현황·한계·향후는 [`RESULTS.md`](RESULTS.md).
 
-design.md는 파일 6개짜리 파이프라인(§12)을 그리지만, **지금 실행 가능한 코드는
-`recon.py`와 `loader.py` 둘뿐**이다. 둘 다 조달 파이프라인의 관문이고, 역할을 한 줄로
-나누면:
+design.md의 파이프라인(§12)은 **1부 조달(`procure/`) → 공유 코어 → 2부 선정(`select/`)까지
+전 구간 구현**됐다(현황·결과는 [RESULTS.md](RESULTS.md)). 이 문서는 그중 **조달 파이프라인의
+두 관문** recon·loader의 작동법을 설명한다:
 
-- **recon.py** = 데이터 받기 *전* 정찰관. "이 자료로 표를 만들 수 있나?"
-- **loader.py** = 데이터 받은 *후* 검사관. "채워진 표가 규칙을 지키나?"
+- **recon.py**(`procure/`) = 데이터 받기 *전* 정찰관. "이 자료로 표를 만들 수 있나?"
+- **loader.py**(root) = 데이터 받은 *후* 검사관. "채워진 표가 규칙을 지키나?"
 
-서로 순차 의존이 아니라 각각 따로 돌리는 독립 실행형(`python3 <file>`)이다.
+각각 단독 실행형이고, 그 아래·위 전 단계는 `run_all.py`가 의존순서로 잇는다.
 
 ```
 [사람이 소스 export]                      [사람이 실값 전사]
@@ -24,7 +24,7 @@ design.md는 파일 6개짜리 파이프라인(§12)을 그리지만, **지금 �
 **한 줄 목적:** 본격적으로 데이터를 긁어오기 전에, **각 기관 자료 샘플 1장만 열어보고
 → 내가 설계한 표(블록)를 채울 수 있는지 미리 정찰**한다.
 
-**실행:** `python3 recon.py`
+**실행:** `python3 procure/recon.py`
 
 ### 왜 필요한가
 
@@ -54,7 +54,7 @@ design.md는 8개 "블록"(= 조건부 확률표 한 장씩)을 설계했다. �
 
 ```
 1. apriori=HAND_ANCHOR 인가?            → 예: 바로 HAND_ANCHOR 찍고 끝 (최우선)
-2. raw_glob 샘플이 있나?                → 없음: NOT_OBTAINED       ← 지금 상태
+2. raw_glob 샘플이 있나?                → 없음: NOT_OBTAINED
 3. 헤더에서 필요한 role 컬럼 부분일치 검출  → 하나라도 없음: INSUFFICIENT
 4. 조건키(month,hour…)를 그 컬럼으로 만들 수 있나?
       다 됨: SUPPORTED / 일부만: LOW_RES
@@ -73,8 +73,8 @@ design.md는 8개 "블록"(= 조건부 확률표 한 장씩)을 설계했다. �
 - **`edge_max_tv`(조건부 필요성)** — "도로유형별로 시간분포가 정말 다른가"를 숫자로 잰다.
   거의 같으면(TV < 0.05) 조건 나눌 필요 없이 합쳐도 됨(단순화 신호), 다르면 조건부 정당.
 
-**현재 상태:** `raw/`가 아직 없어 데이터 5블록은 `NOT_OBTAINED`, apriori 3블록
-(P4_speed/P3_agent/P5_lighting)만 `HAND_ANCHOR`. → 실조달 이전 단계.
+> 게이트 판정 최신값은 생성물 `recon/recon_report.md`·`availability.json`이 정답,
+> 현황 요약은 [RESULTS.md](RESULTS.md) §0. (KMA·KTDB 실데이터 조달·전사 완료 상태.)
 
 ## ② loader.py — 조달 *후* CSV 계약 검증 + 확률표 노출
 
@@ -101,33 +101,42 @@ CSV는 사람이 손으로 전사하다 오타·누락이 나기 쉽다. 특히 
 3. 다 통과하면 `load_all()`이 `{블록이름: 확률표}` 형태로 반환 —
    이게 **2부(compose.py)가 받을 유일한 입력**이다.
 
-**현재 상태:** `sources/*.csv`(design.md 예시값)로 8블록 전부 계약 통과.
 `P1_fog`(안개)만 "있음/없음"을 재는 독립 축이라 합=1 규칙에서 예외(`sum1=False`).
+계약 통과 현황(현재 8블록 전부 통과)은 [RESULTS.md](RESULTS.md) §0 참조.
 
 ## 실행 방법
+
+> 코드 정리(2026-07): 조달 one-shot은 `procure/`, 2부 선정은 `select/`, 공유 코어
+> (loader·compose·criticality)·run_all·`paths.py`는 root. 경로는 `paths.py`가 일원화.
+> 전체는 `python3 run_all.py`(RESULTS §1). 개별 실행 예:
 
 ```bash
 cd .../EXP-003/phase1/exposure
 
-python3 recon.py      # 조달 전: 소스 게이팅 → recon/ 갱신
-python3 loader.py     # 조달 후: CSV 8장 계약 검증 + 확률표 로드
+python3 procure/recon.py   # 조달 전: 소스 게이팅 → recon/ 갱신
+python3 loader.py          # 조달 후: CSV 8장 계약 검증 + 확률표 로드
+python3 run_all.py         # 전체 파이프라인(조달→선정)
 ```
 
-- **필요한 것:** 추가 설치 없음. 파이썬 표준 라이브러리(`csv/glob/json/statistics/
-  collections`)만 쓴다. `mapping.yaml`은 코드가 읽지 않는 사람용 근거 문서다.
-- **어디서 실행하나:** 두 파일 다 자기 위치 기준 경로라 아무 데서나 돌아가지만,
-  `recon.py`가 같은 폴더의 `loader`를 불러오므로 **`exposure/` 안에서 실행**하는 게 안전.
+- **필요한 것:** 추가 설치 없음. 표준 라이브러리(`csv/glob/json/statistics/collections`)만.
+  `mapping.yaml`은 코드가 읽지 않는 사람용 근거 문서다.
+- **어디서 실행하나:** 스크립트는 `__file__` 기준 절대경로(`paths.py`)라 cwd 무관하게 돈다.
+  서브디렉토리 스크립트는 상단 1줄로 root를 sys.path에 얹어 코어를 import한다.
 - **성공/실패 판별:** 정상 종료면 0, `loader` 계약 위반이면 1로 멈춘다. 코드 자체 자가진단
   (self-check)이 깨지면 `AssertionError`로 죽는다 → 그대로 CI 검사에 붙일 수 있다.
 
-## 실제 소스로 돌리려면 (지금은 예시값 단계)
+## 소스 재조달·갱신 흐름
 
-지금 `sources/*.csv`는 design.md에 적힌 **형식 예시값**이고 `raw/`는 비어 있다.
-실데이터로 채우려면:
+`sources/*.csv`의 데이터 블록(KMA weather/fog·KTDB w_vkt/w_hourly)은 **실데이터 전사 완료**.
+소스를 갱신하거나 새로 받으려면:
 
-1. `raw/{kma,ktdb,koroad,kasi}/`에 각 기관에서 받은 샘플 1장씩 넣고 → `recon.py` 재실행.
-2. `SUPPORTED` 도장이 찍힌 블록만 실값을 `sources/*.csv`에 옮겨 적고 → `loader.py`로 검사.
-3. 그다음 조립·분석 단계(strata / compose / analyze / validate, design.md §12)는 **아직 미구현**.
+1. `procure/fetch_*.py`(키 필요) 또는 수동 export로 `raw/{kma,ktdb}/`에 조달 → `procure/recon.py` 재실행.
+2. `SUPPORTED` 블록만 `procure/transcribe_*.py`로 `sources/*.csv` 전사 → `loader.py` 계약 검사.
+3. 조립·선정(compose→pself→analyze→validate→criticality→extrapolate→sweep, design §12)은
+   **구현 완료** → `python3 run_all.py`로 일괄 실행.
+
+손앵커 4블록(P4_speed·P3_agent·P3_density·P5_lighting)은 데이터 부재 축이라 `sources/*.csv`가
+손지정값이다(§11 스윕으로 방어). 미조달·한계(지방도 등)는 [RESULTS.md](RESULTS.md) §3.
 
 ## 참고 — recon은 "발견"이 아니라 "확인" 도구다
 

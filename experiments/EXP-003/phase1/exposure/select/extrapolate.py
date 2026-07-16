@@ -16,10 +16,11 @@ situation-coverage-grid.md(arXiv 2507.12158): 미관측 셀을 '발생 0/위험 
 import itertools
 import json
 import os
+import sys
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import criticality as C
-
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
+from paths import OUTPUT as OUT
 PLAUSIBLE_MIN = 10.0     # 이웃 평균 관측 이 이상 → '실제 발생 유력(수집 갭)', 미만 → '희소(합성)'
 
 

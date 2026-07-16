@@ -20,9 +20,8 @@ import json
 import os
 
 import loader
+from paths import OUTPUT as OUT
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "output")
 MONTHS = range(1, 13)
 HOURS = range(24)
 SURFACE = {"clear": "dry", "rain": "wet", "snow": "snow"}   # §5-2 결정적(ρ=v1)

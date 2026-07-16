@@ -22,19 +22,19 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 # (이름, 스크립트, 산출물 마커, cache=산출물 있으면 스킵, fetch=--fetch일 때만)
 STAGES = [
-    ("fetch_kma_full", "fetch_kma_full.py", "raw/kma/asos_hourly.csv", True,  True),
-    ("fetch_ktdb",     "fetch_ktdb.py",     "raw/ktdb/vkt_sample.csv", True,  True),
-    ("recon",          "recon.py",          "recon/availability.json", True,  False),
-    ("transcribe_vkt", "transcribe_vkt.py", "sources/vkt_weight.csv",  True,  False),
-    ("transcribe_hourly", "transcribe_hourly.py", "sources/hourly_profile.csv", True, False),
-    ("transcribe_weather", "transcribe_weather.py", "sources/weather_P1.csv", True, False),
-    ("compose",        "compose.py",        "output/P_ext.json",       False, False),
-    ("pself",          "pself.py",          "output/P_self.json",      True,  False),
-    ("analyze",        "analyze.py",        "output/analysis.json",    False, False),
-    ("validate",       "validate.py",       None,                      False, False),  # 게이트
-    ("criticality",    "criticality.py",    "output/criticality.json", True,  False),
-    ("extrapolate",    "extrapolate.py",    "output/extrapolation.json", False, False),
-    ("sweep",          "sweep.py",          "output/sweep.json",       False, False),
+    ("fetch_kma_full", "procure/fetch_kma_full.py", "raw/kma/asos_hourly.csv", True,  True),
+    ("fetch_ktdb",     "procure/fetch_ktdb.py",     "raw/ktdb/vkt_sample.csv", True,  True),
+    ("recon",          "procure/recon.py",          "recon/availability.json", True,  False),
+    ("transcribe_vkt", "procure/transcribe_vkt.py", "sources/vkt_weight.csv",  True,  False),
+    ("transcribe_hourly", "procure/transcribe_hourly.py", "sources/hourly_profile.csv", True, False),
+    ("transcribe_weather", "procure/transcribe_weather.py", "sources/weather_P1.csv", True, False),
+    ("compose",        "compose.py",             "output/P_ext.json",       False, False),
+    ("pself",          "select/pself.py",        "output/P_self.json",      True,  False),
+    ("analyze",        "select/analyze.py",      "output/analysis.json",    False, False),
+    ("validate",       "select/validate.py",     None,                      False, False),  # 게이트
+    ("criticality",    "criticality.py",         "output/criticality.json", True,  False),
+    ("extrapolate",    "select/extrapolate.py",  "output/extrapolation.json", False, False),
+    ("sweep",          "select/sweep.py",        "output/sweep.json",       False, False),
 ]
 
 

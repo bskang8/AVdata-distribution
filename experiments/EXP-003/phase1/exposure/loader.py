@@ -12,7 +12,8 @@ CSV 교체 한 번(코드 무변경). 2부(compose.py 등)는 여기서 나온 �
 import csv
 import os
 
-SOURCES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sources')
+from paths import SOURCES as SOURCES_DIR
+
 SUM_TOL = 0.01   # prob 합=1 허용오차 (손전사 반올림 흡수)
 
 # 파일명 → 블록 구조. keys=조건키 컬럼, cat=분포되는 축 컬럼(None=독립축),

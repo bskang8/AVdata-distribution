@@ -9,44 +9,51 @@
   "criticality_sweep": [
     {
       "block": "road_type",
-      "min_jaccard": 0.875,
-      "min_spearman": 0.997,
-      "worst_factor": 1.3,
-      "verdict": "⚠️ 주의"
+      "min_jaccard": 0.935,
+      "min_spearman": 0.999,
+      "worst_factor": 0.7,
+      "verdict": "✅ Robust"
     },
     {
       "block": "weather",
       "min_jaccard": 0.818,
-      "min_spearman": 0.995,
+      "min_spearman": 0.996,
       "worst_factor": 0.7,
       "verdict": "⚠️ 주의"
     },
     {
       "block": "fog",
-      "min_jaccard": 0.818,
-      "min_spearman": 0.995,
-      "worst_factor": 0.7,
+      "min_jaccard": 0.875,
+      "min_spearman": 0.996,
+      "worst_factor": 1.3,
       "verdict": "⚠️ 주의"
     },
     {
       "block": "lighting",
       "min_jaccard": 0.818,
-      "min_spearman": 0.995,
+      "min_spearman": 0.996,
       "worst_factor": 0.7,
       "verdict": "⚠️ 주의"
     },
     {
       "block": "agent_type",
       "min_jaccard": 0.875,
-      "min_spearman": 0.994,
+      "min_spearman": 0.996,
       "worst_factor": 0.7,
       "verdict": "⚠️ 주의"
     },
     {
       "block": "traffic_density",
-      "min_jaccard": 0.818,
-      "min_spearman": 0.998,
-      "worst_factor": 1.3,
+      "min_jaccard": 0.935,
+      "min_spearman": 0.999,
+      "worst_factor": 0.7,
+      "verdict": "✅ Robust"
+    },
+    {
+      "block": "speed",
+      "min_jaccard": 0.875,
+      "min_spearman": 0.995,
+      "worst_factor": 0.7,
       "verdict": "⚠️ 주의"
     }
   ],

@@ -21,14 +21,18 @@ dtype 1:고속도로 2:일반도로 3:지방도 5:국가지원지방도.
 import csv
 import json
 import os
+import sys
 import time
 import urllib.parse
 import urllib.request
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import RAW
+
 BASE = "https://apis.data.go.kr/1613000/KictTmsStat/itmsh_yearly"
 YEAR = 2023
 DTYPE = {1: "고속도로", 2: "일반도로", 3: "지방도", 5: "국가지원지방도"}
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "raw", "ktdb")
+OUT = os.path.join(RAW, "ktdb")
 
 
 def _get(url, tries=4):

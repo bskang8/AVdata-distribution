@@ -23,12 +23,15 @@ raw는 관측소×매시간 낱개 기록 (tm,stn,ta,rn,vs). 이를 (월,시)별
 """
 import csv
 import os
+import sys
 from collections import defaultdict
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "raw", "kma", "asos_hourly.csv")
-OUT_W = os.path.join(HERE, "sources", "weather_P1.csv")
-OUT_F = os.path.join(HERE, "sources", "fog_P1.csv")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import RAW, SOURCES
+
+SRC = os.path.join(RAW, "kma", "asos_hourly.csv")
+OUT_W = os.path.join(SOURCES, "weather_P1.csv")
+OUT_F = os.path.join(SOURCES, "fog_P1.csv")
 
 WEATHERS = ["clear", "rain", "snow"]   # 고정 출력 순서
 FOG_VIS_M = 1000                        # 시정 임계(m), mapping.yaml §5-1

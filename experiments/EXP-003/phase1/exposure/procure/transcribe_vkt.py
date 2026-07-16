@@ -10,11 +10,14 @@ keys=[]이므로 전 행 합=1. grade→road_type는 mapping.yaml §5-3.
 """
 import csv
 import os
+import sys
 from collections import defaultdict
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "raw", "ktdb", "vkt_sample.csv")
-OUT = os.path.join(HERE, "sources", "vkt_weight.csv")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import RAW, SOURCES
+
+SRC = os.path.join(RAW, "ktdb", "vkt_sample.csv")
+OUT = os.path.join(SOURCES, "vkt_weight.csv")
 
 GRADE2ROAD = {          # mapping.yaml §5-3
     "고속도로": "highway",

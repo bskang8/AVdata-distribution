@@ -10,6 +10,10 @@
 
 실행: python3 validate.py   (터지지 않으면 통과)
 """
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import compose
 import loader
 

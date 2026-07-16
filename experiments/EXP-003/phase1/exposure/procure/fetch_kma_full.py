@@ -13,13 +13,17 @@ weather_P1/fog_P1 전사(집계)용 실데이터. (월,시)당 다수일이 필�
 import calendar
 import csv
 import os
+import sys
 import time
 import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import RAW
 
 API = "https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php"
 IDX = dict(tm=0, stn=1, ta=11, rn=15, vs=32)   # help=1 스키마 (전 행 46토큰 고정)
 YEARS = [2022, 2023, 2024]                      # 완결 3개년 (오늘 2026-07 기준 과거)
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "raw", "kma")
+OUT = os.path.join(RAW, "kma")
 PATH = os.path.join(OUT, "asos_hourly.csv")
 
 

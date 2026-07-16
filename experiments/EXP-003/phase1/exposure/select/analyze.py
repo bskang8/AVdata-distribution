@@ -11,10 +11,12 @@ design §9: P_self(phase0 재집계, pself.py) 대조.
 """
 import json
 import os
+import sys
 from collections import defaultdict
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "output")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import OUTPUT as OUT
+
 PEXT_AXES = ["road_type", "weather", "fog", "road_surface"]
 JOINT_AXES = ["road_type", "weather", "fog"]
 

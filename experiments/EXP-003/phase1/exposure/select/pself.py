@@ -15,10 +15,8 @@ import os
 import sys
 from collections import Counter
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "output")
-PHASE0 = os.path.abspath(os.path.join(HERE, "..", "..", "phase0"))
-sys.path.insert(0, PHASE0)
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import OUTPUT as OUT                                # import 시 phase0도 sys.path에 얹힘
 from step_a_odd_coverage import _flatten_final, _SURFACE_MAP   # noqa: E402  phase0 무수정 재사용
 from config import ODD_DIR                                     # noqa: E402
 

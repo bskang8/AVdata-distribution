@@ -11,11 +11,15 @@ TM=0, STN=1, TA=11(기온), RN=15(강수), VS=32(시정).  전 행 46토큰 고�
 """
 import csv
 import os
+import sys
 import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from paths import RAW
 
 API = "https://apihub.kma.go.kr/api/typ01/url/kma_sfctm2.php"
 IDX = dict(tm=0, stn=1, ta=11, rn=15, vs=32)   # help=1 스키마
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "raw", "kma")
+OUT = os.path.join(RAW, "kma")
 
 # 대표 샘플: 2022년 각 월 15일, 08시/19시 (월·시 변동 확인용). YYYYMMDDHHMM(12자리).
 # 늘리려면 여기만 수정. ⚠️ tm이 malformed/미래면 API가 '현재시각'을 반환하므로 12자리 엄수.

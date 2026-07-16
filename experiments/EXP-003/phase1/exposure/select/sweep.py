@@ -13,13 +13,14 @@
 """
 import json
 import os
+import sys
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import compose
 import criticality as C
 import loader
+from paths import OUTPUT as OUT
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "output")
 TOPK = 30
 FACTORS = (0.7, 1.3)
 

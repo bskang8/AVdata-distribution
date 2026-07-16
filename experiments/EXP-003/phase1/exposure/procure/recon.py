@@ -13,13 +13,16 @@ import csv
 import glob
 import json
 import os
+import sys
 from collections import defaultdict
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import loader  # phase1 내부 — §2 구조 prior 재사용
+from paths import ROOT
 
 # loader.BLOCKS는 파일명 keyed → 블록명 keyed로 뒤집어 재사용
 BY_NAME = {spec['block']: spec for spec in loader.BLOCKS.values()}
-HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = ROOT          # raw/·recon/ 이 있는 exposure 루트 (recon 스크립트는 procure/ 하위)
 EDGE_TV_EPS = 0.05   # 부모 조건부 분포 차이 이 미만 → 엣지 삭제 후보
 
 # needs_key → 이 role이 있으면 그 키를 만들 수 있음

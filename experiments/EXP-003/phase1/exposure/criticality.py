@@ -18,13 +18,9 @@ traffic_density}. (speed는 phase0 compat에 없어 v1 제외 → 고속 severit
 import itertools
 import json
 import os
-import sys
 from collections import Counter
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "output")
-PHASE0 = os.path.abspath(os.path.join(HERE, "..", "..", "phase0"))
-sys.path.insert(0, PHASE0)
+from paths import OUTPUT as OUT   # import 시 phase0도 sys.path에 얹힘(step_a·config용)
 
 # ── 값별 배수 = published 통계 앵커 (coverage-vs-sufficiency.md) ──────────────
 # likelihood 블록 (지각저하·충돌기하). severity 블록 (운동에너지·취약성).
