@@ -125,6 +125,7 @@ compose→pself→analyze→validate→criticality→sweep   # 2부 조립·선�
 | 2026-07-16 | **full-joint P_self 배선 완료**(`pself.py`) | 10만 클립 재집계. §9가 결합단위로 상승 → national_road×* 심각 과소, highway×악천후 과수집이 조합해상도로 드러남 |
 | 2026-07-16 | **§10 criticality 완료**(`criticality.py`) | published 배수 손위험모델. 최상위 고위험(VRU×겨울밤×저시야)이 전부 미관측 → 수집·합성 타겟 623개 도출 |
 | 2026-07-16 | **§11 sweep 실행**(`sweep.py`) — 스윕 대상 §6노브→crit배수로 정정 | compose가 손앵커 marginalize → 소스 스윕은 exposure에 무의미(불변 assert로 증명). 손값이 무는 곳은 crit 배수뿐 → 그걸 스윕(전부 주의, Fragile 없음) |
+| 2026-07-16 | **criticality v2 speed축 추가** | severity∝v²는 핵심 위험요인. 단 phase0 speed 미태깅 → coverage는 관측 6축 투영(speed 보유 확인 불가, §12-R gap). road_type~speed 에너지 부분중복은 잔여상관으로 표기 |
 
 ---
 
@@ -155,7 +156,10 @@ compose→pself→analyze→validate→criticality→sweep   # 2부 조립·선�
   → `output/sweep.json`. **설계 정정**: 손앵커 소스는 exposure에 Robust by construction이라 실제
   스윕 대상은 §6 노브가 아니라 §10 crit 배수였음.
 - [x] 손앵커 4블록 **민감도 스윕 설계** → §6 부록.
-- [ ] criticality v2 — speed축(현 미관측→고속 severity 과소)·이웃 확률외삽(situation-coverage-grid).
+- [x] `criticality.py` **v2 — speed축 추가**(2026-07-16). severity∝v²(low1·mid2·high4), 7축
+  2916조합. 최상위=`national_road×snow×fog×poorly_lit×보행자×dense×high`(crit480). sweep도 speed
+  자동 포함(주의, Fragile 없음). ⚠️ phase0 speed 미태깅 → coverage는 관측 6축 투영(§12-R gap).
+- [ ] criticality 후속 — 이웃 확률외삽(situation-coverage-grid)·잔여상관(road_type~speed) 감쇠.
 - [ ] region/계절 층화, Dirichlet CI(§13-R 게이트 B) 등 정밀화(트리거 시).
 - [ ] road_type 2/4 한계(①)로 P_ext에 urban·rural 부재 → self는 urban/rural이 다수(축 커버 갭).
 

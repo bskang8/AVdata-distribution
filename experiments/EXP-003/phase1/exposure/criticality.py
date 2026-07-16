@@ -36,16 +36,21 @@ LIGHTING = {"well_lit": 1.0, "moderate": 1.5, "poorly_lit": 2.5}                
 AGENT = {"cars_only": 1.0, "mixed": 1.5, "cyclists": 3.0, "pedestrians": 4.0,    # Rosén&Sander VRU
          "emergency": 2.0}                                                        # severity
 DENSITY = {"sparse": 1.0, "moderate": 1.3, "dense": 1.6}                         # 충돌점 수
-CRIT_CAP = 200.0   # 다요인 누적 상한(design "cap/log 감쇠"). 현 표 최대곱 ~120이라 거의 안 물림
-#                    = 랭킹 변별 유지. 잔여 상관(눈~저시야~저조도) 정식 감쇠는 v2. 안전 상한만 둠.
+SPEED = {"low": 1.0, "mid": 2.0, "high": 4.0}                                    # severity ∝ v² (v2 추가)
+CRIT_CAP = 500.0   # 다요인 누적 상한(design "cap/log 감쇠"). 7팩터 최대곱 ~480 → 거의 안 물려
+#                    랭킹 변별 유지. 잔여상관(road_type~speed 에너지 부분중복, 눈~저시야) 정식 감쇠는 후속.
 
-AXES = ["road_type", "weather", "fog", "lighting", "agent_type", "traffic_density"]
-TABLES = [ROAD_TYPE, WEATHER, FOG, LIGHTING, AGENT, DENSITY]
+# 관측 6축 = phase0가 태깅함 → coverage 교차 대상. speed는 클립 미태깅(연속·비태깅, §12-R)
+# → crit 랭킹엔 넣되 coverage는 6축 투영(combo[:N_OBS])으로 본다.
+OBS_AXES = ["road_type", "weather", "fog", "lighting", "agent_type", "traffic_density"]
+AXES = OBS_AXES + ["speed"]
+TABLES = [ROAD_TYPE, WEATHER, FOG, LIGHTING, AGENT, DENSITY, SPEED]
+N_OBS = len(OBS_AXES)
 
 
 def crit(combo, tables=TABLES):
     """∏ 블록배수, forbidden=0, CRIT_CAP 상한. tables 주입 가능(sweep용)."""
-    rt, we, fo, li, ag, de = combo
+    rt, ag = combo[0], combo[4]
     if rt == "highway" and ag in ("pedestrians", "cyclists"):   # forbidden(법·물리)
         return 0.0
     prod = 1.0
@@ -82,7 +87,7 @@ def pself_coverage():
         if "unknown" not in key:
             cnt[key] += 1
     os.makedirs(OUT, exist_ok=True)
-    json.dump({"axes": AXES, "n_clips": n,
+    json.dump({"axes": OBS_AXES, "n_clips": n,          # 관측 6축(speed 미포함)
                "counts": {"|".join(k): v for k, v in cnt.most_common()}},
               open(cache, "w"), ensure_ascii=False, indent=2)
     return dict(cnt), n
@@ -91,7 +96,8 @@ def pself_coverage():
 def main():
     cov, n_clips = pself_coverage()
     combos = [c for c in itertools.product(*[t.keys() for t in TABLES]) if crit(c) > 0]
-    scored = sorted(((crit(c), cov.get(c, 0), c) for c in combos), key=lambda x: -x[0])
+    # coverage는 관측 6축 투영(combo[:N_OBS]) — speed는 클립 미태깅이라 speed별 구분 불가
+    scored = sorted(((crit(c), cov.get(c[:N_OBS], 0), c) for c in combos), key=lambda x: -x[0])
 
     print(f"=== §10 criticality ({len(combos)}개 유효조합, forbidden 제외) ===")
     print(f"  P_self coverage: {n_clips:,}클립, 관측된 crit조합 {sum(1 for _,n,_ in scored if n>0)}/{len(combos)}")
@@ -118,22 +124,25 @@ def main():
         "unobserved_high_crit": [dict(crit=round(cr, 2), combo=dict(zip(AXES, c)))
                                  for cr, c in unobs],
         "note": "최종 수집타겟 = analyze §8 exposure 누적영역 ∪ 위 collection_targets. "
-                "speed축 v1 제외(phase0 미관측)→고속 severity 과소. 이웃-외삽은 v2(situation-coverage-grid).",
+                "v2: speed축 추가(severity∝v²). 단 phase0 클립이 speed 미태깅 → coverage(n_self)는 "
+                "관측 6축 투영값이라 obs>0라도 해당 speed 보유 보장 못 함(§12-R speed 관측불가). "
+                "잔여 상관(road_type~speed 에너지 부분중복)·이웃 확률외삽은 후속(situation-coverage-grid).",
     }
     json.dump(report, open(os.path.join(OUT, "criticality.json"), "w"), ensure_ascii=False, indent=2)
     print(f"\n[OK] → output/criticality.json (top30 + 타겟 {len(blind)} + 미관측 {len(unobs)})")
 
 
 def _selfcheck():
-    # 단조성: VRU>차량, 눈>맑음, 야간>주간
-    base = ("urban", "clear", "none", "well_lit", "cars_only", "sparse")
-    assert crit(("urban", "clear", "none", "well_lit", "pedestrians", "sparse")) > crit(base)
-    assert crit(("urban", "snow", "none", "well_lit", "cars_only", "sparse")) > crit(base)
-    assert crit(("urban", "clear", "none", "poorly_lit", "cars_only", "sparse")) > crit(base)
+    # 단조성: VRU>차량, 눈>맑음, 야간>주간, 고속>저속 (7축, 끝에 speed)
+    base = ("urban", "clear", "none", "well_lit", "cars_only", "sparse", "low")
+    assert crit(("urban", "clear", "none", "well_lit", "pedestrians", "sparse", "low")) > crit(base)
+    assert crit(("urban", "snow", "none", "well_lit", "cars_only", "sparse", "low")) > crit(base)
+    assert crit(("urban", "clear", "none", "poorly_lit", "cars_only", "sparse", "low")) > crit(base)
+    assert crit(("urban", "clear", "none", "well_lit", "cars_only", "sparse", "high")) > crit(base)
     # forbidden
-    assert crit(("highway", "clear", "none", "well_lit", "pedestrians", "sparse")) == 0.0
+    assert crit(("highway", "clear", "none", "well_lit", "pedestrians", "sparse", "high")) == 0.0
     # cap
-    assert crit(("highway", "snow", "present", "poorly_lit", "emergency", "dense")) <= CRIT_CAP
+    assert crit(("national_road", "snow", "present", "poorly_lit", "pedestrians", "dense", "high")) <= CRIT_CAP
     print("[OK] criticality self-check 통과")
 
 
