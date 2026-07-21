@@ -393,36 +393,131 @@ $$\underbrace{w_i = 1-\bar s_i}_{\textbf{soft}}\qquad\qquad \underbrace{w_i = \t
 
 ---
 
-## 3 · Vendi 3전략 — 중복 vs 커버리지
+## 3 · Vendi — 계산 원리
 
-| 전략 | Vendi | 의미 |
-|------|------:|------|
-| random (현재 분포) | 3.530 | 모델이 실제로 받는 다양성 |
-| dedup (중복 완전 제거) | 3.636 | +0.106 (**+3.0%**) |
-| topk (커버리지 확장 상한) | 4.745 | +1.215 (**+34.4%**) |
+<style scoped>
+.flow{font-size:10pt;line-height:1.65;margin-top:4px}
+.flow b{color:#001F60}.flow .h{color:#00586F;font-weight:700;font-size:11pt}
+.scale{font-size:9pt;color:#3a3f47;margin:6px 0 0;line-height:1.55;text-align:center;background:#f6f8fb;border:1px solid #e1e8f0;border-radius:7px;padding:6px 12px}.scale b{color:#001F60}
+.bridge{background:#f2f7fb;border:1px solid #cddcee;border-radius:10px;padding:8px 14px;margin:2px 0 6px}
+.bridge .bt{text-align:center;font-size:9.5pt;color:#001F60;margin-bottom:7px}
+.bridge .bg{display:flex;align-items:stretch;gap:8px;justify-content:center}
+.bridge .bs{flex:1;background:#fff;border:1px solid #d5dce6;border-radius:8px;padding:7px 11px;font-size:9pt;color:#333}
+.bridge .bs .n{font-family:monospace;font-weight:700;color:#00586F;font-size:9.5pt}
+.bridge .bs .d{font-size:8pt;color:#5f6470;margin-top:3px;line-height:1.4}
+.bridge .bs .fn{display:block;color:#8a8f98;font-size:7.4pt;margin-top:2px}
+.bridge .bs b{color:#001F60}
+.bridge .ar{display:flex;align-items:center;color:#00586F;font-weight:700;font-size:15pt}
+.bridge .ba{margin-top:8px;font-size:8.7pt;color:#3a3f47;line-height:1.5;background:#fffdf5;border:1px solid #ecdcbf;border-radius:6px;padding:7px 11px}
+.bridge .ba b{color:#001F60}
+.step{color:#00586F;font-weight:700;font-size:11pt;margin:20px 0 6px;padding-left:9px;border-left:4px solid #00586F}
+.step:first-of-type{margin-top:8px}
+.step .sub{color:#5f6470;font-weight:600;font-size:9.5pt}
+.k ul{margin:2px 0 0;padding-left:18px;font-size:9.5pt;line-height:1.5}.k li{margin:1.5px 0}.k b{color:#001F60}.k code{font-size:.9em}
+.k .kd{font-size:8.5pt;color:#5f6470;margin-top:5px}.k .kd b{color:#001F60}
+.stab{font-size:9pt;color:#5f6470;margin:2px 0 0;line-height:1.5}.stab b{color:#001F60}
+</style>
 
-<div class="kpi-row">
-<div class="kpi"><div class="v">11.5×</div><div class="l">커버리지 문제가 중복 문제보다<br>11.5배 더 큰 원인</div></div>
-<div class="kpi"><div class="v">1.030</div><div class="l">억압 계수 — 중복 완전 제거해도<br>3.0% 향상에 그침</div></div>
+<div class="step">① 유사도 표(커널 K) 만들기</div>
+
+<div class="k">
+<ul>
+<li><b>뽑기</b> — 10만 전부는 너무 커(10만² 불가) → <b>임의 2,000개 클립</b> 추출(<b>Nyström</b> 근사)</li>
+<li><b>비교</b> — 2,000개 벡터(bge-m3, L2정규화)를 <b>서로서로 코사인 유사도</b> → <b>2000×2000 표 K</b></li>
+<li><b>의미</b> — <code>K[i,j]</code> = "클립 i·j가 얼마나 닮았나" (1=똑같음 · 0=무관 · 대각선=자기=1)</li>
+</ul>
+<div class="kd">🔎 <b>직관</b>: K = "닮음 지도". 닮은 클립 많음 → 행/열 평행 → <b>랭크 낮음</b> → 다음 단계 <b>고유값 λ가 소수 축에 쏠림</b>. <span style="color:#8a8f98">(Effective N과 같은 임베딩, 보는 각도만: 개별 이웃 → 전체 스펙트럼)</span></div>
 </div>
 
-> **중복 제거보다 새 시나리오 수집·합성이 ~10배 효과적.**
+<div class="step">② 이 표 K에서 다양성 뽑기 <span class="sub">— 아래 수식으로 계산</span></div>
+
+<div style="text-align:center;margin:2px 0 4px">
+
+$$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bigr),\qquad p_i=\frac{\lambda_i}{\sum_j \lambda_j}\ \ (\lambda=\text{유사도 커널 }K\text{의 고유값})$$
+
+</div>
+
+<div class="bridge">
+<div class="bt">K의 고유값 <b>λ</b>를 3토막으로 읽으면 위 수식이 곧 <b>"독립 방향 수"</b></div>
+<div class="bg">
+<div class="bs"><span class="n">λᵢ</span> : 방향별 <b>크기</b><div class="d">각 독립 축에 데이터가 퍼진 정도(에너지). 큰 λ = 그 방향에 데이터가 몰림.</div></div>
+<div class="ar">→</div>
+<div class="bs"><span class="n">pᵢ = λᵢ/Σλ</span> : 방향별 <b>비중</b><div class="d">합=1로 정규화 → "전체 다양성 중 이 방향이 차지하는 몫".</div></div>
+<div class="ar">→</div>
+<div class="bs"><span class="n">exp(H)</span> : <b>"균등 몇 개짜리와 맞먹나"</b>로 환산<div class="d">균등 4방향 → <b>4</b> · 한 방향 97% 쏠림 → <b>≈1</b> ⇒ <b>실제로 일하는 방향 수</b><span class="fn">∵ 지배항 ln0.97≈0 · 1%항은 비중에 눌림 ⇒ H≈0 ⇒ exp(H)≈1</span></div></div>
+</div>
+<div class="ba">🔑 <b>"균등하게 k개면 정확히 k"</b> → 그래서 exp(H)는 "실질적으로 몇 개 방향인가"를 재는 <b>soft 카운트</b>다. 주사위가 고르면 6, 한 눈에 쏠리면 ≈1로 나오는 <b>'유효 선택지 수'</b>와 같은 원리(= Hill number·유효 종 수).</div>
+</div>
+
+<div class="scale">📏 <b>Vendi 눈금</b> — 모든 클립 동일 → <b>1</b> · k개 독립 그룹(균등) → <b>k</b> · 2,000개 전부 독립 → <b>2000</b> &nbsp;|&nbsp; 고유값이 <b>소수에 쏠릴수록 값↓</b>(좁은 공간) · <b>고를수록 값↑</b>(넓은 커버리지)</div>
+
+<div class="step">③ 안정화 <span class="sub">— 재현 가능한 값인가</span></div>
+
+<div class="stab">앵커 2,000개를 다시 뽑아 여러 번 반복, run 간 <b>표준오차/평균 &lt; 2%</b>면 수렴 → 샘플링에 흔들리지 않는 안정값 (이번 3전략 모두 5회 만에 수렴, Sequential Stopping Rule).</div>
 
 ---
 
-## 3 · 두 지표는 상보적
+## 3 · Vendi — 목적 · 결과 · 해석
 
-| 지표 | 질문 | 관점 |
-|------|------|------|
-| **Effective N** | 중복 안 된 샘플이 몇 개? | 로컬 (개별 밀도) |
-| **Vendi** | 독립 의미 방향이 몇 개? | 글로벌 (스펙트럼) |
+<style scoped>
+.stack{display:flex;flex-direction:column;gap:11px}
+.purpose{font-size:10pt;line-height:1.45}.purpose b{color:#001F60}
+.h{color:#00586F;font-weight:700;font-size:11pt}
+.hero{background:#f2f7fb;border:1.5px solid #bcd6e6;border-radius:12px;padding:13px 18px}
+.hero .lbl{display:block;text-align:center;color:#00586F;font-weight:700;font-size:12pt}
+.hero .method{text-align:center;font-size:8.7pt;color:#5f6470;margin:5px 0 0}.hero .method b{color:#001F60}
+.stats{display:flex;justify-content:center;gap:34px;align-items:flex-end;margin:8px 0 4px}
+.stat{text-align:center}
+.stat .num{font-size:30pt;font-weight:800;color:#001F60;line-height:.95}
+.stat .num.up{color:#1a7f5a}
+.stat .cap{font-size:9pt;color:#444;margin-top:2px}.stat .cap b{color:#001F60}
+.hero .why{border-top:1px dashed #bcd6e6;margin-top:10px;padding-top:9px;font-size:8.5pt;line-height:1.5;color:#3a3f47}.hero .why b{color:#001F60}.hero .why code{font-size:.92em}
+.hero .why ul{margin:4px 0 2px;padding-left:16px}.hero .why li{margin:1.5px 0}.hero .why .src{color:#8a8f98}
+.merge{font-size:8.5pt;line-height:1.45;background:#eef4fb;border:1px solid #cddcee;border-radius:8px;padding:9px 13px}
+.merge .t{color:#00586F;font-weight:700}.merge b{color:#001F60}
+.mtx{border-collapse:collapse;margin:6px 0 0;font-size:8.5pt;width:100%}
+.mtx td,.mtx th{border:1px solid #cddcee;padding:4px 9px;text-align:center}
+.mtx th{background:#dbe7f5;color:#001F60}
+.mtx .bad{background:#fbf3f3;color:#d23b3b;font-weight:700}
+.merge .concl{margin-top:6px;padding-top:5px;border-top:1px dashed #cddcee}
+</style>
 
-> 로컬 고유성 ≠ 글로벌 다양성. Effective N=6,021개**조차** Vendi로 보면 3~4개 방향에만 집중.
+<div class="stack">
 
-|  | Vendi 높음 | Vendi 낮음 |
-|--|--|--|
-| **Eff N 높음** | ✅ 이상적 | ⚠️ 좁은 공간에 퍼짐 |
-| **Eff N 낮음** | ⚠️ 방향만 있고 빈약 | <span class="danger">❌ 이번 데이터셋</span> |
+<div class="purpose">
+<span class="h">목적 — 왜 재나</span>&nbsp; Effective N은 <b>중복 질량</b>(로컬)만 본다 → <b>"몇 개의 독립 의미 방향인가"(글로벌)</b>는 Vendi가 답. <b>같은 공식</b>에 앵커를 <b>3가지 방식</b>으로 뽑아, 다양성 부족의 원인을 <b>중복 vs 커버리지</b>로 분해한다.
+</div>
+
+<div class="hero">
+<span class="lbl">결과 — Vendi 3전략 (독립 의미 방향 수)</span>
+<div class="method">셋 다 <b>같은 Vendi 공식</b>(p11) · 다른 건 <b>앵커 2,000개를 어떻게 뽑나</b>뿐</div>
+<div class="stats">
+<div class="stat"><div class="num">3.53</div><div class="cap"><b>random</b> — 10만서 <b>균등 무작위</b> 2,000개<br>= 현재 분포(모델이 받는 다양성)</div></div>
+<div class="stat"><div class="num">3.64</div><div class="cap"><b>dedup</b> — <b>고유성 가중</b> 뽑기(흔한↓·희귀↑)<br>= Effective N 가중치(w)를 반영한 분포</div></div>
+<div class="stat"><div class="num up">4.75</div><div class="cap"><b>topk</b> — 고유성 <b>상위 풀</b>에서 2,000개<br>= <b>Effective N 상위 6,021개</b> (다양성 상한)</div></div>
+</div>
+<div style="text-align:center;font-size:9pt;color:#5f6470;margin-top:8px;line-height:1.5">억압계수 <b>1.030</b> (중복 다 지워도 +3.0%뿐) · 커버리지 문제 = 중복 문제의 <b style="color:#1a7f5a">11.5×</b></div>
+<div class="why"><b>어떻게 읽나</b> — 세 값의 <b>차이</b>가 곧 "무엇을 고쳐야 다양성이 오르나"를 가리킨다:
+<ul>
+<li><b>dedup − random = +3.0%</b> — 중복을 완전히 제거해서 얻는 이득 → <b>미미</b></li>
+<li><b style="color:#1a7f5a">topk − random = +34.4%</b> — 커버리지(새 시나리오)를 넓혀 얻는 이득 → <b>큼</b></li>
+<li>∴ <b>11.5배</b> → 원인은 "중복"이 아니라 <b>"수집 못 한 시나리오"</b> → <i>중복 제거보다 새 시나리오 수집·합성이 ~10배 효과적</i></li>
+<li><b>Vendi 3.5의 뜻</b> — 10만 클립이 사실상 <b>3~4개 의미 방향</b>('도심 직진' 지배)만 커버</li>
+</ul>
+<span class="src">(Friedman &amp; Dieng, <i>The Vendi Score</i>, TMLR 2023)</span></div>
+</div>
+
+<div class="merge">
+<div><span class="t">🔗 Effective N과 병합 해석 — 로컬 고유성 ≠ 글로벌 다양성</span> &nbsp;개별 클립이 안 겹쳐도(로컬) 전체는 좁은 공간에 몰릴(글로벌) 수 있다. Eff N <b>6,021개조차</b> Vendi로 보면 <b>3~4방향</b>에만 집중.</div>
+<table class="mtx">
+<tr><th></th><th>Vendi 높음</th><th>Vendi 낮음</th></tr>
+<tr><th>Eff N 높음</th><td>✅ 이상적</td><td>⚠ 좁은 공간에 퍼짐</td></tr>
+<tr><th>Eff N 낮음</th><td>⚠ 방향만 있고 빈약</td><td class="bad">❌ 이번 데이터셋</td></tr>
+</table>
+<div class="concl"><b style="color:#001F60">결론</b> — 두 지표가 같은 진단(극히 좁은 공간 집중). <b>로컬(Effective N) ＋ 글로벌(Vendi)을 반드시 함께</b> 봐야 "중복 vs 커버리지"를 갈라 처방할 수 있다.</div>
+</div>
+
+</div>
 
 ---
 
@@ -519,3 +614,58 @@ $$\underbrace{w_i = 1-\bar s_i}_{\textbf{soft}}\qquad\qquad \underbrace{w_i = \t
 # 부록
 ### §3-2 Vendi 수식 유도 · §7 산출물 파일 가이드
 ### `results_interpretation.md` 참조
+
+---
+
+## 부록 A · Vendi 3전략 — 앵커 2,000개 뽑는 법
+
+<style scoped>
+.lead{font-size:10pt;color:#3a3f47;margin:4px 0 8px}.lead b{color:#001F60}
+.cmp{border-collapse:collapse;width:100%;font-size:9pt;margin:0 0 10px}
+.cmp th,.cmp td{border:1px solid #d5dce6;padding:5px 11px;text-align:left}
+.cmp th{background:#f3f6fa;color:#001F60}.cmp .s{font-family:monospace;font-weight:700;color:#00586F}
+.mbox{background:#f2f7fb;border:1px solid #cddcee;border-radius:9px;padding:9px 15px;margin:9px 0;font-size:9.5pt;line-height:1.5}
+.mbox .mh{color:#00586F;font-weight:700;font-size:10.5pt;margin-bottom:3px}
+.mbox b{color:#001F60}.mbox code{font-size:.88em;background:#eef2f7;padding:0 3px;border-radius:3px}
+.mbox ul{margin:2px 0 0;padding-left:18px}.mbox li{margin:2px 0}
+.mbox .ins{font-size:8.7pt;color:#5f6470;background:#fffdf5;border:1px solid #ecdcbf;border-radius:6px;padding:6px 11px;margin-top:6px}.mbox .ins b{color:#001F60}
+.ex{border-collapse:collapse;width:100%;font-size:8.7pt;margin:7px 0 1px}
+.ex th,.ex td{border-bottom:1px solid #d5dce6;padding:3px 9px;text-align:center}
+.ex th{color:#001F60;border-bottom:1.5px solid #bcd6e6;font-weight:700}
+.ex td.l{text-align:left}.ex .bar{font-family:monospace;color:#00586F;font-size:10pt;letter-spacing:-1px;margin-right:5px}
+.ex .cap{font-size:8pt;color:#8a8f98;text-align:left;margin:2px 0 0}
+</style>
+
+<div class="lead">세 전략은 <b>모두 같은 Vendi 공식</b>(=커널 고유값 엔트로피) · 다른 건 <b>어떤 2,000개를 앵커로 뽑느냐</b>뿐. <code>rng.choice(N, 2000, replace=False, p=?)</code>의 <b>p</b>(뽑힐 확률)만 달라진다.</div>
+
+<table class="cmp">
+<tr><th>전략</th><th>앵커 뽑는 법 (<span class="s">p</span>)</th><th>뜻</th></tr>
+<tr><td><b>random</b></td><td><span class="s">p=None</span> — 10만 전체서 <b>균등</b> 무작위</td><td>현재 분포 그대로</td></tr>
+<tr><td><b>dedup</b></td><td><span class="s">p ∝ 고유성 w</span> — 가중 추출</td><td>Effective N 가중치(w) 반영 분포</td></tr>
+<tr><td><b>topk</b></td><td>상위 6,021개 <b>풀</b> → 그 안에서 <span class="s">균등</span></td><td>Effective N 상위 6,021개 (다양성 상한)</td></tr>
+</table>
+
+<div class="mbox">
+<div class="mh">① dedup — 각 클립에 <span style="color:#001F60">w</span>를 매기고, w에 비례해 뽑는다</div>
+<ul>
+<li><b>w 계산</b> — 클립마다 <code>w = 1 − (상위 20이웃 평균 유사도)</code> (Effective N 값 재사용). 중복 <code>w≈0</code> · 희귀 <code>w≈1</code>.</li>
+<li><b>확률화</b> — <code>p = w / Σw</code> → <b>10만 클립 각자 확률 하나</b> = 길이 10만 벡터 <code>probs</code> (합=1).</li>
+<li><b>뽑기</b> — <code>rng.choice(N, 2000, replace=False, p=probs)</code> → w 큰(희귀) 클립이 대부분 뽑힘.</li>
+</ul>
+<table class="ex">
+<tr><th>클립 예</th><th>이웃 평균 유사도</th><th>w = 1−유사도</th><th>뽑힐 확률 (막대 ∝ w)</th></tr>
+<tr><td class="l">중복 클립</td><td>0.98</td><td>0.02</td><td class="l"><span class="bar">▏</span>거의 0</td></tr>
+<tr><td class="l">보통 클립</td><td>0.60</td><td>0.40</td><td class="l"><span class="bar">████</span>중간</td></tr>
+<tr><td class="l">희귀 클립</td><td>0.05</td><td>0.95</td><td class="l"><span class="bar">█████████▌</span>높음</td></tr>
+</table>
+<div class="ins">🎟 <b>직관</b>: 고유성만큼 <b>제비를 나눠주고</b> 2,000장 뽑는 셈 → 중복은 제비가 거의 없어 안 뽑힘. 삭제가 아니라 <b>확률로 눌러</b> "중복 제거된 셋에서 뽑은 것"과 동등 = <b>SoftDedup</b>.</div>
+</div>
+
+<div class="mbox">
+<div class="mh">② topk — "고유성 상위 6,021개 풀"은 어떻게?</div>
+<ul>
+<li><b>1단계 풀 만들기</b> — 고유성 <code>w</code> <b>상위 6,021개</b>(= Effective N 개수) 클립만 골라 <b>고정 풀</b>로 추출 → "실질적으로 독립인 클립"만 모은 집합.</li>
+<li><b>2단계 뽑기</b> — 그 풀(6,021) 안에서 <b>균등 무작위 2,000개</b> (<code>p=None</code>).</li>
+</ul>
+<div class="ins">🏔 <b>직관</b>: 가장 고유한 클립만 남긴 <b>정예 집합</b>에서 잰 다양성 → "이상적으로 중복을 다 걷어냈을 때 도달 가능한 <b>상한</b>". 그래서 topk(4.75) > dedup(3.64) > random(3.53).</div>
+</div>
