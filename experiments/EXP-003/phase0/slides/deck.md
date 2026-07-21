@@ -13,7 +13,7 @@ header: 'EXP-003 Phase 0 · 데이터 분포 진단'
 # AV 데이터 분포 진단
 ## Phase 0 결과 요약
 
-**100,398 clips** · 실행일 2026-07-08
+**100,398 clips**
 `experiments/EXP-003/phase0/output/`
 
 ---
@@ -21,13 +21,13 @@ header: 'EXP-003 Phase 0 · 데이터 분포 진단'
 <!-- _class: section -->
 <!-- _paginate: false -->
 
-# 2 · ODD 커버리지 분석
+# 1 · ODD 커버리지 분석
 ### 이 데이터셋은 운영설계영역(ODD) 조합 공간을 얼마나 커버하는가?
 ### Step 0-F · 100,398 clips
 
 ---
 
-## 2 · ODD 스키마 정의 — 11필드 값 분포
+## 1 · ODD 스키마 정의 — 11필드 값 분포
 
 <style scoped>
 .dist{display:flex;flex-direction:column;gap:5px;margin:12px 0 6px}
@@ -76,7 +76,7 @@ AV 지각·예측·계획 난이도로 정의한 **11개 ODD 필드**. 각 막�
 
 ---
 
-## 2 · ODD 커버리지 정량화 — 도출 & 결과
+## 1 · ODD 커버리지 정량화 — 도출 & 결과
 
 **질문**: AV 안전성은 *"마주칠 조건 조합을 얼마나 학습했나"*에 좌우 → ODD를 이산 필드로 정의하고 **관측 / 이론** 조합 비율(커버율)을 측정.
 
@@ -127,7 +127,7 @@ AV 지각·예측·계획 난이도로 정의한 **11개 ODD 필드**. 각 막�
 
 ---
 
-## 2 · 결과 ② — 상위 조합 집중 & 최빈 top 20
+## 1 · 결과 ② — 상위 조합 집중 & 최빈 top 20
 
 <style scoped>
 .cols{gap:22px}
@@ -201,7 +201,7 @@ th{font-size:8.5pt}
 
 ---
 
-## 2 · 결과 ③ — 필드 편향 · 미관측 값 · 수집 우선순위
+## 1 · 결과 ③ — 필드 편향 · 미관측 값 · 수집 우선순위
 
 <style scoped>
 .cols{gap:22px;margin-bottom:34px}
@@ -259,33 +259,16 @@ th,td{padding:3px 8px}
 
 ---
 
-<!-- _class: statement -->
+<!-- _class: section -->
+<!-- _paginate: false -->
 
-> 10만 클립이지만, 실질적으로는
-> **6,021개 분량**의 정보만 담긴
-> 극도로 중복적인 데이터셋
-
----
-
-## 1 · 핵심 진단 대시보드
-
-<div class="kpi-row">
-<div class="kpi"><div class="v">6.0%</div><div class="l">Effective N (soft)<br>6,021 / 100,398</div></div>
-<div class="kpi"><div class="v">3.53</div><div class="l">Vendi (random)<br>실질 3~4개 의미 방향</div></div>
-<div class="kpi warn"><div class="v">0.944</div><div class="l">상위 10이웃 유사도<br>모든 클립 94% 유사</div></div>
-</div>
-
-<div class="kpi-row">
-<div class="kpi danger"><div class="v">60.5%</div><div class="l">Q1 PRUNE<br>과반이 밀집+단조</div></div>
-<div class="kpi danger"><div class="v">0개</div><div class="l">healthy scenarios<br>12개 중 건강 시나리오 전무</div></div>
-<div class="kpi"><div class="v">1.030</div><div class="l">억압 계수 (dedup/random)<br>중복 제거해도 +3.0%뿐</div></div>
-</div>
-
-> **진단**: 다양성 부족의 원인은 "중복"이 아니라 **"수집하지 못한 시나리오"**
+# 2 · 임베딩 벡터 기반 분포 분석
+### 캡션 임베딩 공간에서 데이터가 얼마나 중복되고 몇 방향을 커버하는가?
+### Effective N (중복·유효 크기) · Vendi (의미 다양성)
 
 ---
 
-## 3 · Effective N — 계산 원리
+## 2 · Effective N — 계산 원리
 
 <style scoped>
 .flow{font-size:10pt;line-height:1.7;margin-top:8px}
@@ -325,7 +308,7 @@ $$\underbrace{w_i = 1-\bar s_i}_{\textbf{soft}}\qquad\qquad \underbrace{w_i = \t
 
 ---
 
-## 3 · Effective N — 목적 & 결과
+## 2 · Effective N — 목적 & 결과
 
 <style scoped>
 .stack{display:flex;flex-direction:column;gap:11px}
@@ -393,7 +376,7 @@ $$\underbrace{w_i = 1-\bar s_i}_{\textbf{soft}}\qquad\qquad \underbrace{w_i = \t
 
 ---
 
-## 3 · Vendi — 계산 원리
+## 2 · Vendi — 계산 원리
 
 <style scoped>
 .flow{font-size:10pt;line-height:1.65;margin-top:4px}
@@ -457,7 +440,7 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 
 ---
 
-## 3 · Vendi — 목적 · 결과 · 해석
+## 2 · Vendi — 목적 · 결과 · 해석
 
 <style scoped>
 .stack{display:flex;flex-direction:column;gap:11px}
@@ -520,92 +503,6 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 
 ---
 
-## 3 · 6-분류 Action Map (FLIPD 후)
-
-밀도(density)와 LID 2축을 GMM 임계값으로 사분면화 → 6개 액션 레이블
-
-| 분류 | 레이블 | FLIPD 전 | FLIPD 후 |
-|:--:|--------|--------:|--------:|
-| Q0 | KEEP (잘 수집된 다양) | 11,710 (11.7%) | 변동 없음 |
-| Q1 | <span class="danger">PRUNE</span> (밀집+단조) | 60,731 (**60.5%**) | 변동 없음 |
-| Q2 | COLLECT (수집 대상) | 11,426 (11.4%) | **17,694 (17.6%)** ↑ |
-| Q3 | EVALUATE (경계) | 16,531 (16.5%) | **10,263 (10.2%)** ↓ |
-
-> GMM 임계값(BIC K=3): `density=0.9363` · `lid=16.855` — 두 분포 모두 3성분으로 분리(단봉 아님). Q4/Q5(불신뢰)=0 → 초고밀도라 LID 추정 전부 신뢰 가능.
-> ⚠️ Q3→Q2 업그레이드 **6,268개**는 초고밀도에서 FLIPD 공식 발산(upgrade_rate=1.0)한 결과 — 신뢰도 낮음, Q3 수동 샘플링 확인 권장.
-
----
-
-## 4 · 시나리오 12개 (TF-IDF K-Means, K=12)
-
-<style scoped>table{font-size:8.5pt}th,td{padding:3px 9px}</style>
-
-| S | 크기 | Q1% | Q2% | Vendi | 주요 키워드 · 성격 |
-|---|-----:|----:|----:|:--:|------|
-| **S0** | 5,648 | <span class="danger">83.2</span> | 4.2 | 2.3 | headlights — 야간 단조 (첫 pruning 대상) |
-| S1 | 5,307 | 62.9 | 14.2 | 2.6 | travels, ego — COLLECT 후보 |
-| S2 | 3,131 | 46.1 | 26.1 | 2.6 | parking lot, low speed — Q2 많음 |
-| S3 | 2,220 | 65.4 | 16.5 | 2.5 | snow covered — 설면 |
-| S4 | 10,188 | 72.5 | 9.9 | 2.5 | highway, lane — Q1 과다 |
-| S5 | 9,182 | 69.5 | 10.5 | 2.6 | sedan, suv — Q1 과다 |
-| S6 | 10,115 | 62.3 | 15.3 | 2.6 | intersection — COLLECT 후보 |
-| S7 | 10,639 | 69.7 | 13.0 | 2.8 | vehicle, lane, ego |
-| S8 | 11,798 | 60.4 | 17.0 | 2.6 | parked vehicles — COLLECT 후보 |
-| S9 | 8,912 | 43.3 | 29.9 | 2.9 | sharp curve — Q2 많음 |
-| S10 | 11,310 | 35.1 | <span class="warn">37.4</span> | 3.0 | turn/교차로 — Q2 최다 |
-| S11 | 11,948 | 61.7 | 14.3 | 2.6 | vehicle, lane — COLLECT 후보 |
-
-> 전 시나리오 Vendi **2.3~3.0** — 내부도 다양성 낮음. 억압 계수 1.02~1.05 → 구조적 갭(중복 아님). 두 공간 독립성 NMI=0.034·ARI=0.011 → 시나리오↔사분면 교차표 유효.
-
----
-
-## 5 · 수집 · 합성 우선순위
-
-<div class="cols">
-<div>
-
-**COLLECT — 즉시 수집 (7개)**
-
-| S | 갭 수 | 부족 유형 |
-|---|----:|------|
-| S10 | 6,284 | roundabout·cyclist |
-| S8 | 2,741 | 주차 bus·truck |
-| S6 | 2,651 | 교차로·wet |
-| S11 | 2,448 | 공사·습노면 |
-
-</div>
-<div>
-
-**SYNTHETIC — 합성 (5개)**
-
-| S | 갭 수 | 키워드 |
-|---|----:|------|
-| S9 | 4,261 | sharp curve |
-| S7 | 2,283 | rural·보행자 |
-| S2 | 1,537 | parking lot |
-| S3 | 672 | snow |
-
-</div>
-</div>
-
-> HIGH: LID(≥16.86) 또는 ODD eff_n(≥22) 충족. SYNTHETIC은 합성 전 Q2 클립 선수집 권장.
-
----
-
-## 6 · 다음 액션
-
-**즉시 검토**
-- FLIPD 이슈: Q3 클립(10,263개) 수동 샘플링 검증
-- `lid_threshold` 16.86 → 13~15 하향 재실행 검토
-
-**EXP-004 데이터 수집**
-- HIGH: S10·S11·S8·S6·S5·S1 갭
-- 합성: S9·S7·S2·S3·S0
-
-**Pruning**
-- S0 (야간 직진, Q1=83%) 1순위 → Q1 전체 60,731개 제거 전략
-
----
 
 <!-- _class: section -->
 <!-- _paginate: false -->
@@ -668,3 +565,48 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 </ul>
 <div class="ins">🏔 <b>직관</b>: 가장 고유한 클립만 남긴 <b>정예 집합</b>에서 잰 다양성 → "이상적으로 중복을 다 걷어냈을 때 도달 가능한 <b>상한</b>". 그래서 topk(4.75) > dedup(3.64) > random(3.53).</div>
 </div>
+
+---
+
+## 부록 B · 밀도 & LID — 계산 방법과 타당성
+
+<style scoped>
+.lead{font-size:10pt;color:#3a3f47;margin:3px 0 8px}.lead b{color:#001F60}
+.mbox{background:#f2f7fb;border:1px solid #cddcee;border-radius:9px;padding:8px 14px;margin:8px 0;font-size:9.3pt;line-height:1.5}
+.mbox .mh{color:#00586F;font-weight:700;font-size:10.5pt;margin-bottom:2px}
+.mbox b{color:#001F60}.mbox code{font-size:.86em;background:#eef2f7;padding:0 3px;border-radius:3px}
+.mbox ul{margin:2px 0 0;padding-left:17px}.mbox li{margin:1.5px 0}
+.cols{display:flex;gap:14px}.cols>div{flex:1}
+.verdict{border-collapse:collapse;width:100%;font-size:9pt;margin:8px 0 0}
+.verdict th,.verdict td{border:1px solid #d5dce6;padding:4px 10px;text-align:left}
+.verdict th{background:#f3f6fa;color:#001F60}
+.verdict .ok{color:#1a7f5a;font-weight:700}.verdict .warn{color:#c8871a;font-weight:700}
+.flag{font-size:8.7pt;color:#7a6420;background:#fbf6ec;border:1px solid #ecdcbf;border-radius:6px;padding:7px 11px;margin-top:8px}.flag b{color:#001F60}
+</style>
+
+<div class="lead"><b>밀도·LID는 클립마다 하나씩</b> 계산(각각 <b>길이 10만 벡터</b>, 클립당 값 1개) → 사분면 딱지도 클립별. 두 축 모두 <b>표준·피어리뷰 방법</b> · 임계값도 <b>데이터 주도(GMM+BIC)</b> — 방법은 견고, 단 <b>초고밀도</b>가 LID를 흔든다.</div>
+
+<div class="cols">
+<div class="mbox">
+<div class="mh">밀도(density) — kNN 커널밀도 프록시</div>
+<ul>
+<li><code>density = knn_sim[:, :10].mean()</code> = 가장 가까운 <b>10개 이웃과의 평균 코사인 유사도</b>.</li>
+<li>높음 = 이웃이 바짝 붙음 = <b>붐빔</b>. "반경 안 밀집도"를 "이웃이 얼마나 가깝나"로 잰 <b>표준 KDE 프록시</b>.</li>
+</ul>
+</div>
+<div class="mbox">
+<div class="mh">LID — Ma et al. (ICLR'18) MLE</div>
+<ul>
+<li><code>LID = −1 / mean(log(r_j / r_max))</code>, 이웃 20개 거리로 추정.</li>
+<li>이웃 거리가 <b>고르면 → LID↑</b>(다양·고차원) · <b>퍼지면 → LID↓</b>(단조). 극값이론 기반 정식 추정량.</li>
+</ul>
+</div>
+</div>
+
+<table class="verdict">
+<tr><th>축</th><th>방법 타당성</th><th>이 데이터에서 신뢰</th></tr>
+<tr><td><b>밀도</b></td><td class="ok">높음 — 표준 KDE 프록시, 단조·견고</td><td class="ok">비교적 신뢰 가능</td></tr>
+<tr><td><b>LID</b></td><td class="ok">높음 — 학술 검증된 MLE</td><td class="warn">주의 — 초고밀도로 동적 범위 소실</td></tr>
+</table>
+
+<div class="flag">⚠️ <b>핵심 맹점</b> — 이웃 거리가 0.05~0.07로 <b>거의 균일</b> → <code>r_j/r_max ≈ 1</code> → LID 추정량이 <b>수치 발산</b>(→200 클리핑, FLIPD 발산과 동근원). <b><code>lid_reliable=100%</code>는 이걸 못 잡는다</b> — 그 플래그는 "희소·고립"(r_max 큼)만 거를 뿐, "거리 범위가 좁아 불안정"은 통과. &nbsp;+ 모든 축이 <b>캡션 임베딩(bge-m3) 프록시</b>(ODD 정렬 ρ≈0.2, 부분). &nbsp;→ <b>실무: 밀도 축 &gt; LID 축, LID 기반 Q2/Q3·FLIPD 승격은 보수적으로.</b></div>
