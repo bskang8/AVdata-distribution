@@ -496,15 +496,14 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 <div class="stat"><div class="num">3.64</div><div class="cap"><b>dedup</b> — <b>고유성 가중</b> 뽑기(흔한↓·희귀↑)<br>= Effective N 가중치(w)를 반영한 분포</div></div>
 <div class="stat"><div class="num up">4.75</div><div class="cap"><b>topk</b> — 고유성 <b>상위 풀</b>에서 2,000개<br>= <b>Effective N 상위 6,021개</b> (다양성 상한)</div></div>
 </div>
-<div style="text-align:center;font-size:9pt;color:#5f6470;margin-top:8px;line-height:1.5">억압계수 <b>1.030</b> (중복 다 지워도 +3.0%뿐) · 커버리지 문제 = 중복 문제의 <b style="color:#1a7f5a">11.5×</b></div>
-<div class="why"><b>어떻게 읽나</b> — 세 값의 <b>차이</b>가 곧 "무엇을 고쳐야 다양성이 오르나"를 가리킨다:
+<div style="text-align:center;font-size:9pt;color:#5f6470;margin-top:8px;line-height:1.5">억압계수 <b>1.030</b>(<code>dedup÷random</code>) — 중복 다 지워도 <b>+3.0%뿐</b> · 이상적 큐레이션 상한(topk)<b>조차 <span style="color:#1a7f5a">4.75</span></b></div>
+<div class="why"><b>어떻게 읽나</b> — <b>진단 2단계 → 처방</b>으로 읽는다:
 <ul>
-<li><b>dedup − random = +3.0%</b> — 중복을 완전히 제거해서 얻는 이득 → <b>미미</b></li>
-<li><b style="color:#1a7f5a">topk − random = +34.4%</b> — 커버리지(새 시나리오)를 넓혀 얻는 이득 → <b>큼</b></li>
-<li>∴ <b>11.5배</b> → 원인은 "중복"이 아니라 <b>"수집 못 한 시나리오"</b> → <i>중복 제거보다 새 시나리오 수집·합성이 ~10배 효과적</i></li>
-<li><b>Vendi 3.5의 뜻</b> — 10만 클립이 사실상 <b>3~4개 의미 방향</b>('도심 직진' 지배)만 커버</li>
+<li><b>① 원인 배분</b> — 억압계수 <b>1.030</b>(<code>dedup÷random</code>) → 중복을 완전히 지워도 다양성은 <b>+3.0%뿐</b> → <b>중복은 범인이 아니다</b>.</li>
+<li><b>② 낮은 천장</b> — 중복을 완벽히 지운 상한(topk)<b>조차 4.75</b>(이상적 AV셋은 수십~수백) → 고유 알맹이도 사실상 <b>3~5개 방향</b>('도심 직진' 지배)뿐.</li>
+<li><b style="color:#1a7f5a">③ 처방</b> — 부분집합 재조정으론 천장을 못 올림 → <b>없는 시나리오를 새로 수집·합성</b>해야 다양성이 오른다.</li>
 </ul>
-<span class="src">(Friedman &amp; Dieng, <i>The Vendi Score</i>, TMLR 2023)</span></div>
+<span class="src">① 진단(원인 배분) · ② 진단(천장 낮음) 이 함께여야 ③ 처방이 선다 · (Friedman &amp; Dieng, <i>Vendi Score</i>, TMLR 2023)</span></div>
 </div>
 
 <div class="merge">
