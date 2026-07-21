@@ -1,0 +1,133 @@
+/* @theme disc */
+/* Phase 0 결과 요약 덱 — ppt_sample.pptx / html_sample.html 디자인·타입스케일 반영 */
+/* 캔버스 1280×720px = PPT 16:9. 폰트는 pt로 지정 → 레퍼런스와 1:1 일치 */
+@import 'default';
+
+:root {
+  --bg:      #ffffff;
+  --navy:    #001F60;
+  --teal:    #00586F;
+  --cyan:    #00C1DE;
+  --blue:    #4197CB;
+  --ink:     #1a1a1a;
+  --muted:   #5f6470;
+  --line:    #d5dce6;
+  --card-bg: #f3f6fa;
+  --chip:    #e4f6fa;
+  --cyanbg:  #eaf8fb;
+  --danger:  #d23b3b;
+  --warn:    #c8871a;
+  --accent:  var(--navy);
+}
+
+/* 콘텐츠 슬라이드 = 상단 정렬(레퍼런스처럼 위에서부터 채움) */
+section {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard", "Pretendard Variable", "Noto Sans KR", -apple-system, "Malgun Gothic", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  padding: 52px 60px 26px;   /* 상단 = 헤더 러너 아래로 콘텐츠 시작 */
+  letter-spacing: -0.01em;
+  /* marp-core default는 place-content로 세로 중앙정렬 → 상단 정렬로 강제 */
+  display: flex !important;
+  flex-direction: column !important;
+  place-content: flex-start !important;
+  align-items: stretch !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 { font-size: 26pt; font-weight: 700; color: var(--navy); margin: 0 0 6px; letter-spacing: -0.01em; }
+h2 {
+  font-size: 18pt; font-weight: 700; color: var(--navy);
+  margin: 4px 0 12px; padding-bottom: 9px;
+  border-bottom: 1px solid var(--line);   /* 레퍼런스 hr: 1px */
+}
+h3 { font-size: 12pt; color: var(--muted); font-weight: 600; }
+strong { color: var(--navy); font-weight: 700; }
+em { color: var(--muted); font-style: normal; }
+a { color: var(--teal); }
+
+/* 상단 러너(eyebrow) — 10pt 볼드 · 레터스페이싱 · 틸 */
+header {
+  color: var(--teal); font-size: 10pt; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+}
+footer { color: var(--muted); font-size: 8.5pt; }
+section::after {
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+  color: var(--muted); font-size: 8.5pt;
+}
+
+/* 표 — 9.5pt, 네이비 헤더, 얇은 줄 */
+table { font-size: 9.5pt; border-collapse: collapse; width: 100%; margin: 2px 0; }
+th {
+  background: var(--card-bg); color: var(--navy); font-weight: 700;
+  text-align: left; padding: 6px 11px; border-bottom: 2px solid var(--navy);
+}
+td { padding: 5px 11px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: none; }
+
+blockquote {
+  border-left: 3px solid var(--cyan); background: var(--card-bg);
+  margin: 9px 0; padding: 9px 15px; color: var(--ink);
+  font-size: 10.5pt; border-radius: 0 6px 6px 0;
+}
+blockquote strong { color: var(--navy); }
+
+code {
+  background: #eef2f7; color: var(--teal); padding: 1px 5px;
+  border-radius: 4px; font-size: 0.9em;
+}
+pre { background: var(--card-bg); border: 1px solid var(--line); border-radius: 6px; font-size: 9pt; }
+
+ul, ol { margin: 5px 0; }
+li { margin: 3px 0; }
+
+/* ---- 인라인 유틸 색상 ---- */
+.danger { color: var(--danger); font-weight: 700; }
+.warn   { color: var(--warn);  font-weight: 700; }
+.big    { font-size: 1.3em; font-weight: 700; color: var(--navy); }
+
+/* ============ 슬라이드 유형별 클래스 ============ */
+
+/* 타이틀 — 네이비→틸 그라디언트, 세로 중앙 */
+section.title {
+  background: linear-gradient(135deg, #001F60 0%, #00586F 100%);
+  color: #fff; place-content: center !important;
+}
+section.title h1 { color: #fff; font-size: 34pt; }
+section.title h2 { color: #b9c8e6; border-bottom: none; padding-bottom: 0; font-size: 15pt; font-weight: 600; }
+section.title h3 { color: #b9c8e6; }
+section.title strong { color: var(--cyan); }
+section.title::after { color: #6f82a6; }
+
+/* 한 줄 결론 — 세로 중앙, 큰 풀쿼트 */
+section.statement { place-content: center !important; text-align: center; }
+section.statement blockquote {
+  border: none; background: none; font-size: 24pt; font-weight: 700;
+  line-height: 1.4; color: var(--navy);
+}
+section.statement blockquote strong { color: var(--teal); }
+
+/* KPI 카드 — 라이트 그레이블루, 큰 네이비 숫자 (레퍼런스 kpi) */
+.kpi-row { display: flex; gap: 16px; margin: 8px 0; }
+.kpi {
+  flex: 1; background: var(--card-bg); border: 1px solid var(--line);
+  border-radius: 8px; padding: 12px 14px; text-align: center;
+}
+.kpi .v { font-size: 20pt; font-weight: 700; color: var(--navy); line-height: 1.2; }
+.kpi.danger { border-color: #eec2c2; background: #fbf3f3; }
+.kpi.danger .v { color: var(--danger); }
+.kpi.warn { border-color: #ecdcbf; background: #fbf6ec; }
+.kpi.warn .v { color: var(--warn); }
+.kpi .l { font-size: 9pt; color: var(--muted); margin-top: 6px; line-height: 1.35; }
+
+/* 섹션 구분(챕터) — 세로 중앙 */
+section.section { background: var(--card-bg); place-content: center !important; }
+section.section h1 { color: var(--navy); font-size: 34pt; }
+section.section h3 { color: var(--teal); font-size: 13pt; }
+
+/* 2열 레이아웃 */
+.cols { display: flex; gap: 24px; }
+.cols > div { flex: 1; }
