@@ -329,7 +329,7 @@ $$\underbrace{w_i = 1-\bar s_i}_{\textbf{soft}}\qquad\qquad \underbrace{w_i = \t
 
 <style scoped>
 .stack{display:flex;flex-direction:column;gap:11px}
-.purpose{font-size:9.5pt;line-height:1.45}.purpose b{color:#001F60}
+.purpose{font-size:10pt;line-height:1.45}.purpose b{color:#001F60}
 .h{color:#00586F;font-weight:700;font-size:11pt}
 /* 결과 = 히어로 */
 .hero{background:#f2f7fb;border:1.5px solid #bcd6e6;border-radius:12px;padding:13px 18px}
@@ -339,9 +339,14 @@ $$\underbrace{w_i = 1-\bar s_i}_{\textbf{soft}}\qquad\qquad \underbrace{w_i = \t
 .stat .num{font-size:32pt;font-weight:800;color:#001F60;line-height:.95}
 .stat .num.soft{color:#c8871a}
 .stat .cap{font-size:9pt;color:#444;margin-top:2px}.stat .cap b{color:#001F60}
-.hero .why{border-top:1px dashed #bcd6e6;margin-top:10px;padding-top:9px;font-size:8.5pt;line-height:1.55;color:#3a3f47}.hero .why b{color:#001F60}.hero .why code{font-size:.92em}
-.lim{font-size:8.5pt;line-height:1.45;background:#fbf6ec;border:1px solid #ecdcbf;border-radius:8px;padding:8px 12px}
+.hero .why{border-top:1px dashed #bcd6e6;margin-top:10px;padding-top:9px;font-size:8.5pt;line-height:1.5;color:#3a3f47}.hero .why b{color:#001F60}.hero .why code{font-size:.92em}
+.hero .why ul{margin:4px 0 2px;padding-left:16px}.hero .why li{margin:1.5px 0}.hero .why .src{color:#8a8f98}
+.lim{font-size:8.5pt;line-height:1.45;background:#fbf6ec;border:1px solid #ecdcbf;border-radius:8px;padding:9px 13px}
 .lim .t{color:#c8871a;font-weight:700}.lim b{color:#001F60}
+.lim .sub{color:#00586F;font-weight:700}.lim .ex{color:#7a6420;font-size:8pt;margin-top:3px}
+.lim ol,.lim ul{margin:3px 0 0;padding-left:17px}.lim li{margin:2px 0}.lim li b{color:#001F60}
+.lim .hint{color:#8a7a55;font-size:7.6pt}
+.lim .concl{margin-top:6px;padding-top:5px;border-top:1px dashed #e3cf9e}
 </style>
 
 <div class="stack">
@@ -357,11 +362,31 @@ $$\underbrace{w_i = 1-\bar s_i}_{\textbf{soft}}\qquad\qquad \underbrace{w_i = \t
 <div class="stat"><div class="num">56%</div><div class="cap">Hard (관대·상한)<br>Effective N = 55,766</div></div>
 </div>
 <div style="text-align:center;font-size:9pt;color:#5f6470;margin-top:8px;line-height:1.5"><b style="color:#c8871a">Soft</b> 기준 나머지 <b>94%</b>는 반복 정보 · <b style="color:#001F60">Hard</b> 기준 나머지 <b>44%</b>는 반복 정보</div>
-<div class="why"><b>왜 6% ↔ 56%로 벌어지나</b> — 두 값의 <b>격차(≈5만 클립)가 곧 '애매하게 닮은(near-중복)' 장면의 양</b>이다. 판정 기준의 엄격도만 다르다: <b style="color:#001F60">Hard</b>는 거의 똑같은 복사본(<code>sim&gt;0.95</code>)<b>만</b> 중복으로 세서 관대하게 <b>55,766</b>개를 남기고, <b style="color:#c8871a">Soft</b>는 <code>0.90~0.95</code>로 <b>미묘하게 닮은 장면까지</b> 중복으로 깎아 <b>6,021</b>개만 남긴다. 📷 <b>비유</b> — 연사(burst)로 찍은 사진 10장을 Hard는 <b>10장</b>, Soft는 사실상 <b>1장</b>으로 센다. 이 데이터셋은 '<b>도심 직진</b>' 같은 연사형 장면이 수만 장이라, 그 반복이 Soft에서만 대량으로 걸러져 격차가 생긴다. <span style="color:#8a8f98">(Yao et al., <i>SoftDedup</i>, ACL 2024)</span></div>
+<div class="why"><b>왜 6% ↔ 56%로 벌어지나</b> — 격차 <b>≈5만 클립</b> = '애매하게 닮은(near-중복)' 장면의 양. <b>차이는 판정 엄격도뿐</b>:
+<ul>
+<li><b style="color:#001F60">Hard</b>(관대) — 거의 똑같은 복사본(<code>sim&gt;0.95</code>)<b>만</b> 중복 처리 → <b>55,766</b> 남김</li>
+<li><b style="color:#c8871a">Soft</b>(엄격) — <code>0.90~0.95</code> 미묘하게 닮은 장면까지 깎음 → <b>6,021</b> 남김</li>
+<li>📷 <b>비유</b> — 연사(burst) 10장: Hard는 <b>10장</b> · Soft는 사실상 <b>1장</b>으로 셈</li>
+<li><b>이 데이터셋</b> — '도심 직진'류 연사형 장면 수만 장 → Soft에서만 대량 필터 → 격차 발생</li>
+</ul>
+<span class="src">(Yao et al., <i>SoftDedup</i>, ACL 2024)</span></div>
 </div>
 
 <div class="lim">
-<span class="t">⚠ 한계 &amp; 보완</span> — <b>로컬·K 의존</b>: 각 클립이 이웃 K개만 봄, 글로벌 클러스터 구조는 못 봄(클러스터가 K보다 크면 왜곡, ~21·K=20 → 실제 그룹 수와 안 맞고 ≈2,000). → 글로벌 지표 <b>Vendi와 반드시 병행</b>. K-민감도·임계값 클러스터링으로 보완.
+<div><span class="t">⚠ 한계 — 단독으로 믿으면 안 되는 이유</span></div>
+<ul>
+<li><b>정체</b> — 각 클립이 <b>K=20 이웃만</b> 보는 <b>로컬</b> 통계</li>
+<li><b>가능</b> "중복이 얼마나 많나(질량)" · <b>불가</b> "독립 덩어리가 몇 개인가(글로벌)"</li>
+<li><b>약점</b> — K·유사도에 민감 → <b>클러스터 크기 ≈ K면 값 왜곡</b></li>
+</ul>
+<div class="ex"><b>예)</b> 거의 같은 클립 <b>21장</b> 그룹이 <b>4,762개</b>(총 10만) → 직관 답 "독립 ≈ 4,762". 그러나 K=20이면 각 클립이 <b>1−0.98=0.02장</b>으로만 세어져 합계 <b>≈2,000</b> = 참값(4,762)도 총수(10만)도 아닌 <b>K에 휘둘린 값</b>.</div>
+<div style="margin-top:5px"><span class="sub">✔ 보완</span></div>
+<ol>
+<li><b>Vendi 병행(주)</b> — 글로벌 스펙트럼으로 "덩어리 몇 개"를 직접 포착. <i>Effective N을 단독으로 안 쓰는 이유.</i></li>
+<li><b>K-민감도</b> — K=10/20/40으로 다시 세어 값이 크게 흔들리면 "클러스터 크기 ≈ K" 경고. <span class="hint">쉽게: 자(K)를 바꿨더니 잰 값이 달라지면 그 값은 못 믿는다.</span></li>
+<li><b>그룹 수가 필요하면</b> — 유사도 τ 이상 닮은 클립끼리 사슬처럼 이어붙여 <b>덩어리 개수를 직접</b> 셈(연결요소). <span class="hint">쉽게: A~B, B~C면 A·C도 한 무리 — 친구의 친구까지 사슬로 이어 붙이면 연사 500장도 통째로 1덩어리.</span></li>
+</ol>
+<div class="concl"><b style="color:#001F60">결론</b> — 로컬(Effective N) <b>＋</b> 글로벌(Vendi)을 <b>반드시 함께</b>.</div>
 </div>
 
 </div>
