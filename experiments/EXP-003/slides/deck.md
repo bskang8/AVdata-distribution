@@ -512,95 +512,127 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 
 ---
 
-## 3 · 원리적 차이 — 두 추정량이 아니라 "두 facet"
+## 3 · 실증 ① — ODD엔 '같은 조건', 임베딩엔 '다른 장면'
 
 <style scoped>
 .lead{font-size:10pt;color:#3a3f47;margin:2px 0 9px}.lead b{color:#001F60}
-.ft{border-collapse:collapse;width:100%;font-size:9pt;margin:0 0 10px}
-.ft th,.ft td{border:1px solid #d5dce6;padding:5px 11px;vertical-align:top}
-.ft th{background:#f3f6fa;color:#001F60;text-align:left;width:15%}
-.ft thead th,.ft tr:first-child th{text-align:left}
-.ft .odd{color:#00586F;font-weight:700}.ft .emb{color:#7a3fa0;font-weight:700}
-.ft td b,.ft b{color:#001F60}.ft code{font-size:.9em;background:#eef2f7;padding:0 3px;border-radius:3px}
-.two{display:flex;gap:13px}
-.box{flex:1;border-radius:9px;padding:9px 14px;font-size:8.8pt;line-height:1.5}
-.sharp{background:#fff7f2;border:1.5px solid #eccdbf}
-.reframe{background:#f5f2fb;border:1.5px solid #d8cbe8}
-.box .bh{font-weight:700;font-size:10pt;margin-bottom:3px}
-.sharp .bh{color:#b8562a}.reframe .bh{color:#6a3fa0}
+.hero{background:#f2f7fb;border:1.5px solid #bcd6e6;border-radius:12px;padding:12px 18px;margin-bottom:11px}
+.hero .lbl{display:block;text-align:center;color:#00586F;font-weight:700;font-size:11.5pt;margin-bottom:8px}
+.row{display:flex;justify-content:center;gap:40px;align-items:center}
+.cell{text-align:center}.cell .k{font-size:10pt;color:#444;line-height:1.4}.cell .k b{color:#001F60}
+.cell .big{font-size:15pt;font-weight:800;color:#8a8f98;line-height:1.1}
+.arrow{font-size:20pt;color:#9cc0d8}
+.vend{text-align:center}.vend .num{font-size:34pt;font-weight:800;color:#001F60;line-height:.95}
+.vend .cap{font-size:9pt;color:#444;margin-top:3px}.vend .cap b{color:#1a7f5a}
+.two{display:flex;flex-direction:column;gap:9px}
+.box{border-radius:9px;padding:9px 14px;font-size:8.9pt;line-height:1.5}
+.logic{background:#f5f2fb;border:1.5px solid #d8cbe8}.name{background:#fff7f2;border:1.5px solid #eccdbf}
+.box .bh{font-weight:700;font-size:10pt;margin-bottom:3px}.logic .bh{color:#6a3fa0}.name .bh{color:#b8562a}
 .box b{color:#001F60}.box code{font-size:.9em;background:#eef2f7;padding:0 3px;border-radius:3px}
+.q{color:#b8562a;font-weight:700;font-size:11.5pt;text-align:center;margin:2px 0 6px}
+.poles{display:flex;gap:9px;margin:5px 0}
+.p{flex:1;background:#fff;border:1px solid #eccdbf;border-radius:7px;padding:5px 6px;text-align:center;font-size:8.5pt;color:#3a3f47}
+.p b{display:block;color:#001F60;font-size:11pt;margin:1px 0}
+.p .t{display:block;color:#8a6a55;font-size:7.7pt}
+.note{font-size:7.6pt;color:#a98a76;margin-top:5px;border-top:1px dashed #eccdbf;padding-top:4px}
+.callout{background:#ede7f6;border:1.5px solid #c7b3dc;border-radius:7px;padding:4px 10px;text-align:center;margin:5px 0;font-size:9pt;color:#4a2f6a}.callout b{color:#001F60;font-size:13pt}.callout span{font-size:8pt;color:#7a6a8a}
 </style>
 
-<div class="lead">흔한 오해 = "ODD 다양성과 임베딩 다양성은 <b>같은 다양성</b>을 두 방법으로 잰 것". <b>아니다</b> — 주행로그의 <b>서로 다른 단면(facet)</b>을 잰다.</div>
+<div class="lead">개념 주장이 아니라 <b>측정</b>. 가장 흔한 ODD 조합 <b>1개</b>를 떼어, 그 안의 임베딩 다양성을 잰다.</div>
 
-<table class="ft">
-<tr><th></th><th class="odd">ODD 렌즈 — 조건(condition)</th><th class="emb">임베딩 렌즈 — 내용(content)</th></tr>
-<tr><th>측정 대상</th><td>어떤 <b>상황</b>에서 달렸나 (이산·명목)</td><td>무슨 <b>장면</b>이 벌어졌나 (연속·기하)</td></tr>
-<tr><th>정의역</th><td><b>전체 공간</b> — 미관측 셀도 정의(<code>accident=0</code> 말함)</td><td><b>관측 데이터만</b> — 없는 점은 못 잼</td></tr>
-<tr><th>세밀도</th><td>셀 <b>밖</b>은 봐도 셀 <b>안</b>은 못 봄</td><td>셀 <b>안</b>의 연속 변주를 봄</td></tr>
-<tr><th>명명성</th><td>부족한 것을 <b>이름으로</b> 지목(VRU·눈·고폐색)</td><td>방향은 재도 <b>이름이 없음</b></td></tr>
-<tr><th>외부 앵커</th><td>기관 통계가 이 언어 → <b>P_ext 대조 가능</b></td><td>외부 대응 분포 없음 → <b>앵커 불가</b></td></tr>
-<tr><th>실패 원인</th><td>태거 오분류(<code>national_road=242</code> 아티팩트)</td><td>캡션 문체 + 약한 ODD 민감도(ρ=0.221)</td></tr>
-</table>
+<div class="hero">
+<span class="lbl">가장 흔한 ODD 셀 6,578클립 — ODD 튜플이 완전 동일 (urban·clear·cars_only·sparse·post_junction…)</span>
+<div class="row">
+<div class="cell"><div class="k"><b>6,578</b> 클립<br>ODD 다양성(entropy)<br><span class="big">0.00</span><br>= "한 상황"</div></div>
+<div class="arrow">➜</div>
+<div class="vend"><div class="num">3.17</div><div class="cap">셀 내부 <b>임베딩 Vendi</b><br>= 무작위 동일크기(3.53)의 <b>89.9%</b></div></div>
+</div>
+</div>
 
 <div class="two">
-<div class="box sharp"><div class="bh">가장 날카로운 한 줄</div>ODD는 <b>"어떤 범주가 없는가"</b>(셀의 <b>부재</b>)를, 임베딩은 <b>"있는 범주 안이 얼마나 비었나"</b>(셀의 <b>공허</b>)를 잰다 → <b>원리상 겹칠 수 없다</b>.</div>
-<div class="box reframe"><div class="bh">ρ=0.221은 약점이 아니라 논지</div>임베딩=캡션(<b>장면내용</b>) · ODD=메타조건 → <b>content ⊥ condition</b>. 겹침이 약한 게 당연. 더구나 exposure가 <b>침묵하는 C-그룹</b>(occlusion·junction·scene_ambiguity)을 임베딩이 <b>부분 복구</b>.</div>
+<div class="box name"><div class="q">"임베딩 다양성 = 의미없는 노이즈 착각 아니냐?" - 아니다</div>
+검증: 6,578개를 임베딩으로 <b>2그룹</b>으로 나눠, 각 그룹 캡션의 <b>대표어(TF-IDF)</b>로 이름 붙임 →
+<div class="poles">
+<span class="p">정차·노변주차<b>3,163</b><span class="t">parked · street</span></span>
+<span class="p">교차로 통과주행<b>3,415</b><span class="t">traffic · intersection</span></span>
+</div>
+주행 판단이 <b>전혀 다른 상황</b>인데 <b>ODD 11축엔 이 구분이 없다</b> (ODD엔 날씨·조명 같은 '조건'만, 정차/통과 같은 기동·장면 축은 없음) → 노이즈가 아니라 실제 <b>장면 내용(content)</b>.
+<div class="note">※ TF-IDF: 각 그룹 캡션에서 <b>그 그룹에만 유독 자주 나오는 단어</b>를 추출(ego·road 등 전체 공통어는 제외) → 그룹의 정체를 한 줄로 요약</div></div>
+<div class="box logic"><div class="bh">직교성 — 상관이 아니라 메커니즘</div>임베딩이 ODD를 따른다면 셀 안 Vendi는 <b>1로 붕괴</b>해야 한다 → 관측 <b>3.17</b>(전역의 90%), 안 붕괴 → <b>임베딩 방향 ⊥ ODD 셀</b>. "임베딩=노이즈"설 반박. <span style="color:#8a8f98;font-size:7.6pt">(단, 이건 셀 1개 근거 — 전체 엄밀값은 다음 장 η²)</span></div>
 </div>
 
 ---
 
-## 3 · 상호보완 구조 · 근거 · 결론
+## 3 · 실증 ②(대칭) & 결론 — 양방향 blind spot
 
 <style scoped>
-.rd{border-collapse:collapse;width:100%;font-size:8.7pt;margin:0 0 9px}
-.rd th,.rd td{border:1px solid #d5dce6;padding:4px 10px}
-.rd th{background:#f3f6fa;color:#001F60}
-.rd td.q{text-align:left}.rd td.q b{color:#001F60}.rd td.l{text-align:center;font-weight:700}
-.rd .o{color:#00586F}.rd .e{color:#7a3fa0}
+.lead{font-size:9.5pt;color:#3a3f47;margin:2px 0 8px}.lead b{color:#001F60}
+.hero{background:#faf7fc;border:1.5px solid #d8cbe8;border-radius:11px;padding:10px 16px;margin-bottom:9px}
+.hero .lbl{display:block;text-align:center;color:#6a3fa0;font-weight:700;font-size:11pt;margin-bottom:6px}
+.row{display:flex;justify-content:center;gap:34px;align-items:center}
+.cell{text-align:center}.cell .k{font-size:9.5pt;color:#444;line-height:1.4}.cell .k b{color:#001F60}
+.cell .big{font-size:15pt;font-weight:800;color:#6a3fa0;line-height:1.1}
+.arrow{font-size:18pt;color:#c7b3dc}
+.flip{margin-top:8px}.flip .ftt{font-size:8pt;color:#6a3fa0;font-weight:700;text-align:center;margin-bottom:4px}
+.fr{display:flex;align-items:center;gap:7px;margin:2.5px 0;font-size:8.2pt}
+.fr .fn{width:74px;text-align:right;color:#001F60;font-weight:600}
+.fr .track{flex:1;background:#efe9f5;border-radius:3px;height:10px}
+.fr .fbar{display:block;height:100%;background:#7a3fa0;border-radius:3px}
+.fr .fv{width:40px;color:#5f6470}
+.fcap{font-size:7.3pt;color:#9a86b0;text-align:center;margin-top:3px}
 .cols{display:flex;gap:13px;align-items:stretch}.col{flex:1;display:flex;flex-direction:column}
-.evi{font-size:8.4pt;line-height:1.5;background:#f2f7fb;border:1px solid #cddcee;border-radius:9px;padding:8px 13px;height:100%}
-.evi .h{color:#00586F;font-weight:700;font-size:9.5pt;margin-bottom:3px}
-.evi ul{margin:3px 0 0;padding-left:15px}.evi li{margin:2px 0}.evi b{color:#001F60}
-.mtx2{border-collapse:collapse;width:100%;font-size:8.5pt}
-.mtx2 th,.mtx2 td{border:1px solid #cddcee;padding:5px 7px;text-align:center;line-height:1.3}
+.bd{border-collapse:collapse;width:100%;font-size:8.5pt}
+.bd th,.bd td{border:1px solid #cddcee;padding:5px 8px;text-align:center;line-height:1.3}
+.bd th{background:#dbe7f5;color:#001F60}.bd td.l{text-align:left}.bd b{color:#001F60}
+.bd .n{font-weight:800;font-size:12pt;color:#001F60}
+.mtx2{border-collapse:collapse;width:100%;font-size:8.3pt}
+.mtx2 th,.mtx2 td{border:1px solid #cddcee;padding:4px 6px;text-align:center;line-height:1.25}
 .mtx2 th{background:#dbe7f5;color:#001F60}
-.mtx2 .go{background:#f1f8f3;color:#1a7f5a;font-weight:700}
-.mtx2 .sy{background:#fbf7f0;color:#b8862a;font-weight:700}
-.mtx2 .ig{color:#8a8f98}
-.pay{font-size:8.2pt;color:#5f6470;margin-top:5px;text-align:center}.pay b{color:#001F60}
-.concl{margin-top:10px;background:#eef4fb;border:1px solid #cddcee;border-radius:8px;padding:8px 14px;font-size:9pt;line-height:1.5}.concl b{color:#001F60}
+.mtx2 .go{background:#f1f8f3;color:#1a7f5a;font-weight:700}.mtx2 .sy{background:#fbf7f0;color:#b8862a;font-weight:700}.mtx2 .ig{color:#8a8f98}
+.pay{font-size:7.9pt;color:#5f6470;margin-top:4px;text-align:center}.pay b{color:#001F60}
+.concl{margin-top:9px;background:#eef4fb;border:1px solid #cddcee;border-radius:8px;padding:8px 14px;font-size:8.9pt;line-height:1.5}.concl b{color:#001F60}
 </style>
 
-<table class="rd">
-<tr><th>진단 질문</th><th>담당 렌즈</th><th>상대가 못 하는 이유</th></tr>
-<tr><td class="q">범주가 <b>아예 없다</b> (accident=0, 고폐색 123)</td><td class="l o">ODD</td><td class="q">임베딩은 없는 점을 못 잼</td></tr>
-<tr><td class="q">있는 셀이 <b>속이 비었다</b> (6,578클립인데 Vendi 2.3)</td><td class="l e">임베딩</td><td class="q">ODD는 셀 안을 못 봄(카운트만)</td></tr>
-<tr><td class="q">현실 대비 <b>과/소수집</b> (r=P_self/P_ext)</td><td class="l o">ODD+exposure</td><td class="q">임베딩은 외부 앵커 없음</td></tr>
-<tr><td class="q"><b>중복</b> 제거 예산 (soft 6% vs hard 56%)</td><td class="l e">임베딩</td><td class="q">ODD는 셀 내 near-dup 못 봄</td></tr>
-</table>
+<div class="lead">대칭 검증 — 이번엔 <b>임베딩이 "같다"고 본 이웃</b> 안에서 ODD가 갈리는가.</div>
+
+<div class="hero">
+<span class="lbl">임베딩 20-최근접이웃 — 코사인 0.939 ("임베딩상 거의 같음")</span>
+<div class="row">
+<div class="cell"><div class="k">그 이웃의 <b>ODD Hamming</b><br><span class="big">0.165</span><br>무작위 0.297 대비</div></div>
+<div class="arrow">➜</div>
+<div class="cell"><div class="k">ODD 다양성 <b>55.3% 보존</b><br>+ 코사인&gt;0.95 이웃묶음이<br>평균 <b>6.85개 ODD 셀</b>에 걸침</div></div>
+</div>
+<div class="flip">
+<div class="ftt">임베딩이 무시하는 ODD 축 — 다른 조합 이웃에서 갈리는 비율</div>
+<div class="fr"><span class="fn">junction</span><span class="track"><span class="fbar" style="width:99%"></span></span><span class="fv">49.7%</span></div>
+<div class="fr"><span class="fn">lighting</span><span class="track"><span class="fbar" style="width:98%"></span></span><span class="fv">49.1%</span></div>
+<div class="fr"><span class="fn">road_type</span><span class="track"><span class="fbar" style="width:72%"></span></span><span class="fv">35.8%</span></div>
+<div class="fr"><span class="fn">traffic</span><span class="track"><span class="fbar" style="width:70%"></span></span><span class="fv">35.0%</span></div>
+<div class="fcap">↑ 변량 충분한데도 교차 = ODD 전용 정보 · 퇴화축(weather·occlusion…) 제외</div>
+</div>
+</div>
 
 <div class="cols">
 <div class="col">
-<div class="evi"><div class="h">근거 — 대부분 Phase 0가 이미 산출</div>
-<ul>
-<li><b>ρ=0.221</b>(쌍별, p=0) + per-run ρ≈0(n=30) → 국소 약정렬·<b>전역 탈구</b></li>
-<li>topk per-dim <b>5↑ / 2↓</b> → 축별 반영/무시 지도</li>
-<li><b>NMI 0.034</b>(시나리오×사분면) → 분할 독립</li>
-<li><b>S6·S1</b>(ODD 승격, LID 미검출) ↔ <b>S9·S7</b>(LID 경계, ODD 낮음)</li>
-</ul></div>
+<table class="bd">
+<tr><th>고정한 렌즈 / 방법</th><th>남는 상대 다양성</th></tr>
+<tr><td class="l">ODD 셀 고정 <span style="color:#8a8f98">(실증①)</span></td><td>임베딩 <span class="n">90%</span></td></tr>
+<tr><td class="l">임베딩 이웃 고정 <span style="color:#8a8f98">(실증②)</span></td><td>ODD <span class="n">55%</span></td></tr>
+<tr><td class="l">ODD 전체 η² <span style="color:#8a8f98">(실증④)</span></td><td>임베딩 <span class="n">80%</span> 밖</td></tr>
+</table>
+<div class="pay">양방향·전체 모두 큰 잔차 → <b>진짜 상호보완</b>. η²(셀-간÷전체 분산): ODD가 임베딩 분산의 <b>21%만 설명</b>(순열귀무 2%·≥50셀 19%로 일관) → 80%가 ODD 밖.</div>
 </div>
 <div class="col">
 <table class="mtx2">
 <tr><th></th><th>임베딩갭 O</th><th>임베딩갭 X</th></tr>
 <tr><th>ODD갭 O</th><td class="go">실수집 최우선<br>S10·S11</td><td class="go">실수집<br>S6·S1</td></tr>
-<tr><th>ODD갭 X</th><td class="sy">합성 후보<br>S9·S7</td><td class="ig">무시</td></tr>
+<tr><th>ODD갭 X</th><td class="sy">합성<br>S9·S7</td><td class="ig">무시</td></tr>
 </table>
-<div class="pay">payoff — <b>수집 / 합성 / 무시</b> 결정은 두 플래그를 <b>동시에</b> 요구</div>
+<div class="pay">수집/합성/무시 = 두 플래그 <b>동시</b> 요구</div>
 </div>
 </div>
 
-<div class="concl"><b>결론</b> — 두 렌즈는 직교하는 두 단면이라 <b>중복도 잡음도 아닌 상호보완</b>. ① <b>'많다 ≠ 충분하다'</b>(#2)와 ② <b>수집/합성/무시 결정</b>(#1)은 <b>어느 단일 렌즈로도 진술 불가</b> — 융합에서만 나온다. <span style="color:#8a8f98">단, 둘 다 캡션 파생 → 진짜 독립 검증은 제3 신호(egomotion).</span></div>
+<div class="concl"><b>결론 — 양자화기(ODD)와 잔차(임베딩)</b>. 임베딩은 ODD가 버린 <b>셀 내부 변주</b>를, ODD는 임베딩이 못 하는 <b>명명·외부앵커</b>를 잰다. 데이터의 진짜 좌표는 <b>둘의 곱</b>이지 어느 하나가 아니다. <span style="color:#8a8f98">단, 둘 다 캡션 파생 → 완전 독립 검증은 제3 신호(egomotion).</span></div>
 
 ---
 
