@@ -507,6 +507,107 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 <!-- _class: section -->
 <!-- _paginate: false -->
 
+# 3 · 두 렌즈의 상호보완
+### 조건 커버리지(ODD) × 내용 다양성(임베딩) — 왜 반드시 함께 봐야 하나
+
+---
+
+## 3 · 원리적 차이 — 두 추정량이 아니라 "두 facet"
+
+<style scoped>
+.lead{font-size:10pt;color:#3a3f47;margin:2px 0 9px}.lead b{color:#001F60}
+.ft{border-collapse:collapse;width:100%;font-size:9pt;margin:0 0 10px}
+.ft th,.ft td{border:1px solid #d5dce6;padding:5px 11px;vertical-align:top}
+.ft th{background:#f3f6fa;color:#001F60;text-align:left;width:15%}
+.ft thead th,.ft tr:first-child th{text-align:left}
+.ft .odd{color:#00586F;font-weight:700}.ft .emb{color:#7a3fa0;font-weight:700}
+.ft td b,.ft b{color:#001F60}.ft code{font-size:.9em;background:#eef2f7;padding:0 3px;border-radius:3px}
+.two{display:flex;gap:13px}
+.box{flex:1;border-radius:9px;padding:9px 14px;font-size:8.8pt;line-height:1.5}
+.sharp{background:#fff7f2;border:1.5px solid #eccdbf}
+.reframe{background:#f5f2fb;border:1.5px solid #d8cbe8}
+.box .bh{font-weight:700;font-size:10pt;margin-bottom:3px}
+.sharp .bh{color:#b8562a}.reframe .bh{color:#6a3fa0}
+.box b{color:#001F60}.box code{font-size:.9em;background:#eef2f7;padding:0 3px;border-radius:3px}
+</style>
+
+<div class="lead">흔한 오해 = "ODD 다양성과 임베딩 다양성은 <b>같은 다양성</b>을 두 방법으로 잰 것". <b>아니다</b> — 주행로그의 <b>서로 다른 단면(facet)</b>을 잰다.</div>
+
+<table class="ft">
+<tr><th></th><th class="odd">ODD 렌즈 — 조건(condition)</th><th class="emb">임베딩 렌즈 — 내용(content)</th></tr>
+<tr><th>측정 대상</th><td>어떤 <b>상황</b>에서 달렸나 (이산·명목)</td><td>무슨 <b>장면</b>이 벌어졌나 (연속·기하)</td></tr>
+<tr><th>정의역</th><td><b>전체 공간</b> — 미관측 셀도 정의(<code>accident=0</code> 말함)</td><td><b>관측 데이터만</b> — 없는 점은 못 잼</td></tr>
+<tr><th>세밀도</th><td>셀 <b>밖</b>은 봐도 셀 <b>안</b>은 못 봄</td><td>셀 <b>안</b>의 연속 변주를 봄</td></tr>
+<tr><th>명명성</th><td>부족한 것을 <b>이름으로</b> 지목(VRU·눈·고폐색)</td><td>방향은 재도 <b>이름이 없음</b></td></tr>
+<tr><th>외부 앵커</th><td>기관 통계가 이 언어 → <b>P_ext 대조 가능</b></td><td>외부 대응 분포 없음 → <b>앵커 불가</b></td></tr>
+<tr><th>실패 원인</th><td>태거 오분류(<code>national_road=242</code> 아티팩트)</td><td>캡션 문체 + 약한 ODD 민감도(ρ=0.221)</td></tr>
+</table>
+
+<div class="two">
+<div class="box sharp"><div class="bh">가장 날카로운 한 줄</div>ODD는 <b>"어떤 범주가 없는가"</b>(셀의 <b>부재</b>)를, 임베딩은 <b>"있는 범주 안이 얼마나 비었나"</b>(셀의 <b>공허</b>)를 잰다 → <b>원리상 겹칠 수 없다</b>.</div>
+<div class="box reframe"><div class="bh">ρ=0.221은 약점이 아니라 논지</div>임베딩=캡션(<b>장면내용</b>) · ODD=메타조건 → <b>content ⊥ condition</b>. 겹침이 약한 게 당연. 더구나 exposure가 <b>침묵하는 C-그룹</b>(occlusion·junction·scene_ambiguity)을 임베딩이 <b>부분 복구</b>.</div>
+</div>
+
+---
+
+## 3 · 상호보완 구조 · 근거 · 결론
+
+<style scoped>
+.rd{border-collapse:collapse;width:100%;font-size:8.7pt;margin:0 0 9px}
+.rd th,.rd td{border:1px solid #d5dce6;padding:4px 10px}
+.rd th{background:#f3f6fa;color:#001F60}
+.rd td.q{text-align:left}.rd td.q b{color:#001F60}.rd td.l{text-align:center;font-weight:700}
+.rd .o{color:#00586F}.rd .e{color:#7a3fa0}
+.cols{display:flex;gap:13px;align-items:stretch}.col{flex:1;display:flex;flex-direction:column}
+.evi{font-size:8.4pt;line-height:1.5;background:#f2f7fb;border:1px solid #cddcee;border-radius:9px;padding:8px 13px;height:100%}
+.evi .h{color:#00586F;font-weight:700;font-size:9.5pt;margin-bottom:3px}
+.evi ul{margin:3px 0 0;padding-left:15px}.evi li{margin:2px 0}.evi b{color:#001F60}
+.mtx2{border-collapse:collapse;width:100%;font-size:8.5pt}
+.mtx2 th,.mtx2 td{border:1px solid #cddcee;padding:5px 7px;text-align:center;line-height:1.3}
+.mtx2 th{background:#dbe7f5;color:#001F60}
+.mtx2 .go{background:#f1f8f3;color:#1a7f5a;font-weight:700}
+.mtx2 .sy{background:#fbf7f0;color:#b8862a;font-weight:700}
+.mtx2 .ig{color:#8a8f98}
+.pay{font-size:8.2pt;color:#5f6470;margin-top:5px;text-align:center}.pay b{color:#001F60}
+.concl{margin-top:10px;background:#eef4fb;border:1px solid #cddcee;border-radius:8px;padding:8px 14px;font-size:9pt;line-height:1.5}.concl b{color:#001F60}
+</style>
+
+<table class="rd">
+<tr><th>진단 질문</th><th>담당 렌즈</th><th>상대가 못 하는 이유</th></tr>
+<tr><td class="q">범주가 <b>아예 없다</b> (accident=0, 고폐색 123)</td><td class="l o">ODD</td><td class="q">임베딩은 없는 점을 못 잼</td></tr>
+<tr><td class="q">있는 셀이 <b>속이 비었다</b> (6,578클립인데 Vendi 2.3)</td><td class="l e">임베딩</td><td class="q">ODD는 셀 안을 못 봄(카운트만)</td></tr>
+<tr><td class="q">현실 대비 <b>과/소수집</b> (r=P_self/P_ext)</td><td class="l o">ODD+exposure</td><td class="q">임베딩은 외부 앵커 없음</td></tr>
+<tr><td class="q"><b>중복</b> 제거 예산 (soft 6% vs hard 56%)</td><td class="l e">임베딩</td><td class="q">ODD는 셀 내 near-dup 못 봄</td></tr>
+</table>
+
+<div class="cols">
+<div class="col">
+<div class="evi"><div class="h">근거 — 대부분 Phase 0가 이미 산출</div>
+<ul>
+<li><b>ρ=0.221</b>(쌍별, p=0) + per-run ρ≈0(n=30) → 국소 약정렬·<b>전역 탈구</b></li>
+<li>topk per-dim <b>5↑ / 2↓</b> → 축별 반영/무시 지도</li>
+<li><b>NMI 0.034</b>(시나리오×사분면) → 분할 독립</li>
+<li><b>S6·S1</b>(ODD 승격, LID 미검출) ↔ <b>S9·S7</b>(LID 경계, ODD 낮음)</li>
+</ul></div>
+</div>
+<div class="col">
+<table class="mtx2">
+<tr><th></th><th>임베딩갭 O</th><th>임베딩갭 X</th></tr>
+<tr><th>ODD갭 O</th><td class="go">실수집 최우선<br>S10·S11</td><td class="go">실수집<br>S6·S1</td></tr>
+<tr><th>ODD갭 X</th><td class="sy">합성 후보<br>S9·S7</td><td class="ig">무시</td></tr>
+</table>
+<div class="pay">payoff — <b>수집 / 합성 / 무시</b> 결정은 두 플래그를 <b>동시에</b> 요구</div>
+</div>
+</div>
+
+<div class="concl"><b>결론</b> — 두 렌즈는 직교하는 두 단면이라 <b>중복도 잡음도 아닌 상호보완</b>. ① <b>'많다 ≠ 충분하다'</b>(#2)와 ② <b>수집/합성/무시 결정</b>(#1)은 <b>어느 단일 렌즈로도 진술 불가</b> — 융합에서만 나온다. <span style="color:#8a8f98">단, 둘 다 캡션 파생 → 진짜 독립 검증은 제3 신호(egomotion).</span></div>
+
+---
+
+
+<!-- _class: section -->
+<!-- _paginate: false -->
+
 # 부록
 ### §3-2 Vendi 수식 유도 · §7 산출물 파일 가이드
 ### `results_interpretation.md` 참조

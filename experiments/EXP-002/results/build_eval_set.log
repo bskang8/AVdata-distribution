@@ -1,0 +1,189 @@
+nohup: ignoring input
+Warming up searcher …
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 114876.22it/s]
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s]                                                     Building eval set:   0%|          | 0/60 [00:00<?, ?it/s]
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:   2%|▏         | 1/60 [02:06<2:04:50, 126.95s/it]  L0-01 [L0] →  91 relevant | random hits: 2 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:   3%|▎         | 2/60 [04:22<2:07:27, 131.85s/it]  L0-02 [L0] →  97 relevant | random hits: 3 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:   5%|▌         | 3/60 [06:33<2:04:56, 131.52s/it]  L0-03 [L0] → 106 relevant | random hits: 6 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:   7%|▋         | 4/60 [09:05<2:10:11, 139.48s/it]  L0-04 [L0] →  90 relevant | random hits: 2 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:   8%|▊         | 5/60 [11:16<2:05:10, 136.56s/it]  L0-05 [L0] → 100 relevant | random hits: 6 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  10%|█         | 6/60 [13:24<2:00:17, 133.65s/it]  L0-06 [L0] →  72 relevant | random hits: 5 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  12%|█▏        | 7/60 [15:57<2:03:37, 139.95s/it]  L0-07 [L0] →  97 relevant | random hits: 3 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  13%|█▎        | 8/60 [18:10<1:59:19, 137.68s/it]  L0-08 [L0] → 100 relevant | random hits: 5 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  15%|█▌        | 9/60 [20:34<1:58:42, 139.65s/it]  L0-09 [L0] →  99 relevant | random hits: 4 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  17%|█▋        | 10/60 [22:48<1:54:54, 137.89s/it]  L0-10 [L0] →  43 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  18%|█▊        | 11/60 [24:47<1:47:55, 132.16s/it]  L0-11 [L0] →  67 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  20%|██        | 12/60 [26:41<1:41:15, 126.58s/it]  L0-12 [L0] →  86 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  22%|██▏       | 13/60 [28:43<1:38:07, 125.26s/it]  L0-13 [L0] →  89 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  23%|██▎       | 14/60 [30:51<1:36:44, 126.19s/it]  L0-14 [L0] →  99 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  25%|██▌       | 15/60 [32:52<1:33:28, 124.62s/it]  L0-15 [L0] →  94 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  27%|██▋       | 16/60 [35:04<1:32:56, 126.74s/it]  L0-16 [L0] →  99 relevant | random hits: 6 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  28%|██▊       | 17/60 [37:17<1:32:18, 128.79s/it]  L0-17 [L0] →  73 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  30%|███       | 18/60 [39:27<1:30:19, 129.04s/it]  L0-18 [L0] →  56 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  32%|███▏      | 19/60 [42:33<1:39:49, 146.07s/it]  L0-19 [L0] →  37 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  33%|███▎      | 20/60 [44:48<1:35:10, 142.76s/it]  L0-20 [L0] →  74 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  35%|███▌      | 21/60 [46:47<1:28:12, 135.71s/it]  L1-01 [L1] → 101 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  37%|███▋      | 22/60 [48:37<1:20:57, 127.83s/it]  L1-02 [L1] →  86 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  38%|███▊      | 23/60 [50:51<1:20:09, 129.97s/it]  L1-03 [L1] →  94 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  40%|████      | 24/60 [53:01<1:17:50, 129.72s/it]  L1-04 [L1] →  85 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  42%|████▏     | 25/60 [55:32<1:19:26, 136.18s/it]  L1-05 [L1] →  99 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  43%|████▎     | 26/60 [57:32<1:14:29, 131.46s/it]  L1-06 [L1] →  54 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  45%|████▌     | 27/60 [59:44<1:12:25, 131.67s/it]  L1-07 [L1] → 100 relevant | random hits: 2 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  47%|████▋     | 28/60 [1:02:16<1:13:19, 137.50s/it]  L1-08 [L1] →  87 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  48%|████▊     | 29/60 [1:04:44<1:12:42, 140.72s/it]  L1-09 [L1] →  60 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  50%|█████     | 30/60 [1:06:44<1:07:14, 134.49s/it]  L1-10 [L1] →  90 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  52%|█████▏    | 31/60 [1:09:01<1:05:21, 135.24s/it]  L2-01 [L2] →  92 relevant | random hits: 2 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  53%|█████▎    | 32/60 [1:11:32<1:05:22, 140.10s/it]  L2-02 [L2] →  96 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  55%|█████▌    | 33/60 [1:13:46<1:02:13, 138.28s/it]  L2-03 [L2] →  75 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  57%|█████▋    | 34/60 [1:15:51<58:06, 134.10s/it]    L2-04 [L2] →  56 relevant | random hits: 2 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  58%|█████▊    | 35/60 [1:17:44<53:19, 127.97s/it]  L2-05 [L2] →  97 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  60%|██████    | 36/60 [1:19:47<50:34, 126.44s/it]  L2-06 [L2] →  50 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  62%|██████▏   | 37/60 [1:22:19<51:20, 133.94s/it]  L2-07 [L2] →  58 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  63%|██████▎   | 38/60 [1:24:44<50:22, 137.36s/it]  L2-08 [L2] →  55 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  65%|██████▌   | 39/60 [1:26:54<47:17, 135.12s/it]  L2-09 [L2] →  45 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  67%|██████▋   | 40/60 [1:29:01<44:15, 132.80s/it]  L2-10 [L2] →  57 relevant | random hits: 4 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  68%|██████▊   | 41/60 [1:31:10<41:39, 131.58s/it]  L2-11 [L2] →  93 relevant | random hits: 6 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  70%|███████   | 42/60 [1:33:45<41:34, 138.56s/it]  L2-12 [L2] → 100 relevant | random hits: 3 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  72%|███████▏  | 43/60 [1:36:00<38:59, 137.64s/it]  L2-13 [L2] →  35 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  73%|███████▎  | 44/60 [1:38:14<36:21, 136.35s/it]  L2-14 [L2] →  63 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  75%|███████▌  | 45/60 [1:40:46<35:16, 141.08s/it]  L2-15 [L2] →  97 relevant | random hits: 4 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  77%|███████▋  | 46/60 [1:42:45<31:22, 134.43s/it]  L3-01 [L3] →  89 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  78%|███████▊  | 47/60 [1:44:34<27:28, 126.78s/it]  L3-02 [L3] →  98 relevant | random hits: 7 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  80%|████████  | 48/60 [1:46:42<25:26, 127.18s/it]  L3-03 [L3] →  34 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  82%|████████▏ | 49/60 [1:48:51<23:27, 127.92s/it]  L3-04 [L3] →  83 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  83%|████████▎ | 50/60 [1:50:56<21:09, 126.93s/it]  L3-05 [L3] →  36 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  85%|████████▌ | 51/60 [1:53:19<19:46, 131.84s/it]  L3-06 [L3] →  94 relevant | random hits: 2 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  87%|████████▋ | 52/60 [1:55:35<17:43, 132.91s/it]  L3-07 [L3] →  95 relevant | random hits: 3 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  88%|████████▊ | 53/60 [1:57:42<15:19, 131.32s/it]  L3-08 [L3] →  92 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  90%|█████████ | 54/60 [1:59:56<13:12, 132.01s/it]  L3-09 [L3] →  78 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  92%|█████████▏| 55/60 [2:02:10<11:03, 132.74s/it]  L3-10 [L3] →  81 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  93%|█████████▎| 56/60 [2:04:51<09:24, 141.14s/it]  L4-01 [L4] →  86 relevant | random hits: 3 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  95%|█████████▌| 57/60 [2:07:43<07:31, 150.49s/it]  L4-02 [L4] →  53 relevant | random hits: 1 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  97%|█████████▋| 58/60 [2:10:10<04:58, 149.35s/it]  L4-03 [L4] →  44 relevant | random hits: 2 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set:  98%|█████████▊| 59/60 [2:12:23<02:24, 144.29s/it]  L4-04 [L4] →  29 relevant | random hits: 0 / 15
+
+BM25S Retrieve:   0%|          | 0/1 [00:00<?, ?it/s][A
+                                                     [ABuilding eval set: 100%|██████████| 60/60 [2:14:32<00:00, 139.77s/it]Building eval set: 100%|██████████| 60/60 [2:14:32<00:00, 134.54s/it]
+  L4-05 [L4] → 100 relevant | random hits: 4 / 15
+
+  → data/eval/eval_set_v2.json
+     Queries: 60
+     Total LLM calls: 6,682
+     Total relevant labels: 4,686

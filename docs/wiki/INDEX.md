@@ -46,6 +46,13 @@
 | **Measure Dataset Diversity (ICML Best Paper)** | [evaluation/measure-dataset-diversity.md](evaluation/measure-dataset-diversity.md) | Gap-3, Gap-4 | EXP-002 방법론 근거 |
 | **Density-driven OOD 탐지** | [evaluation/density-driven-ood-detection.md](evaluation/density-driven-ood-detection.md) | Gap-3 | EXP-002 Phase A |
 | **Coverage Metrics for Scenario DB (Q1/Q2)** | [evaluation/coverage-metrics-scenario-database.md](evaluation/coverage-metrics-scenario-database.md) | Gap-1, Gap-3 | EXP-003, EXP-004 |
+| **Coverage vs Sufficiency (종합 분석: 중요조합 선별+충분성)** | [evaluation/coverage-vs-sufficiency.md](evaluation/coverage-vs-sufficiency.md) | Gap-1, Gap-3, Gap-4 | EXP-003 Phase 0/C, EXP-004 |
+| **Exposure 분포 구축 (기관 marginal → VKT-가중 층화 혼합)** | [EXP-003 Phase 1 design](../../experiments/EXP-003/phase1/design.md) | Gap-4 | EXP-003 Phase 1 |
+| **Data Scaling Laws for E2E AD (시나리오별 포화곡선)** | [evaluation/data-scaling-laws-e2e-ad.md](evaluation/data-scaling-laws-e2e-ad.md) | Gap-3, Gap-4 | EXP-003 Phase B/C, EXP-004 |
+| **Situation Coverage Grid (확률적 안전 검증)** | [evaluation/situation-coverage-grid.md](evaluation/situation-coverage-grid.md) | Gap-1, Gap-3 | EXP-003 Phase 0, EXP-004 |
+| **Combinatorial Full-Coverage Testing (t-wise 조합 축소)** | [evaluation/combinatorial-full-coverage-testing.md](evaluation/combinatorial-full-coverage-testing.md) | Gap-1, Gap-3 | EXP-003 Phase 0, EXP-004 |
+| **DBCA 의존성 기반 조합 ODD 축소 (t/p-way)** | [evaluation/dbca-combinatorial-odd-reduction.md](evaluation/dbca-combinatorial-odd-reduction.md) | Gap-3, Gap-4 | EXP-003 Phase 1 §2 |
+| **Criticality Metrics 리뷰 + 적합성 분석 (~40지표)** | [evaluation/criticality-metrics-suitability.md](evaluation/criticality-metrics-suitability.md) | Gap-4, Gap-1, Gap-3 | EXP-003 Phase 1 §10 |
 | **SCOUT 경량 커버리지 레이블 예측** | [evaluation/scout-scenario-coverage.md](evaluation/scout-scenario-coverage.md) | Gap-1, Gap-3 | EXP-005 |
 | **Graph-based Coverage Analysis (GINE)** | [evaluation/graph-based-coverage-analysis.md](evaluation/graph-based-coverage-analysis.md) | Gap-1, Gap-3 | EXP-002 Phase B |
 
@@ -71,6 +78,7 @@
 | **합성 데이터 E2E 효과 분석 (Unraveling)** | [data_distribution/unraveling-synthetic-data-e2e.md](data_distribution/unraveling-synthetic-data-e2e.md) | Gap-4, Gap-6 | EXP-003, EXP-004 |
 | **ADV-0 Min-Max 적대적 학습** | [data_distribution/adv0-adversarial-training.md](data_distribution/adv0-adversarial-training.md) | Gap-4 | EXP-003, EXP-004 |
 | **Counterfactual Safety Learning (Simulating Unseen)** | [data_distribution/simulating-unseen-crash.md](data_distribution/simulating-unseen-crash.md) | Gap-4, Gap-6 | EXP-003, EXP-004 |
+| **RoCA: GP 기반 Cross-Domain E2E 적응** | [data_distribution/roca-cross-domain-adaptation.md](data_distribution/roca-cross-domain-adaptation.md) | Gap-4, Gap-1 | EXP-003 |
 
 ### Scenario Generation (`scenario_generation/`)
 
@@ -132,6 +140,10 @@
 | Yildiz et al. (2025) — SCOUT | LVLM distillation surrogate로 대규모 커버리지 레이블 저비용 예측 | [evaluation/scout-scenario-coverage.md](evaluation/scout-scenario-coverage.md) |
 | Yurt et al. (2025) — LTDA-Drive | LLM 명세 + diffusion으로 롱테일 클래스 다양성 합성; 재샘플링 대비 tail class 다양성 해결 | [scenario_generation/ltda-drive-longtail-augmentation.md](scenario_generation/ltda-drive-longtail-augmentation.md) |
 | Li et al. (2025) — Simulating the Unseen | near-miss 기반 counterfactual safety learning; crash-rate prior + 생성 씬 엔진 + 인과 학습 | [data_distribution/simulating-unseen-crash.md](data_distribution/simulating-unseen-crash.md) |
+| Yasarla et al. (2025) — RoCA | ego/agent 토큰 GP 모델링 + basis codebook; GP variance로 롱테일 가중·불확실성 기반 active learning (LLM 불필요) | [data_distribution/roca-cross-domain-adaptation.md](data_distribution/roca-cross-domain-adaptation.md) |
+| Naumann et al. (2025) — Data Scaling Laws E2E AD | E2E 주행 파워법칙 c≈−0.4; 시나리오별 지수 상이(직진 빠름/차선변경 느림); 5% 개선=+273k시간 | [evaluation/data-scaling-laws-e2e-ad.md](evaluation/data-scaling-laws-e2e-ad.md) |
+| Situation Coverage Grid (2025) | "coverage alone is insufficient"; 관측 실패율로 미관측 셀 확률적 상한 → 안전 논증 | [evaluation/situation-coverage-grid.md](evaluation/situation-coverage-grid.md) |
+| Full Coverage Testing (Sensors 2025) | t-wise 86.5% vs greedy+GA full-coverage; 482개로 96% 비용 절감 | [evaluation/combinatorial-full-coverage-testing.md](evaluation/combinatorial-full-coverage-testing.md) |
 
 ---
 

@@ -1335,6 +1335,18 @@ priority_i = a_i × (1 - density_i) × LID_i_normalized × collectability_i
 
 ---
 
+### Phase 1: Exposure 분포 구축 — 현실 앵커 (Q1 중요도 랭킹 완성) [신규, Phase 0에서 파생]
+
+**입력**: Phase 0 산출물 `P_self`(관측 ODD 분포) + 외부 기관자료(KMA·KTDB·KoROAD·KASI)
+**목적**: 외부 naturalistic 노출분포 `P_ext`를 조립해 — Phase 0의 self 분포를 *현실 대비* 해석 가능하게. Q1(어떤 조합이 중요)의 빠진 축 = Exposure를 채운다. Q2 충분성(Phase B/C 스케일링)과 직교.
+**상태**: 🔲 설계 완료, 착수 전 4-소스 존재 확인 스파이크 필요
+**설계 문서**: → [`phase1/design.md`](phase1/design.md) (조달 계획 + P_ext 조립 + 주요 조합 선정 전문)
+**개념 근거**: [coverage-vs-sufficiency.md](../../docs/wiki/evaluation/coverage-vs-sufficiency.md) Q1-B Exposure=우선 1순위 축
+
+> **위치 근거**: Phase 0이 "우리가 뭘 가졌나"(P_self)를 쟀다면 Phase 1은 "현실 대비 어떤가"(P_ext 대조)를 잰다 — Phase 0 숫자("정상 71%")를 행동 가능한 진단으로 바꾸는 잠금해제. Phase A~D(스케일링/Q2)를 *대체하지 않고* 그 앞에 삽입, 어느 셀을 스케일링할지 먼저 선별.
+
+---
+
 ### Phase A: Caption TF-IDF 클러스터링 [기존 유지]
 
 **입력**: 83k 캡션 텍스트 (`/Data1/home/bskang/cds-data/captions/`)  
