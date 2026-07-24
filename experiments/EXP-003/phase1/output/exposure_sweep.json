@@ -1,0 +1,133 @@
+{
+  "note": "exposure 손앵커 민감도 스윕. hw:nr=관측보존, {trunk,urban,rural}=앵커격자.",
+  "anchors": [
+    {
+      "anchor": "central",
+      "trunk": 0.45,
+      "urban": 0.4,
+      "rural": 0.15,
+      "n_full_cells": 17,
+      "top5_full": [
+        "urban|clear|present",
+        "rural|clear|present",
+        "national_road|clear|none",
+        "rural|clear|none",
+        "urban|rain|none"
+      ],
+      "roadtype_deficit_logr": {
+        "highway": 0.18,
+        "national_road": 4.69,
+        "urban": -0.1,
+        "rural": -0.98
+      }
+    },
+    {
+      "anchor": "urban_heavy",
+      "trunk": 0.35,
+      "urban": 0.45,
+      "rural": 0.2,
+      "n_full_cells": 17,
+      "top5_full": [
+        "urban|clear|present",
+        "rural|clear|present",
+        "rural|clear|none",
+        "national_road|clear|none",
+        "urban|rain|none"
+      ],
+      "roadtype_deficit_logr": {
+        "highway": -0.07,
+        "national_road": 4.44,
+        "urban": 0.02,
+        "rural": -0.7
+      }
+    },
+    {
+      "anchor": "trunk_heavy",
+      "trunk": 0.55,
+      "urban": 0.3,
+      "rural": 0.15,
+      "n_full_cells": 17,
+      "top5_full": [
+        "urban|clear|present",
+        "rural|clear|present",
+        "national_road|clear|none",
+        "rural|clear|none",
+        "urban|rain|none"
+      ],
+      "roadtype_deficit_logr": {
+        "highway": 0.38,
+        "national_road": 4.89,
+        "urban": -0.38,
+        "rural": -0.98
+      }
+    },
+    {
+      "anchor": "rural_heavy",
+      "trunk": 0.45,
+      "urban": 0.3,
+      "rural": 0.25,
+      "n_full_cells": 17,
+      "top5_full": [
+        "urban|clear|present",
+        "rural|clear|present",
+        "national_road|clear|none",
+        "rural|clear|none",
+        "rural|rain|none"
+      ],
+      "roadtype_deficit_logr": {
+        "highway": 0.18,
+        "national_road": 4.69,
+        "urban": -0.38,
+        "rural": -0.47
+      }
+    },
+    {
+      "anchor": "rural_light",
+      "trunk": 0.5,
+      "urban": 0.4,
+      "rural": 0.1,
+      "n_full_cells": 17,
+      "top5_full": [
+        "urban|clear|present",
+        "national_road|clear|none",
+        "rural|clear|present",
+        "rural|clear|none",
+        "urban|rain|none"
+      ],
+      "roadtype_deficit_logr": {
+        "highway": 0.28,
+        "national_road": 4.79,
+        "urban": -0.1,
+        "rural": -1.39
+      }
+    }
+  ],
+  "robustness_vs_central": {
+    "central": {
+      "spearman_vs_central": 1.0,
+      "top5_jaccard": 1.0
+    },
+    "urban_heavy": {
+      "spearman_vs_central": 0.998,
+      "top5_jaccard": 1.0
+    },
+    "trunk_heavy": {
+      "spearman_vs_central": 0.971,
+      "top5_jaccard": 1.0
+    },
+    "rural_heavy": {
+      "spearman_vs_central": 0.983,
+      "top5_jaccard": 0.67
+    },
+    "rural_light": {
+      "spearman_vs_central": 0.971,
+      "top5_jaccard": 1.0
+    }
+  },
+  "roadtype_over_under_sign_stable": {
+    "highway": false,
+    "national_road": true,
+    "urban": false,
+    "rural": true
+  }
+}

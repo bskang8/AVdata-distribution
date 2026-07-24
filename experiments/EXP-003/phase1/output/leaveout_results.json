@@ -1,0 +1,105 @@
+{
+  "params": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "test_frac": 0.25,
+    "budgets": [
+      0,
+      400,
+      800
+    ],
+    "max_win_per_clip": 2,
+    "features": "kinematics(6)+emb_pca(16)",
+    "guided": "cell_context(exposure×crit×deficit×headroom) × per-clip raw ADE",
+    "uncertainty": "per-clip raw learned ADE"
+  },
+  "scenarios": {
+    "adverse": {
+      "baseline_tail": 0.9157704630464059,
+      "budget": 800,
+      "n_cand": 9684,
+      "recover_mean_std": {
+        "guided": {
+          "mean": -0.0013506705545804688,
+          "std": 0.01657425682035251,
+          "tail_frac": 0.55425
+        },
+        "random": {
+          "mean": 0.00424524541431901,
+          "std": 0.011731740600756229,
+          "tail_frac": 0.25625000000000003
+        },
+        "coverage_only": {
+          "mean": -0.0030893703816935016,
+          "std": 0.014765664477098527,
+          "tail_frac": 0.5612499999999999
+        },
+        "uncertainty_only": {
+          "mean": -0.0027875105932831713,
+          "std": 0.015216142316226032,
+          "tail_frac": 0.18375
+        },
+        "diversity_only": {
+          "mean": -0.0012019307958993197,
+          "std": 0.008915541618805914,
+          "tail_frac": 0.22425
+        }
+      },
+      "rank": [
+        "random",
+        "diversity_only",
+        "guided",
+        "uncertainty_only",
+        "coverage_only"
+      ],
+      "G4_guided_gt_singlelens": false,
+      "G4_significant_1sigma": false
+    },
+    "kinematic": {
+      "baseline_tail": 0.9842865148639188,
+      "budget": 800,
+      "n_cand": 11740,
+      "recover_mean_std": {
+        "guided": {
+          "mean": 0.007388484340592583,
+          "std": 0.018899327890908323,
+          "tail_frac": 0.23475000000000001
+        },
+        "random": {
+          "mean": 0.04365857588506532,
+          "std": 0.02735853003920425,
+          "tail_frac": 0.253
+        },
+        "coverage_only": {
+          "mean": 0.05923608725715883,
+          "std": 0.030012274948857613,
+          "tail_frac": 0.49974999999999997
+        },
+        "uncertainty_only": {
+          "mean": 0.018497812913204802,
+          "std": 0.018987965676847122,
+          "tail_frac": 0.28525
+        },
+        "diversity_only": {
+          "mean": 0.059803754243848095,
+          "std": 0.014791018245519936,
+          "tail_frac": 0.33324999999999994
+        }
+      },
+      "rank": [
+        "diversity_only",
+        "coverage_only",
+        "random",
+        "uncertainty_only",
+        "guided"
+      ],
+      "G4_guided_gt_singlelens": false,
+      "G4_significant_1sigma": false
+    }
+  }
+}

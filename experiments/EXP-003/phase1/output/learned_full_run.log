@@ -1,0 +1,57 @@
+  extract 5000/100398  windows=33713
+  extract 10000/100398  windows=67498
+  extract 15000/100398  windows=101119
+  extract 20000/100398  windows=134677
+  extract 25000/100398  windows=168303
+  extract 30000/100398  windows=201980
+  extract 35000/100398  windows=235686
+  extract 40000/100398  windows=269298
+  extract 45000/100398  windows=302895
+  extract 50000/100398  windows=336648
+  extract 55000/100398  windows=370407
+  extract 60000/100398  windows=404106
+  extract 65000/100398  windows=437657
+  extract 70000/100398  windows=471297
+  extract 75000/100398  windows=505021
+  extract 80000/100398  windows=538846
+  extract 85000/100398  windows=572679
+  extract 90000/100398  windows=606523
+  extract 95000/100398  windows=640105
+  extract 100000/100398  windows=673909
+windows=676624  clips_with_windows=97820
+  fold 1/5 fit  train=541299 test=135325
+  fold 2/5 fit  train=541299 test=135325
+  fold 3/5 fit  train=541299 test=135325
+  fold 4/5 fit  train=541299 test=135325
+  fold 5/5 fit  train=541300 test=135324
+{
+  "model": "MLP(64,32) GroupKFold-OOF, canonical 미래변위 회귀",
+  "processed": 100398,
+  "valid": 97820,
+  "windows": 676624,
+  "params": {
+    "OBS_S": 2.0,
+    "FUT_S": 3.0,
+    "STRIDE_S": 2.5,
+    "horizons": [
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ]
+  },
+  "ade": {
+    "mean": 1.0814357815193902,
+    "p50": 0.939404377870356,
+    "p90": 1.9460706551045326,
+    "max": 26.816684833089237
+  },
+  "fde": {
+    "mean": 2.4867741088908595,
+    "p50": 2.169331655280471,
+    "p90": 4.487418956794405
+  },
+  "note": "전역 학습모델 예측난이도. CV와 달리 fleet 기준 비전형성 반영(분포 의존)."
+}

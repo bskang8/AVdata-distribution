@@ -39,6 +39,10 @@ experiments/EXP-003/phase0/output/*.npy
 experiments/EXP-003/phase0/output/*.npz
 experiments/EXP-003/phase0/output/*.joblib
 
+# Phase 1 output — per-clip 배열·창 캐시는 재생성 가능 → 제외, 문서(md/json)는 추적
+experiments/EXP-003/phase1/output/*.npy
+experiments/EXP-003/phase1/output/*.npz
+
 # Phase 1 exposure — 대용량 raw 조달본만 제외(fetch로 재생성), 샘플·코드·json은 추적
 experiments/EXP-003/phase1/exposure/raw/kma/asos_hourly.csv
 

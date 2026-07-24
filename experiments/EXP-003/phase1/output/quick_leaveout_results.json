@@ -1,0 +1,92 @@
+{
+  "params": {
+    "seeds": [
+      0,
+      1
+    ],
+    "test_frac": 0.25,
+    "budgets": [
+      0,
+      400,
+      800
+    ],
+    "max_win_per_clip": 2,
+    "features": "kinematics(6)+emb_pca(16)",
+    "guided": "cell_context(exposure×crit×deficit×headroom) × per-clip raw ADE",
+    "uncertainty": "per-clip raw learned ADE"
+  },
+  "scenarios": {
+    "adverse": {
+      "baseline_tail": 0.9150430270952363,
+      "budget": 400,
+      "n_cand": 2421,
+      "recover_mean_std": {
+        "guided": {
+          "mean": -0.004175723491392835,
+          "std": 0.018656145710958416
+        },
+        "random": {
+          "mean": -0.0005842292831635398,
+          "std": 0.009778409200087268
+        },
+        "coverage_only": {
+          "mean": -0.004232769415374205,
+          "std": 0.006374468566837654
+        },
+        "uncertainty_only": {
+          "mean": -0.010458878421275408,
+          "std": 0.013654195866996732
+        },
+        "diversity_only": {
+          "mean": -0.002862863784108438,
+          "std": 0.004715535463037324
+        }
+      },
+      "rank": [
+        "random",
+        "diversity_only",
+        "guided",
+        "coverage_only",
+        "uncertainty_only"
+      ],
+      "G4_guided_gt_singlelens": false,
+      "G4_significant_1sigma": false
+    },
+    "kinematic": {
+      "baseline_tail": 1.0459234339102443,
+      "budget": 400,
+      "n_cand": 2935,
+      "recover_mean_std": {
+        "guided": {
+          "mean": 0.04259932887318085,
+          "std": 0.03223656786641904
+        },
+        "random": {
+          "mean": 0.05545087762521561,
+          "std": 0.03376580835968146
+        },
+        "coverage_only": {
+          "mean": 0.05262001640122588,
+          "std": 0.03041333369847149
+        },
+        "uncertainty_only": {
+          "mean": 0.027431749629803104,
+          "std": 0.037772859122019
+        },
+        "diversity_only": {
+          "mean": 0.03891908650092235,
+          "std": 0.03501243489865402
+        }
+      },
+      "rank": [
+        "random",
+        "coverage_only",
+        "guided",
+        "diversity_only",
+        "uncertainty_only"
+      ],
+      "G4_guided_gt_singlelens": false,
+      "G4_significant_1sigma": false
+    }
+  }
+}
