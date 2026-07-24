@@ -596,20 +596,22 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 <div class="lead">대칭 검증 — 이번엔 <b>임베딩이 "같다"고 본 이웃</b> 안에서 ODD가 갈리는가.</div>
 
 <div class="hero">
-<span class="lbl">임베딩 20-최근접이웃 — 코사인 0.939 ("임베딩상 거의 같음")</span>
+<span class="lbl">임베딩상 가장 닮은 이웃 20개 — 평균 유사도 0.94 ("임베딩상 거의 같음")</span>
 <div class="row">
-<div class="cell"><div class="k">그 이웃의 <b>ODD Hamming</b><br><span class="big">0.165</span><br>무작위 0.297 대비</div></div>
+<div class="cell"><div class="k">그 이웃끼리도 ODD 11필드 중<br><span class="big">평균 1.8개</span> 다름<br>(무작위는 3.2개)</div></div>
 <div class="arrow">➜</div>
-<div class="cell"><div class="k">ODD 다양성 <b>55.3% 보존</b><br>+ 코사인&gt;0.95 이웃묶음이<br>평균 <b>6.85개 ODD 셀</b>에 걸침</div></div>
+<div class="cell"><div class="k">ODD 다양성 <b>55.3% 보존</b><br>+ 가장 닮은 이웃 20개 묶음에<br><b>다른 ODD 조합 평균 ~11개</b></div></div>
 </div>
-<div class="flip">
-<div class="ftt">임베딩이 무시하는 ODD 축 — 다른 조합 이웃에서 갈리는 비율</div>
-<div class="fr"><span class="fn">junction</span><span class="track"><span class="fbar" style="width:99%"></span></span><span class="fv">49.7%</span></div>
-<div class="fr"><span class="fn">lighting</span><span class="track"><span class="fbar" style="width:98%"></span></span><span class="fv">49.1%</span></div>
-<div class="fr"><span class="fn">road_type</span><span class="track"><span class="fbar" style="width:72%"></span></span><span class="fv">35.8%</span></div>
-<div class="fr"><span class="fn">traffic</span><span class="track"><span class="fbar" style="width:70%"></span></span><span class="fv">35.0%</span></div>
-<div class="fcap">↑ 변량 충분한데도 교차 = ODD 전용 정보 · 퇴화축(weather·occlusion…) 제외</div>
 </div>
+
+<div class="hero">
+<span class="lbl">ODD 조합이 같은 클립들 — 전수 분산분석 η² ("조합이 같아도 화면은 딴판")</span>
+<div class="row">
+<div class="cell"><div class="k">ODD 조합으로 설명되는<br>임베딩 다양성<br><span class="big">21%뿐</span><br>(η² · 순열귀무 2%)</div></div>
+<div class="arrow">➜</div>
+<div class="cell"><div class="k">임베딩 다양성 <b>80%가 ODD 밖</b><br>실증①의 90%는 top셀 편향<br>→ 엄밀값 <b>80%</b>로 교정</div></div>
+</div>
+<div class="pay">계산·우연/싱글톤 검증 ▸ 부록 C</div>
 </div>
 
 <div class="cols">
@@ -620,7 +622,7 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 <tr><td class="l">임베딩 이웃 고정 <span style="color:#8a8f98">(실증②)</span></td><td>ODD <span class="n">55%</span></td></tr>
 <tr><td class="l">ODD 전체 η² <span style="color:#8a8f98">(실증④)</span></td><td>임베딩 <span class="n">80%</span> 밖</td></tr>
 </table>
-<div class="pay">양방향·전체 모두 큰 잔차 → <b>진짜 상호보완</b>. η²(셀-간÷전체 분산): ODD가 임베딩 분산의 <b>21%만 설명</b>(순열귀무 2%·≥50셀 19%로 일관) → 80%가 ODD 밖.</div>
+<div class="pay">양방향·전체 모두 큰 잔차 → <b>진짜 상호보완</b> (세 증거 <b>90 / 55 / 80%</b> 수렴).</div>
 </div>
 <div class="col">
 <table class="mtx2">
@@ -632,7 +634,7 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 </div>
 </div>
 
-<div class="concl"><b>결론 — 양자화기(ODD)와 잔차(임베딩)</b>. 임베딩은 ODD가 버린 <b>셀 내부 변주</b>를, ODD는 임베딩이 못 하는 <b>명명·외부앵커</b>를 잰다. 데이터의 진짜 좌표는 <b>둘의 곱</b>이지 어느 하나가 아니다. <span style="color:#8a8f98">단, 둘 다 캡션 파생 → 완전 독립 검증은 제3 신호(egomotion).</span></div>
+<div class="concl"><b>결론 — 직교하는 두 축(ODD=조건 격자 · 임베딩=내용 기하)</b>. 임베딩은 격자를 <b>가로질러</b>(η² 80%가 셀 밖·NN이 ~11조합에 걸침) ODD에 축이 없는 <b>내용 다양성</b>을, ODD는 임베딩이 못 하는 <b>명명·외부앵커·미관측 조건</b>을 잰다. <b>중첩(셀 안/밖)이 아니라 직교</b> — 데이터의 진짜 좌표는 <b>둘의 곱</b>이지 어느 하나가 아니다. <span style="color:#8a8f98">단, 둘 다 캡션 파생 → 완전 독립 검증은 제3 신호(egomotion).</span></div>
 
 ---
 
@@ -743,3 +745,65 @@ $$\text{Vendi}=\exp\!\bigl(H(\mathbf p)\bigr)=\exp\!\Bigl(-\sum_i p_i\log p_i\Bi
 </table>
 
 <div class="flag">⚠️ <b>핵심 맹점</b> — 이웃 거리가 0.05~0.07로 <b>거의 균일</b> → <code>r_j/r_max ≈ 1</code> → LID 추정량이 <b>수치 발산</b>(→200 클리핑, FLIPD 발산과 동근원). <b><code>lid_reliable=100%</code>는 이걸 못 잡는다</b> — 그 플래그는 "희소·고립"(r_max 큼)만 거를 뿐, "거리 범위가 좁아 불안정"은 통과. &nbsp;+ 모든 축이 <b>캡션 임베딩(bge-m3) 프록시</b>(ODD 정렬 ρ≈0.2, 부분). &nbsp;→ <b>실무: 밀도 축 &gt; LID 축, LID 기반 Q2/Q3·FLIPD 승격은 보수적으로.</b></div>
+
+---
+
+## 부록 C · η²(실증④) — ODD가 같으면 화면도 같을까
+
+<style scoped>
+.lead{font-size:10pt;color:#3a3f47;margin:3px 0 8px}.lead b{color:#001F60}
+.mbox{background:#f2f7fb;border:1px solid #cddcee;border-radius:9px;padding:8px 14px;margin:8px 0;font-size:9.2pt;line-height:1.5}
+.mbox .mh{color:#00586F;font-weight:700;font-size:10.3pt;margin-bottom:2px}
+.mbox b{color:#001F60}.mbox code{font-size:.86em;background:#eef2f7;padding:0 3px;border-radius:3px}
+.mbox ul{margin:2px 0 0;padding-left:17px}.mbox li{margin:1.5px 0}
+.cols{display:flex;gap:14px}.cols>div{flex:1}
+.res{border-collapse:collapse;width:100%;font-size:9pt;margin:2px 0 0}
+.res th,.res td{border:1px solid #d5dce6;padding:4px 10px;text-align:left}
+.res th{background:#f3f6fa;color:#001F60}.res .n{font-family:monospace;font-weight:700;color:#00586F}.res .ok{color:#1a7f5a}
+.flag{font-size:8.7pt;color:#7a6420;background:#fbf6ec;border:1px solid #ecdcbf;border-radius:6px;padding:7px 11px;margin-top:8px}.flag b{color:#001F60}
+</style>
+
+<div class="lead">질문: <b>ODD 조합(11필드)이 같은 클립들은, 실제로 서로 비슷하게 보일까?</b> &nbsp;답부터: <b style="color:#00586F">거의 아니다</b> — ODD로 설명되는 화면 다양성은 <b>~20%뿐</b>, 나머지 80%는 조합이 같아도 딴판이다. 이 설명력을 통계의 <b>η²(설명된 분산 비율)</b>로 재고, <b>우연히 부풀려진 값이 아님</b>까지 검증했다.</div>
+
+<div class="cols">
+<div class="mbox">
+<div class="mh">① η²란? — "조합별로 나눠 담고, 조합만으로 얼마나 설명되나"</div>
+<ul>
+<li>클립마다 <b>ODD 조합</b>이 하나씩(예: 맑음×주간×고속도로) → 10만 클립을 <b>2,070개 조합</b>으로 나눠 담는다.</li>
+<li>만약 ODD가 화면을 <b>완전히</b> 결정한다면 → 같은 조합 클립의 임베딩이 한 점에 겹치고(서로 <b>코사인 ≈ 1</b> → 조합 <b>안</b> 분산 = 0), 모든 다양성은 <b>조합끼리</b> 차이에서만 나온다.</li>
+<li><b>전체 다양성 ＝ (조합끼리 벌어짐) ＋ (조합 안 흩어짐)</b>으로 놓고, 그중 <b>"조합끼리 벌어짐"의 몫이 전체 다양성을 얼마나 표현하나(η²)</b>를 측정.</li>
+<li><b>계산 — 조합끼리 벌어짐</b>: 조합마다 평균점을 구해 <b>(조합 평균 − 전체 평균)²</b>을 조합 크기만큼 가중 합산. <b>조합 안 흩어짐</b>: 각 클립과 <b>제 조합 평균 사이 거리²</b>의 총합. (거리 = 임베딩 코사인)</li>
+</ul>
+</div>
+<div class="mbox">
+<div class="mh">② 왜 섞어서 다시 재나 — "작은 조합의 착시" 걷어내기</div>
+<ul>
+<li>조합 2,070개 중 상당수가 <b>클립 1개짜리</b>. 1개짜리 조합은 "안 차이"가 자동 0 → 잘게 쪼갤수록 <b>의미 없이 η²가 부풀어</b> 오른다.</li>
+<li>그래서 ODD 라벨을 <b>무작위로 뒤섞어</b>(조합 크기는 그대로, 의미만 제거) η²를 다시 잰다 = <b>"우연이면 이만큼"인 바닥값(귀무)</b>.</li>
+<li>바닥값이 <b>2.1%</b>뿐 → 관측 21%의 <b>거의 전부가 진짜 신호</b>. 보정 η² = (관측−귀무)/(1−귀무).</li>
+<li>확인사살: 1개짜리 조합 다 빼고 <b>50개 이상 조합(169개)</b>만으로 재계산 → 값 안 흔들림.</li>
+</ul>
+</div>
+</div>
+
+<div class="cols">
+<div style="flex:1.05">
+<table class="res">
+<tr><th>지표</th><th>값</th><th>의미</th></tr>
+<tr><td>η² 관측</td><td class="n">21.3%</td><td>ODD 셀이 설명하는 임베딩 분산</td></tr>
+<tr><td>η² 순열귀무</td><td class="n">2.1%</td><td>무의미 그룹의 우연 바닥값 <span class="ok">(인플레 작음 ✓)</span></td></tr>
+<tr><td>η² 보정</td><td class="n">19.6%</td><td>우연 제거 후 ODD 순수 기여</td></tr>
+<tr><td>η² (≥50클립 169셀)</td><td class="n">18.7%</td><td>싱글톤 빼도 일관 <span class="ok">✓</span></td></tr>
+</table>
+<div style="font-size:8.8pt;color:#5f6470;margin-top:5px">세 방식(21%·20%·19%)이 <b style="color:#001F60">~20% 근처로 일치</b> → 우연·싱글톤 아티팩트가 아닌 <b style="color:#001F60">견고한 실제 신호</b>. → <b style="color:#001F60">ODD는 임베딩 분산의 ~20%만 설명, ~80%가 ODD 밖.</b></div>
+</div>
+<div class="mbox" style="flex:0.95">
+<div class="mh">해석 — 두 포인트</div>
+<ul>
+<li><b>(A) 조합 안에 80%가 남는다 = 상호보완의 정량 증거.</b> 날씨·조명·노면이 같아도 화면 다양성의 80%가 흩어짐 → 임베딩은 ODD엔 <b>없는 다른 축</b>(장면 내용·가려짐·모호한 교차로)을 추가로 본다.</li>
+<li><b>(B) 앞 장(실증①)을 스스로 교정.</b> 거기서 본 "90% 잔존"은 하필 <b>정상조건 셀 하나</b>만 본 편향치. 전체를 엄밀히 재면 <b>80% 밖(90% 아님)</b>.</li>
+</ul>
+</div>
+</div>
+
+<div class="flag">⚠️ <b>발표 방어선</b> — 결과의 신뢰도는 <b>귀무 2.1%가 낮다</b>는 데 달림. 귀무가 15~20%였다면 "관측 20%"는 싱글톤 아티팩트로 무너짐. 2.1%라 관측 20%의 <b>대부분이 진짜 ODD 신호</b>임이 보장됨. &nbsp;코드: <code>analysis_two_lens.py :: analysis4_eta_squared</code>.</div>
