@@ -47,7 +47,46 @@ guided = ODD-조건 Priority × per-clip 오차인데, 고yaw 급기동은 **평
 2. **G4(guided > 단일렌즈) 미성립** — egomotion에선 diversity(임베딩)가 이기고 guided가 짐.
    임베딩이 이긴 건 임베딩이 기동공간을 우연히 커버하기 때문.
 3. **원인 = task 부적합**: egomotion의 실패는 기동축, Priority는 ODD-조건축 → 구조적 오조준.
-   adverse(ODD축)엔 애초 성능결핍이 없음(baseline_tail < overall).
+   adverse(ODD축)엔 애초 성능결핍이 없음(최고 정책조차 회복 ≈0).
+
+## 3.5 S1 후속 — 축분리 정책으로 ②↔④ 격리 (`guided_sep`·`emb_err_only`)
+
+**동기**: §3의 guided 실패에 대해 §4가 두 설명을 동시에 단다 — **②(성능신호를 틀린 축=ODD셀에서 잼)**
+와 **④(가중 타게팅 자체가 나쁨)**. 이 둘은 배타적인데 미격리 상태였다. `leaveout.py`에 정책 2종 추가:
+- `emb_err_only`: per-clip ADE를 **임베딩 k-NN(20) 평균**으로 재배치 = 성능신호를 임베딩축에. ODD 무시.
+- `guided_sep`: `emb_err × soft ODD context([0.5,1] 넛지, 억제 불가)` = **축분리 결합**(guided 교정형).
+
+**결과** (kinematic, budget 800, 5 seed, 회복 mean±std):
+
+| 정책 | 신호 유형 | 회복 | tail_picked |
+|---|---|--:|--:|
+| coverage_only | ODD **spread** | **+0.061 ± 0.021** | 50% |
+| diversity_only | 임베딩 **spread** | **+0.060 ± 0.015** | 33% |
+| random | — | +0.044 ± 0.027 | 25% |
+| emb_err_only | 오차 타게팅·**임베딩축** | +0.038 ± 0.016 | 23% |
+| guided_sep | emb_err × soft ODD | +0.021 ± 0.009 | 22% |
+| uncertainty_only | 오차 타게팅·**원시축** | +0.019 ± 0.019 | 29% |
+| guided | 오차 × **ODD-셀 게이트** | +0.007 ± 0.019 | 23% |
+
+**판정 — 이분법이 아니라 중첩(nested)**:
+1. **②(축)는 참이나 2차 효과**. `emb_err_only`(+0.038) > `uncertainty_only`(+0.019, ~2×), `guided_sep`(+0.021)
+   > `guided`(+0.007, ~2.8×). **두 대조의 부호가 일치** → "ODD-셀은 성능신호를 재기 가장 나쁜 자리, 임베딩축이
+   낫다"가 메커니즘 수준에서 확증. *단 각 gap은 1σ 안쪽 → 방향성 근거이지 강한 유의는 아님.*
+2. **④(spread)는 1차 효과(지배적)**. spread 2종(~0.060)이 나머지 전부를 여러 σ 차이로 압도(유일하게 견고한 gap).
+   **결정적: 오차 타게팅은 어느 축에서 하든 전부 random(+0.044) 이하** — 오직 spread만 random을 넘음.
+3. **`guided_sep`(교정형 융합)조차 단일렌즈 spread에 못 미침** → **"두 잣대를 하나의 가중 점수로 융합하지 말라"**가
+   축을 고친 뒤에도 살아남음. S1의 가장 강한 결론.
+
+**②↔④ 모순 해소**: *오차 타게팅은 어느 축에서 하든 spread에 진다(④, 1차). 굳이 타게팅한다면 임베딩축이 ODD축보다
+2~3배 낫다(②, 2차). 둘은 모순이 아니라 위계* — ②='졌지만 덜 처참하게 지는 법', ④='애초에 타게팅 말고 고루 덮어라'.
+
+**타당성(직교성 활용)에의 함의**:
+- 양성: coverage(ODD-spread)≈diversity(임베딩-spread) **공동 1위** → 두 직교축으로 **각자 고루 덮기**가 유효한 활용법.
+- 부정 강화: 융합·가중 타게팅(guided·guided_sep)은 **축 교정 후에도 패배** → "직교성을 하나의 획득함수로 결합"은 egomotion에서 반증.
+- 미해결: coverage↔diversity 동점이 *다른 클립을 집어 합치면 이득*인지 *같은 클립(중복)*인지는 미측정 → S2(중복도/한계이득) 필요.
+
+*(재현 주: 정책 2종 추가로 rng 스트림이 밀려 coverage_only가 §3 대비 +0.0592→+0.0612로 이동 — 1σ 내. diversity_only는
+FPS 결정적이라 +0.0598 불변, 앵커로 확인.)* 산출물: `leaveout_results.json`(`axis_diag` 필드).
 
 ## 4. 중간결론 — "ODD·임베딩을 어떻게 써야 하는가" (근거 기반 도출)
 
@@ -75,16 +114,18 @@ guided = ODD-조건 Priority × per-clip 오차인데, 고yaw 급기동은 **평
 - **반론 방어**: "guided가 진 건 그냥 운/노이즈 아닌가?" → tail_picked 23%<25%는 **기계적 인과**(guided가 유용
   클립을 *구조적으로 회피*)이지 성능 분산이 아니다. 원인도 명시 가능: 고yaw 급기동은 평범한 ODD조건
   (urban/highway·clear)에 살아 cell_context가 낮음 → guided가 낮게 점수. 재현 가능한 메커니즘.
+- **S1 정량 확인(§3.5)**: 성능신호를 임베딩축으로 옮기면 타게팅이 2~3배 회복(emb_err +0.038 > uncertainty +0.019;
+  guided_sep +0.021 > guided +0.007). 단 이는 **2차 효과** — 임베딩축 타게팅조차 spread(~0.060)엔 못 미침(결론 4가 1차).
 
 ### 결론 3. ODD-조건은 egomotion **성능을 예측하지 못한다** (음성 대조로 격리)
 
-- **근거(대조 설계)**: 두 시나리오를 **대조쌍**으로 돌림. adverse(ODD 조건축, snow/fog)의 baseline tail ADE
-  **0.916 < overall(~1.04)** = base가 이미 잘 예측 → **결핍 자체가 없음**(전 정책 ≈0). kinematic(feature축, 고yaw)은
-  baseline 0.984 > overall = 실재 결핍 → 회복 +0.06.
+- **근거(대조 설계)**: 두 시나리오를 **대조쌍**으로 돌림. adverse(ODD 조건축, snow/fog)는 baseline tail ADE
+  **0.916**(kinematic 0.984보다 낮음)이고 **최고 정책(spread)조차 회복 ≈0(±0.004)** = base가 이미 tail을 잘 예측
+  → **결핍 자체가 없음**. kinematic(feature축, 고yaw)만 실재 결핍(baseline 0.984) → 회복 +0.06.
 - **도출**: "adverse에 결핍 없음 / kinematic에 결핍 있음"의 대비가 곧 **egomotion의 실패는 기동축, ODD-조건축과 직교**임을
   격리 증명. ODD-조건으로 획득을 유도하면 결핍 없는 곳을 겨냥하게 됨.
 - **반론 방어**: "adverse가 회복 안 된 건 데이터가 적어서 아닌가?" → candidate 9,684개로 충분, budget 800.
-  회복이 안 된 게 아니라 **회복할 결핍이 없음**(baseline<overall이 직접 근거). 데이터 부족이면 baseline이 높아야 함.
+  회복이 안 된 게 아니라 **회복할 결핍이 없음**(최고 정책조차 ≈0이 직접 근거). 데이터 부족이면 baseline이 높고 spread가 회복시켰어야 함.
 
 ### 결론 4. **"커버리지(spread)"로 쓰면 이기고, "가중 타게팅"으로 쓰면 진다** — 두 렌즈의 올바른 사용 모드
 
@@ -94,6 +135,8 @@ guided = ODD-조건 Priority × per-clip 오차인데, 고yaw 급기동은 **평
   실패축과 어긋나 오조준, per-clip 오차 추종(uncertainty)은 **환원불가 노이즈**(못 배우는 hard clip)를 쫓아 실패.
 - **반론 방어**: "그럼 획득함수의 가중이 무의미?" → 아니다. 이 결론은 **가중이 실패축과 정렬됐을 때만 유효**임을 뜻함.
   egomotion에선 정렬이 깨져 커버리지가 이겼을 뿐(결론 3). 정렬되는 task에선 가중이 커버리지를 이길 것(결론 5).
+- **S1 강화(§3.5)**: 이 "spread>타게팅"은 **1차·지배적 효과** — 오차 타게팅은 임베딩축으로 옮겨도 전부 random 이하,
+  오직 spread만 random을 넘는다. 축분리 결합(guided_sep)조차 단일렌즈 spread에 못 미쳐 **"융합 말고 축분리해 각자 덮기"** 확증.
 
 ### 결론 5. ODD의 **성능 역할**은 반증된 게 아니라 **미검증**으로 남음 (정직한 경계)
 
@@ -123,7 +166,39 @@ guided = ODD-조건 Priority × per-clip 오차인데, 고yaw 급기동은 **평
 - **egomotion으로 검증 가능**: 임베딩 성능역할, exposure 과/소수집(national 수집·rural 프루닝).
 - **ODD 두-렌즈 G4는 condition-sensitive 다운스트림**(perception/detection)에서 재도전 — 거기선 ODD 조건이 성능과 정렬.
 
+## 6. 후속 de-risking (COMPLEMENTARITY_GAP.md §6·§8 반영) — 실험 A·B
+
+> **동기**: §3~4의 결론은 "고yaw 결핍 한 점"에 걸려 있었고(외적타당성 취약), "융합 금지"의 사정거리도 미확정이었다.
+> COMPLEMENTARITY_GAP.md가 이를 감사해 실험 A(외적타당성)·B(결합 스코프)를 설계 → `leaveout.py --expA/--expB`로 실행.
+
+### 실험 A — ablation 배터리 (결핍 21종 → 실재 14종, 5 seed) · `leaveout_battery.json`
+- **재현성**: `spread>targeting` **11/14** · `guided_loses(<random)` **11/14** → 순위 결론이 단일 결핍이 아니라 **다수 결핍에서 재현**(외적타당성 확보).
+- **경계(반례) 발견**: `speed_p4`에서 **guided 압승(+0.067, spread≈0)** · `a_lat_p2`에서 타게팅 우위 → **"타게팅/융합은 항상 진다"는 거짓**. 결핍이 특정 조건에 정렬되면 타게팅이 이긴다(문서 §6-A 가설 실증).
+- **견고성 두 축**:
+  - capacity: (32,16)·(128,64) 모두 spread 견고 1위. (16,)는 전정책 회복 ≈0인 **붕괴구간**이라 순위 무의미 → "저용량 아티팩트" 우려 기각.
+  - ODD-feature 공정성: ODD one-hot **+36dim** 추가해 모델이 ODD를 직접 봐도 **여전히 coverage 1위** → "성능=임베딩축"이 입력설계 귀결이라는 우려 **해소**(가장 강한 결과).
+- null 결핍: `a_long`(전 severity)·`rain`·`snow` → snow/rain null은 결론 3(ODD-조건 ⊥ egomotion) 재확인.
+
+### 실험 B — spread 결합(coverage⊕diversity, 이질 결핍) · `leaveout_spread_combo.json`
+- tail = `a_lat@p2`(diversity 선호) + `speed@p8`(coverage 선호), worst-case = min(영역별 회복).
+- **판정 = H0**: portfolio·층화가 단일 spread를 **worst-case로 넘지 못함**. 곱셈(mult)은 대조.
+- **원인**: 결핍별 cov≈div가 **전역**(유의 분리 0개) → 반대선호 결핍쌍 자체가 없음 = §3 "단일 결핍 충분"의 **이질결핍 확장**.
+- **한계(R2)**: baseline 불균형(A 2.76 vs B 1.04)으로 worst-case가 A영역(상대회복 ~1%, near-null)에 지배 → 지표 degeneracy. baseline 정규화 시 point-estimate는 portfolio>single이나 **recA std 이내로 비유의**.
+- **곱셈 병리**: quick에선 재현(−0.091)이나 **full에선 비견고**(`mult_fails=False`) → 곱셈 억제 병리도 무대의존.
+
+### 정직한 마감 (스코프 확정)
+| 판정 | 주장 |
+|---|---|
+| ✅ 확증 | 두 렌즈 각각 spread 도구로 유효 · **다수 결핍서 재현**(A) |
+| ✅ 확증 | **곱셈-타게팅 융합 실패**(guided·guided_sep) — 단, **결핍이 조건정렬되면 타게팅 승리**하는 반례 존재(A `speed_p4`) |
+| ✅ 확증 | egomotion에서 ODD-조건 ⊥ 성능 · surrogate 용량·ODD-feature에 견고(A) |
+| ⬜ 시험됨(H0) | **이긴 두 spread의 결합(portfolio/층화)** — 이 무대선 무이득이나 **반증 아님**(반대선호쌍·baseline균형 부재, R2)(B) |
+| ❌ 미실증 | **"둘 다 써야 더 낫다"(상호보완·가산성)** — egomotion으로 닫히지 않음 → **실험 C가 유일한 종결** |
+| ❓ 미검증 | ODD의 성능예측 역할(condition-sensitive task로 이관) |
+
+> **"융합 금지"는 일반 명제가 아니다** — 지지되는 좁은 주장은 *"오차-타게팅을 곱셈으로 융합하면(이 무대선) 실패한다"*. coverage⊕diversity 결합은 반증되지 않았고(H0), 조건정렬 결핍에선 타게팅도 이긴다.
+
 ## 산출물 (output/)
 `{,learned_}ade/fde_per_clip.npy` · `{,learned_}model_error_by_odd_cell.json` ·
 `learned_ext_priority_ranking.json` · `P_ext_extended.json`(exposure/output) · `exposure_sweep.json` ·
-`leaveout_results.json`
+`leaveout_results.json` · `leaveout_battery.json`(expA) · `leaveout_spread_combo.json`(expB)
