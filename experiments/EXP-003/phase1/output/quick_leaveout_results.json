@@ -13,80 +13,142 @@
     "max_win_per_clip": 2,
     "features": "kinematics(6)+emb_pca(16)",
     "guided": "cell_context(exposure×crit×deficit×headroom) × per-clip raw ADE",
-    "uncertainty": "per-clip raw learned ADE"
+    "uncertainty": "per-clip raw learned ADE",
+    "emb_err_only": "per-clip ADE를 임베딩 k-NN(20)로 평균 = 성능신호 임베딩축",
+    "guided_sep": "emb_err × soft ODD context([0.5,1]) = 축분리 결합"
   },
   "scenarios": {
     "adverse": {
-      "baseline_tail": 0.9150430270952363,
+      "baseline_tail": 0.9227075087601885,
       "budget": 400,
-      "n_cand": 2421,
+      "n_cand": 9684,
       "recover_mean_std": {
         "guided": {
-          "mean": -0.004175723491392835,
-          "std": 0.018656145710958416
+          "mean": -0.025608546934199505,
+          "std": 0.026729609801197596,
+          "tail_frac": 0.80375
+        },
+        "guided_sep": {
+          "mean": -0.0018266734612440438,
+          "std": 0.00578907856014349,
+          "tail_frac": 0.3525
         },
         "random": {
-          "mean": -0.0005842292831635398,
-          "std": 0.009778409200087268
+          "mean": 0.009082449215093602,
+          "std": 0.002240016985976312,
+          "tail_frac": 0.27
         },
         "coverage_only": {
-          "mean": -0.004232769415374205,
-          "std": 0.006374468566837654
+          "mean": 0.008651306157435867,
+          "std": 0.0013352119198020707,
+          "tail_frac": 0.54375
         },
         "uncertainty_only": {
-          "mean": -0.010458878421275408,
-          "std": 0.013654195866996732
+          "mean": -0.01168600555553645,
+          "std": 0.013971528717450221,
+          "tail_frac": 0.195
+        },
+        "emb_err_only": {
+          "mean": 0.0030777595249300016,
+          "std": 0.007538422517041787,
+          "tail_frac": 0.2075
         },
         "diversity_only": {
-          "mean": -0.002862863784108438,
-          "std": 0.004715535463037324
+          "mean": 0.0022628161815656522,
+          "std": 0.009496340992612984,
+          "tail_frac": 0.2275
         }
       },
       "rank": [
         "random",
-        "diversity_only",
-        "guided",
         "coverage_only",
-        "uncertainty_only"
+        "emb_err_only",
+        "diversity_only",
+        "guided_sep",
+        "uncertainty_only",
+        "guided"
       ],
       "G4_guided_gt_singlelens": false,
-      "G4_significant_1sigma": false
+      "G4_significant_1sigma": false,
+      "axis_diag": {
+        "emb_err_gt_uncertainty": true,
+        "guided_sep_gt_guided": true,
+        "guided_sep_reaches_spread": true,
+        "values": {
+          "guided": -0.025608546934199505,
+          "guided_sep": -0.0018266734612440438,
+          "uncertainty": -0.01168600555553645,
+          "emb_err": 0.0030777595249300016,
+          "coverage": 0.008651306157435867,
+          "diversity": 0.0022628161815656522
+        }
+      }
     },
     "kinematic": {
-      "baseline_tail": 1.0459234339102443,
+      "baseline_tail": 1.0542520593175064,
       "budget": 400,
-      "n_cand": 2935,
+      "n_cand": 11740,
       "recover_mean_std": {
         "guided": {
-          "mean": 0.04259932887318085,
-          "std": 0.03223656786641904
+          "mean": 0.009701636647630019,
+          "std": 0.018157817712264213,
+          "tail_frac": 0.24875000000000003
+        },
+        "guided_sep": {
+          "mean": 0.009631555557687133,
+          "std": 0.019728761493108093,
+          "tail_frac": 0.22375
         },
         "random": {
-          "mean": 0.05545087762521561,
-          "std": 0.03376580835968146
+          "mean": 0.018389519159844325,
+          "std": 0.0165634114314962,
+          "tail_frac": 0.2525
         },
         "coverage_only": {
-          "mean": 0.05262001640122588,
-          "std": 0.03041333369847149
+          "mean": 0.0363237920401942,
+          "std": 0.01033301948859866,
+          "tail_frac": 0.49874999999999997
         },
         "uncertainty_only": {
-          "mean": 0.027431749629803104,
-          "std": 0.037772859122019
+          "mean": 0.002077185472069143,
+          "std": 0.021750704078454808,
+          "tail_frac": 0.29374999999999996
+        },
+        "emb_err_only": {
+          "mean": -0.0005751877654762705,
+          "std": 0.009464983653772574,
+          "tail_frac": 0.23375
         },
         "diversity_only": {
-          "mean": 0.03891908650092235,
-          "std": 0.03501243489865402
+          "mean": 0.01892376233599824,
+          "std": 0.012145188821664932,
+          "tail_frac": 0.33
         }
       },
       "rank": [
-        "random",
         "coverage_only",
-        "guided",
         "diversity_only",
-        "uncertainty_only"
+        "random",
+        "guided",
+        "guided_sep",
+        "uncertainty_only",
+        "emb_err_only"
       ],
       "G4_guided_gt_singlelens": false,
-      "G4_significant_1sigma": false
+      "G4_significant_1sigma": false,
+      "axis_diag": {
+        "emb_err_gt_uncertainty": false,
+        "guided_sep_gt_guided": false,
+        "guided_sep_reaches_spread": true,
+        "values": {
+          "guided": 0.009701636647630019,
+          "guided_sep": 0.009631555557687133,
+          "uncertainty": 0.002077185472069143,
+          "emb_err": -0.0005751877654762705,
+          "coverage": 0.0363237920401942,
+          "diversity": 0.01892376233599824
+        }
+      }
     }
   }
 }
