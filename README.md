@@ -33,7 +33,6 @@
 ## 빠른 시작
 
 ```bash
-cd /Data1/home/bskang/AVdata-distirbution
 uv sync                         # pyproject.toml 기반 환경 복원 (Python ≥ 3.12)
 ```
 
