@@ -5,7 +5,7 @@
   "n_collection_gap": 98,
   "n_rare_synth": 676,
   "plausible_min": 10.0,
-  "note": "occurrence(coverage) 외삽으로 미관측 랭킹. 원논문 failure율 외삽의 대체 (phase1 모델실패율 부재). speed는 crit worst-case, coverage는 관측 6축.",
+  "note": "occurrence(coverage) 외삽으로 미관측 랭킹. 원논문 failure율 외삽의 대체 (phase0_2 모델실패율 부재). speed는 crit worst-case, coverage는 관측 6축.",
   "collection_gap": [
     {
       "cell": [

@@ -17,7 +17,7 @@ import sys
 from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import loader  # phase1 내부 — §2 구조 prior 재사용
+import loader  # phase0_2 내부 — §2 구조 prior 재사용
 from paths import ROOT
 
 # loader.BLOCKS는 파일명 keyed → 블록명 keyed로 뒤집어 재사용

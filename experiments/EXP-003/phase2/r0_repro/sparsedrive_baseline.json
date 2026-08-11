@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "what": "EXP-003 phase2 R0 — SparseDrive-S 재현 baseline (released ckpt, 학습 없음)",
+    "purpose": "KatechBridge 심볼릭 데이터경로 + converter 패치 검증용 재현 기준점. 이후 데이터 큐레이션 실험의 비교 baseline.",
+    "date": "2026-08-11",
+    "model": "SparseDrive-S (sparsedrive_stage2.pth, released)",
+    "dataset": "nuScenes val (6019 samples), v1.0-trainval",
+    "eval_cmd": "CUDA_VISIBLE_DEVICES=0 bash r0_repro/eval_baseline.sh stage2  (--launcher none 비분산; torchrun 분산 모드는 map/motion Pool 데드락)",
+    "logs": {
+      "det_track": "r0_repro/output/eval_baseline_stage2.log (full run, map hang 전)",
+      "motion": "r0_repro/output/motion_debug.log (with_map=False, --launcher none 완주)",
+      "planning": "planning-only run 출력 (이후 full run이 동일 로그 덮어씀)"
+    }
+  },
+
+  "detection": {
+    "mAP": 0.4145, "NDS": 0.5247,
+    "mATE": 0.5574, "mASE": 0.2763, "mAOE": 0.5351, "mAVE": 0.2660, "mAAE": 0.1901
+  },
+
+  "tracking": {
+    "AMOTA": 0.3701, "AMOTP": 1.2545, "recall": 0.5038, "MOTAR": 0.6361
+  },
+
+  "motion": {
+    "car":        {"EPA": 0.4912, "min_ade": 0.6110, "min_fde": 0.9534, "miss_rate": 0.1327},
+    "pedestrian": {"EPA": 0.4083, "min_ade": 0.7227, "min_fde": 1.0656, "miss_rate": 0.1454}
+  },
+
+  "planning": {
+    "L2_avg": 0.6074, "obj_box_col_avg_pct": 0.104, "obj_col_avg_pct": 0.670,
+    "per_step": {
+      "steps": ["0.5s", "1.0s", "1.5s", "2.0s", "2.5s", "3.0s"],
+      "L2":          [0.1888, 0.2959, 0.4238, 0.5756, 0.7514, 0.9509],
+      "obj_box_col_pct": [0.020, 0.020, 0.039, 0.059, 0.125, 0.234],
+      "obj_col_pct":     [0.742, 0.713, 0.684, 0.659, 0.649, 0.638]
+    },
+    "raw": {"L2": 0.6074489007393519, "obj_box_col": 0.0010418701818303412, "obj_col": 0.006701612793323066},
+    "public_reference": {"L2_avg": 0.61, "collision_pct": 0.097, "verdict": "재현오차 내 일치 → 데이터경로/재현 검증 완결"}
+  },
+
+  "map": {
+    "status": "deferred",
+    "reason": "map eval scorer(3 클래스: divider/ped_crossing/boundary)의 multiprocessing Pool이 데드락(워커 16개 hang). 모델/데이터 문제 아닌 도구 hang. 회피=eval_mode with_map=False. R0 재현 타당성과 무관해 보류."
+  }
+}

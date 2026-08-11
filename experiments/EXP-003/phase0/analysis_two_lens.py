@@ -24,7 +24,7 @@
 ■ 슬라이드(§3, 13·14p)에 실린 산출 숫자
      실증① : ODD-동일 6,578클립 → 임베딩 Vendi 3.17 = 무작위 동일크기(3.53)의 89.9%
      실증② : 임베딩 20-NN(코사인 0.939) → ODD Hamming 0.165 vs 무작위 0.297 = 56% 보존,
-             코사인>0.95 이웃묶음이 평균 7.0개 ODD 셀에 걸침
+             가장 닮은 이웃 20개 묶음이 평균 ~11개 ODD 조합에 걸침
    → 비대칭(90% vs 56%) 자체가 인사이트: 임베딩은 ODD를 일부(≈44%)만 잡고,
      ODD는 임베딩 변주를 거의(≈10%만) 못 본다.
 
@@ -218,14 +218,11 @@ def analysis2_within_neighborhood(clip_ids, codes, rng, K=20, n_anchor=4000):
     print(f'  → ODD 분산 보존율 = {nn_h.mean() / rand_h.mean():.1%}  '
           f'(임베딩이 "같다"는 이웃도 ODD는 이만큼 갈림)')
 
-    # 코사인>0.95 임베딩 이웃묶음이 몇 개의 서로 다른 ODD 셀에 걸치나(1=완전정렬)
-    spans = []
-    for a in anchors:
-        m = knn_sim[a, 1:K + 1] > 0.95
-        if m.sum() >= 3:
-            grp = np.vstack([codes[a], codes[knn_idx[a, 1:K + 1][m]]])
-            spans.append(len({tuple(r) for r in grp}))
-    print(f'  코사인>0.95 이웃묶음(≥4개)당 서로 다른 ODD 셀 수 = 평균 {np.mean(spans):.2f}개')
+    # 가장 닮은 이웃 20개 묶음이 몇 개의 서로 다른 ODD 조합에 걸치나(1=완전정렬)
+    # 위 55% 보존과 동일한 '상위 20 이웃' 집합을 써서 기준을 하나로 통일(0.95 컷 안 씀).
+    spans = [len({tuple(r) for r in np.vstack([codes[a], codes[knn_idx[a, 1:K + 1]]])})
+             for a in anchors]
+    print(f'  가장 닮은 이웃 20개 묶음당 서로 다른 ODD 조합 수 = 평균 {np.mean(spans):.2f}개')
 
     _show_counterexamples(clip_ids, codes, knn_idx, knn_sim, rng)
 

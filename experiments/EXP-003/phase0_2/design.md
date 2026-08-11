@@ -2,7 +2,7 @@
 
 > **📎 개념 근거 (항상 참조)**: [coverage-vs-sufficiency.md](../../../docs/wiki/evaluation/coverage-vs-sufficiency.md) — 이 Phase의 상위 프레임(Q1 중요조합 선별 / Q2 충분성, Exposure=우선 1순위 축). Phase 1 작업 중 수시로 대조할 것. (같은 폴더 `_ref_coverage-vs-sufficiency.md` 심링크로도 접근 가능.)
 >
-> **위치**: `experiments/EXP-003/phase1/` — Phase 0(self 분포 프로파일링)의 산출물 `P_self`를 소비해 현실 앵커 `P_ext`와 대조. 구현 시 `strata.py`·`compose.py`·`output/` 합류.
+> **위치**: `experiments/EXP-003/phase0_2/` — Phase 0(self 분포 프로파일링)의 산출물 `P_self`를 소비해 현실 앵커 `P_ext`와 대조. 구현 시 `strata.py`·`compose.py`·`output/` 합류.
 
 ## 문서 성격
 
@@ -408,7 +408,7 @@ for s in 480층:
 
 ## 9. 선정② — self 대조 편향맵 (Gap-4 수치화, 헤드라인)
 
-$P_{\text{self}}$ **소유자 = EXP-003 phase0 `output/odd_coverage.json`**(10만 클립 관측분포, crosswalk `_to_compat_v2` 포함). phase1은 이걸 조달만, 재집계 금지(§12-R 재사용).
+$P_{\text{self}}$ **소유자 = EXP-003 phase0 `output/odd_coverage.json`**(10만 클립 관측분포, crosswalk `_to_compat_v2` 포함). phase0_2은 이걸 조달만, 재집계 금지(§12-R 재사용).
 
 **과수집과 시급을 같은 지표로 재지 않는다** — 신뢰영역이 정반대라(§13-R). 둘로 분리:
 
@@ -465,7 +465,7 @@ runnable check = `validate.py`: 앵커 3개를 `assert`(clear×urban×day 최상
 | 단계 | 필요 | 현재 | 보완 |
 |---|---|---|---|
 | ① P_ext | §7 compose | design만, 입력 CSV placeholder(전 블록 NOT_OBTAINED) | **[P0] raw/ 조달→sources 실전사** ▸ [P2] `compose.py`(enumerate) |
-| ② P_self | 10만 클립 집계+crosswalk | **phase0 `odd_coverage.json`에 구현됨** (단 top100만 저장, 꼬리 없음) | [P1] **phase0 crosswalk 함수 import**(`_to_compat_v2`·`_flatten_final`)해 phase1이 카운트 — phase0 무수정 |
+| ② P_self | 10만 클립 집계+crosswalk | **phase0 `odd_coverage.json`에 구현됨** (단 top100만 저장, 꼬리 없음) | [P1] **phase0 crosswalk 함수 import**(`_to_compat_v2`·`_flatten_final`)해 phase0_2이 카운트 — phase0 무수정 |
 | ③ 비교·순위 | §8/§9/§10 | design만 | [P2] `analyze.py`(§9 (a)비율·(b)P_ext분자, §13-R 스코프) |
 
 **손대지 마 (역할 완결):** `loader.py`·`recon.py`·`mapping.yaml`, **그리고 phase0 전체.**
@@ -478,9 +478,9 @@ from phase0.step_a_odd_coverage import _to_compat_v2, _flatten_final   # 위험 
 P_self = Counter()
 for f in ODD_DIR/*.json:
     rec = _to_compat_v2(_flatten_final(json.load(f)['odd_final']))
-    P_self[tuple(rec[k] for k in AXES)] += 1        # phase1 5축으로 카운트
+    P_self[tuple(rec[k] for k in AXES)] += 1        # phase0_2 5축으로 카운트
 ```
-이건 "재집계 금지"에 안 걸린다 — 금지 대상은 *crosswalk 복붙 재구현*(발산 위험). **같은 함수 호출은 복제가 아니라 재사용**: 위험한 매핑은 phase0에 단일 출처로 남고, phase1은 자기 축으로 카운트만(축 정합도 여기서 처리).
+이건 "재집계 금지"에 안 걸린다 — 금지 대상은 *crosswalk 복붙 재구현*(발산 위험). **같은 함수 호출은 복제가 아니라 재사용**: 위험한 매핑은 phase0에 단일 출처로 남고, phase0_2은 자기 축으로 카운트만(축 정합도 여기서 처리).
 
 ### 축 정합 — 가장 미묘한 함정 (P_ext ↔ P_self가 다른 crosswalk에서 옴)
 

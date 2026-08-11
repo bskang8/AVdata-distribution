@@ -1,0 +1,283 @@
+{
+  "n_clips": 28130,
+  "n_candidate": 6149,
+  "n_subdeficiencies": 20,
+  "feature_keys": [
+    "speed",
+    "accel_long",
+    "curvature",
+    "abs_lateral_final",
+    "yaw_rate_abs",
+    "n_agents",
+    "min_dist",
+    "n_close",
+    "agent_speed_max",
+    "pedx_present",
+    "pedx_min_dist",
+    "n_divider"
+  ],
+  "rule_thresholds": {
+    "lat_hi": 3.1793785808421675,
+    "dist_lo": 3.4565956354547342,
+    "close_hi": 11.0,
+    "agents_hi": 31.0
+  },
+  "tag_totals": {
+    "sharp_turn": 2250,
+    "high_interaction": 3906,
+    "unprotected_left": 370
+  },
+  "clusters": {
+    "0": {
+      "n": 222,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 222
+      },
+      "top_city": "singapore-onenorth",
+      "mean_speed": 1.4,
+      "mean_min_dist": 2.95
+    },
+    "1": {
+      "n": 361,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "sharp_turn": 333,
+        "unprotected_left": 79,
+        "high_interaction": 5
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 5.44,
+      "mean_min_dist": 9.99
+    },
+    "2": {
+      "n": 367,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 367
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 3.97,
+      "mean_min_dist": 3.01
+    },
+    "3": {
+      "n": 226,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "unprotected_left": 75,
+        "sharp_turn": 205,
+        "high_interaction": 11
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 3.5,
+      "mean_min_dist": 7.71
+    },
+    "4": {
+      "n": 139,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 139
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 1.2,
+      "mean_min_dist": 3.34
+    },
+    "5": {
+      "n": 306,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 302,
+        "unprotected_left": 4
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 0.85,
+      "mean_min_dist": 3.1
+    },
+    "6": {
+      "n": 198,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 198,
+        "unprotected_left": 2,
+        "sharp_turn": 2
+      },
+      "top_city": "singapore-onenorth",
+      "mean_speed": 1.32,
+      "mean_min_dist": 2.64
+    },
+    "7": {
+      "n": 233,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "sharp_turn": 233
+      },
+      "top_city": "singapore-queenstown",
+      "mean_speed": 10.37,
+      "mean_min_dist": 16.63
+    },
+    "8": {
+      "n": 365,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "sharp_turn": 365,
+        "unprotected_left": 75,
+        "high_interaction": 6
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 5.27,
+      "mean_min_dist": 10.04
+    },
+    "9": {
+      "n": 353,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "high_interaction": 47,
+        "sharp_turn": 332
+      },
+      "top_city": "singapore-onenorth",
+      "mean_speed": 5.87,
+      "mean_min_dist": 7.77
+    },
+    "10": {
+      "n": 710,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 710
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 1.04,
+      "mean_min_dist": 2.92
+    },
+    "11": {
+      "n": 220,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "sharp_turn": 220,
+        "high_interaction": 4
+      },
+      "top_city": "singapore-onenorth",
+      "mean_speed": 5.94,
+      "mean_min_dist": 12.4
+    },
+    "12": {
+      "n": 304,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "unprotected_left": 32,
+        "high_interaction": 275,
+        "sharp_turn": 2
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 6.37,
+      "mean_min_dist": 3.25
+    },
+    "13": {
+      "n": 450,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 447,
+        "sharp_turn": 8
+      },
+      "top_city": "singapore-onenorth",
+      "mean_speed": 4.9,
+      "mean_min_dist": 3.32
+    },
+    "14": {
+      "n": 258,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "sharp_turn": 240,
+        "unprotected_left": 57,
+        "high_interaction": 2
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 6.06,
+      "mean_min_dist": 10.71
+    },
+    "15": {
+      "n": 118,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "sharp_turn": 84,
+        "high_interaction": 72,
+        "unprotected_left": 41
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 4.02,
+      "mean_min_dist": 4.59
+    },
+    "16": {
+      "n": 414,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 412,
+        "sharp_turn": 2
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 7.11,
+      "mean_min_dist": 2.96
+    },
+    "17": {
+      "n": 161,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 142,
+        "sharp_turn": 16,
+        "unprotected_left": 3
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 3.88,
+      "mean_min_dist": 3.73
+    },
+    "18": {
+      "n": 535,
+      "dominant_tag": "high_interaction",
+      "tag_counts": {
+        "high_interaction": 533,
+        "unprotected_left": 2
+      },
+      "top_city": "boston-seaport",
+      "mean_speed": 0.58,
+      "mean_min_dist": 3.23
+    },
+    "19": {
+      "n": 209,
+      "dominant_tag": "sharp_turn",
+      "tag_counts": {
+        "sharp_turn": 208,
+        "high_interaction": 12
+      },
+      "top_city": "singapore-onenorth",
+      "mean_speed": 4.59,
+      "mean_min_dist": 8.17
+    }
+  },
+  "signals_computed": [
+    "diversity",
+    "coverage_redundancy"
+  ],
+  "signals_deferred": [
+    "recoverability_proxy",
+    "uncertainty",
+    "scaling_gain"
+  ],
+  "divergence": {
+    "signals": [
+      "diversity",
+      "coverage_redundancy"
+    ],
+    "spearman": {
+      "diversity|diversity": 1.0,
+      "diversity|coverage_redundancy": -0.8673,
+      "coverage_redundancy|diversity": -0.8673,
+      "coverage_redundancy|coverage_redundancy": 1.0
+    },
+    "topk_jaccard": {
+      "diversity|diversity": 1.0,
+      "diversity|coverage_redundancy": 0.0,
+      "coverage_redundancy|diversity": 0.0,
+      "coverage_redundancy|coverage_redundancy": 1.0
+    }
+  },
+  "note": "S0 model-free 부분만. 발산 판정(G-Q1)은 recoverability(oracle/proxy)·uncertainty·scaling_gain 주입 후 완성 → s0_model_signals.py."
+}

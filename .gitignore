@@ -56,3 +56,17 @@ literature/
 .vscode/
 .idea/
 .DS_Store
+
+# EXP-003 phase2 (실 타깃) — 대용량/외부 아티팩트 제외 (코드·메타는 추적)
+experiments/EXP-003/phase2/third_party/
+experiments/EXP-003/phase2/**/output/*.pt
+experiments/EXP-003/phase2/**/output/*.ckpt
+experiments/EXP-003/phase2/**/*.parquet
+# 로그·stdout 덤프·per-clip 캐시는 재생성 가능 → 제외 (baseline json·문서는 추적)
+experiments/EXP-003/phase2/**/output/*.log
+experiments/EXP-003/phase2/**/output/*.out
+experiments/EXP-003/phase2/**/output/*.npz
+experiments/EXP-003/phase2/**/output/*.npy
+
+# phase2 SparseDrive 전용 venv (repo .venv와 별개)
+experiments/EXP-003/phase2/.venv-sparsedrive/

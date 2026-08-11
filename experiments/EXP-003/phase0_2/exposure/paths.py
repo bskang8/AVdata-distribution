@@ -15,7 +15,7 @@
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.abspath(__file__))              # .../phase1/exposure
+ROOT = os.path.dirname(os.path.abspath(__file__))              # .../phase0_2/exposure
 RAW = os.path.join(ROOT, "raw")
 SOURCES = os.path.join(ROOT, "sources")
 RECON = os.path.join(ROOT, "recon")

@@ -1,7 +1,7 @@
 """§10+ 이웃 확률외삽 — 미관측 위험조합의 수집 우선순위 정식화.
 
 situation-coverage-grid.md(arXiv 2507.12158): 미관측 셀을 '발생 0/위험 0'으로 낙관하지 않고
-이웃 셀에서 확률 외삽. 원논문은 '이웃 **실패율** → 미관측 실패율 상한'이나, phase1엔 모델
+이웃 셀에서 확률 외삽. 원논문은 '이웃 **실패율** → 미관측 실패율 상한'이나, phase0_2엔 모델
 실패율 데이터가 없다(다운스트림 EXP-002/004) → 방법의 정신을 **발생가능성(occurrence)을
 이웃 coverage에서 외삽**으로 대체:
   · 미관측 셀의 1축 이웃(관측 6축, Hamming-1)의 n_self 평균 = est_occurrence
@@ -79,7 +79,7 @@ def main():
     json.dump({"n_clips": n_clips, "n_unobserved": len(rows), "n_grid": len(cells),
                "n_collection_gap": len(gap), "n_rare_synth": len(rare), "plausible_min": PLAUSIBLE_MIN,
                "note": "occurrence(coverage) 외삽으로 미관측 랭킹. 원논문 failure율 외삽의 대체 "
-                       "(phase1 모델실패율 부재). speed는 crit worst-case, coverage는 관측 6축.",
+                       "(phase0_2 모델실패율 부재). speed는 crit worst-case, coverage는 관측 6축.",
                "collection_gap": gap[:100], "rare_synth": sorted(rare, key=lambda r: -r["crit"])[:50]},
               open(os.path.join(OUT, "extrapolation.json"), "w"), ensure_ascii=False, indent=2)
     print(f"\n[OK] → output/extrapolation.json (수집갭 {len(gap)} · 희소 {len(rare)})")

@@ -111,7 +111,7 @@ CSV는 사람이 손으로 전사하다 오타·누락이 나기 쉽다. 특히 
 > 전체는 `python3 run_all.py`(RESULTS §1). 개별 실행 예:
 
 ```bash
-cd .../EXP-003/phase1/exposure
+cd .../EXP-003/phase0_2/exposure
 
 # 전체 파이프라인 (조달→조립→선정). 외부 raw/클립 읽는 느린 단계는 캐시 스킵, 조립은 항상 재실행.
 python3 run_all.py                 # 기본(캐시 활용) — 끝에 §8·§10·§11 요약 출력
