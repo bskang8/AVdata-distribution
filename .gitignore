@@ -67,6 +67,11 @@ experiments/EXP-003/phase2/**/output/*.log
 experiments/EXP-003/phase2/**/output/*.out
 experiments/EXP-003/phase2/**/output/*.npz
 experiments/EXP-003/phase2/**/output/*.npy
+# 예외: leave-out 재생성 시드(결정론적 입력, 6.7M) — MIGRATION §6-5가 clone 후 재사용
+!experiments/EXP-003/phase2/r1_gates/output/gq1_s0_perclip.npz
 
 # phase2 SparseDrive 전용 venv (repo .venv와 별개)
 experiments/EXP-003/phase2/.venv-sparsedrive/
+
+# 메모리 핸드오프 번들(미출판 연구 IP) — 커밋 금지, scp로만 이식
+experiments/EXP-003/phase2/_handoff/
