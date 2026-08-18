@@ -12,14 +12,14 @@
 # ============================================================================
 set -euo pipefail
 
-PHASE2="/Data1/home/bskang/AVdata-distirbution/experiments/EXP-003/phase2"
+PHASE2="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 VENV="${PHASE2}/.venv-sparsedrive"
 SD="${PHASE2}/third_party/sparsedrive"
 PYVER="3.8"
-export CUDA_HOME="/Data1/home/bskang/cuda-11.8"
+export CUDA_HOME="${CUDA_HOME:-/Data1/home/bskang/cuda-11.8}"
 export PATH="${CUDA_HOME}/bin:${PATH}"
 export LD_LIBRARY_PATH="${CUDA_HOME}/lib64:${LD_LIBRARY_PATH:-}"
-export TORCH_CUDA_ARCH_LIST="8.9"   # 4090 Ada
+export TORCH_CUDA_ARCH_LIST="${TORCH_CUDA_ARCH_LIST:-8.9}"   # 4090 Ada; 새 GPU면 override
 export FORCE_CUDA=1 MMCV_WITH_OPS=1
 export MAX_JOBS="${MAX_JOBS:-8}"
 
