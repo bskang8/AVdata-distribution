@@ -3,6 +3,17 @@
 > 목표: SparseDrive-S를 2×4090에서 재현 → baseline L2/collision 확인 + stage1/2 시간·메모리 실측 + stage2-only leave-out 타당성.
 > repo: `../third_party/sparsedrive/` (clone 완료). 공식: `docs/quick_start.md`, `requirement.txt`.
 
+## 🔁 다른 서버에서 third_party 재구성 (로컬 패치 자동 적용)
+`third_party/`는 gitignore(외부 fork)라 clone에 없다. 새 서버에서:
+```bash
+cd experiments/EXP-003/phase2/third_party
+git clone https://github.com/swc-17/SparseDrive.git sparsedrive
+cd sparsedrive && git checkout ec0225d          # 패치 기준 커밋
+git apply ../../r0_repro/sparsedrive_local.patch # 로컬 수정 7건 일괄 적용
+```
+패치 내용(수동 재타이핑 불필요): converter shapely import 순서, train.py `--local_rank` alias,
+`np.int→np.int64`, stage1/2 config, 신규 `s1_leaveout_stage2.py`. 아래 §의 개별 패치 설명은 참고용.
+
 ## 머신 실측 (2026-08-10)
 - GPU: 2× RTX 4090 24GB, 드라이버 580.173.02(최신 — 어떤 CUDA 런타임도 지원).
 - conda ❌ · nvcc ❌(시스템 CUDA 없음) · uv ✅(0.11.14) · 디스크 75T 여유 · nuScenes ❌(다운로드 필요).

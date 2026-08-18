@@ -1,0 +1,209 @@
+diff --git a/projects/configs/s1_leaveout_stage2.py b/projects/configs/s1_leaveout_stage2.py
+new file mode 100644
+index 0000000..59c2b79
+--- /dev/null
++++ b/projects/configs/s1_leaveout_stage2.py
+@@ -0,0 +1,71 @@
++# G-Q1 / S1 leave-out 학습 config — stage2-only(stage1 동결), 단일 GPU.
++# base = sparsedrive_small_stage2(전 recipe: optimizer/lr/pipeline/eval 상속).
++# 오버라이드: (1) stage1 동결 hook, (2) leave-out ann_file, (3) 1-GPU iters, (4) epochs.
++# 실행: LEAVEOUT/EPOCHS/WORKDIR 환경변수를 s1_run.sh가 주입(아래 os.environ).
++# ⚠️ stage1 동결 = "planning recoverability given fixed perception"(GQ1_S1_DESIGN §scope).
++#    load_from=stage1.pth의 param은 freeze, 새로(planning/ego) 초기화된 param만 학습.
++import os
++from mmcv.runner import HOOKS, Hook
++import torch
++
++_base_ = ["./sparsedrive_small_stage2.py"]
++
++
++@HOOKS.register_module(force=True)
++class _FreezeStage1Hook(Hook):
++    """stage1.pth에 있는 param은 requires_grad=False(동결), 나머지(planning head)만 학습."""
++    def __init__(self, stage1_ckpt):
++        self.stage1_ckpt = stage1_ckpt
++
++    def before_run(self, runner):
++        import torch                                # 메서드 로컬 import: config 모듈의 del torch와 무관
++        ckpt = torch.load(self.stage1_ckpt, map_location="cpu")
++        loaded = set(ckpt.get("state_dict", ckpt).keys())
++        model = runner.model.module if hasattr(runner.model, "module") else runner.model
++        n_f = n_t = 0
++        for name, p in model.named_parameters():
++            train_it = name not in loaded          # stage2-new(planning/ego)만 학습
++            p.requires_grad_(train_it)
++            n_t += int(train_it); n_f += int(not train_it)
++        runner.logger.info(f"[FreezeStage1] frozen={n_f} trainable(planning)={n_t}")
++        assert n_t > 0, "학습 가능 planning param 0 — stage1.pth 키 규칙 확인"
++    # ponytail: BN running-stat은 train모드로 갱신됨(동결 아님). arm 공통(baseline·leaveout 동일 recipe)
++    #  → ΔTail에서 common-mode로 상쇄. 정밀 필요시 before_train_epoch에서 frozen 모듈 .eval() 추가.
++
++
++del HOOKS, Hook, _FreezeStage1Hook   # cfg 오염 방지(등록됨). torch/os는 모듈이라 mmcv가 자동 제외 → del 금지(hook이 참조)
++
++# ---- 단일 GPU/leave-out 오버라이드 ----
++num_gpus = 1
++batch_size = int(os.environ.get("S1_BATCH", 4))            # 4090 24GB 안전값
++num_epochs = int(os.environ.get("S1_EPOCHS", 6))           # ⚠️ 비용/수렴 트레이드오프(설계 결정)
++length = 28130                                             # IterBasedRunner는 dataloader를 순환 → leave-out 감소분 무시 가능
++num_iters_per_epoch = int(length // (num_gpus * batch_size))
++
++_leaveout = os.environ.get("S1_LEAVEOUT", "")             # "" = full baseline arm(원본 train)
++data = dict(
++    samples_per_gpu=batch_size,
++    workers_per_gpu=batch_size,
++    train=dict(ann_file=_leaveout if _leaveout else "data/infos/nuscenes_infos_train.pkl"),
++)
++
++_max_iters = int(os.environ.get("S1_MAXITERS", num_iters_per_epoch * num_epochs))  # smoke용 오버라이드
++runner = dict(type="IterBasedRunner", max_iters=_max_iters)
++# 최신 1개만 유지(~410MB) → 중간 크래시 시 그 지점부터 재개(--resume-from) 가능.
++# 재부팅 크래시 대비 촘촘히 저장(기본 500iter≈4min). 손실 상한 = interval*iter_time. S1_CKPT_INTERVAL로 조정.
++_ckpt_interval = int(os.environ.get("S1_CKPT_INTERVAL", 500))
++# max_keep=3: base fp16 loss_scale=32.0(정적)이 motion 헤드 오버플로 시 nan 발산한 이력(iter19350) →
++# clean 롤백 지점 확보용. 아래 fp16 dynamic으로 근본 완화하지만 보험으로 유지.
++checkpoint_config = dict(interval=_ckpt_interval, max_keep_ckpts=3, by_epoch=False)
++# base(sparsedrive_small_stage2 L32)의 정적 loss_scale=32.0 → fp16 오버플로 스텝을 스킵/재스케일 못해
++# motion loss nan→파라미터 오염. dynamic으로 바꿔 오버플로 스텝 자동 스킵(mmcv Fp16OptimizerHook).
++fp16 = dict(loss_scale="dynamic")
++# 학습 중 eval 훅 비활성화: base(sparsedrive_small_stage2 L717)의 map-eval이 멀티프로세싱 데드락(futex hang).
++# interval을 max_iters 밖으로 밀어 절대 안 돌게 함. 평가는 학습 후 s1_run.sh 2)단계 test.py --out로 별도 수행.
++evaluation = dict(interval=_max_iters + 1)
++lr_config = dict(policy="CosineAnnealing", warmup="linear",
++                 warmup_iters=500, warmup_ratio=1.0 / 3, min_lr_ratio=1e-3)
++log_config = dict(interval=50, hooks=[dict(type="TextLoggerHook", by_epoch=False)])
++
++custom_hooks = [dict(type="_FreezeStage1Hook", stage1_ckpt="ckpt/sparsedrive_stage1.pth")]
++load_from = "ckpt/sparsedrive_stage1.pth"
+diff --git a/projects/configs/sparsedrive_small_stage1.py b/projects/configs/sparsedrive_small_stage1.py
+index 1cbb38b..a5f85cd 100644
+--- a/projects/configs/sparsedrive_small_stage1.py
++++ b/projects/configs/sparsedrive_small_stage1.py
+@@ -10,8 +10,9 @@ log_level = "INFO"
+ work_dir = None
+ 
+ total_batch_size = 64
+-num_gpus = 8
+-batch_size = total_batch_size // num_gpus
++num_gpus = 2
++batch_size = 6  # per-GPU OOM-safe (probe 확인). option A: grad-accum으로 유효배치 복원
++grad_accum = 5  # 12 micro × 5 = 60 effective (~64 목표 근사)
+ num_iters_per_epoch = int(length[version] // (num_gpus * batch_size))
+ num_epochs = 100
+ checkpoint_epoch_interval = 20
+@@ -690,11 +691,13 @@ optimizer = dict(
+         }
+     ),
+ )
+-optimizer_config = dict(grad_clip=dict(max_norm=25, norm_type=2))
++optimizer_config = dict(
++    grad_clip=dict(max_norm=25, norm_type=2), cumulative_iters=grad_accum
++)
+ lr_config = dict(
+     policy="CosineAnnealing",
+     warmup="linear",
+-    warmup_iters=500,
++    warmup_iters=500 * grad_accum,  # 러너 iter=micro-batch → optimizer-step 기준 500 유지
+     warmup_ratio=1.0 / 3,
+     min_lr_ratio=1e-3,
+ )
+diff --git a/projects/configs/sparsedrive_small_stage2.py b/projects/configs/sparsedrive_small_stage2.py
+index 94cd085..d70757d 100644
+--- a/projects/configs/sparsedrive_small_stage2.py
++++ b/projects/configs/sparsedrive_small_stage2.py
+@@ -704,6 +704,7 @@ runner = dict(
+ )
+ 
+ # ================== eval ========================
++# 전체 지표. motion eval 데드락은 torchrun 분산 모드 원인 → eval은 반드시 --launcher none(비분산)으로 실행.
+ eval_mode = dict(
+     with_det=True,
+     with_tracking=True,
+diff --git a/projects/mmdet3d_plugin/apis/mmdet_train.py b/projects/mmdet3d_plugin/apis/mmdet_train.py
+index ad6dc60..60d3f00 100644
+--- a/projects/mmdet3d_plugin/apis/mmdet_train.py
++++ b/projects/mmdet3d_plugin/apis/mmdet_train.py
+@@ -15,6 +15,7 @@ from mmcv.runner import (
+     DistSamplerSeedHook,
+     EpochBasedRunner,
+     Fp16OptimizerHook,
++    GradientCumulativeFp16OptimizerHook,
+     OptimizerHook,
+     build_optimizer,
+     build_runner,
+@@ -140,9 +141,20 @@ def custom_train_detector(
+     # fp16 setting
+     fp16_cfg = cfg.get("fp16", None)
+     if fp16_cfg is not None:
+-        optimizer_config = Fp16OptimizerHook(
+-            **cfg.optimizer_config, **fp16_cfg, distributed=distributed
+-        )
++        oc = dict(cfg.optimizer_config)
++        cumulative_iters = oc.pop("cumulative_iters", None)
++        if cumulative_iters:
++            # ponytail: grad-accum path (option A) — restores effective batch
++            # via micro-step accumulation. mmcv 1.7.1 all-reduces every micro
++            # step (no no_sync), so comm scales with cumulative_iters.
++            optimizer_config = GradientCumulativeFp16OptimizerHook(
++                cumulative_iters=cumulative_iters,
++                **oc, **fp16_cfg, distributed=distributed
++            )
++        else:
++            optimizer_config = Fp16OptimizerHook(
++                **oc, **fp16_cfg, distributed=distributed
++            )
+     elif distributed and "type" not in cfg.optimizer_config:
+         optimizer_config = OptimizerHook(**cfg.optimizer_config)
+     else:
+diff --git a/projects/mmdet3d_plugin/datasets/nuscenes_3d_dataset.py b/projects/mmdet3d_plugin/datasets/nuscenes_3d_dataset.py
+index d4ecf3d..f39a485 100644
+--- a/projects/mmdet3d_plugin/datasets/nuscenes_3d_dataset.py
++++ b/projects/mmdet3d_plugin/datasets/nuscenes_3d_dataset.py
+@@ -389,7 +389,7 @@ class NuScenes3DDataset(Dataset):
+             gt_names=gt_names_3d,
+         )
+         if "instance_inds" in info:
+-            instance_inds = np.array(info["instance_inds"], dtype=np.int)[mask]
++            instance_inds = np.array(info["instance_inds"], dtype=np.int64)[mask]  # np.int: numpy>=1.24 제거
+             anns_results["instance_inds"] = instance_inds
+             
+         if 'gt_agent_fut_trajs' in info:
+diff --git a/tools/data_converter/nuscenes_converter.py b/tools/data_converter/nuscenes_converter.py
+index f7d346d..62faa75 100755
+--- a/tools/data_converter/nuscenes_converter.py
++++ b/tools/data_converter/nuscenes_converter.py
+@@ -8,6 +8,11 @@ from typing import List, Tuple, Union
+ 
+ import numpy as np
+ from pyquaternion import Quaternion
++
++# NOTE: import the map plugin (it initializes shapely/GEOS strtree) BEFORE the
++# top-level `shapely.geometry` import. The reverse order aborts with libstdc++
++# "std::runtime_error: random_device could not be read" on GEOS static init.
++from projects.mmdet3d_plugin.datasets.map_utils.nuscmap_extractor import NuscMapExtractor
+ from shapely.geometry import MultiPoint, box
+ 
+ import mmcv
+@@ -19,8 +24,6 @@ from nuscenes.utils.data_classes import Box
+ from nuscenes.utils.geometry_utils import view_points
+ from nuscenes.prediction import PredictHelper, convert_local_coords_to_global
+ 
+-from projects.mmdet3d_plugin.datasets.map_utils.nuscmap_extractor import NuscMapExtractor
+-
+ NameMapping = {
+     "movable_object.barrier": "barrier",
+     "vehicle.bicycle": "bicycle",
+diff --git a/tools/train.py b/tools/train.py
+index eef55ee..0776ab8 100644
+--- a/tools/train.py
++++ b/tools/train.py
+@@ -93,7 +93,8 @@ def parse_args():
+         default="none",
+         help="job launcher",
+     )
+-    parser.add_argument("--local_rank", type=int, default=0)
++    # torch>=2.0 torch.distributed.launch는 --local-rank(하이픈)를 주입 → 둘 다 허용
++    parser.add_argument("--local_rank", "--local-rank", type=int, default=0)
+     parser.add_argument(
+         "--autoscale-lr",
+         action="store_true",
