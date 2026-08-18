@@ -1,5 +1,6 @@
 # EXP-003 phase2 — 실 타깃(Paper C): 실 E2E 자율주행 (SparseDrive)
 
+> **다른 서버서 처음 돌리면 → `QUICKSTART.md`** (clone→nuScenes→실행→결과회수 한 흐름).
 > 방향=`../PAPER_DIRECTION.md`(Paper C), 실행=`../EXECUTION_PLAN.md`(실 E2E·SparseDrive·2×4090).
 > phase1=egomotion 써로게이트(파일럿). **phase2=실 E2E(nuScenes, SparseDrive)에서 크로스-아키텍처 전이·headroom 검증.**
 > M0=**SparseDrive-S**(ICRA 2025, 8×RTX4090 24GB·장당 15.2GB로 개발 → 2×4090 실현). 예측-모듈(경로 B)은 폐기(모듈러라 E2E 아님).
