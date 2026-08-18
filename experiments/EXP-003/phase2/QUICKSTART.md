@@ -29,6 +29,8 @@ mkdir -p ckpt && wget https://download.pytorch.org/models/resnet50-19c8e357.pth 
 ## 3. 환경 (CUDA 11.8 + venv) — 새 GPU면 override
 ```bash
 cd ../../r0_repro
+command -v uv >/dev/null || curl -LsSf https://astral.sh/uv/install.sh | sh   # uv 없으면 먼저(setup_env 전제)
+source $HOME/.local/bin/env 2>/dev/null || true                               # 방금 설치 시 PATH 반영
 # 홈경로/GPU 다르면 override (arch: A100=8.0 · A6000=8.6 · 4090=8.9):
 #   export CUDA_HOME=$HOME/cuda-11.8 TORCH_CUDA_ARCH_LIST=8.9
 bash install_cuda118.sh          # userspace CUDA 11.8 (nvcc)
