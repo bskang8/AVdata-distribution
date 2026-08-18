@@ -18,7 +18,10 @@ SD="${PHASE2}/third_party/sparsedrive"
 PYVER="3.8"
 export CUDA_HOME="${CUDA_HOME:-/Data1/home/bskang/cuda-11.8}"
 export PATH="${CUDA_HOME}/bin:${PATH}"
-export LD_LIBRARY_PATH="${CUDA_HOME}/lib64:${LD_LIBRARY_PATH:-}"
+# 상속된 LD_LIBRARY_PATH는 버림: 컨테이너가 시스템 CUDA12 torch 경로를 박아두면
+# cu118 torch가 libcudart.so.12를 물어 import 크래시. torch가 cublas/cudnn 등을 번들하고
+# 드라이버(libcuda)는 ldconfig로 찾으므로 우리 11.8 lib64만 있으면 충분.
+export LD_LIBRARY_PATH="${CUDA_HOME}/lib64"
 export TORCH_CUDA_ARCH_LIST="${TORCH_CUDA_ARCH_LIST:-8.9}"   # 4090 Ada; 새 GPU면 override
 export FORCE_CUDA=1 MMCV_WITH_OPS=1
 export MAX_JOBS="${MAX_JOBS:-8}"
