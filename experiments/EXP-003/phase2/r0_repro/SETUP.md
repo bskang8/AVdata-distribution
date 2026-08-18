@@ -40,9 +40,10 @@ motmetrics==1.1.3  pyquaternion==0.9.9  opencv-python==4.8.1.78  prettytable==3.
 
 ### (대안) conda 경로 — pip nvcc 실패 시
 ```
+CONDA_DIR="${CONDA_DIR:-$HOME/miniconda3}"      # 설치 위치 override 가능
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/mc.sh
-bash /tmp/mc.sh -b -p /Data1/home/bskang/miniconda3
-eval "$(/Data1/home/bskang/miniconda3/bin/conda shell.bash hook)"
+bash /tmp/mc.sh -b -p "$CONDA_DIR"
+eval "$("$CONDA_DIR/bin/conda" shell.bash hook)"
 ```
 
 ### 1) 환경 (4090 조정판 — 기본 cu116 대신 cu118 권장)
